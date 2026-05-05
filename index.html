@@ -3543,37 +3543,37 @@
     </div>
 
     <script>
-      // /* ── Audio narrazione ── */
-      // const narrazione = new Audio("assets/introduzione.mp3");
-      // narrazione.volume = 1;
+      /* ── Audio narrazione ── */
+      const narrazione = new Audio("assets");
+      narrazione.volume = 1;
 
-      // const azioneComplete = new Audio("assets/azione-complete.mp3");
-      // azioneComplete.volume = 1;
+      const azioneComplete = new Audio("assets/azione-complete.mp3");
+      azioneComplete.volume = 1;
 
-      // function playNarrazione() {
-      //   narrazione.currentTime = 0;
-      //   narrazione.play().catch(() => {});
-      // }
-      // function stopNarrazione() {
-      //   narrazione.pause();
-      //   narrazione.currentTime = 0;
-      // }
+      function playNarrazione() {
+        narrazione.currentTime = 0;
+        narrazione.play().catch(() => {});
+      }
+      function stopNarrazione() {
+        narrazione.pause();
+        narrazione.currentTime = 0;
+      }
 
-      // /* ── Screen navigation ── */
-      // function goTo(id) {
-      //   const target = document.getElementById(id);
-      //   if (!target) return;
+      /* ── Screen navigation ── */
+      function goTo(id) {
+        const target = document.getElementById(id);
+        if (!target) return;
 
-      //   // Ferma l'audio se si naviga fuori da narrativa
-      //   if (id !== "narrativa") stopNarrazione();
+        // Ferma l'audio se si naviga fuori da narrativa
+        if (id !== "narrativa") stopNarrazione();
 
-      //   document
-      //     .querySelectorAll(".screen")
-      //     .forEach((s) => s.classList.remove("active"));
-      //   target.classList.add("active");
+        document
+          .querySelectorAll(".screen")
+          .forEach((s) => s.classList.remove("active"));
+        target.classList.add("active");
 
-      //   // Avvia audio sulla schermata narrativa
-      //   if (id === "narrativa") playNarrazione();
+        // Avvia audio sulla schermata narrativa
+        if (id === "narrativa") playNarrazione();
 
         // Reset animations when navigating away so they work again if testing
         if (!id.startsWith("indagine")) {
