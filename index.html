@@ -1,0 +1,3915 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escape Room – Il Rito del Corredo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 1 – INTRODUZIONE
+═══════════════════════════════════════════════ -->
+    <div id="intro" class="screen active">
+      <img class="bg-image" src="assets/start.png" alt="" />
+      <div class="topbar">
+        <span class="phase-label">⬥ FASE I · IL RITO DEL CORREDO</span>
+        <span class="subtitle">INDAGINE E COMBINAZIONE</span>
+      </div>
+      <div class="center-content">
+        <p class="fase-label">Fase 1</p>
+        <h1 class="main-title">Il Rito del corredo</h1>
+        <h2 class="sub-title">I Segreti della Tomba 19</h2>
+        <button class="btn-start" onclick="goTo('narrativa')">
+          Avanti &nbsp;→
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 1.5 – INTRODUZIONE NARRATIVA (FASE I)
+═══════════════════════════════════════════════ -->
+    <div id="narrativa" class="screen">
+      <div class="topbar">
+        <span class="phase-label">⬥ FASE I · IL RITO DEL CORREDO</span>
+        <span class="subtitle">INDAGINE E COMBINAZIONE</span>
+      </div>
+
+      <div
+        class="main-area"
+        style="
+          padding: 100px 140px;
+          display: flex;
+          gap: 80px;
+          align-items: stretch;
+          justify-content: center;
+          height: 100%;
+        "
+      >
+        <!-- LEFT PANEL: Image / Diagram -->
+        <div
+          class="narrativa-left"
+          style="
+            flex: 0 0 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <div
+            class="tomb-placeholder"
+            style="
+              width: 400px;
+              height: 280px;
+              background: rgba(10, 8, 5, 0.6);
+              border: 1px solid rgba(196, 145, 58, 0.2);
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0 0 40px rgba(0, 0, 0, 0.8) inset;
+            "
+          >
+            <!-- Faux tomb outline -->
+            <div
+              style="
+                position: absolute;
+                border: 1px solid rgba(196, 145, 58, 0.3);
+                width: 80%;
+                height: 60%;
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                border-top: 1px dashed rgba(196, 145, 58, 0.2);
+                width: 100%;
+                top: 50%;
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                border-left: 1px dashed rgba(196, 145, 58, 0.2);
+                height: 100%;
+                left: 50%;
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                border: 1px solid rgba(196, 145, 58, 0.3);
+                border-radius: 50%;
+                left: 15%;
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                border: 1px solid rgba(196, 145, 58, 0.3);
+                border-radius: 50%;
+                right: 15%;
+              "
+            ></div>
+            <!-- Huge Question Mark -->
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 100px;
+                color: #fff;
+                font-weight: 700;
+                z-index: 2;
+                text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+              "
+              >?</span
+            >
+          </div>
+          <div style="margin-top: 24px; text-align: center">
+            <p
+              style="
+                font-family: var(--font-serif);
+                font-size: 12px;
+                color: #4a3015;
+                letter-spacing: 2px;
+              "
+            >
+              TOMBA ALLA CAPPUCCINA
+            </p>
+            <p
+              style="
+                font-family: var(--font-serif);
+                font-size: 12px;
+                color: #4a3015;
+                letter-spacing: 2px;
+                margin-top: 4px;
+              "
+            >
+              NECROPOLI DI HIPPONION · N. 19
+            </p>
+          </div>
+        </div>
+
+        <!-- RIGHT PANEL: Text and Controls -->
+        <div
+          class="narrativa-right"
+          style="
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+        >
+          <!-- Voice Label -->
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              margin-bottom: 24px;
+            "
+          >
+            <div
+              style="
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--gold-dark);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 12px;
+                color: var(--gold-dark);
+                letter-spacing: 2px;
+              "
+              >LA VOCE NARRANTE</span
+            >
+            <div
+              class="audio-bars"
+              style="
+                margin-left: 8px;
+                display: flex;
+                align-items: flex-end;
+                gap: 2px;
+                height: 14px;
+              "
+            >
+              <div
+                class="audio-bar"
+                style="width: 2px; background: var(--gold-dark); height: 10px"
+              ></div>
+              <div
+                class="audio-bar"
+                style="width: 2px; background: var(--gold-dark); height: 14px"
+              ></div>
+              <div
+                class="audio-bar"
+                style="width: 2px; background: var(--gold-dark); height: 8px"
+              ></div>
+              <div
+                class="audio-bar"
+                style="width: 2px; background: var(--gold-dark); height: 12px"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Quote Box -->
+          <div
+            style="
+              position: relative;
+              padding-left: 14px;
+              border-left: 1px solid rgba(196, 145, 58, 0.4);
+              margin-bottom: 40px;
+            "
+          >
+            <span
+              style="
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                font-family: var(--font-serif);
+                font-size: 40px;
+                color: rgba(196, 145, 58, 0.3);
+              "
+              >“</span
+            >
+            <p
+              style="
+                font-family: var(--font-italic);
+                font-size: 24px;
+                color: var(--gold-pale);
+                line-height: 1.8;
+                margin-bottom: 16px;
+              "
+            >
+              La Signora di Hipponion ci ha lasciati.
+            </p>
+            <p
+              style="
+                font-family: var(--font-italic);
+                font-size: 24px;
+                color: var(--gold-pale);
+                line-height: 1.8;
+                margin-bottom: 16px;
+              "
+            >
+              Osserva la sua dimora terrena e decifra i segni sul grande
+              pannello.
+            </p>
+            <p
+              style="
+                font-family: var(--font-italic);
+                font-size: 24px;
+                color: var(--gold-pale);
+                line-height: 1.8;
+              "
+            >
+              Usa le monete per separare ciò che appartiene ai vivi da ciò che
+              servirà a lei nel buio.
+            </p>
+            <span
+              style="
+                position: absolute;
+                bottom: -30px;
+                right: 0;
+                font-family: var(--font-serif);
+                font-size: 40px;
+                color: rgba(196, 145, 58, 0.3);
+              "
+              >”</span
+            >
+          </div>
+
+          <!-- Instruction Text -->
+          <p
+            style="
+              font-family: var(--font-serif);
+              font-size: 13px;
+              color: #fff;
+              letter-spacing: 1.5px;
+              line-height: 1.6;
+              margin-bottom: 30px;
+              max-width: 500px;
+            "
+          >
+            STUDIA IL PANNELLO I SULLE SEPOLTURE PER TROVARE LA REGOLA CORRETTA
+            DELLA <span style="color: var(--gold)">TOMBA ALLA CAPPUCCINA</span>.
+            POI USA LE MONETE NFC PER POSIZIONARE I REPERTI.
+          </p>
+
+          <!-- Button -->
+          <div>
+            <button
+              class="btn-start"
+              onclick="goTo('indagine-1')"
+              style="font-size: 16px; padding: 12px 28px; letter-spacing: 2px"
+            >
+              AVVIA IL RITO &nbsp;→
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footbar" style="border-color: rgba(196, 145, 58, 0.2)">
+        <div class="steps">
+          <div class="step active">
+            <div
+              class="dot"
+              style="
+                background: var(--gold);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                color: var(--gold);
+                letter-spacing: 1.27px;
+              "
+              >Rito del Corredo</span
+            >
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                color: #3a2810;
+                letter-spacing: 1.27px;
+              "
+              >Segreto Orfico</span
+            >
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                color: #3a2810;
+                letter-spacing: 1.27px;
+              "
+              >Labirinto dell'Ade</span
+            >
+          </div>
+        </div>
+        <span
+          style="
+            font-family: var(--font-serif);
+            font-size: 8.438px;
+            letter-spacing: 1.69px;
+            color: #3a2810;
+          "
+          >NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span
+        >
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 2 – INDAGINE
+═══════════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 2.1 – INDAGINE 1 (LUCERNA)
+═══════════════════════════════════════════════ -->
+    <div id="indagine-1" class="screen">
+      <div class="topbar">
+        <div style="display: flex; align-items: center; gap: 16px">
+          <span class="phase-label" style="color: var(--gold)"
+            >⬥ FASE I · IL RITO DEL CORREDO</span
+          >
+          <div class="topbar-dots">
+            <div class="topbar-dot active"></div>
+            <div class="topbar-dot"></div>
+            <div class="topbar-dot"></div>
+          </div>
+        </div>
+        <span class="subtitle">TOMBA 19 · LA SIGNORA DI HIPPONION</span>
+      </div>
+
+      <div class="main-area">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+          <span class="sidebar-label">MONETE NFC</span>
+          <div
+            class="artifact-btn active-artifact"
+            onclick="placeCoinAndGo('lucerna-coin-1', 'indagine-2')"
+            style="cursor: pointer"
+          >
+            <span class="icon">🕯</span>
+            <div class="info">
+              <span class="name">Lucerna</span
+              ><span class="desc">La lampada funeraria</span>
+            </div>
+          </div>
+          <div class="artifact-btn muted">
+            <span class="icon">⚱</span>
+            <div class="info">
+              <span class="name">Lekythos</span
+              ><span class="desc">Il vaso dell'olio</span>
+            </div>
+          </div>
+          <div class="artifact-btn muted">
+            <span class="icon">🏺</span>
+            <div class="info">
+              <span class="name">Idria</span
+              ><span class="desc">Il vaso dell'acqua</span>
+            </div>
+          </div>
+          <div
+            class="nfc-hint"
+            style="
+              padding: 13px 15px;
+              border: 1px solid rgba(196, 145, 58, 0.2);
+              border-radius: 4px;
+              font-style: italic;
+              font-size: 13px;
+              color: white;
+              text-align: center;
+              background: rgba(20, 15, 8, 0.5);
+            "
+          >
+            Posiziona la moneta sul tavolo
+          </div>
+        </div>
+
+        <!-- MAP AREA -->
+        <div
+          class="map-area"
+          style="
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 40px;
+          "
+        >
+          <div
+            class="tomb-map-exact"
+            style="
+              position: relative;
+              width: 100%;
+              height: 320px;
+              margin-top: 30px;
+            "
+          >
+            <span
+              style="
+                position: absolute;
+                top: -30px;
+                left: 0;
+                font-family: var(--font-serif);
+                font-size: 12px;
+                color: rgba(196, 145, 58, 0.5);
+                letter-spacing: 2px;
+              "
+              >CAPO</span
+            >
+            <span
+              style="
+                position: absolute;
+                top: -45px;
+                right: 20px;
+                font-family: var(--font-serif);
+                font-size: 28px;
+                color: #fff;
+                letter-spacing: 2px;
+              "
+              >FUORI</span
+            >
+
+            <!-- The Main Box -->
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 120px;
+                border: 3px solid rgba(196, 145, 58, 0.4);
+                border-radius: 4px;
+                box-sizing: border-box;
+                background-image: repeating-linear-gradient(
+                  to right,
+                  transparent,
+                  transparent calc(10% - 1px),
+                  rgba(196, 145, 58, 0.08) calc(10% - 1px),
+                  rgba(196, 145, 58, 0.08) 10%
+                );
+                overflow: hidden;
+                background-color: rgba(10, 8, 5, 0.3);
+              "
+            >
+              <!-- INTERNO Box -->
+              <div
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  width: 93%;
+                  background: rgba(30, 20, 10, 0.6);
+                  border-right: 2px dashed rgba(196, 145, 58, 0.4);
+                  padding: 16px;
+                "
+              >
+                <span
+                  style="
+                    font-family: var(--font-serif);
+                    font-size: 20px;
+                    color: #fff;
+                    letter-spacing: 2px;
+                  "
+                  >INTERNO</span
+                >
+                <!-- The Body Skeleton -->
+                <div
+                  style="
+                    position: absolute;
+                    top: 52%;
+                    width: 100%;
+                    height: 50px;
+                    transform: translateY(-50%);
+                    display: flex;
+                    align-items: center;
+                    left: 0;
+                  "
+                >
+                  <div
+                    style="
+                      width: 5%;
+                      border-bottom: 2px dashed rgba(196, 145, 58, 0.4);
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 50px;
+                      height: 50px;
+                      border-radius: 50%;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -2px;
+                      z-index: 1;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 250px;
+                      height: 46px;
+                      border-radius: 12px;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -6px;
+                      z-index: 2;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 44px;
+                      height: 44px;
+                      border-radius: 50%;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -8px;
+                      z-index: 3;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 140px;
+                      height: 30px;
+                      border-radius: 8px;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -5px;
+                      z-index: 2;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 32px;
+                      height: 32px;
+                      border-radius: 50%;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -6px;
+                      z-index: 3;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      flex-grow: 1;
+                      border-bottom: 2px dashed rgba(196, 145, 58, 0.4);
+                      margin-left: -2px;
+                    "
+                  ></div>
+                </div>
+                <!-- Drop targets inside Interno -->
+                <div
+                  style="
+                    position: absolute;
+                    top: 12%;
+                    left: 32%;
+                    width: 70px;
+                    height: 70px;
+                    border: 2px solid rgba(196, 145, 58, 0.3);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(20, 15, 8, 0.6);
+                  "
+                >
+                  <div
+                    style="
+                      width: 46px;
+                      height: 46px;
+                      border: 1px dashed rgba(196, 145, 58, 0.5);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 12px;
+                        height: 12px;
+                        border: 1px solid rgba(196, 145, 58, 0.3);
+                        border-radius: 50%;
+                      "
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  style="
+                    position: absolute;
+                    top: 12%;
+                    left: 55%;
+                    width: 70px;
+                    height: 70px;
+                    border: 2px solid rgba(196, 145, 58, 0.3);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(20, 15, 8, 0.6);
+                  "
+                >
+                  <div
+                    style="
+                      width: 46px;
+                      height: 46px;
+                      border: 1px dashed rgba(196, 145, 58, 0.5);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 12px;
+                        height: 12px;
+                        border: 1px solid rgba(196, 145, 58, 0.3);
+                        border-radius: 50%;
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- The FUORI circle + ANIMATED LUCERNA -->
+            <div
+              style="
+                position: absolute;
+                bottom: 22%;
+                right: 20px;
+                width: 70px;
+                height: 70px;
+                border: 2px solid rgba(196, 145, 58, 0.3);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 5;
+                background: rgba(20, 15, 8, 0.6);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  left: -30px;
+                  width: 28px;
+                  top: 50%;
+                  height: 2px;
+                  background: rgba(196, 145, 58, 0.4);
+                "
+              ></div>
+              <div
+                style="
+                  width: 46px;
+                  height: 46px;
+                  border: 1px dashed rgba(196, 145, 58, 0.5);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <div
+                  style="
+                    width: 12px;
+                    height: 12px;
+                    border: 1px solid rgba(196, 145, 58, 0.3);
+                    border-radius: 50%;
+                  "
+                ></div>
+              </div>
+              <!-- Added Coin with CSS animation (hidden by default initially) -->
+              <div
+                id="lucerna-coin-1"
+                class="placed-coin"
+                style="
+                  opacity: 0;
+                  position: absolute;
+                  width: 44px;
+                  height: 44px;
+                  background: radial-gradient(
+                    circle,
+                    var(--gold-bright) 0%,
+                    var(--gold-dark) 100%
+                  );
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 24px;
+                  box-shadow: 0 0 20px var(--gold);
+                "
+              >
+                🕯
+              </div>
+            </div>
+
+            <div
+              style="
+                position: absolute;
+                bottom: -50px;
+                left: 0;
+                right: 120px;
+                text-align: center;
+                font-family: var(--font-serif);
+                font-size: 14px;
+                color: rgba(196, 145, 58, 0.6);
+                letter-spacing: 1px;
+              "
+            >
+              TOMBA ALLA CAPPUCCINA · SEPOLTURA N.19
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bottom-instruction"
+        style="
+          padding: 0 40px 24px;
+          display: flex;
+          gap: 12px;
+          align-items: flex-start;
+        "
+      >
+        <span style="color: var(--gold); font-size: 14px; margin-top: 2px"
+          >◆</span
+        >
+        <span
+          style="
+            font-style: italic;
+            font-size: 16.5px;
+            color: white;
+            letter-spacing: 0.5px;
+            line-height: 1.5;
+            max-width: 1200px;
+          "
+        >
+          Osserva la sua dimora terrena e decifra i segni. Usa le monete per
+          separare ciò che appartiene ai vivi da ciò che servirà a lei nel buio.
+        </span>
+      </div>
+
+      <div class="footbar">
+        <div class="steps">
+          <div class="step active">
+            <div
+              class="dot"
+              style="
+                background: var(--gold);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: var(--gold);
+              "
+              >Rito del Corredo</span
+            >
+            <span
+              style="
+                font-size: 9.6px;
+                color: #2a1808;
+                margin-left: 12px;
+                margin-right: 12px;
+              "
+              >›</span
+            >
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: #3a2810;
+              "
+              >Segreto Orfico</span
+            >
+            <span
+              style="
+                font-size: 9.6px;
+                color: #2a1808;
+                margin-left: 12px;
+                margin-right: 12px;
+              "
+              >›</span
+            >
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: #3a2810;
+              "
+              >Labirinto dell'Ade</span
+            >
+          </div>
+        </div>
+        <span
+          style="
+            font-family: var(--font-serif);
+            font-size: 8.438px;
+            letter-spacing: 1.69px;
+            color: #3a2810;
+          "
+          >NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span
+        >
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 2.2 – INDAGINE 2 (LEKYTHOS)
+═══════════════════════════════════════════════ -->
+    <div id="indagine-2" class="screen">
+      <div class="topbar">
+        <div style="display: flex; align-items: center; gap: 16px">
+          <span class="phase-label" style="color: var(--gold)"
+            >⬥ FASE I · IL RITO DEL CORREDO</span
+          >
+          <div class="topbar-dots">
+            <div class="topbar-dot active"></div>
+            <div class="topbar-dot"></div>
+            <div class="topbar-dot"></div>
+          </div>
+        </div>
+        <span class="subtitle">TOMBA 19 · LA SIGNORA DI HIPPONION</span>
+      </div>
+
+      <div class="main-area">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+          <span class="sidebar-label">MONETE NFC</span>
+          <div class="artifact-btn completed">
+            <span class="icon">✓</span>
+            <div class="info">
+              <span class="name">Lucerna</span
+              ><span class="desc">Posizionata fuori</span>
+            </div>
+          </div>
+          <div
+            class="artifact-btn active-artifact"
+            onclick="placeCoinAndGo('lekythos-coin-2', 'indagine-3')"
+            style="cursor: pointer"
+          >
+            <span class="icon">⚱</span>
+            <div class="info">
+              <span class="name">Lekythos</span
+              ><span class="desc">Il vaso dell'olio</span>
+            </div>
+          </div>
+          <div class="artifact-btn muted">
+            <span class="icon">🏺</span>
+            <div class="info">
+              <span class="name">Idria</span
+              ><span class="desc">Il vaso dell'acqua</span>
+            </div>
+          </div>
+          <div
+            class="nfc-hint"
+            style="
+              padding: 13px 15px;
+              border: 1px solid rgba(196, 145, 58, 0.2);
+              border-radius: 4px;
+              font-style: italic;
+              font-size: 13px;
+              color: white;
+              text-align: center;
+              background: rgba(20, 15, 8, 0.5);
+            "
+          >
+            Posiziona la moneta sul tavolo
+          </div>
+        </div>
+
+        <!-- MAP AREA -->
+        <div
+          class="map-area"
+          style="
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 40px;
+          "
+        >
+          <div
+            class="tomb-map-exact"
+            style="
+              position: relative;
+              width: 100%;
+              height: 320px;
+              margin-top: 30px;
+            "
+          >
+            <span
+              style="
+                position: absolute;
+                top: -30px;
+                left: 0;
+                font-family: var(--font-serif);
+                font-size: 12px;
+                color: rgba(196, 145, 58, 0.5);
+                letter-spacing: 2px;
+              "
+              >CAPO</span
+            >
+            <span
+              style="
+                position: absolute;
+                top: -45px;
+                right: 20px;
+                font-family: var(--font-serif);
+                font-size: 28px;
+                color: #fff;
+                letter-spacing: 2px;
+              "
+              >FUORI</span
+            >
+
+            <!-- The Main Box -->
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 120px;
+                border: 3px solid rgba(196, 145, 58, 0.4);
+                border-radius: 4px;
+                box-sizing: border-box;
+                background-image: repeating-linear-gradient(
+                  to right,
+                  transparent,
+                  transparent calc(10% - 1px),
+                  rgba(196, 145, 58, 0.08) calc(10% - 1px),
+                  rgba(196, 145, 58, 0.08) 10%
+                );
+                overflow: hidden;
+                background-color: rgba(10, 8, 5, 0.3);
+              "
+            >
+              <!-- INTERNO Box -->
+              <div
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  width: 93%;
+                  background: rgba(30, 20, 10, 0.6);
+                  border-right: 2px dashed rgba(196, 145, 58, 0.4);
+                  padding: 16px;
+                "
+              >
+                <span
+                  style="
+                    font-family: var(--font-serif);
+                    font-size: 20px;
+                    color: #fff;
+                    letter-spacing: 2px;
+                  "
+                  >INTERNO</span
+                >
+                <!-- The Body Skeleton -->
+                <div
+                  style="
+                    position: absolute;
+                    top: 52%;
+                    width: 100%;
+                    height: 50px;
+                    transform: translateY(-50%);
+                    display: flex;
+                    align-items: center;
+                    left: 0;
+                  "
+                >
+                  <div
+                    style="
+                      width: 5%;
+                      border-bottom: 2px dashed rgba(196, 145, 58, 0.4);
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 50px;
+                      height: 50px;
+                      border-radius: 50%;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -2px;
+                      z-index: 1;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 250px;
+                      height: 46px;
+                      border-radius: 12px;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -6px;
+                      z-index: 2;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 44px;
+                      height: 44px;
+                      border-radius: 50%;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -8px;
+                      z-index: 3;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 140px;
+                      height: 30px;
+                      border-radius: 8px;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -5px;
+                      z-index: 2;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 32px;
+                      height: 32px;
+                      border-radius: 50%;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -6px;
+                      z-index: 3;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      flex-grow: 1;
+                      border-bottom: 2px dashed rgba(196, 145, 58, 0.4);
+                      margin-left: -2px;
+                    "
+                  ></div>
+                </div>
+
+                <!-- Drop targets inside Interno -->
+                <div
+                  style="
+                    position: absolute;
+                    top: 12%;
+                    left: 32%;
+                    width: 70px;
+                    height: 70px;
+                    border: 2px solid rgba(196, 145, 58, 0.3);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(20, 15, 8, 0.6);
+                  "
+                >
+                  <div
+                    style="
+                      width: 46px;
+                      height: 46px;
+                      border: 1px dashed rgba(196, 145, 58, 0.5);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 12px;
+                        height: 12px;
+                        border: 1px solid rgba(196, 145, 58, 0.3);
+                        border-radius: 50%;
+                      "
+                    ></div>
+                  </div>
+                  <!-- Added Coin with CSS animation -->
+                  <div
+                    id="lekythos-coin-2"
+                    class="placed-coin"
+                    style="
+                      opacity: 0;
+                      position: absolute;
+                      width: 44px;
+                      height: 44px;
+                      background: radial-gradient(
+                        circle,
+                        var(--gold-bright) 0%,
+                        var(--gold-dark) 100%
+                      );
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 24px;
+                      box-shadow: 0 0 20px var(--gold);
+                    "
+                  >
+                    ⚱
+                  </div>
+                </div>
+
+                <div
+                  style="
+                    position: absolute;
+                    top: 12%;
+                    left: 55%;
+                    width: 70px;
+                    height: 70px;
+                    border: 2px solid rgba(196, 145, 58, 0.3);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(20, 15, 8, 0.6);
+                  "
+                >
+                  <div
+                    style="
+                      width: 46px;
+                      height: 46px;
+                      border: 1px dashed rgba(196, 145, 58, 0.5);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 12px;
+                        height: 12px;
+                        border: 1px solid rgba(196, 145, 58, 0.3);
+                        border-radius: 50%;
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- The FUORI circle + STATIC LUCERNA -->
+            <div
+              style="
+                position: absolute;
+                bottom: 22%;
+                right: 20px;
+                width: 70px;
+                height: 70px;
+                border: 2px solid rgba(196, 145, 58, 0.3);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 5;
+                background: rgba(20, 15, 8, 0.6);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  left: -30px;
+                  width: 28px;
+                  top: 50%;
+                  height: 2px;
+                  background: rgba(196, 145, 58, 0.4);
+                "
+              ></div>
+              <div
+                style="
+                  width: 46px;
+                  height: 46px;
+                  border: 1px dashed rgba(196, 145, 58, 0.5);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <div
+                  style="
+                    width: 12px;
+                    height: 12px;
+                    border: 1px solid rgba(196, 145, 58, 0.3);
+                    border-radius: 50%;
+                  "
+                ></div>
+              </div>
+              <div
+                class="placed-coin"
+                style="
+                  position: absolute;
+                  width: 44px;
+                  height: 44px;
+                  background: radial-gradient(
+                    circle,
+                    var(--gold-bright) 0%,
+                    var(--gold-dark) 100%
+                  );
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 24px;
+                  box-shadow: 0 0 20px var(--gold);
+                "
+              >
+                🕯
+              </div>
+            </div>
+            <div
+              style="
+                position: absolute;
+                bottom: -50px;
+                left: 0;
+                right: 120px;
+                text-align: center;
+                font-family: var(--font-serif);
+                font-size: 14px;
+                color: rgba(196, 145, 58, 0.6);
+                letter-spacing: 1px;
+              "
+            >
+              TOMBA ALLA CAPPUCCINA · SEPOLTURA N.19
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bottom-instruction"
+        style="
+          padding: 0 40px 24px;
+          display: flex;
+          gap: 12px;
+          align-items: flex-start;
+        "
+      >
+        <span style="color: var(--gold); font-size: 14px; margin-top: 2px"
+          >◆</span
+        >
+        <span
+          style="
+            font-style: italic;
+            font-size: 16.5px;
+            color: white;
+            letter-spacing: 0.5px;
+            line-height: 1.5;
+            max-width: 1200px;
+          "
+        >
+          Osserva la sua dimora terrena e decifra i segni. Usa le monete per
+          separare ciò che appartiene ai vivi da ciò che servirà a lei nel buio.
+        </span>
+      </div>
+
+      <div class="footbar">
+        <div class="steps">
+          <div class="step active">
+            <div
+              class="dot"
+              style="
+                background: var(--gold);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: var(--gold);
+              "
+              >Rito del Corredo</span
+            >
+            <span
+              style="
+                font-size: 9.6px;
+                color: #2a1808;
+                margin-left: 12px;
+                margin-right: 12px;
+              "
+              >›</span
+            >
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: #3a2810;
+              "
+              >Segreto Orfico</span
+            >
+            <span
+              style="
+                font-size: 9.6px;
+                color: #2a1808;
+                margin-left: 12px;
+                margin-right: 12px;
+              "
+              >›</span
+            >
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: #3a2810;
+              "
+              >Labirinto dell'Ade</span
+            >
+          </div>
+        </div>
+        <span
+          style="
+            font-family: var(--font-serif);
+            font-size: 8.438px;
+            letter-spacing: 1.69px;
+            color: #3a2810;
+          "
+          >NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span
+        >
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 2.3 – INDAGINE 3 (IDRIA)
+═══════════════════════════════════════════════ -->
+    <div id="indagine-3" class="screen">
+      <div class="topbar">
+        <div style="display: flex; align-items: center; gap: 16px">
+          <span class="phase-label" style="color: var(--gold)"
+            >⬥ FASE I · IL RITO DEL CORREDO</span
+          >
+          <div class="topbar-dots">
+            <div class="topbar-dot active"></div>
+            <div class="topbar-dot"></div>
+            <div class="topbar-dot"></div>
+          </div>
+        </div>
+        <span class="subtitle">TOMBA 19 · LA SIGNORA DI HIPPONION</span>
+      </div>
+
+      <div class="main-area">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+          <span class="sidebar-label">MONETE NFC</span>
+          <div class="artifact-btn completed">
+            <span class="icon">✓</span>
+            <div class="info">
+              <span class="name">Lucerna</span
+              ><span class="desc">Posizionata fuori</span>
+            </div>
+          </div>
+          <div class="artifact-btn completed">
+            <span class="icon">✓</span>
+            <div class="info">
+              <span class="name">Lekythos</span
+              ><span class="desc">Posizionato interno</span>
+            </div>
+          </div>
+          <div
+            class="artifact-btn active-artifact"
+            onclick="placeCoinAndGo('idria-coin-3', null)"
+            style="cursor: pointer"
+          >
+            <span class="icon">🏺</span>
+            <div class="info">
+              <span class="name">Idria</span
+              ><span class="desc">Il vaso dell'acqua</span>
+            </div>
+          </div>
+          <div
+            class="nfc-hint"
+            style="
+              padding: 13px 15px;
+              border: 1px solid rgba(196, 145, 58, 0.2);
+              border-radius: 4px;
+              font-style: italic;
+              font-size: 13px;
+              color: white;
+              text-align: center;
+              background: rgba(20, 15, 8, 0.5);
+            "
+          >
+            Posiziona la moneta sul tavolo
+          </div>
+        </div>
+
+        <!-- MAP AREA -->
+        <div
+          class="map-area"
+          style="
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 40px;
+          "
+        >
+          <div
+            class="tomb-map-exact"
+            style="
+              position: relative;
+              width: 100%;
+              height: 320px;
+              margin-top: 30px;
+            "
+          >
+            <!-- The Main Box -->
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 120px;
+                border: 3px solid rgba(196, 145, 58, 0.4);
+                border-radius: 4px;
+                box-sizing: border-box;
+                background-image: repeating-linear-gradient(
+                  to right,
+                  transparent,
+                  transparent calc(10% - 1px),
+                  rgba(196, 145, 58, 0.08) calc(10% - 1px),
+                  rgba(196, 145, 58, 0.08) 10%
+                );
+                overflow: hidden;
+                background-color: rgba(10, 8, 5, 0.3);
+              "
+            >
+              <!-- INTERNO Box -->
+              <div
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  width: 93%;
+                  background: rgba(30, 20, 10, 0.6);
+                  border-right: 2px dashed rgba(196, 145, 58, 0.4);
+                  padding: 16px;
+                "
+              >
+                <span
+                  style="
+                    font-family: var(--font-serif);
+                    font-size: 20px;
+                    color: #fff;
+                    letter-spacing: 2px;
+                  "
+                  >INTERNO</span
+                >
+                <!-- The Body Skeleton -->
+                <div
+                  style="
+                    position: absolute;
+                    top: 52%;
+                    width: 100%;
+                    height: 50px;
+                    transform: translateY(-50%);
+                    display: flex;
+                    align-items: center;
+                    left: 0;
+                  "
+                >
+                  <div
+                    style="
+                      width: 5%;
+                      border-bottom: 2px dashed rgba(196, 145, 58, 0.4);
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 50px;
+                      height: 50px;
+                      border-radius: 50%;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -2px;
+                      z-index: 1;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 250px;
+                      height: 46px;
+                      border-radius: 12px;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -6px;
+                      z-index: 2;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 44px;
+                      height: 44px;
+                      border-radius: 50%;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -8px;
+                      z-index: 3;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 140px;
+                      height: 30px;
+                      border-radius: 8px;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -5px;
+                      z-index: 2;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 32px;
+                      height: 32px;
+                      border-radius: 50%;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -6px;
+                      z-index: 3;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      flex-grow: 1;
+                      border-bottom: 2px dashed rgba(196, 145, 58, 0.4);
+                      margin-left: -2px;
+                    "
+                  ></div>
+                </div>
+
+                <!-- Drop targets inside Interno -->
+                <div
+                  style="
+                    position: absolute;
+                    top: 12%;
+                    left: 32%;
+                    width: 70px;
+                    height: 70px;
+                    border: 2px solid rgba(196, 145, 58, 0.3);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(20, 15, 8, 0.6);
+                  "
+                >
+                  <div
+                    style="
+                      width: 46px;
+                      height: 46px;
+                      border: 1px dashed rgba(196, 145, 58, 0.5);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 12px;
+                        height: 12px;
+                        border: 1px solid rgba(196, 145, 58, 0.3);
+                        border-radius: 50%;
+                      "
+                    ></div>
+                  </div>
+                  <div
+                    class="placed-coin"
+                    style="
+                      position: absolute;
+                      width: 44px;
+                      height: 44px;
+                      background: radial-gradient(
+                        circle,
+                        var(--gold-bright) 0%,
+                        var(--gold-dark) 100%
+                      );
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 24px;
+                      box-shadow: 0 0 20px var(--gold);
+                    "
+                  >
+                    ⚱
+                  </div>
+                </div>
+
+                <div
+                  style="
+                    position: absolute;
+                    top: 12%;
+                    left: 55%;
+                    width: 70px;
+                    height: 70px;
+                    border: 2px solid rgba(196, 145, 58, 0.3);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(20, 15, 8, 0.6);
+                  "
+                >
+                  <div
+                    style="
+                      width: 46px;
+                      height: 46px;
+                      border: 1px dashed rgba(196, 145, 58, 0.5);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 12px;
+                        height: 12px;
+                        border: 1px solid rgba(196, 145, 58, 0.3);
+                        border-radius: 50%;
+                      "
+                    ></div>
+                  </div>
+                  <!-- ANIMATED IDRIA -->
+                  <div
+                    id="idria-coin-3"
+                    class="placed-coin"
+                    style="
+                      opacity: 0;
+                      position: absolute;
+                      width: 44px;
+                      height: 44px;
+                      background: radial-gradient(
+                        circle,
+                        var(--gold-bright) 0%,
+                        var(--gold-dark) 100%
+                      );
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 24px;
+                      box-shadow: 0 0 20px var(--gold);
+                    "
+                  >
+                    🏺
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- The FUORI circle + STATIC LUCERNA -->
+            <div
+              style="
+                position: absolute;
+                bottom: 22%;
+                right: 20px;
+                width: 70px;
+                height: 70px;
+                border: 2px solid rgba(196, 145, 58, 0.3);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 5;
+                background: rgba(20, 15, 8, 0.6);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  left: -30px;
+                  width: 28px;
+                  top: 50%;
+                  height: 2px;
+                  background: rgba(196, 145, 58, 0.4);
+                "
+              ></div>
+              <div
+                style="
+                  width: 46px;
+                  height: 46px;
+                  border: 1px dashed rgba(196, 145, 58, 0.5);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <div
+                  style="
+                    width: 12px;
+                    height: 12px;
+                    border: 1px solid rgba(196, 145, 58, 0.3);
+                    border-radius: 50%;
+                  "
+                ></div>
+              </div>
+              <div
+                class="placed-coin"
+                style="
+                  position: absolute;
+                  width: 44px;
+                  height: 44px;
+                  background: radial-gradient(
+                    circle,
+                    var(--gold-bright) 0%,
+                    var(--gold-dark) 100%
+                  );
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 24px;
+                  box-shadow: 0 0 20px var(--gold);
+                "
+              >
+                🕯
+              </div>
+            </div>
+            <div
+              style="
+                position: absolute;
+                bottom: -50px;
+                left: 0;
+                right: 120px;
+                text-align: center;
+                font-family: var(--font-serif);
+                font-size: 14px;
+                color: rgba(196, 145, 58, 0.6);
+                letter-spacing: 1px;
+              "
+            >
+              TOMBA ALLA CAPPUCCINA · SEPOLTURA N.19
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bottom-instruction"
+        style="
+          padding: 0 40px 24px;
+          display: flex;
+          gap: 12px;
+          align-items: flex-start;
+        "
+      >
+        <span style="color: var(--gold); font-size: 14px; margin-top: 2px"
+          >◆</span
+        >
+        <span
+          style="
+            font-style: italic;
+            font-size: 16.5px;
+            color: white;
+            letter-spacing: 0.5px;
+            line-height: 1.5;
+            max-width: 1200px;
+          "
+        >
+          Osserva la sua dimora terrena e decifra i segni. Usa le monete per
+          separare ciò che appartiene ai vivi da ciò che servirà a lei nel buio.
+        </span>
+      </div>
+
+      <div class="footbar">
+        <div class="steps">
+          <div class="step active">
+            <div
+              class="dot"
+              style="
+                background: var(--gold);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: var(--gold);
+              "
+              >Rito del Corredo</span
+            >
+            <span
+              style="
+                font-size: 9.6px;
+                color: #2a1808;
+                margin-left: 12px;
+                margin-right: 12px;
+              "
+              >›</span
+            >
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: #3a2810;
+              "
+              >Segreto Orfico</span
+            >
+            <span
+              style="
+                font-size: 9.6px;
+                color: #2a1808;
+                margin-left: 12px;
+                margin-right: 12px;
+              "
+              >›</span
+            >
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: #3a2810;
+              "
+              >Labirinto dell'Ade</span
+            >
+          </div>
+        </div>
+        <span
+          style="
+            font-family: var(--font-serif);
+            font-size: 8.438px;
+            letter-spacing: 1.69px;
+            color: #3a2810;
+          "
+          >NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span
+        >
+      </div>
+    </div>
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 3 – AZIONE (FASE II)
+═══════════════════════════════════════════════ -->
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 3 – AZIONE (FASE II)
+═══════════════════════════════════════════════ -->
+    <div id="azione" class="screen">
+      <div class="topbar">
+        <span class="phase-label">⬥ FASE II · IL SEGRETO ORFICO</span>
+        <span
+          class="subtitle"
+          style="color: #4a3015; font-size: 10.125px; letter-spacing: 2px"
+          >LA LAMINETTA D'ORO</span
+        >
+      </div>
+
+      <div class="main-area">
+        <!-- LEFT PANEL -->
+        <div class="left-panel">
+          <div class="audio-indicator">
+            <div class="audio-dot"></div>
+            <div class="audio-bars">
+              <div class="audio-bar" style="height: 14px"></div>
+              <div class="audio-bar" style="height: 10px"></div>
+              <div class="audio-bar" style="height: 14px"></div>
+              <div class="audio-bar" style="height: 17px"></div>
+            </div>
+          </div>
+
+          <div class="quote-block">
+            <p>
+              «Il corpo è pronto, ma l'anima è nuda davanti all'ignoto. Donale
+              il segreto di Ade.»
+            </p>
+          </div>
+
+          <p class="ultima-moneta">— ULTIMA MONETA NFC —</p>
+
+          <div class="laminetta-btn" onclick="placeLaminettaAndGo()">
+            <span class="scroll-emoji">📜</span>
+            <div class="laminetta-label">LAMINETTA<br />ORFICA</div>
+          </div>
+        </div>
+
+        <!-- RIGHT PANEL – chest -->
+        <div class="right-panel">
+          <div
+            class="chest-container"
+            onclick="placeLaminettaAndGo()"
+            style="cursor: pointer"
+          >
+            <img src="assets/tomba.png" alt="Primo piano petto della defunta" />
+            <!-- grid overlay lines -->
+            <div class="chest-grid">
+              <div
+                class="chest-grid-h"
+                style="
+                  position: absolute;
+                  top: 17%;
+                  left: 0;
+                  right: 0;
+                  height: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-h"
+                style="
+                  position: absolute;
+                  top: 28%;
+                  left: 0;
+                  right: 0;
+                  height: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-h"
+                style="
+                  position: absolute;
+                  top: 39%;
+                  left: 0;
+                  right: 0;
+                  height: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 10%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 20%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 30%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 40%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 50%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 60%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 70%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 80%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 90%;
+                  width: 1px;
+                "
+              ></div>
+            </div>
+
+            <!-- Laminetta animata -->
+            <div
+              style="
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 10;
+              "
+            >
+              <div
+                id="laminetta-placed"
+                style="
+                  opacity: 0;
+                  width: 50px;
+                  height: 50px;
+                  background: radial-gradient(
+                    at 40% 35%,
+                    #f0e080 0%,
+                    #dab95d 25%,
+                    #c4913a 50%,
+                    #9f7329 75%,
+                    #7a5518 100%
+                  );
+                  border: 2px solid #e8c050;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  box-shadow:
+                    0 0 30px rgba(196, 145, 58, 0.6),
+                    inset 0 0 15px rgba(255, 255, 255, 0.3);
+                  transform-origin: center;
+                "
+              >
+                <div
+                  style="
+                    font-family: var(--font-serif);
+                    font-size: 8px;
+                    color: rgba(0, 0, 0, 0.5);
+                    text-align: center;
+                    line-height: 1.1;
+                    letter-spacing: 0.5px;
+                    font-weight: bold;
+                  "
+                >
+                  ΘΑΡΡΕΙ<br />ΟΥΔΕΙΣ<br />ΑΘΑΝ<br />ΑΤΟΣ
+                </div>
+              </div>
+            </div>
+
+            <!-- Solco IV label -->
+            <p
+              style="
+                position: absolute;
+                bottom: 5%;
+                left: 50%;
+                transform: translateX(-50%);
+                font-family: var(--font-serif);
+                font-size: 9px;
+                color: #4a3015;
+                letter-spacing: 1px;
+                white-space: nowrap;
+              "
+            >
+              PRIMO PIANO · PETTO DELLA DEFUNTA
+            </p>
+          </div>
+          <div class="zoom-badge">ZOOM × TOMBA N.19</div>
+        </div>
+      </div>
+
+      <div class="instruct-bar">
+        <span class="diamond" style="color: var(--gold)">⬥</span>
+        <p>
+          Prendi la Laminetta Orfica — l'ultima moneta rimasta — e posizionala
+          sul petto della defunta, all'altezza del cuore.
+        </p>
+      </div>
+
+      <div class="footbar" style="border-color: rgba(196, 145, 58, 0.2)">
+        <div class="steps">
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.19);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: rgba(196, 145, 58, 0.4);
+              "
+              >Rito del Corredo</span
+            >
+            <span style="font-size: 9.6px; color: #2a1808">›</span>
+          </div>
+          <div class="step active">
+            <div
+              class="dot"
+              style="
+                background: var(--gold);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: var(--gold);
+              "
+              >Segreto Orfico</span
+            >
+            <span style="font-size: 9.6px; color: #2a1808">›</span>
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: #3a2810;
+              "
+              >Labirinto dell'Ade</span
+            >
+          </div>
+        </div>
+        <span
+          style="
+            font-family: var(--font-serif);
+            font-size: 8.438px;
+            letter-spacing: 1.69px;
+            color: #3a2810;
+          "
+          >NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span
+        >
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 3.5 – LAMINETTA AUREA (REVEAL)
+═══════════════════════════════════════════════ -->
+    <div
+      id="laminetta-aurea"
+      class="screen"
+      style="
+        background: radial-gradient(circle at center, #1a0f05 0%, #000 100%);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      "
+    >
+      <!-- Header -->
+      <div
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          padding: 18px 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid rgba(196, 145, 58, 0.15);
+          background: rgba(0, 0, 0, 0.4);
+        "
+      >
+        <span
+          style="
+            font-family: var(--font-serif);
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+          "
+        >
+          ◆ &nbsp; LAMINETTA AUREA &nbsp;·&nbsp; TOMBA 19 &nbsp;·&nbsp;
+          HIPPONION &nbsp;·&nbsp; IV SEC. A.C. &nbsp; ◆
+        </span>
+      </div>
+
+      <!-- Triptych panels wrapper -->
+      <div
+        id="triptych-ade"
+        class="aurea-triptych"
+        style="position: relative; margin-top: 40px"
+      >
+        <!-- Title Overlay (Center) -->
+        <div class="mappa-title-overlay" id="mappa-title">
+          <p
+            style="
+              font-family: var(--font-serif);
+              font-size: 12px;
+              letter-spacing: 4px;
+              color: var(--gold);
+              text-transform: uppercase;
+              opacity: 0.8;
+            "
+          >
+            Svelata la via
+          </p>
+          <h2>LA MAPPA DELL'ADE</h2>
+        </div>
+
+        <!-- LEFT PANEL -->
+        <div class="aurea-panel aurea-left"></div>
+
+        <!-- CENTER PANEL -->
+        <div class="aurea-panel aurea-center"></div>
+
+        <!-- RIGHT PANEL -->
+        <div class="aurea-panel aurea-right"></div>
+      </div>
+
+      <!-- CTA Button -->
+      <button
+        id="btn-avanza-ade"
+        class="btn-start btn-avanza-ade"
+        onclick="closeAureaAndGoLabirinto()"
+        style="margin-top: 60px"
+      >
+        AVANZA VERSO L'ADE →
+      </button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4 – LABIRINTO
+═══════════════════════════════════════════════ -->
+    <div id="labirinto" class="screen lab-phase" data-figma-node="74-7057">
+      <div class="topbar">
+        <span class="phase-label">⬥ FASE III · IL LABIRINTO DELL'ADE</span>
+        <div class="lab-header-meta">
+          <span class="subtitle">RICORDA LA LAMINETTA</span>
+        </div>
+      </div>
+
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labirinto dell'Ade"
+          ></iframe>
+
+          <div class="map-content">
+            <div class="lab-border"></div>
+
+            <!-- Vertical connector lines -->
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+
+            <!-- Fonte di Lete box -->
+            <div class="lab-lethe">
+              <span class="cypress">🌿</span>
+            </div>
+            <div class="lab-lethe-label">FONTE DI LETE</div>
+            <div class="lab-lethe-sub" style="top: 26%">CIPRESSO BIANCO</div>
+
+            <!-- Lago di Mnemosyne box -->
+            <div class="lab-mnemosyne">
+              <div class="ellipse"></div>
+            </div>
+            <div class="lab-mnemosyne-label">LAGO DI MNEMOSYNE ✦</div>
+
+            <!-- Cerbero box -->
+            <div class="lab-cerbero">
+              <span class="monster">🐕</span>
+            </div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+
+            <!-- Acheronte river -->
+            <div class="lab-acheronte">
+              <div class="river"></div>
+            </div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+
+            <!-- Central round rooms (torch-lit) -->
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span>
+              <span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span>
+              <span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+
+            <!-- L'Anima -->
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >L'ANIMA</span
+              >
+            </div>
+
+            <!-- CTA buttons (as in Figma 74-7058) -->
+            <button class="lab-cta-up" onclick="goTo('bivio-1')">
+              INIZIA IL CAMMINO
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          L'anima si trova all'ingresso del regno dei morti. Il cammino è
+          oscuro, i sentieri si dividono. Usa la saggezza della Laminetta per
+          trovare la strada.
+        </p>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Rito del Corredo</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Segreto Orfico</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labirinto dell'Ade</span>
+          </div>
+        </div>
+        <span class="loc">NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.1 – BIVIO 1
+═══════════════════════════════════════════════ -->
+    <div id="bivio-1" class="screen lab-phase" data-figma-node="117-2282">
+      <div class="topbar">
+        <span class="phase-label">⬥ FASE III · IL LABIRINTO DELL'ADE</span>
+        <div class="lab-header-meta">
+          <span class="subtitle">BIVIO I · NEL CUORE DEL LABIRINTO</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labirinto dell'Ade"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">FONTE DI LETE</div>
+            <div class="lab-lethe-sub" style="top: 26%">CIPRESSO BIANCO</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAGO DI MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >L'ANIMA</span
+              >
+            </div>
+            <button
+              class="state-btn state-btn-purple"
+              onclick="goTo('cerbero-fail')"
+            >
+              ← VERSO LA TENEBRA
+            </button>
+            <button class="state-btn state-btn-blue" onclick="goTo('bivio-2a')">
+              ↑ PROSEGUI NEL LABIRINTO
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          Un bivio nel cuore del labirinto. Consulta il pannello II per
+          individuare la direzione corretta.
+        </p>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Rito del Corredo</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Segreto Orfico</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labirinto dell'Ade</span>
+          </div>
+        </div>
+        <span class="loc">NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.2 – CERBERO FAIL
+═══════════════════════════════════════════════ -->
+    <div id="cerbero-fail" class="screen lab-phase" data-figma-node="117-1331">
+      <div class="topbar">
+        <span class="phase-label">⬥ FASE III · IL LABIRINTO DELL'ADE</span>
+        <div class="lab-header-meta">
+          <span class="subtitle">ESITO ERRATO</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labirinto dell'Ade"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">FONTE DI LETE</div>
+            <div class="lab-lethe-sub" style="top: 26%">CIPRESSO BIANCO</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAGO DI MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >L'ANIMA</span
+              >
+            </div>
+            <div class="lab-map-overlay-dark"></div>
+          </div>
+        </div>
+        <div class="lab-outcome fail">
+          <div class="outcome-icon">☠</div>
+          <h2>LE CATENE DI CERBERO</h2>
+          <p>
+            Una presenza oscura blocca il passaggio. Le catene del guardiano ti
+            respingono nel buio.
+          </p>
+          <span class="outcome-sub">— RITORNA AL BIVIO —</span>
+          <button class="state-btn state-btn-blue" onclick="goTo('bivio-1')">
+            RIPROVA
+          </button>
+        </div>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Rito del Corredo</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Segreto Orfico</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labirinto dell'Ade</span>
+          </div>
+        </div>
+        <span class="loc">NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.3 – BIVIO 2
+═══════════════════════════════════════════════ -->
+    <div id="bivio-2a" class="screen lab-phase" data-figma-node="117-1576">
+      <div class="topbar">
+        <span class="phase-label">⬥ FASE III · IL LABIRINTO DELL'ADE</span>
+        <div class="lab-header-meta">
+          <span class="meta-chip">DEVIAZIONI: 2</span>
+          <span class="subtitle">BIVIO II · LETE O MNEMOSYNE</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labirinto dell'Ade"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">FONTE DI LETE</div>
+            <div class="lab-lethe-sub" style="top: 26%">CIPRESSO BIANCO</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAGO DI MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >L'ANIMA</span
+              >
+            </div>
+            <button
+              class="state-btn state-btn-blue left"
+              onclick="goTo('oblio-fail')"
+            >
+              ← VERSO IL CIPRESSO BIANCO
+            </button>
+            <button
+              class="state-btn state-btn-gold right"
+              onclick="goTo('mnemosyne-ok')"
+            >
+              VERSO LA FONTE AUREA →
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          Il secondo bivio. A sinistra il cipresso bianco, la fonte aurea
+          attende a destra.
+        </p>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Rito del Corredo</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Segreto Orfico</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labirinto dell'Ade</span>
+          </div>
+        </div>
+        <span class="loc">NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.4 – OBLIO FAIL
+═══════════════════════════════════════════════ -->
+    <div id="oblio-fail" class="screen lab-phase" data-figma-node="178-28">
+      <div class="topbar">
+        <span class="phase-label">⬥ FASE III · IL LABIRINTO DELL'ADE</span>
+        <div class="lab-header-meta">
+          <span class="subtitle">ESITO ERRATO</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labirinto dell'Ade"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">FONTE DI LETE</div>
+            <div class="lab-lethe-sub" style="top: 26%">CIPRESSO BIANCO</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAGO DI MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >L'ANIMA</span
+              >
+            </div>
+            <div class="lab-map-overlay-dark"></div>
+          </div>
+        </div>
+        <div class="lab-outcome fail water">
+          <div class="outcome-icon">💧</div>
+          <h2>L'ACQUA DELL'OBLIO</h2>
+          <p>
+            Non avvicinarti alla fonte del Lete. Ogni sorso cancella la memoria
+            e spegne la parola sacra.
+          </p>
+          <span class="outcome-sub">— RITORNA AL BIVIO —</span>
+          <button class="state-btn state-btn-blue" onclick="goTo('bivio-2b')">
+            RIPROVA
+          </button>
+        </div>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Rito del Corredo</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Segreto Orfico</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labirinto dell'Ade</span>
+          </div>
+        </div>
+        <span class="loc">NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.5 – MNEMOSYNE OK
+═══════════════════════════════════════════════ -->
+    <div id="mnemosyne-ok" class="screen lab-phase" data-figma-node="117-2542">
+      <div class="topbar">
+        <span class="phase-label">⬥ FASE III · IL LABIRINTO DELL'ADE</span>
+        <div class="lab-header-meta">
+          <span class="meta-chip">DEVIAZIONI: 2</span>
+          <span class="subtitle">RICORDA LA LAMINETTA</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labirinto dell'Ade"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">FONTE DI LETE</div>
+            <div class="lab-lethe-sub" style="top: 26%">CIPRESSO BIANCO</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAGO DI MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >L'ANIMA</span
+              >
+            </div>
+            <div class="lab-map-overlay-dark"></div>
+          </div>
+        </div>
+        <div class="lab-outcome success">
+          <div class="outcome-icon">✦</div>
+          <h2>MNEMOSYNE HA PARLATO</h2>
+          <p>
+            L'anima ha bevuto l'acqua della Memoria. Ora può parlare davanti ai
+            Guardiani dell'Ade.
+          </p>
+          <button
+            class="state-btn state-btn-gold"
+            onclick="goTo('domanda-guardiani')"
+          >
+            CONTINUA →
+          </button>
+        </div>
+      </div>
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          L'anima ha trovato Mnemosyne. I guardiani dell'Ade apriranno ora il
+          loro giudizio.
+        </p>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Rito del Corredo</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Segreto Orfico</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labirinto dell'Ade</span>
+          </div>
+        </div>
+        <span class="loc">NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.6 – BIVIO 2 (DEVIAZIONI: 2)
+═══════════════════════════════════════════════ -->
+    <div id="bivio-2b" class="screen lab-phase" data-figma-node="117-2819">
+      <div class="topbar">
+        <span class="phase-label"
+          >⬥ FASE III · IL LABIRINTO DELL'ADE · DEVIAZIONI: 2</span
+        >
+        <div class="lab-header-meta">
+          <span class="subtitle">SECONDO BIVIO · CIPRESSO O FONTE AUREA</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labirinto dell'Ade"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">FONTE DI LETE</div>
+            <div class="lab-lethe-sub" style="top: 26%">CIPRESSO BIANCO</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAGO DI MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >L'ANIMA</span
+              >
+            </div>
+            <button
+              class="state-btn state-btn-blue left"
+              onclick="goTo('oblio-fail')"
+            >
+              ← VERSO IL CIPRESSO BIANCO
+            </button>
+            <button
+              class="state-btn state-btn-gold right"
+              onclick="goTo('mnemosyne-ok')"
+            >
+              VERSO LA FONTE AUREA →
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          Il secondo bivio. A sinistra il cipresso bianco, la fonte aurea
+          attende a destra.
+        </p>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Rito del Corredo</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Segreto Orfico</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labirinto dell'Ade</span>
+          </div>
+        </div>
+        <span class="loc">NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.7 – MNEMOSYNE (SUCCESSO)
+═══════════════════════════════════════════════ -->
+    <div id="mnemosyne-ok" class="screen lab-phase" data-figma-node="117-2542">
+      <div class="topbar">
+        <span class="phase-label">⬥ FASE III · IL LABIRINTO DELL'ADE</span>
+        <div class="lab-header-meta">
+          <span class="subtitle">IL LAGO DELLA MEMORIA</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labirinto dell'Ade"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">FONTE DI LETE</div>
+            <div class="lab-lethe-sub" style="top: 26%">CIPRESSO BIANCO</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAGO DI MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >L'ANIMA</span
+              >
+            </div>
+            <div class="lab-map-overlay-dark"></div>
+          </div>
+        </div>
+        <div class="lab-outcome success">
+          <div class="outcome-icon">✦</div>
+          <h2>MNEMOSYNE HA PARLATO</h2>
+          <button
+            class="state-btn state-btn-gold"
+            onclick="goTo('domanda-guardiani')"
+          >
+            SALI ALLA SOGLIA →
+          </button>
+        </div>
+      </div>
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          L'anima ha trovato Mnemosyne. I guardiani dell'Ade apriranno ora il
+          loro giudizio.
+        </p>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Rito del Corredo</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Segreto Orfico</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labirinto dell'Ade</span>
+          </div>
+        </div>
+        <span class="loc">NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.8 – LA DOMANDA DEI GUARDIANI
+    ═══════════════════════════════════════════════ -->
+    <div id="domanda-guardiani" class="screen">
+      <div class="soul-particles" id="soulParticles"></div>
+      <div class="mystic-glow"></div>
+      <div class="narrative-container">
+        <h1 class="narrative-question">"CHI SEI TU?<br />DA DOVE VIENI?"</h1>
+        <p class="narrative-subtitle">
+          Le voci dei Guardiani risuonano nell'oscurità,<br />
+          esigendo la verità che solo l'iniziato può conoscere.
+        </p>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.9 – CRUCIVERBA (IL SEGRETO ORFICO)
+═══════════════════════════════════════════════ -->
+    <div id="cruciverba" class="screen" data-figma-node="129-7328">
+      <div class="topbar">
+        <span class="phase-label">⬥ FASE III · I GUARDIANI DELL'ADE</span>
+        <span class="subtitle">LA FORMULA SEGRETA</span>
+      </div>
+
+      <div class="guardians-scene">
+        <div class="guardians-header">
+          <p class="kicker">I CUSTODI CHIEDONO:</p>
+          <h2>«Chi sei tu? Da dove vieni?»</h2>
+          <p class="sub">Componi la frase segreta selezionando le parole</p>
+        </div>
+
+        <div class="guardians-visual">
+          <!-- Guardian Left -->
+          <div class="guardian-figure">
+            <img src="assets/guardiani.png" alt="" />
+          </div>
+          <!-- Guardian Right -->
+          <div class="guardian-figure" style="transform: scaleX(-1)">
+            <img src="assets/guardiani.png" alt="" />
+          </div>
+        </div>
+
+        <div class="formula-area">
+          <span class="formula-label">— FORMULA —</span>
+          <div class="formula-slots" id="formulaSlots">
+            <div class="formula-slot" data-index="1"></div>
+            <div class="formula-slot" data-index="2"></div>
+            <div class="formula-slot" data-index="3"></div>
+            <div class="formula-slot" data-index="4"></div>
+            <div class="formula-slot" data-index="5"></div>
+            <div class="formula-slot" data-index="6"></div>
+            <div class="formula-slot" data-index="7"></div>
+            <div class="formula-slot" data-index="8"></div>
+          </div>
+          <div class="formula-controls">
+            <button
+              class="btn-formula"
+              id="pronunciaBtn"
+              onclick="checkFormula()"
+            >
+              PRONUNCIA LA FORMULA
+            </button>
+            <button class="btn-cancella" onclick="clearFormula()">
+              CANCELLA
+            </button>
+          </div>
+        </div>
+
+        <div class="word-bank-area">
+          <span class="word-bank-label">— PAROLE DISPONIBILI —</span>
+          <div class="word-bank" id="wordBank">
+            <!-- Words will be injected here -->
+          </div>
+        </div>
+      </div>
+
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          Sfrutta l'indizio sul Pannello 3 per comporre la frase segreta
+          selezionando le parole nei caselli.
+        </p>
+      </div>
+
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Rito del Corredo</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Segreto Orfico</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Labirinto dell'Ade</span>
+          </div>
+        </div>
+        <span class="loc">NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span>
+      </div>
+    </div>
+
+    <!-- TOAST FEEDBACK -->
+    <div
+      class="toast"
+      id="ritoCompletatoToast"
+      style="
+        padding: 50px 70px;
+        background: rgba(10, 8, 5, 0.95);
+        border: 1px solid rgba(196, 145, 58, 0.3);
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+        "
+      >
+        <div class="audio-indicator" style="margin-bottom: 24px">
+          <div class="audio-dot"></div>
+          <div class="audio-bars">
+            <div class="audio-bar" style="height: 14px"></div>
+            <div class="audio-bar" style="height: 10px"></div>
+            <div class="audio-bar" style="height: 14px"></div>
+            <div class="audio-bar" style="height: 17px"></div>
+          </div>
+          <span
+            style="
+              font-family: var(--font-serif);
+              font-size: 12px;
+              color: var(--gold);
+              letter-spacing: 2px;
+              margin-left: 12px;
+            "
+            >LA VOCE NARRANTE</span
+          >
+        </div>
+
+        <div class="quote-block" style="width: auto; margin-top: 0">
+          <p style="width: auto; max-width: 450px">
+            «I simboli della vita terrena sono stati deposti. L'anima è ora
+            pronta per il viaggio.»
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="toast"
+      id="laminettaToast"
+      style="
+        padding: 50px 70px;
+        background: rgba(10, 8, 5, 0.95);
+        border: 1px solid rgba(196, 145, 58, 0.3);
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+        "
+      >
+        <div class="audio-indicator" style="margin-bottom: 24px">
+          <div class="audio-dot"></div>
+          <div class="audio-bars">
+            <div class="audio-bar" style="height: 14px"></div>
+            <div class="audio-bar" style="height: 10px"></div>
+            <div class="audio-bar" style="height: 14px"></div>
+            <div class="audio-bar" style="height: 17px"></div>
+          </div>
+          <span
+            style="
+              font-family: var(--font-serif);
+              font-size: 12px;
+              color: var(--gold);
+              letter-spacing: 2px;
+              margin-left: 12px;
+            "
+            >LA VOCE NARRANTE</span
+          >
+        </div>
+
+        <div class="quote-block" style="width: auto; margin-top: 0">
+          <p style="width: auto; max-width: 450px">
+            «È un sussurro d'oro piegato e sigillato. Solo davanti ai guardiani
+            dell'Ade, il sigillo verrà sciolto.»
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="toast"
+      id="formulaSuccessToast"
+      style="
+        padding: 50px 70px;
+        background: rgba(10, 8, 5, 0.95);
+        border: 1px solid #a064dc;
+        box-shadow: 0 0 100px rgba(160, 100, 220, 0.4);
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+        "
+      >
+        <div class="audio-indicator" style="margin-bottom: 24px">
+          <div
+            class="audio-dot"
+            style="background: #a064dc; box-shadow: 0 0 10px #a064dc"
+          ></div>
+          <div class="audio-bars">
+            <div
+              class="audio-bar"
+              style="height: 14px; background: #a064dc"
+            ></div>
+            <div
+              class="audio-bar"
+              style="height: 10px; background: #a064dc"
+            ></div>
+            <div
+              class="audio-bar"
+              style="height: 14px; background: #a064dc"
+            ></div>
+            <div
+              class="audio-bar"
+              style="height: 17px; background: #a064dc"
+            ></div>
+          </div>
+          <span
+            style="
+              font-family: var(--font-serif);
+              font-size: 12px;
+              color: #a064dc;
+              letter-spacing: 2px;
+              margin-left: 12px;
+            "
+            >IL PASSAGGIO È APERTO</span
+          >
+        </div>
+
+        <div
+          class="quote-block"
+          style="width: auto; margin-top: 0; border-color: #a064dc"
+        >
+          <p style="width: auto; max-width: 450px; color: #d0a0ff">
+            «Hai pronunciato le parole giuste. Tu sei figlio del Cielo Stellato.
+            Entra ora nel regno della luce eterna.»
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* ── Audio narrazione ── */
+      const narrazione = new Audio("assets/introduzione.mp3");
+      narrazione.volume = 1;
+
+      const azioneComplete = new Audio("assets/azione-complete.mp3");
+      azioneComplete.volume = 1;
+
+      function playNarrazione() {
+        narrazione.currentTime = 0;
+        narrazione.play().catch(() => {});
+      }
+      function stopNarrazione() {
+        narrazione.pause();
+        narrazione.currentTime = 0;
+      }
+
+      /* ── Screen navigation ── */
+      function goTo(id) {
+        const target = document.getElementById(id);
+        if (!target) return;
+
+        // Ferma l'audio se si naviga fuori da narrativa
+        if (id !== "narrativa") stopNarrazione();
+
+        document
+          .querySelectorAll(".screen")
+          .forEach((s) => s.classList.remove("active"));
+        target.classList.add("active");
+
+        // Avvia audio sulla schermata narrativa
+        if (id === "narrativa") playNarrazione();
+
+        // Reset animations when navigating away so they work again if testing
+        if (!id.startsWith("indagine")) {
+          document
+            .querySelectorAll(".placed-coin.anim-drop, #laminetta-placed")
+            .forEach((el) => {
+              el.classList.remove("anim-drop");
+              el.style.opacity = "0";
+            });
+          const btn = document.getElementById("btn-avanti-indagine");
+          if (btn) {
+            btn.style.opacity = "0";
+            btn.style.pointerEvents = "none";
+          }
+
+          const lamBtn = document.querySelector(".laminetta-btn");
+          if (lamBtn) {
+            lamBtn.style.opacity = "1";
+            lamBtn.style.pointerEvents = "auto";
+          }
+        }
+
+        // Trigger cruciverba init
+        if (id === "cruciverba") initCruciverba();
+
+        // Trigger auto transition for guardians question
+        if (id === "domanda-guardiani") {
+          initSoulParticles();
+          setTimeout(() => {
+            goTo("cruciverba");
+          }, 8000); // 8 seconds for the full cinematic reveal
+        }
+
+        // Trigger laminetta aurea triptych animation
+        if (id === "laminetta-aurea") {
+          startMappaAdeSequence();
+        }
+      }
+
+      function initSoulParticles() {
+        const container = document.getElementById("soulParticles");
+        if (!container) return;
+        container.innerHTML = "";
+        for (let i = 0; i < 30; i++) {
+          const p = document.createElement("div");
+          p.className = "soul-particle";
+          const size = Math.random() * 60 + 20;
+          p.style.width = size + "px";
+          p.style.height = size + "px";
+          p.style.left = Math.random() * 100 + "%";
+          p.style.setProperty("--x", Math.random() * 200 - 100 + "px");
+          p.style.setProperty("--d", Math.random() * 5 + 5 + "s");
+          p.style.animationDelay = Math.random() * 5 + "s";
+          container.appendChild(p);
+        }
+      }
+
+      function startMappaAdeSequence() {
+        const triptych = document.getElementById("triptych-ade");
+        const title = document.getElementById("mappa-title");
+        const btn = document.getElementById("btn-avanza-ade");
+
+        if (!triptych) return;
+
+        // Disabilita transizioni per un reset istantaneo (evita il glitch "già aperto")
+        const panels = triptych.querySelectorAll(".aurea-left, .aurea-right");
+        panels.forEach((p) => (p.style.transition = "none"));
+
+        triptych.classList.remove("visible", "open-left", "open-right");
+        title?.classList.remove("visible");
+        btn?.classList.remove("visible");
+
+        // Flush: applica il reset visivo immediatamente
+        void triptych.offsetWidth;
+
+        // Riattiva transizioni
+        panels.forEach((p) => (p.style.transition = ""));
+
+        // Sequence: trittico appare → pannello sx → pannello dx → titolo → bottone
+        setTimeout(() => triptych.classList.add("visible"), 200);
+        setTimeout(() => triptych.classList.add("open-left"), 1200);
+        setTimeout(() => triptych.classList.add("open-right"), 2000);
+        setTimeout(() => title?.classList.add("visible"), 3000);
+        setTimeout(() => btn?.classList.add("visible"), 3800);
+      }
+
+      function closeAureaAndGoLabirinto() {
+        goTo("labirinto");
+        // Reset triptych dopo che la dissolvenza è completata
+        setTimeout(() => {
+          const triptych = document.getElementById("triptych-ade");
+          triptych?.classList.remove("visible", "open-left", "open-right");
+          document.getElementById("mappa-title")?.classList.remove("visible");
+          document
+            .getElementById("btn-avanza-ade")
+            ?.classList.remove("visible");
+        }, 500);
+      }
+
+      function placeLaminettaAndGo() {
+        const laminettaBtn = document.querySelector(".laminetta-btn");
+        if (laminettaBtn) {
+          laminettaBtn.style.opacity = "0.5";
+          laminettaBtn.style.pointerEvents = "none";
+        }
+
+        const chestContainer = document.querySelector(".chest-container");
+        if (chestContainer) {
+          chestContainer.style.pointerEvents = "none";
+        }
+
+        const laminettaPlaced = document.getElementById("laminetta-placed");
+        if (!laminettaPlaced) return;
+
+        // Start animation
+        laminettaPlaced.classList.add("anim-drop");
+
+        // Final screen, show completion modal and auto-advance
+        setTimeout(() => {
+          showToast("laminettaToast");
+          // Auto advance after 5 seconds
+          setTimeout(() => {
+            dismissToast();
+            setTimeout(() => {
+              goTo("laminetta-aurea");
+            }, 400);
+          }, 5000);
+        }, 1400);
+      }
+
+      function placeCoinAndGo(coinId, nextScreenId) {
+        const coin = document.getElementById(coinId);
+        if (!coin) return;
+
+        // Start animation
+        coin.classList.add("anim-drop");
+
+        if (nextScreenId) {
+          // Wait for CSS animation to finish (1.2s) then switch screen
+          setTimeout(() => {
+            goTo(nextScreenId);
+          }, 1400);
+        } else {
+          // Final screen, show completion modal and auto-advance
+          setTimeout(() => {
+            azioneComplete.currentTime = 0;
+            azioneComplete.play().catch(() => {});
+            showToast("ritoCompletatoToast");
+            // Auto advance after 4 seconds
+            setTimeout(() => {
+              dismissToast();
+              setTimeout(() => {
+                goTo("azione");
+              }, 400); // wait for dismiss animation
+            }, 3500);
+          }, 1400);
+        }
+      }
+
+      /* ── Toast ── */
+      function showToast(id) {
+        const t = document.getElementById(id);
+        t.style.display = "flex";
+        requestAnimationFrame(() => t.classList.add("show"));
+      }
+      function dismissToast() {
+        document.querySelectorAll(".toast").forEach((t) => {
+          t.classList.remove("show");
+          setTimeout(() => {
+            t.style.display = "none";
+          }, 300);
+        });
+      }
+
+      /* ── Keyboard nav ── */
+      const order = [
+        "intro",
+        "narrativa",
+        "indagine-1",
+        "indagine-2",
+        "indagine-3",
+        "azione",
+        "laminetta-aurea",
+        "labirinto",
+        "bivio-1",
+        "cerbero-fail",
+        "bivio-2a",
+        "oblio-fail",
+        "bivio-2b",
+        "mnemosyne-ok",
+        "domanda-guardiani",
+        "cruciverba",
+      ];
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+          const cur = document.querySelector(".screen.active");
+          const idx = order.indexOf(cur.id);
+          if (idx < order.length - 1) goTo(order[idx + 1]);
+        }
+        if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+          const cur = document.querySelector(".screen.active");
+          const idx = order.indexOf(cur.id);
+          if (idx > 0) goTo(order[idx - 1]);
+        }
+        if (e.key === "Escape") dismissToast();
+      });
+      /* ── Cruciverba Logic ── */
+      const WORDS = [
+        "OBLIO",
+        "E",
+        "FIGLIO",
+        "LUNA",
+        "TERRA",
+        "DELLA",
+        "SON",
+        "DEL",
+        "STELLATO",
+        "FIGLIA",
+        "MARE",
+        "CIELO",
+      ];
+      const CORRECT_FORMULA = [
+        "SON",
+        "FIGLIO",
+        "DELLA",
+        "TERRA",
+        "E",
+        "DEL",
+        "CIELO",
+        "STELLATO",
+      ];
+      let currentFormula = ["", "", "", "", "", "", "", ""];
+
+      function initCruciverba() {
+        const bank = document.getElementById("wordBank");
+        if (!bank) return;
+        bank.innerHTML = "";
+        WORDS.forEach((word) => {
+          const chip = document.createElement("div");
+          chip.className = "word-chip";
+          if (currentFormula.includes(word)) chip.classList.add("used");
+          chip.textContent = word;
+          chip.onclick = () => selectWord(word);
+          bank.appendChild(chip);
+        });
+        updateFormulaDisplay();
+      }
+
+      function selectWord(word) {
+        const emptyIdx = currentFormula.indexOf("");
+        if (emptyIdx === -1) return;
+        currentFormula[emptyIdx] = word;
+        initCruciverba();
+      }
+
+      function updateFormulaDisplay() {
+        const slots = document.getElementById("formulaSlots");
+        if (!slots) return;
+        const slotNodes = slots.children;
+        for (let i = 0; i < 8; i++) {
+          slotNodes[i].innerHTML = "";
+          if (currentFormula[i]) {
+            const chip = document.createElement("div");
+            chip.className = "word-chip";
+            chip.textContent = currentFormula[i];
+            chip.onclick = () => removeWord(i);
+            slotNodes[i].appendChild(chip);
+          }
+        }
+
+        const btn = document.getElementById("pronunciaBtn");
+        if (btn) {
+          if (currentFormula.every((w) => w !== "")) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        }
+      }
+
+      function removeWord(idx) {
+        currentFormula[idx] = "";
+        initCruciverba();
+      }
+
+      function clearFormula() {
+        currentFormula = ["", "", "", "", "", "", "", ""];
+        initCruciverba();
+      }
+
+      function checkFormula() {
+        if (currentFormula.every((w, i) => w === CORRECT_FORMULA[i])) {
+          showToast("formulaSuccessToast");
+          setTimeout(() => {
+            dismissToast();
+            // End of demo or loop back
+            setTimeout(() => goTo("intro"), 1000);
+          }, 5000);
+        } else {
+          // Visual shake or feedback
+          const slots = document.getElementById("formulaSlots");
+          if (slots) {
+            slots.style.animation = "shake 0.5s";
+            setTimeout(() => (slots.style.animation = ""), 500);
+          }
+        }
+      }
+
+      // Initialize on load
+      document.addEventListener("DOMContentLoaded", () => {
+        initCruciverba();
+        scaleScreens();
+      });
+
+      /* ── Scaling: adatta 1280×720 alla finestra ── */
+      function scaleScreens() {
+        const scale = Math.min(
+          window.innerWidth / 1280,
+          window.innerHeight / 720,
+        );
+        document.querySelectorAll(".screen").forEach((s) => {
+          s.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        });
+      }
+      window.addEventListener("resize", scaleScreens);
+
+      /* ── Fullscreen (tasto F) ── */
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "f" || e.key === "F") {
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+          } else {
+            document.exitFullscreen();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
