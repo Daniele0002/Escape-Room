@@ -2599,3 +2599,185 @@ body {
   0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.2); }
 }
+
+/* ── Voice Command Overlay ── */
+.voice-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 5, 2, 0.85);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.voice-overlay.show {
+  display: flex;
+  opacity: 1;
+}
+.voice-card {
+  background: linear-gradient(180deg, rgba(30, 20, 10, 0.95) 0%, rgba(15, 10, 5, 0.95) 100%);
+  border: 1px solid rgba(196, 145, 58, 0.4);
+  border-radius: 8px;
+  padding: 48px 56px;
+  max-width: 640px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(196, 145, 58, 0.15), inset 0 0 40px rgba(196, 145, 58, 0.04);
+  position: relative;
+}
+.voice-card .voice-label {
+  font-family: var(--font-serif, 'Cinzel', serif);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.voice-mic {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(196, 145, 58, 0.5);
+  background: radial-gradient(circle, rgba(196, 145, 58, 0.15) 0%, rgba(196, 145, 58, 0.02) 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.voice-mic:hover {
+  transform: scale(1.08);
+  border-color: var(--gold);
+  background: radial-gradient(circle, rgba(196, 145, 58, 0.3) 0%, rgba(196, 145, 58, 0.05) 70%);
+  box-shadow: 0 0 40px rgba(196, 145, 58, 0.5);
+}
+/* Idle: invito a cliccare — glow pulsante */
+.voice-overlay.show:not(.listening):not(.matched) .voice-mic {
+  border-color: var(--gold);
+  animation: voice-idle-glow 2s ease-in-out infinite;
+}
+@keyframes voice-idle-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(196, 145, 58, 0.5),
+                0 0 20px rgba(196, 145, 58, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(196, 145, 58, 0),
+                0 0 35px rgba(196, 145, 58, 0.45);
+  }
+}
+.voice-overlay.listening .voice-mic,
+.voice-overlay.matched .voice-mic {
+  cursor: default;
+}
+.voice-overlay.listening .voice-mic:hover {
+  transform: none;
+  box-shadow: none;
+  background: radial-gradient(circle, rgba(196, 145, 58, 0.15) 0%, rgba(196, 145, 58, 0.02) 70%);
+}
+/* Etichetta "Tocca" sotto il mic in idle */
+.voice-mic-hint {
+  display: none;
+  font-family: var(--font-serif, 'Cinzel', serif);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin: -12px auto 20px;
+  text-align: center;
+  animation: voice-hint-fade 2s ease-in-out infinite;
+}
+.voice-overlay.show:not(.listening):not(.matched) .voice-mic-hint {
+  display: block;
+}
+@keyframes voice-hint-fade {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.voice-mic::before,
+.voice-mic::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  opacity: 0;
+}
+.voice-overlay.listening .voice-mic::before {
+  animation: voice-pulse 1.6s ease-out infinite;
+}
+.voice-overlay.listening .voice-mic::after {
+  animation: voice-pulse 1.6s ease-out 0.5s infinite;
+}
+@keyframes voice-pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.voice-overlay.matched .voice-mic {
+  border-color: var(--gold-bright);
+  background: radial-gradient(circle, rgba(255, 187, 1, 0.25) 0%, rgba(255, 187, 1, 0.05) 70%);
+  box-shadow: 0 0 40px rgba(255, 187, 1, 0.4);
+  transition: all 0.4s ease;
+}
+.voice-hint {
+  font-family: var(--font-serif, 'Cinzel', serif);
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  color: #fff;
+  font-style: italic;
+  margin-bottom: 22px;
+  line-height: 1.4;
+}
+.voice-status {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(196, 145, 58, 0.6);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  transition: color 0.2s ease, font-size 0.2s ease;
+}
+.voice-overlay.show:not(.listening):not(.matched) .voice-status {
+  color: var(--gold);
+  font-size: 14px;
+}
+.voice-close {
+  background: transparent;
+  border: 1px solid rgba(196, 145, 58, 0.4);
+  color: var(--gold);
+  font-family: var(--font-serif, 'Cinzel', serif);
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 10px 22px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+.voice-close:hover {
+  background: rgba(196, 145, 58, 0.1);
+  border-color: var(--gold);
+}
+.voice-error {
+  color: #d97a4a;
+  font-size: 13px;
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+}
+
+.voice-hint .voice-or {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(196, 145, 58, 0.5);
+  margin: 10px 0;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.voice-hint > div + div {
+  margin-top: 0;
+}

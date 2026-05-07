@@ -418,7 +418,7 @@
           <span class="sidebar-label">MONETE NFC</span>
           <div
             class="artifact-btn active-artifact"
-            onclick="placeCoinAndGo('lucerna-coin-1', 'indagine-2')"
+            onclick="startVoiceCommand('lucerna-fuori')"
             style="cursor: pointer"
           >
             <span class="icon">🕯</span>
@@ -797,31 +797,12 @@
         </div>
       </div>
 
-      <div
-        class="bottom-instruction"
-        style="
-          padding: 0 40px 24px;
-          display: flex;
-          gap: 12px;
-          align-items: flex-start;
-        "
-      >
-        <span style="color: var(--gold); font-size: 14px; margin-top: 2px"
-          >◆</span
-        >
-        <span
-          style="
-            font-style: italic;
-            font-size: 16.5px;
-            color: white;
-            letter-spacing: 0.5px;
-            line-height: 1.5;
-            max-width: 1200px;
-          "
-        >
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
           Osserva la sua dimora terrena e decifra i segni. Usa le monete per
           separare ciò che appartiene ai vivi da ciò che servirà a lei nel buio.
-        </span>
+        </p>
       </div>
 
       <div class="footbar">
@@ -942,7 +923,7 @@
           </div>
           <div
             class="artifact-btn active-artifact"
-            onclick="placeCoinAndGo('lekythos-coin-2', 'indagine-3')"
+            onclick="startVoiceCommand('lekythos-interno')"
             style="cursor: pointer"
           >
             <span class="icon">⚱</span>
@@ -1336,31 +1317,12 @@
         </div>
       </div>
 
-      <div
-        class="bottom-instruction"
-        style="
-          padding: 0 40px 24px;
-          display: flex;
-          gap: 12px;
-          align-items: flex-start;
-        "
-      >
-        <span style="color: var(--gold); font-size: 14px; margin-top: 2px"
-          >◆</span
-        >
-        <span
-          style="
-            font-style: italic;
-            font-size: 16.5px;
-            color: white;
-            letter-spacing: 0.5px;
-            line-height: 1.5;
-            max-width: 1200px;
-          "
-        >
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
           Osserva la sua dimora terrena e decifra i segni. Usa le monete per
           separare ciò che appartiene ai vivi da ciò che servirà a lei nel buio.
-        </span>
+        </p>
       </div>
 
       <div class="footbar">
@@ -1488,7 +1450,7 @@
           </div>
           <div
             class="artifact-btn active-artifact"
-            onclick="placeCoinAndGo('idria-coin-3', null)"
+            onclick="startVoiceCommand('idria-interno')"
             style="cursor: pointer"
           >
             <span class="icon">🏺</span>
@@ -1871,31 +1833,12 @@
         </div>
       </div>
 
-      <div
-        class="bottom-instruction"
-        style="
-          padding: 0 40px 24px;
-          display: flex;
-          gap: 12px;
-          align-items: flex-start;
-        "
-      >
-        <span style="color: var(--gold); font-size: 14px; margin-top: 2px"
-          >◆</span
-        >
-        <span
-          style="
-            font-style: italic;
-            font-size: 16.5px;
-            color: white;
-            letter-spacing: 0.5px;
-            line-height: 1.5;
-            max-width: 1200px;
-          "
-        >
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
           Osserva la sua dimora terrena e decifra i segni. Usa le monete per
           separare ciò che appartiene ai vivi da ciò che servirà a lei nel buio.
-        </span>
+        </p>
       </div>
 
       <div class="footbar">
@@ -2023,7 +1966,7 @@
 
           <p class="ultima-moneta">— ULTIMA MONETA NFC —</p>
 
-          <div class="laminetta-btn" onclick="placeLaminettaAndGo()">
+          <div class="laminetta-btn" onclick="startVoiceCommand('laminetta-petto')">
             <span class="scroll-emoji">📜</span>
             <div class="laminetta-label">LAMINETTA<br />ORFICA</div>
           </div>
@@ -2033,7 +1976,7 @@
         <div class="right-panel">
           <div
             class="chest-container"
-            onclick="placeLaminettaAndGo()"
+            onclick="startVoiceCommand('laminetta-petto')"
             style="cursor: pointer"
           >
             <img src="assets/tomba.png" alt="Primo piano petto della defunta" />
@@ -2596,11 +2539,14 @@
             </div>
             <button
               class="state-btn state-btn-purple"
-              onclick="goTo('cerbero-fail')"
+              onclick="startVoiceCommand(['lab-tenebra','lab-prosegui'])"
             >
               ← VERSO LA TENEBRA
             </button>
-            <button class="state-btn state-btn-blue" onclick="goTo('bivio-2a')">
+            <button
+              class="state-btn state-btn-blue"
+              onclick="startVoiceCommand(['lab-tenebra','lab-prosegui'])"
+            >
               ↑ PROSEGUI NEL LABIRINTO
             </button>
           </div>
@@ -2711,7 +2657,7 @@
             respingono nel buio.
           </p>
           <span class="outcome-sub">— RITORNA AL BIVIO —</span>
-          <button class="state-btn state-btn-blue" onclick="goTo('bivio-1')">
+          <button class="state-btn state-btn-blue" onclick="startVoiceCommand('lab-riprova-bivio1')">
             RIPROVA
           </button>
         </div>
@@ -2806,13 +2752,13 @@
             </div>
             <button
               class="state-btn state-btn-blue left"
-              onclick="goTo('oblio-fail')"
+              onclick="startVoiceCommand(['lab-cipresso','lab-fonte'])"
             >
               ← VERSO IL CIPRESSO BIANCO
             </button>
             <button
               class="state-btn state-btn-gold right"
-              onclick="goTo('mnemosyne-ok')"
+              onclick="startVoiceCommand(['lab-cipresso','lab-fonte'])"
             >
               VERSO LA FONTE AUREA →
             </button>
@@ -2924,7 +2870,7 @@
             e spegne la parola sacra.
           </p>
           <span class="outcome-sub">— RITORNA AL BIVIO —</span>
-          <button class="state-btn state-btn-blue" onclick="goTo('bivio-2b')">
+          <button class="state-btn state-btn-blue" onclick="startVoiceCommand('lab-riprova-bivio2')">
             RIPROVA
           </button>
         </div>
@@ -3029,7 +2975,7 @@
           </p>
           <button
             class="state-btn state-btn-gold"
-            onclick="goTo('domanda-guardiani')"
+            onclick="startVoiceCommand('lab-continua')"
           >
             CONTINUA →
           </button>
@@ -3133,13 +3079,13 @@
             </div>
             <button
               class="state-btn state-btn-blue left"
-              onclick="goTo('oblio-fail')"
+              onclick="startVoiceCommand(['lab-cipresso','lab-fonte'])"
             >
               ← VERSO IL CIPRESSO BIANCO
             </button>
             <button
               class="state-btn state-btn-gold right"
-              onclick="goTo('mnemosyne-ok')"
+              onclick="startVoiceCommand(['lab-cipresso','lab-fonte'])"
             >
               VERSO LA FONTE AUREA →
             </button>
@@ -3248,7 +3194,7 @@
           <h2>MNEMOSYNE HA PARLATO</h2>
           <button
             class="state-btn state-btn-gold"
-            onclick="goTo('domanda-guardiani')"
+            onclick="startVoiceCommand('lab-continua')"
           >
             SALI ALLA SOGLIA →
           </button>
@@ -3542,6 +3488,29 @@
       </div>
     </div>
 
+    <!-- ═══════════════════════════════════════════════
+     VOICE COMMAND OVERLAY
+═══════════════════════════════════════════════ -->
+    <div id="voiceOverlay" class="voice-overlay" role="dialog" aria-modal="true">
+      <div class="voice-card">
+        <div class="voice-label">⬥ Comando Vocale ⬥</div>
+        <div
+          class="voice-mic"
+          id="voiceMicBtn"
+          role="button"
+          tabindex="0"
+          aria-label="Attiva microfono"
+          onclick="_activateMic()"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();_activateMic();}"
+        >🎙</div>
+        <div class="voice-mic-hint">▲ Tocca il microfono ▲</div>
+        <div class="voice-hint" id="voiceHint">…</div>
+        <div class="voice-status" id="voiceStatus">Premi il microfono per parlare</div>
+        <button type="button" class="voice-close" onclick="stopVoiceCommand()">Annulla</button>
+        <div class="voice-error" id="voiceError"></div>
+      </div>
+    </div>
+
     <script>
       /* ── Audio narrazione ── */
       const narrazione = new Audio("assets");
@@ -3610,6 +3579,13 @@
         // Trigger laminetta aurea triptych animation
         if (id === "laminetta-aurea") {
           startMappaAdeSequence();
+        }
+
+        // Auto-avvia overlay vocale all'arrivo nel bivio 1
+        if (id === "bivio-1") {
+          setTimeout(() => {
+            startVoiceCommand(["lab-tenebra", "lab-prosegui"]);
+          }, 600);
         }
       }
 
@@ -3908,6 +3884,267 @@
           } else {
             document.exitFullscreen();
           }
+        }
+      });
+
+      /* ══════════════════════════════════════════════
+         VOICE COMMANDS — riconoscimento vocale (it-IT)
+      ══════════════════════════════════════════════ */
+      const VOICE_COMMANDS = {
+        "lucerna-fuori": {
+          hint: "« Pronuncia la frase (consulta pannello 2) »",
+          keywords: [["lucerna"], ["fuori", "esterno", "esterna", "dentro"]],
+          action: () => placeCoinAndGo("lucerna-coin-1", "indagine-2"),
+        },
+        "lekythos-interno": {
+          hint: "« Pronuncia la frase (consulta pannello 2) »",
+          keywords: [
+            ["lekythos", "lechitos", "lecito", "lechythos"],
+            ["interno", "dentro", "interna"],
+          ],
+          action: () => placeCoinAndGo("lekythos-coin-2", "indagine-3"),
+        },
+        "idria-interno": {
+          hint: "« Pronuncia la frase (consulta pannello 2) »",
+          keywords: [
+            ["idria", "hidria"],
+            ["interno", "dentro", "interna"],
+          ],
+          action: () => placeCoinAndGo("idria-coin-3", null),
+        },
+        "laminetta-petto": {
+          hint: "« Pronuncia la frase per completare (consulta pannello 2) »",
+          keywords: [
+            ["laminetta", "lamina"],
+            ["petto", "bocca", "defunta", "corpo"],
+          ],
+          action: () => placeLaminettaAndGo(),
+        },
+
+        /* ── Labirinto dell'Ade ── */
+        "lab-tenebra": {
+          hint: "« Verso la tenebra »",
+          keywords: [["tenebra", "tenebre", "buio", "cerbero"]],
+          action: () => goTo("cerbero-fail"),
+        },
+        "lab-prosegui": {
+          hint: "« Prosegui nel labirinto »",
+          keywords: [["prosegui", "labirinto", "avanti", "proseguire"]],
+          action: () => goTo("bivio-2a"),
+        },
+        "lab-cipresso": {
+          hint: "« Verso il cipresso bianco »",
+          keywords: [["cipresso", "bianco", "lete"]],
+          action: () => goTo("oblio-fail"),
+        },
+        "lab-fonte": {
+          hint: "« Verso la fonte aurea »",
+          keywords: [["fonte", "aurea", "mnemosyne", "memoria", "oro"]],
+          action: () => goTo("mnemosyne-ok"),
+        },
+        "lab-riprova-bivio1": {
+          hint: "« Ritorna al bivio »",
+          keywords: [["ritorna", "torna", "indietro", "riprova", "bivio"]],
+          action: () => goTo("bivio-1"),
+        },
+        "lab-riprova-bivio2": {
+          hint: "« Ritorna al bivio »",
+          keywords: [["ritorna", "torna", "indietro", "riprova", "bivio"]],
+          action: () => goTo("bivio-2b"),
+        },
+        "lab-continua": {
+          hint: "« Davanti ai Guardiani »",
+          keywords: [["continua", "guardiani", "avanti", "prosegui", "vai"]],
+          action: () => goTo("domanda-guardiani"),
+        },
+      };
+
+      let _currentRecognition = null;
+      let _voiceMatched = false;
+      let _pendingVoiceCmds = null;
+
+      function _normalize(s) {
+        return s
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[̀-ͯ]/g, "")
+          .replace(/['']/g, " ")
+          .replace(/[^a-z\s]/g, " ");
+      }
+
+      function _matchesAllGroups(text, groups) {
+        const t = _normalize(text);
+        return groups.every((group) =>
+          group.some((kw) => t.includes(_normalize(kw))),
+        );
+      }
+
+      function startVoiceCommand(commandKeyOrKeys) {
+        const keys = Array.isArray(commandKeyOrKeys)
+          ? commandKeyOrKeys
+          : [commandKeyOrKeys];
+        const cmds = keys
+          .map((k) => VOICE_COMMANDS[k])
+          .filter(Boolean);
+        if (!cmds.length) return;
+
+        const overlay = document.getElementById("voiceOverlay");
+        const hintEl = document.getElementById("voiceHint");
+        const statusEl = document.getElementById("voiceStatus");
+        const errorEl = document.getElementById("voiceError");
+
+        if (cmds.length === 1) {
+          hintEl.textContent = cmds[0].hint;
+        } else {
+          hintEl.innerHTML = cmds
+            .map((c) => `<div>${c.hint}</div>`)
+            .join('<div class="voice-or">— oppure —</div>');
+        }
+        errorEl.textContent = "";
+        statusEl.textContent = "Premi il microfono per parlare";
+        overlay.classList.remove("matched", "listening");
+        overlay.classList.add("show");
+        _voiceMatched = false;
+        _pendingVoiceCmds = cmds;
+
+        // Annulla qualsiasi riconoscimento precedente: il microfono partirà
+        // solo quando l'utente preme il pulsante.
+        if (_currentRecognition) {
+          try {
+            _currentRecognition.abort();
+          } catch (_) {}
+          _currentRecognition = null;
+        }
+      }
+
+      function _activateMic() {
+        if (_currentRecognition) return;
+        const cmds = _pendingVoiceCmds;
+        if (!cmds || !cmds.length) return;
+
+        const overlay = document.getElementById("voiceOverlay");
+        const statusEl = document.getElementById("voiceStatus");
+        const errorEl = document.getElementById("voiceError");
+
+        const SR =
+          window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SR) {
+          errorEl.textContent =
+            "Riconoscimento vocale non supportato dal browser. Usa Chrome o Edge.";
+          statusEl.textContent = "Non disponibile";
+          return;
+        }
+
+        const rec = new SR();
+        rec.lang = "it-IT";
+        rec.continuous = true;
+        rec.interimResults = true;
+        rec.maxAlternatives = 3;
+
+        rec.onresult = (e) => {
+          let full = "";
+          for (let i = 0; i < e.results.length; i++) {
+            full += e.results[i][0].transcript + " ";
+          }
+
+          // Cerca match contro tutti i comandi (primo che vince)
+          const latest = e.results[e.results.length - 1];
+          let matchedCmd = null;
+          for (const c of cmds) {
+            if (_matchesAllGroups(full, c.keywords)) {
+              matchedCmd = c;
+              break;
+            }
+            if (latest) {
+              for (let i = 0; i < latest.length; i++) {
+                if (_matchesAllGroups(latest[i].transcript, c.keywords)) {
+                  matchedCmd = c;
+                  break;
+                }
+              }
+              if (matchedCmd) break;
+            }
+          }
+
+          if (matchedCmd && !_voiceMatched) {
+            _voiceMatched = true;
+            statusEl.textContent = "Comando riconosciuto";
+            overlay.classList.remove("listening");
+            overlay.classList.add("matched");
+            try {
+              rec.stop();
+            } catch (_) {}
+            setTimeout(() => {
+              _hideVoiceOverlay();
+              matchedCmd.action();
+            }, 900);
+          }
+        };
+
+        rec.onerror = (e) => {
+          if (e.error === "not-allowed" || e.error === "service-not-allowed") {
+            errorEl.textContent =
+              "Permesso microfono negato. Abilitalo nelle impostazioni del browser.";
+            statusEl.textContent = "Errore";
+            overlay.classList.remove("listening");
+          } else if (e.error === "no-speech") {
+            statusEl.textContent = "Nessuna voce rilevata, riprova…";
+          } else if (e.error === "audio-capture") {
+            errorEl.textContent = "Microfono non disponibile.";
+            statusEl.textContent = "Errore";
+            overlay.classList.remove("listening");
+          }
+        };
+
+        rec.onend = () => {
+          if (_voiceMatched) return;
+          // Riavvia solo se l'overlay è ancora aperto in modalità ascolto
+          if (
+            overlay.classList.contains("show") &&
+            overlay.classList.contains("listening")
+          ) {
+            try {
+              rec.start();
+            } catch (_) {}
+          }
+        };
+
+        overlay.classList.add("listening");
+        statusEl.textContent = "In ascolto…";
+        try {
+          rec.start();
+        } catch (_) {
+          setTimeout(() => {
+            try {
+              rec.start();
+            } catch (_) {}
+          }, 200);
+        }
+        _currentRecognition = rec;
+      }
+
+      function _hideVoiceOverlay() {
+        const overlay = document.getElementById("voiceOverlay");
+        overlay.classList.remove("show", "listening", "matched");
+      }
+
+      function stopVoiceCommand() {
+        _voiceMatched = true; // impedisce auto-restart in onend
+        if (_currentRecognition) {
+          try {
+            _currentRecognition.abort();
+          } catch (_) {}
+          _currentRecognition = null;
+        }
+        _pendingVoiceCmds = null;
+        _hideVoiceOverlay();
+      }
+
+      // ESC chiude l'overlay vocale
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          const overlay = document.getElementById("voiceOverlay");
+          if (overlay && overlay.classList.contains("show")) stopVoiceCommand();
         }
       });
     </script>
