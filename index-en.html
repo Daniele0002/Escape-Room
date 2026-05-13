@@ -1,0 +1,4440 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escape Room - The Funerary Offering Rite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 0 – THE OFFERING RITE FUNERARIO
+═══════════════════════════════════════════════ -->
+
+    <div id="rito" class="screen active">
+      <img class="bg-image" src="assets/rito-bg.jpg" alt="" />
+      <div class="topbar">
+        <span class="phase-label">⬥ PHASE I · The Lady of Hipponion</span>
+        <span class="subtitle">INVESTIGATION AND COMBINATION</span>
+      </div>
+      <h1 class="rito-title">The Funerary Offering Rite</h1>
+      <button class="rito-btn" onclick="goTo('intro')">
+        <span class="btn-text">START</span>
+        <span class="btn-arrow">→</span>
+      </button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 1 – INTRODUZIONE
+═══════════════════════════════════════════════ -->
+
+<div id="intro" class="screen">
+      <img class="bg-image" src="assets/start.png" alt="" />
+      <div class="topbar">
+        <span class="phase-label">⬥ PHASE I · The Lady of Hipponion</span>
+        <span class="subtitle">INVESTIGATION AND COMBINATION</span>
+      </div>
+      <div class="center-content">
+        <p class="fase-label">Phase 1</p>
+        <h1 class="main-title">The Lady of Hipponion</h1>
+        <h2 class="sub-title">The Secrets of Tomb 19</h2>
+        <button class="btn-start" onclick="goTo('narrativa')">
+          Continue &nbsp;→
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 1.5 – INTRODUZIONE NARRATIVA (PHASE I)
+═══════════════════════════════════════════════ -->
+    <div id="narrativa" class="screen">
+      <div class="topbar">
+        <span class="phase-label">⬥ PHASE I · The Lady of Hipponion</span>
+        <span class="subtitle">INVESTIGATION AND COMBINATION</span> 
+      </div>
+
+      <div
+        class="main-area"
+        style="
+          padding: 100px 140px;
+          display: flex;
+          gap: 80px;
+          align-items: stretch;
+          justify-content: center;
+          height: 100%;
+        "
+      >
+        <!-- LEFT PANEL: Image / Diagram -->
+        <div
+          class="narrativa-left"
+          style="
+            flex: 0 0 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <div
+            class="tomb-placeholder"
+            style="
+              width: 400px;
+              height: 280px;
+              background: rgba(10, 8, 5, 0.6);
+              border: 1px solid rgba(196, 145, 58, 0.2);
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0 0 40px rgba(0, 0, 0, 0.8) inset;
+            "
+          >
+            <!-- Faux tomb outline -->
+            <div
+              style="
+                position: absolute;
+                border: 1px solid rgba(196, 145, 58, 0.3);
+                width: 80%;
+                height: 60%;
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                border-top: 1px dashed rgba(196, 145, 58, 0.2);
+                width: 100%;
+                top: 50%;
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                border-left: 1px dashed rgba(196, 145, 58, 0.2);
+                height: 100%;
+                left: 50%;
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                border: 1px solid rgba(196, 145, 58, 0.3);
+                border-radius: 50%;
+                left: 15%;
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                border: 1px solid rgba(196, 145, 58, 0.3);
+                border-radius: 50%;
+                right: 15%;
+              "
+            ></div>
+            <!-- Huge Question Mark -->
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 100px;
+                color: #fff;
+                font-weight: 700;
+                z-index: 2;
+                text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+              "
+              >?</span
+            >
+          </div>
+          <div style="margin-top: 24px; text-align: center">
+            <p
+              style="
+                font-family: var(--font-serif);
+                font-size: 12px;
+                color: #4a3015;
+                letter-spacing: 2px;
+              "
+            >
+              CAPPUCCINA-STYLE TOMB
+            </p>
+            <p
+              style="
+                font-family: var(--font-serif);
+                font-size: 12px;
+                color: #4a3015;
+                letter-spacing: 2px;
+                margin-top: 4px;
+              "
+            >
+              NECROPOLI DI HIPPONION · N. 19
+            </p>
+          </div>
+        </div>
+
+        <!-- RIGHT PANEL: Text and Controls -->
+        <div
+          class="narrativa-right"
+          style="
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+        >
+          <!-- Voice Label -->
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              margin-bottom: 24px;
+            "
+          >
+            <div
+              style="
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--gold-dark);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 12px;
+                color: var(--gold-dark);
+                letter-spacing: 2px;
+              "
+              >THE NARRATOR</span
+            >
+            <div
+              class="audio-bars"
+              style="
+                margin-left: 8px;
+                display: flex;
+                align-items: flex-end;
+                gap: 2px;
+                height: 14px;
+              "
+            >
+              <div
+                class="audio-bar"
+                style="width: 2px; background: var(--gold-dark); height: 10px"
+              ></div>
+              <div
+                class="audio-bar"
+                style="width: 2px; background: var(--gold-dark); height: 14px"
+              ></div>
+              <div
+                class="audio-bar"
+                style="width: 2px; background: var(--gold-dark); height: 8px"
+              ></div>
+              <div
+                class="audio-bar"
+                style="width: 2px; background: var(--gold-dark); height: 12px"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Quote Box -->
+          <div
+            style="
+              position: relative;
+              padding-left: 14px;
+              border-left: 1px solid rgba(196, 145, 58, 0.4);
+              margin-bottom: 40px;
+            "
+          >
+            <span
+              style="
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                font-family: var(--font-serif);
+                font-size: 40px;
+                color: rgba(196, 145, 58, 0.3);
+              "
+              >“</span
+            >
+            <p
+              style="
+                font-family: var(--font-italic);
+                font-size: 24px;
+                color: var(--gold-pale);
+                line-height: 1.8;
+                margin-bottom: 16px;
+              "
+            >
+              The Lady of Hipponion ci ha lasciati.
+            </p>
+            <p
+              style="
+                font-family: var(--font-italic);
+                font-size: 24px;
+                color: var(--gold-pale);
+                line-height: 1.8;
+                margin-bottom: 16px;
+              "
+            >
+              Observe her earthly dwelling and decipher the signs on the great
+              panel.
+            </p>
+            <p
+              style="
+                font-family: var(--font-italic);
+                font-size: 24px;
+                color: var(--gold-pale);
+                line-height: 1.8;
+              "
+            >
+              Use the coins to separate what belongs to the living from what
+              will serve her in the dark.
+            </p>
+            <span
+              style="
+                position: absolute;
+                bottom: -30px;
+                right: 0;
+                font-family: var(--font-serif);
+                font-size: 40px;
+                color: rgba(196, 145, 58, 0.3);
+              "
+              >”</span
+            >
+          </div>
+
+          <!-- Instruction Text -->
+          <p
+            style="
+              font-family: var(--font-serif);
+              font-size: 13px;
+              color: #fff;
+              letter-spacing: 1.5px;
+              line-height: 1.6;
+              margin-bottom: 30px;
+              max-width: 500px;
+            "
+          >
+            STUDY PANEL I ON BURIALS TO FIND THE CORRECT RULE
+            FOR THE <span style="color: var(--gold)">CAPPUCCINA-STYLE TOMB</span>.
+            THEN USE THE NFC COINS TO PLACE THE FINDS.
+          </p>
+
+          <!-- Button -->
+          <div>
+            <button
+              class="btn-start"
+              onclick="goTo('indagine-1')"
+            >
+              BEGIN THE RITE &nbsp;→
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footbar" style="border-color: rgba(196, 145, 58, 0.2)">
+        <div class="steps">
+          <div class="step active">
+            <div
+              class="dot"
+              style="
+                background: var(--gold);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                color: var(--gold);
+                letter-spacing: 1.27px;
+              "
+              >Offering Rite</span
+            >
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                color: #3a2810;
+                letter-spacing: 1.27px;
+              "
+              >Orphic Secret</span
+            >
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                color: #3a2810;
+                letter-spacing: 1.27px;
+              "
+              >Labyrinth of Hades</span
+            >
+          </div>
+        </div>
+        <span
+          style="
+            font-family: var(--font-serif);
+            font-size: 8.438px;
+            letter-spacing: 1.69px;
+            color: #3a2810;
+          "
+          >GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span
+        >
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 2 – INDAGINE
+═══════════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 2.1 – INDAGINE 1 (LUCERNA)
+═══════════════════════════════════════════════ -->
+    <div id="indagine-1" class="screen">
+      <div class="topbar">
+        <div style="display: flex; align-items: center; gap: 16px">
+          <span class="phase-label" style="color: var(--gold)"
+            >⬥ PHASE I · THE LADY OF HIPPONION</span
+          >
+          <div class="topbar-dots">
+            <div class="topbar-dot active"></div>
+            <div class="topbar-dot"></div>
+            <div class="topbar-dot"></div>
+          </div>
+        </div>
+        <span class="subtitle">TOMBA 19 · THE OFFERING RITE</span>
+      </div>
+
+      <div class="main-area">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+          <span class="sidebar-label">RELICS</span>
+          <div class="artifact-btn" draggable="true" data-artifact="lucerna">
+            <span class="icon">🕯</span>
+            <div class="info">
+              <span class="name">Lamp</span
+              ><span class="desc">Outside the tomb</span>
+            </div>
+          </div>
+          <div class="artifact-btn" draggable="true" data-artifact="lekythos">
+            <span class="icon">⚱</span>
+            <div class="info">
+              <span class="name">Lekythos</span
+              ><span class="desc">The oil vessel</span>
+            </div>
+          </div>
+          <div class="artifact-btn" draggable="true" data-artifact="idria">
+            <span class="icon">🏺</span>
+            <div class="info">
+              <span class="name">Idria</span
+              ><span class="desc">The water vessel</span>
+            </div>
+          </div>
+          <div style="padding:12px;border:1px solid rgba(196,145,58,0.2);border-radius:4px;font-style:italic;font-size:12px;color:rgba(255,255,255,0.6);text-align:center;background:rgba(20,15,8,0.5)">
+            Drag each relic to the correct position. The lamp remains outside
+            the tomb: it lights the passage.
+          </div>
+        </div>
+
+        <!-- MAP AREA -->
+        <div
+          class="map-area"
+          style="
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 40px;
+          "
+        >
+          <div
+            class="tomb-map-exact"
+            style="
+              position: relative;
+              width: 100%;
+              height: 420px;
+              margin-top: 30px;
+            "
+          >
+            <span
+              style="
+                position: absolute;
+                top: -30px;
+                left: 0;
+                font-family: var(--font-serif);
+                font-size: 12px;
+                color: rgba(196, 145, 58, 0.5);
+                letter-spacing: 2px;
+              "
+              >HEAD</span
+            >
+            <span
+              style="
+                position: absolute;
+                top: -45px;
+                right: 20px;
+                font-family: var(--font-serif);
+                font-size: 28px;
+                color: #fff;
+                letter-spacing: 2px;
+              "
+              >OUTSIDE</span
+            >
+
+            <!-- The Main Box -->
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 120px;
+                border: 3px solid rgba(196, 145, 58, 0.4);
+                border-radius: 4px;
+                box-sizing: border-box;
+                background-image: repeating-linear-gradient(
+                  to right,
+                  transparent,
+                  transparent calc(10% - 1px),
+                  rgba(196, 145, 58, 0.08) calc(10% - 1px),
+                  rgba(196, 145, 58, 0.08) 10%
+                );
+                overflow: hidden;
+                background-color: rgba(10, 8, 5, 0.3);
+              "
+            >
+              <!-- INSIDE Box -->
+              <div
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  width: 93%;
+                  background: rgba(30, 20, 10, 0.6);
+                  border-right: 2px dashed rgba(196, 145, 58, 0.4);
+                  padding: 16px;
+                "
+              >
+                <span
+                  style="
+                    font-family: var(--font-serif);
+                    font-size: 20px;
+                    color: #fff;
+                    letter-spacing: 2px;
+                  "
+                  >INSIDE</span
+                >
+                <!-- The Body Skeleton -->
+                <div
+                  style="
+                    position: absolute;
+                    top: 52%;
+                    width: 100%;
+                    height: 50px;
+                    transform: translateY(-50%);
+                    display: flex;
+                    align-items: center;
+                    left: 0;
+                  "
+                >
+                  <div
+                    style="
+                      width: 5%;
+                      border-bottom: 2px dashed rgba(196, 145, 58, 0.4);
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 50px;
+                      height: 50px;
+                      border-radius: 50%;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -2px;
+                      z-index: 1;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 250px;
+                      height: 46px;
+                      border-radius: 12px;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -6px;
+                      z-index: 2;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 44px;
+                      height: 44px;
+                      border-radius: 50%;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -8px;
+                      z-index: 3;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 140px;
+                      height: 30px;
+                      border-radius: 8px;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -5px;
+                      z-index: 2;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 32px;
+                      height: 32px;
+                      border-radius: 50%;
+                      border: 2px solid rgba(196, 145, 58, 0.4);
+                      background: rgba(196, 145, 58, 0.05);
+                      margin-left: -6px;
+                      z-index: 3;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      flex-grow: 1;
+                      border-bottom: 2px dashed rgba(196, 145, 58, 0.4);
+                      margin-left: -2px;
+                    "
+                  ></div>
+                </div>
+                <!-- Drop targets inside Interno -->
+                <div
+                  style="
+                    position: absolute;
+                    top: 12%;
+                    left: 32%;
+                    width: 70px;
+                    height: 70px;
+                    border: 2px solid rgba(196, 145, 58, 0.3);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(20, 15, 8, 0.6);
+                  "
+                >
+                  <div
+                    style="
+                      width: 46px;
+                      height: 46px;
+                      border: 1px dashed rgba(196, 145, 58, 0.5);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 12px;
+                        height: 12px;
+                        border: 1px solid rgba(196, 145, 58, 0.3);
+                        border-radius: 50%;
+                      "
+                      data-drop-zone="interno-1"
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  style="
+                    position: absolute;
+                    top: 12%;
+                    left: 55%;
+                    width: 70px;
+                    height: 70px;
+                    border: 2px solid rgba(196, 145, 58, 0.3);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(20, 15, 8, 0.6);
+                  "
+                >
+                  <div
+                    style="
+                      width: 46px;
+                      height: 46px;
+                      border: 1px dashed rgba(196, 145, 58, 0.5);
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 12px;
+                        height: 12px;
+                        border: 1px solid rgba(196, 145, 58, 0.3);
+                        border-radius: 50%;
+                      "
+                      data-drop-zone="interno-2"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- The OUTSIDE circle + ANIMATED LUCERNA -->
+            <div
+              style="
+                position: absolute;
+                bottom: 22%;
+                right: 20px;
+                width: 70px;
+                height: 70px;
+                border: 2px solid rgba(196, 145, 58, 0.3);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 5;
+                background: rgba(20, 15, 8, 0.6);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  left: -30px;
+                  width: 28px;
+                  top: 50%;
+                  height: 2px;
+                  background: rgba(196, 145, 58, 0.4);
+                "
+              ></div>
+              <div
+                style="
+                  width: 46px;
+                  height: 46px;
+                  border: 1px dashed rgba(196, 145, 58, 0.5);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <div
+                  style="
+                    width: 12px;
+                    height: 12px;
+                    border: 1px solid rgba(196, 145, 58, 0.3);
+                    border-radius: 50%;
+                  "
+                  data-drop-zone="fuori"
+                ></div>
+              </div>
+            </div>
+
+            <div
+              style="
+                position: absolute;
+                bottom: -50px;
+                left: 0;
+                right: 120px;
+                text-align: center;
+                font-family: var(--font-serif);
+                font-size: 14px;
+                color: rgba(196, 145, 58, 0.6);
+                letter-spacing: 1px;
+              "
+            >
+              CAPPUCCINA-STYLE TOMB · SEPOLTURA N.19
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          Observe her earthly dwelling and decipher the signs. Use the coins to
+          separate what belongs to the living from what will serve her in the dark.
+        </p>
+      </div>
+
+      <div class="footbar">
+        <div class="steps">
+          <div class="step active">
+            <div
+              class="dot"
+              style="
+                background: var(--gold);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: var(--gold);
+              "
+              >Offering Rite</span
+            >
+            <span
+              style="
+                font-size: 9.6px;
+                color: #2a1808;
+                margin-left: 12px;
+                margin-right: 12px;
+              "
+              >›</span
+            >
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: #3a2810;
+              "
+              >Orphic Secret</span
+            >
+            <span
+              style="
+                font-size: 9.6px;
+                color: #2a1808;
+                margin-left: 12px;
+                margin-right: 12px;
+              "
+              >›</span
+            >
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: #3a2810;
+              "
+              >Labyrinth of Hades</span
+            >
+          </div>
+        </div>
+        <span
+          style="
+            font-family: var(--font-serif);
+            font-size: 8.438px;
+            letter-spacing: 1.69px;
+            color: #3a2810;
+          "
+          >GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span
+        >
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 3 – AZIONE (PHASE II) — segue sotto
+═══════════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 3 – AZIONE (PHASE II)
+═══════════════════════════════════════════════ -->
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 3 – AZIONE (PHASE II)
+═══════════════════════════════════════════════ -->
+    <div id="azione" class="screen">
+      <div class="topbar">
+        <span class="phase-label">⬥ PHASE II · THE ORPHIC SECRET</span>
+        <span
+          class="subtitle"
+          style="color: #4a3015; font-size: 10.125px; letter-spacing: 2px"
+          >THE GOLDEN TABLET</span
+        >
+      </div>
+
+      <div class="main-area">
+        <!-- LEFT PANEL -->
+        <div class="left-panel">
+          <div class="audio-indicator">
+            <div class="audio-dot"></div>
+            <div class="audio-bars">
+              <div class="audio-bar" style="height: 14px"></div>
+              <div class="audio-bar" style="height: 10px"></div>
+              <div class="audio-bar" style="height: 14px"></div>
+              <div class="audio-bar" style="height: 17px"></div>
+            </div>
+          </div>
+
+          <div class="quote-block">
+            <p>
+              «The body is ready, but the soul stands bare before the unknown. Give her
+              the secret of Hades.»
+            </p>
+          </div>
+
+          <p class="ultima-moneta">- ORPHIC TABLET -</p>
+
+          <div
+            class="laminetta-btn"
+            draggable="true"
+            data-laminetta-artifact="laminetta"
+          >
+            <span class="scroll-emoji">📜</span>
+            <div class="laminetta-label">ORPHIC<br />TABLET</div>
+          </div>
+        </div>
+
+        <!-- RIGHT PANEL – chest -->
+        <div class="right-panel">
+          <div class="chest-container">
+            <img src="assets/tomba.png" alt="Primo piano petto della defunta" />
+            <!-- grid overlay lines -->
+            <div class="chest-grid">
+              <div
+                class="chest-grid-h"
+                style="
+                  position: absolute;
+                  top: 17%;
+                  left: 0;
+                  right: 0;
+                  height: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-h"
+                style="
+                  position: absolute;
+                  top: 28%;
+                  left: 0;
+                  right: 0;
+                  height: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-h"
+                style="
+                  position: absolute;
+                  top: 39%;
+                  left: 0;
+                  right: 0;
+                  height: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 10%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 20%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 30%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 40%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 50%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 60%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 70%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 80%;
+                  width: 1px;
+                "
+              ></div>
+              <div
+                class="chest-grid-v"
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 90%;
+                  width: 1px;
+                "
+              ></div>
+            </div>
+
+            <!-- Laminetta animata -->
+            <div
+              class="laminetta-drop-zone"
+              data-laminetta-drop="petto"
+              style="
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 10;
+              "
+            >
+              <div
+                id="laminetta-placed"
+                style="
+                  opacity: 0;
+                  width: 50px;
+                  height: 50px;
+                  background: radial-gradient(
+                    at 40% 35%,
+                    #f0e080 0%,
+                    #dab95d 25%,
+                    #c4913a 50%,
+                    #9f7329 75%,
+                    #7a5518 100%
+                  );
+                  border: 2px solid #e8c050;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  box-shadow:
+                    0 0 30px rgba(196, 145, 58, 0.6),
+                    inset 0 0 15px rgba(255, 255, 255, 0.3);
+                  transform-origin: center;
+                "
+              >
+                <div
+                  style="
+                    font-family: var(--font-serif);
+                    font-size: 8px;
+                    color: rgba(0, 0, 0, 0.5);
+                    text-align: center;
+                    line-height: 1.1;
+                    letter-spacing: 0.5px;
+                    font-weight: bold;
+                  "
+                >
+                  ΘΑΡΡΕΙ<br />ΟΥΔΕΙΣ<br />ΑΘΑΝ<br />ΑΤΟΣ
+                </div>
+              </div>
+            </div>
+
+            <!-- Solco IV label -->
+            <p
+              style="
+                position: absolute;
+                bottom: 5%;
+                left: 50%;
+                transform: translateX(-50%);
+                font-family: var(--font-serif);
+                font-size: 9px;
+                color: #4a3015;
+                letter-spacing: 1px;
+                white-space: nowrap;
+              "
+            >
+              CLOSE-UP · CHEST OF THE DECEASED
+            </p>
+          </div>
+          <div class="zoom-badge">ZOOM x TOMB N.19</div>
+        </div>
+      </div>
+
+      <div class="instruct-bar">
+        <span class="diamond" style="color: var(--gold)">⬥</span>
+        <p>
+          Take the Orphic Tablet - the last remaining coin - and place it
+          on the chest of the deceased, at heart height.
+        </p>
+      </div>
+
+      <div class="footbar" style="border-color: rgba(196, 145, 58, 0.2)">
+        <div class="steps">
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.19);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: rgba(196, 145, 58, 0.4);
+              "
+              >Offering Rite</span
+            >
+            <span style="font-size: 9.6px; color: #2a1808">›</span>
+          </div>
+          <div class="step active">
+            <div
+              class="dot"
+              style="
+                background: var(--gold);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: var(--gold);
+              "
+              >Orphic Secret</span
+            >
+            <span style="font-size: 9.6px; color: #2a1808">›</span>
+          </div>
+          <div class="step">
+            <div
+              class="dot"
+              style="
+                background: rgba(196, 145, 58, 0.2);
+                border-color: rgba(196, 145, 58, 0.4);
+              "
+            ></div>
+            <span
+              style="
+                font-family: var(--font-serif);
+                font-size: 8.438px;
+                letter-spacing: 1.27px;
+                color: #3a2810;
+              "
+              >Labyrinth of Hades</span
+            >
+          </div>
+        </div>
+        <span
+          style="
+            font-family: var(--font-serif);
+            font-size: 8.438px;
+            letter-spacing: 1.69px;
+            color: #3a2810;
+          "
+          >GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span
+        >
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 3.5 – LAMINETTA AUREA (REVEAL)
+═══════════════════════════════════════════════ -->
+    <div
+      id="laminetta-aurea"
+      class="screen"
+      style="
+        background: radial-gradient(circle at center, #1a0f05 0%, #000 100%);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      "
+    >
+      <!-- Header -->
+      <div
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          padding: 18px 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid rgba(196, 145, 58, 0.15);
+          background: rgba(0, 0, 0, 0.4);
+        "
+      >
+        <span
+          style="
+            font-family: var(--font-serif);
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+          "
+        >
+          ◆ &nbsp; LAMINETTA AUREA &nbsp;·&nbsp; TOMBA 19 &nbsp;·&nbsp;
+          HIPPONION &nbsp;·&nbsp; IV SEC. A.C. &nbsp; ◆
+        </span>
+      </div>
+
+      <!-- Triptych panels wrapper -->
+      <div
+        id="triptych-ade"
+        class="aurea-triptych"
+        style="position: relative; margin-top: 40px"
+      >
+        <!-- Title Overlay (Center) -->
+        <div class="mappa-title-overlay" id="mappa-title">
+          <p
+            style="
+              font-family: var(--font-serif);
+              font-size: 12px;
+              letter-spacing: 4px;
+              color: var(--gold);
+              text-transform: uppercase;
+              opacity: 0.8;
+            "
+          >
+            Svelata la via
+          </p>
+          <h2>THE MAP OF HADES</h2>
+        </div>
+
+        <!-- LEFT PANEL -->
+        <div class="aurea-panel aurea-left"></div>
+
+        <!-- CENTER PANEL -->
+        <div class="aurea-panel aurea-center"></div>
+
+        <!-- RIGHT PANEL -->
+        <div class="aurea-panel aurea-right"></div>
+      </div>
+
+      <!-- CTA Button -->
+      <button
+        id="btn-avanza-ade"
+        class="btn-start btn-avanza-ade"
+        onclick="closeAureaAndGoLabirinto()"
+      >
+        ADVANCE TOWARD HADES →
+      </button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4 – LABIRINTO
+═══════════════════════════════════════════════ -->
+    <div id="labirinto" class="screen lab-phase" data-figma-node="74-7057">
+      <div class="topbar">
+        <span class="phase-label">⬥ PHASE III · THE LABYRINTH OF HADES</span>
+        <div class="lab-header-meta">
+          <span class="subtitle">REMEMBER THE TABLET</span>
+        </div>
+      </div>
+
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labyrinth of Hades"
+          ></iframe>
+
+          <div class="map-content">
+            <div class="lab-border"></div>
+
+            <!-- Vertical connector lines -->
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+
+            <!-- Fonte di Lete box -->
+            <div class="lab-lethe">
+              <span class="cypress">🌿</span>
+            </div>
+            <div class="lab-lethe-label">SPRING OF LETHE</div>
+            <div class="lab-lethe-sub" style="top: 26%">WHITE CYPRESS</div>
+
+            <!-- Lago di Mnemosyne box -->
+            <div class="lab-mnemosyne">
+              <div class="ellipse"></div>
+            </div>
+            <div class="lab-mnemosyne-label">LAKE OF MNEMOSYNE ✦</div>
+
+            <!-- Cerbero box -->
+            <div class="lab-cerbero">
+              <span class="monster">🐕</span>
+            </div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+
+            <!-- Acheronte river -->
+            <div class="lab-acheronte">
+              <div class="river"></div>
+            </div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+
+            <!-- Central round rooms (torch-lit) -->
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span>
+              <span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span>
+              <span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+
+            <!-- L'Anima -->
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >THE SOUL</span
+              >
+            </div>
+
+            <!-- CTA buttons (as in Figma 74-7058) -->
+            <button class="lab-cta-up" onclick="goTo('bivio-1')">
+              START IL CAMMINO
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          The soul stands at the entrance to the realm of the dead. The path is
+          dark, and the roads divide. Use the wisdom of the Tablet to
+          find the way.
+        </p>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Offering Rite</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Orphic Secret</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labyrinth of Hades</span>
+          </div>
+        </div>
+        <span class="loc">GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.1 – BIVIO 1
+═══════════════════════════════════════════════ -->
+    <div id="bivio-1" class="screen lab-phase" data-figma-node="117-2282">
+      <div class="topbar">
+        <span class="phase-label">⬥ PHASE III · THE LABYRINTH OF HADES</span>
+        <div class="lab-header-meta">
+          <span class="subtitle">CROSSROADS I · IN THE HEART OF THE LABYRINTH</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labyrinth of Hades"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">SPRING OF LETHE</div>
+            <div class="lab-lethe-sub" style="top: 26%">WHITE CYPRESS</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAKE OF MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >THE SOUL</span
+              >
+            </div>
+            <button
+              class="state-btn state-btn-purple"
+              onclick="startVoiceCommand(['lab-tenebra','lab-prosegui'])"
+            >
+              ← TOWARD DARKNESS
+            </button>
+            <button
+              class="state-btn state-btn-blue"
+              onclick="startVoiceCommand(['lab-tenebra','lab-prosegui'])"
+            >
+              ↑ CONTINUE THROUGH THE LABYRINTH
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          A crossroads in the heart of the labyrinth. Consult Panel II to
+          identify the correct direction.
+        </p>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Offering Rite</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Orphic Secret</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labyrinth of Hades</span>
+          </div>
+        </div>
+        <span class="loc">GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.2 – CERBERO FAIL
+═══════════════════════════════════════════════ -->
+    <div id="cerbero-fail" class="screen lab-phase" data-figma-node="117-1331">
+      <div class="topbar">
+        <span class="phase-label">⬥ PHASE III · THE LABYRINTH OF HADES</span>
+        <div class="lab-header-meta">
+          <span class="subtitle">WRONG OUTCOME</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labyrinth of Hades"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">SPRING OF LETHE</div>
+            <div class="lab-lethe-sub" style="top: 26%">WHITE CYPRESS</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAKE OF MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >THE SOUL</span
+              >
+            </div>
+            <div class="lab-map-overlay-dark"></div>
+          </div>
+        </div>
+        <div class="lab-outcome fail">
+          <div class="outcome-icon">☠</div>
+          <h2>THE CHAINS OF CERBERUS</h2>
+          <p>
+            A dark presence blocks the passage. The guardian's chains drive you
+            back into the darkness.
+          </p>
+          <span class="outcome-sub">- RETURN TO THE CROSSROADS -</span>
+          <button class="state-btn state-btn-blue" onclick="startVoiceCommand('lab-riprova-bivio1')">
+            TRY AGAIN
+          </button>
+        </div>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Offering Rite</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Orphic Secret</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labyrinth of Hades</span>
+          </div>
+        </div>
+        <span class="loc">GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.3 – BIVIO 2
+═══════════════════════════════════════════════ -->
+    <div id="bivio-2a" class="screen lab-phase" data-figma-node="117-1576">
+      <div class="topbar">
+        <span class="phase-label">⬥ PHASE III · THE LABYRINTH OF HADES</span>
+        <div class="lab-header-meta">
+          <span class="meta-chip">DEVIATIONS: 2</span>
+          <span class="subtitle">CROSSROADS II · LETHE OR MNEMOSYNE</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labyrinth of Hades"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">SPRING OF LETHE</div>
+            <div class="lab-lethe-sub" style="top: 26%">WHITE CYPRESS</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAKE OF MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >THE SOUL</span
+              >
+            </div>
+            <button
+              class="state-btn state-btn-blue left"
+              onclick="startVoiceCommand(['lab-cipresso','lab-fonte'])"
+            >
+              ← VERSO IL WHITE CYPRESS
+            </button>
+            <button
+              class="state-btn state-btn-gold right"
+              onclick="startVoiceCommand(['lab-cipresso','lab-fonte'])"
+            >
+              TOWARD THE GOLDEN SPRING →
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          The second crossroads. The white cypress stands to the left; the golden
+          spring waits to the right.
+        </p>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Offering Rite</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Orphic Secret</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labyrinth of Hades</span>
+          </div>
+        </div>
+        <span class="loc">GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.4 – OBLIVION FAIL
+═══════════════════════════════════════════════ -->
+    <div id="oblio-fail" class="screen lab-phase" data-figma-node="178-28">
+      <div class="topbar">
+        <span class="phase-label">⬥ PHASE III · THE LABYRINTH OF HADES</span>
+        <div class="lab-header-meta">
+          <span class="subtitle">WRONG OUTCOME</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labyrinth of Hades"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">SPRING OF LETHE</div>
+            <div class="lab-lethe-sub" style="top: 26%">WHITE CYPRESS</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAKE OF MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >THE SOUL</span
+              >
+            </div>
+            <div class="lab-map-overlay-dark"></div>
+          </div>
+        </div>
+        <div class="lab-outcome fail water">
+          <div class="outcome-icon">💧</div>
+          <h2>THE WATER OF FORGETFULNESS</h2>
+          <p>
+            Do not approach the spring of Lethe. Every sip erases memory
+            and extinguishes the sacred word.
+          </p>
+          <span class="outcome-sub">- RETURN TO THE CROSSROADS -</span>
+          <button class="state-btn state-btn-blue" onclick="startVoiceCommand('lab-riprova-bivio2')">
+            TRY AGAIN
+          </button>
+        </div>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Offering Rite</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Orphic Secret</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labyrinth of Hades</span>
+          </div>
+        </div>
+        <span class="loc">GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.5 – MNEMOSYNE OK
+═══════════════════════════════════════════════ -->
+    <div id="mnemosyne-ok" class="screen lab-phase" data-figma-node="117-2542">
+      <div class="topbar">
+        <span class="phase-label">⬥ PHASE III · THE LABYRINTH OF HADES</span>
+        <div class="lab-header-meta">
+          <span class="meta-chip">DEVIATIONS: 2</span>
+          <span class="subtitle">REMEMBER THE TABLET</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labyrinth of Hades"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">SPRING OF LETHE</div>
+            <div class="lab-lethe-sub" style="top: 26%">WHITE CYPRESS</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAKE OF MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >THE SOUL</span
+              >
+            </div>
+            <div class="lab-map-overlay-dark"></div>
+          </div>
+        </div>
+        <div class="lab-outcome success">
+          <div class="outcome-icon">✦</div>
+          <h2>MNEMOSYNE HAS SPOKEN</h2>
+          <p>
+            The soul has drunk the water of Memory. Now it can speak before the
+            Guardians of Hades.
+          </p>
+          <button
+            class="state-btn state-btn-gold"
+            onclick="startVoiceCommand('lab-continua')"
+          >
+            CONTINUE →
+          </button>
+        </div>
+      </div>
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          The soul has found Mnemosyne. The guardians of Hades will now open
+          their judgment.
+        </p>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Offering Rite</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Orphic Secret</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labyrinth of Hades</span>
+          </div>
+        </div>
+        <span class="loc">GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.6 – BIVIO 2 (DEVIATIONS: 2)
+═══════════════════════════════════════════════ -->
+    <div id="bivio-2b" class="screen lab-phase" data-figma-node="117-2819">
+      <div class="topbar">
+        <span class="phase-label"
+          >⬥ PHASE III · THE LABYRINTH OF HADES · DEVIATIONS: 2</span
+        >
+        <div class="lab-header-meta">
+          <span class="subtitle">SECOND CROSSROADS · CYPRESS OR GOLDEN SPRING</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labyrinth of Hades"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">SPRING OF LETHE</div>
+            <div class="lab-lethe-sub" style="top: 26%">WHITE CYPRESS</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAKE OF MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >THE SOUL</span
+              >
+            </div>
+            <button
+              class="state-btn state-btn-blue left"
+              onclick="startVoiceCommand(['lab-cipresso','lab-fonte'])"
+            >
+              ← VERSO IL WHITE CYPRESS
+            </button>
+            <button
+              class="state-btn state-btn-gold right"
+              onclick="startVoiceCommand(['lab-cipresso','lab-fonte'])"
+            >
+              TOWARD THE GOLDEN SPRING →
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          The second crossroads. The white cypress stands to the left; the golden
+          spring waits to the right.
+        </p>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Offering Rite</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Orphic Secret</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labyrinth of Hades</span>
+          </div>
+        </div>
+        <span class="loc">GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.7 – MNEMOSYNE (SUCCESSO)
+═══════════════════════════════════════════════ -->
+    <div id="mnemosyne-ok" class="screen lab-phase" data-figma-node="117-2542">
+      <div class="topbar">
+        <span class="phase-label">⬥ PHASE III · THE LABYRINTH OF HADES</span>
+        <div class="lab-header-meta">
+          <span class="subtitle">THE LAKE OF MEMORY</span>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <div class="labyrinth-map">
+          <iframe
+            src="labirinto.html"
+            class="labyrinth-iframe"
+            scrolling="no"
+            title="Mappa del Labyrinth of Hades"
+          ></iframe>
+          <div class="map-content">
+            <div class="lab-border"></div>
+            <div
+              class="lab-vline"
+              style="left: 44.7%; top: 17%; bottom: 17%"
+            ></div>
+            <div
+              class="lab-hline"
+              style="top: 50%; left: 13.7%; right: 13.7%"
+            ></div>
+            <div class="lab-lethe"><span class="cypress">🌿</span></div>
+            <div class="lab-lethe-label">SPRING OF LETHE</div>
+            <div class="lab-lethe-sub" style="top: 26%">WHITE CYPRESS</div>
+            <div class="lab-mnemosyne"><div class="ellipse"></div></div>
+            <div class="lab-mnemosyne-label">LAKE OF MNEMOSYNE ✦</div>
+            <div class="lab-cerbero"><span class="monster">🐕</span></div>
+            <div
+              class="lab-cerbero-label"
+              style="
+                top: 76%;
+                left: 19.6%;
+                font-family: var(--font-serif);
+                font-size: 8px;
+                color: #6030a0;
+                white-space: nowrap;
+              "
+            >
+              CERBERO
+            </div>
+            <div class="lab-acheronte"><div class="river"></div></div>
+            <div
+              class="lab-acheronte-label"
+              style="font-family: var(--font-serif)"
+            >
+              ACHERONTE
+            </div>
+            <div class="lab-central-top">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-central-bottom">
+              <span style="font-size: 22px">🕯</span
+              ><span style="font-size: 22px; margin-left: 12px">🕯</span>
+            </div>
+            <div class="lab-anima">
+              <div class="soul-dot"></div>
+              <span class="label" style="font-family: var(--font-serif)"
+                >THE SOUL</span
+              >
+            </div>
+            <div class="lab-map-overlay-dark"></div>
+          </div>
+        </div>
+        <div class="lab-outcome success">
+          <div class="outcome-icon">✦</div>
+          <h2>MNEMOSYNE HAS SPOKEN</h2>
+          <button
+            class="state-btn state-btn-gold"
+            onclick="startVoiceCommand('lab-continua')"
+          >
+            SALI ALLA SOGLIA →
+          </button>
+        </div>
+      </div>
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          The soul has found Mnemosyne. The guardians of Hades will now open
+          their judgment.
+        </p>
+      </div>
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Offering Rite</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Orphic Secret</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Labyrinth of Hades</span>
+          </div>
+        </div>
+        <span class="loc">GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.8 – LA DOMANDA DEI GUARDIANI
+    ═══════════════════════════════════════════════ -->
+    <div id="domanda-guardiani" class="screen">
+      <div class="soul-particles" id="soulParticles"></div>
+      <div class="mystic-glow"></div>
+      <div class="narrative-container">
+        <h1 class="narrative-question">"WHO ARE YOU?<br />WHERE DO YOU COME FROM?"</h1>
+        <p class="narrative-subtitle">
+          Le voci dei Guardiani risuonano nell'oscurità,<br />
+          esigendo la verità che solo l'iniziato può conoscere.
+        </p>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN 4.9 – CRUCIVERBA (THE ORPHIC SECRET)
+═══════════════════════════════════════════════ -->
+    <div id="cruciverba" class="screen" data-figma-node="129-7328">
+      <div class="topbar">
+        <span class="phase-label">⬥ PHASE III · THE GUARDIANS OF HADES</span>
+        <span class="subtitle">THE SECRET FORMULA</span>
+      </div>
+
+      <div class="guardians-scene">
+        <div class="guardians-header">
+          <p class="kicker">THE KEEPERS ASK:</p>
+          <h2>“Who are you? Where do you come from?”</h2>
+          <p class="sub">Compose the secret phrase by dragging the words</p>
+        </div>
+
+        <div class="guardians-visual">
+          <!-- Guardian Left -->
+          <div class="guardian-figure">
+            <img src="assets/guardiani.png" alt="" />
+          </div>
+          <!-- Guardian Right -->
+          <div class="guardian-figure" style="transform: scaleX(-1)">
+            <img src="assets/guardiani.png" alt="" />
+          </div>
+        </div>
+
+        <div class="formula-area">
+          <span class="formula-label">- FORMULA -</span>
+          <div class="formula-slots" id="formulaSlots">
+            <div class="formula-slot" data-index="1"></div>
+            <div class="formula-slot" data-index="2"></div>
+            <div class="formula-slot" data-index="3"></div>
+            <div class="formula-slot" data-index="4"></div>
+            <div class="formula-slot" data-index="5"></div>
+            <div class="formula-slot" data-index="6"></div>
+            <div class="formula-slot" data-index="7"></div>
+            <div class="formula-slot" data-index="8"></div>
+          </div>
+          <div class="formula-controls">
+            <button
+              class="btn-formula"
+              id="pronunciaBtn"
+              onclick="checkFormula()"
+            >
+              SPEAK THE FORMULA
+            </button>
+            <button class="btn-cancella" onclick="clearFormula()">
+              CLEAR
+            </button>
+          </div>
+        </div>
+
+        <div class="word-bank-area">
+          <span class="word-bank-label">- DRAG THE WORDS TO COMPOSE THE PHRASE -</span>
+          <div class="word-bank" id="wordBank">
+            <!-- Words will be injected here -->
+          </div>
+        </div>
+      </div>
+
+      <div class="instruct-bar">
+        <span class="diamond">⬥</span>
+        <p>
+          Use the clue on Panel 3: drag the words into the slots
+          of the formula.
+        </p>
+      </div>
+
+      <div class="footbar">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Offering Rite</span><span>›</span>
+          </div>
+          <div class="step active">
+            <div class="dot"></div>
+            <span class="label">Orphic Secret</span><span>›</span>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <span class="label">Labyrinth of Hades</span>
+          </div>
+        </div>
+        <span class="loc">GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN FINALE – THE REALM OF THE BLESSED
+═══════════════════════════════════════════════ -->
+    <div id="regno-beati" class="screen rb-screen">
+
+      <!-- Stars -->
+      <div class="rb-stars-layer" id="rbStars"></div>
+
+      <!-- Warm golden background overlay -->
+      <div class="rb-bg" id="rbBg"></div>
+
+      <!-- Light rays (emitted from soul ascent point) -->
+      <div class="rb-rays" id="rbRays">
+        <div class="rb-ray" style="--r:0deg;   --rd:0s"></div>
+        <div class="rb-ray" style="--r:30deg;  --rd:0.4s"></div>
+        <div class="rb-ray" style="--r:60deg;  --rd:0.8s"></div>
+        <div class="rb-ray" style="--r:90deg;  --rd:1.2s"></div>
+        <div class="rb-ray" style="--r:120deg; --rd:1.6s"></div>
+        <div class="rb-ray" style="--r:150deg; --rd:2s"></div>
+        <div class="rb-ray" style="--r:180deg; --rd:0.2s"></div>
+        <div class="rb-ray" style="--r:210deg; --rd:0.6s"></div>
+        <div class="rb-ray" style="--r:240deg; --rd:1s"></div>
+        <div class="rb-ray" style="--r:270deg; --rd:1.4s"></div>
+        <div class="rb-ray" style="--r:300deg; --rd:1.8s"></div>
+        <div class="rb-ray" style="--r:330deg; --rd:2.2s"></div>
+      </div>
+
+      <!-- Lake of Mnemosyne -->
+      <div class="rb-lake" id="rbLake">
+        <div class="rb-lake-glow"></div>
+        <div class="rb-lake-water-wrap">
+          <canvas id="rbLakeCanvas" width="460" height="138"></canvas>
+          <div class="rb-lake-flash" id="rbLakeFlash"></div>
+        </div>
+        <p class="rb-lake-label">LAKE OF MNEMOSYNE ✦</p>
+      </div>
+
+      <!-- Soul -->
+      <div class="rb-soul" id="rbSoul">
+        <div class="rb-soul-aura"></div>
+        <div class="rb-soul-core"></div>
+      </div>
+
+      <!-- Floating light particles -->
+      <div class="rb-particles" id="rbParticles"></div>
+
+      <!-- Caption 1 -->
+      <div class="rb-caption" id="rbCaption1">
+        <p>The soul approaches the water of Memory...</p>
+      </div>
+
+      <!-- Caption 2 -->
+      <div class="rb-caption" id="rbCaption2">
+        <p>It drinks. <em>And remembers.</em></p>
+      </div>
+
+      <!-- Caption 3 (quote) -->
+      <div class="rb-caption rb-caption-quote" id="rbCaption3">
+        <p>“I am child of Earth and Starry Heaven.<br>My lineage is heavenly.”</p>
+      </div>
+
+      <!-- Caption 4 -->
+      <div class="rb-caption" id="rbCaption4">
+        <p>The soul enters the Realm of the Blessed</p>
+      </div>
+
+      <!-- Final title overlay -->
+      <div class="rb-finale" id="rbFinale">
+        <div class="rb-finale-glow"></div>
+        <div class="rb-finale-content">
+          <span class="rb-finale-ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
+          <h1 class="rb-finale-title">THE REALM OF THE BLESSED</h1>
+          <div class="rb-finale-line"></div>
+          <span class="rb-finale-sub">THE ELYSIAN FIELDS · ETERNITY</span>
+          <span class="rb-finale-meta">GREEK NECROPOLIS OF HIPPONION · 4TH C. BCE</span>
+          <button class="btn-final-game rb-ricomincia" onclick="goTo('rito')">
+            Restart &nbsp;→
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TOAST FEEDBACK -->
+    <div
+      class="toast"
+      id="ritoCompletatoToast"
+      style="
+        padding: 50px 70px;
+        background: rgba(10, 8, 5, 0.95);
+        border: 1px solid rgba(196, 145, 58, 0.3);
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+        "
+      >
+        <div class="audio-indicator" style="margin-bottom: 24px">
+          <div class="audio-dot"></div>
+          <div class="audio-bars">
+            <div class="audio-bar" style="height: 14px"></div>
+            <div class="audio-bar" style="height: 10px"></div>
+            <div class="audio-bar" style="height: 14px"></div>
+            <div class="audio-bar" style="height: 17px"></div>
+          </div>
+          <span
+            style="
+              font-family: var(--font-serif);
+              font-size: 12px;
+              color: var(--gold);
+              letter-spacing: 2px;
+              margin-left: 12px;
+            "
+            >THE NARRATOR</span
+          >
+        </div>
+
+        <div class="quote-block" style="width: auto; margin-top: 0">
+          <p style="width: auto; max-width: 450px">
+            “The symbols of earthly life have been laid down. The soul is now
+            ready for the journey.”
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="toast"
+      id="laminettaToast"
+      style="
+        padding: 50px 70px;
+        background: rgba(10, 8, 5, 0.95);
+        border: 1px solid rgba(196, 145, 58, 0.3);
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+        "
+      >
+        <div class="audio-indicator" style="margin-bottom: 24px">
+          <div class="audio-dot"></div>
+          <div class="audio-bars">
+            <div class="audio-bar" style="height: 14px"></div>
+            <div class="audio-bar" style="height: 10px"></div>
+            <div class="audio-bar" style="height: 14px"></div>
+            <div class="audio-bar" style="height: 17px"></div>
+          </div>
+          <span
+            style="
+              font-family: var(--font-serif);
+              font-size: 12px;
+              color: var(--gold);
+              letter-spacing: 2px;
+              margin-left: 12px;
+            "
+            >THE NARRATOR</span
+          >
+        </div>
+
+        <div class="quote-block" style="width: auto; margin-top: 0">
+          <p style="width: auto; max-width: 450px">
+            “It is a folded, sealed whisper of gold. Only before the guardians
+            of Hades will the seal be opened.”
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="toast"
+      id="formulaSuccessToast"
+      style="
+        padding: 50px 70px;
+        background: rgba(10, 8, 5, 0.95);
+        border: 1px solid #a064dc;
+        box-shadow: 0 0 100px rgba(160, 100, 220, 0.4);
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+        "
+      >
+        <div class="audio-indicator" style="margin-bottom: 24px">
+          <div
+            class="audio-dot"
+            style="background: #a064dc; box-shadow: 0 0 10px #a064dc"
+          ></div>
+          <div class="audio-bars">
+            <div
+              class="audio-bar"
+              style="height: 14px; background: #a064dc"
+            ></div>
+            <div
+              class="audio-bar"
+              style="height: 10px; background: #a064dc"
+            ></div>
+            <div
+              class="audio-bar"
+              style="height: 14px; background: #a064dc"
+            ></div>
+            <div
+              class="audio-bar"
+              style="height: 17px; background: #a064dc"
+            ></div>
+          </div>
+          <span
+            style="
+              font-family: var(--font-serif);
+              font-size: 12px;
+              color: #a064dc;
+              letter-spacing: 2px;
+              margin-left: 12px;
+            "
+            >THE PASSAGE IS OPEN</span
+          >
+        </div>
+
+        <div
+          class="quote-block"
+          style="width: auto; margin-top: 0; border-color: #a064dc"
+        >
+          <p style="width: auto; max-width: 450px; color: #d0a0ff">
+            “You have spoken the right words. You are child of Starry Heaven.
+            Enter now the realm of eternal light.”
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="toast"
+      id="formulaErrorToast"
+      style="
+        padding: 50px 70px;
+        background: rgba(10, 8, 5, 0.95);
+        border: 1px solid rgba(196, 60, 60, 0.7);
+        box-shadow: 0 0 100px rgba(196, 60, 60, 0.3);
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+        "
+      >
+        <div class="audio-indicator" style="margin-bottom: 24px">
+          <span style="font-size: 18px; margin-right: 8px">✕</span>
+          <span
+            style="
+              font-family: var(--font-serif);
+              font-size: 12px;
+              color: #c43c3c;
+              letter-spacing: 2px;
+            "
+            >WRONG FORMULA</span
+          >
+        </div>
+        <div
+          class="quote-block"
+          style="width: auto; margin-top: 0; border-color: rgba(196, 60, 60, 0.5)"
+        >
+          <p style="width: auto; max-width: 420px; color: #e89090">
+            “The words are not the right ones. The rite begins again.”
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     VOICE COMMAND OVERLAY
+═══════════════════════════════════════════════ -->
+    <div id="voiceOverlay" class="voice-overlay" role="dialog" aria-modal="true">
+      <div class="voice-card">
+        <div class="voice-label">⬥ Voice Command ⬥</div>
+        <div
+          class="voice-mic"
+          id="voiceMicBtn"
+          role="button"
+          tabindex="0"
+          aria-label="Activate microphone"
+          onclick="_activateMic()"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();_activateMic();}"
+        >🎙</div>
+        <div class="voice-mic-hint">▲ Tap the microphone ▲</div>
+        <div class="voice-hint" id="voiceHint">…</div>
+        <div class="voice-status" id="voiceStatus">Press the microphone to speak</div>
+        <button type="button" class="voice-close" onclick="stopVoiceCommand()">Cancel</button>
+        <div class="voice-error" id="voiceError"></div>
+      </div>
+    </div>
+
+    <script>
+      /* ── Audio narrazione ── */
+      const narrazione = new Audio("assets");
+      narrazione.volume = 1;
+
+      const azioneComplete = new Audio("assets/azione-complete.mp3");
+      azioneComplete.volume = 1;
+
+      function playNarrazione() {
+        narrazione.currentTime = 0;
+        narrazione.play().catch(() => {});
+      }
+      function stopNarrazione() {
+        narrazione.pause();
+        narrazione.currentTime = 0;
+      }
+
+      /* ── Screen navigation ── */
+      function goTo(id) {
+        const target = document.getElementById(id);
+        if (!target) return;
+
+        // Ferma l'audio se si naviga fuori da narrativa
+        if (id !== "narrativa") stopNarrazione();
+
+        document
+          .querySelectorAll(".screen")
+          .forEach((s) => s.classList.remove("active"));
+        target.classList.add("active");
+
+        // Avvia audio sulla schermata narrativa
+        if (id === "narrativa") playNarrazione();
+
+        if (id === "indagine-1") resetRitoDragDrop();
+        if (id === "azione") resetLaminettaDragDrop();
+
+        // Reset animations when navigating away so they work again if testing
+        if (!id.startsWith("indagine")) {
+          document
+            .querySelectorAll(".placed-coin.anim-drop, #laminetta-placed")
+            .forEach((el) => {
+              el.classList.remove("anim-drop");
+              el.style.opacity = "0";
+            });
+          const btn = document.getElementById("btn-avanti-indagine");
+          if (btn) {
+            btn.style.opacity = "0";
+            btn.style.pointerEvents = "none";
+          }
+
+          const lamBtn = document.querySelector(".laminetta-btn");
+          if (lamBtn) {
+            lamBtn.style.opacity = "1";
+            lamBtn.style.pointerEvents = "auto";
+          }
+        }
+
+        // Trigger cruciverba init
+        if (id === "cruciverba") initCruciverba();
+
+        // Trigger auto transition for guardians question
+        if (id === "domanda-guardiani") {
+          initSoulParticles();
+          setTimeout(() => {
+            goTo("cruciverba");
+          }, 8000); // 8 seconds for the full cinematic reveal
+        }
+
+        // Trigger laminetta aurea triptych animation
+        if (id === "laminetta-aurea") {
+          startMappaAdeSequence();
+        }
+
+        // Auto-avvia overlay vocale all'arrivo nel bivio 1
+        if (id === "bivio-1") {
+          setTimeout(() => {
+            startVoiceCommand(["lab-tenebra", "lab-prosegui"]);
+          }, 600);
+        }
+
+        // Avvia animazione finale
+        if (id === "regno-beati") initRegnoBeati();
+      }
+
+      function initSoulParticles() {
+        const container = document.getElementById("soulParticles");
+        if (!container) return;
+        container.innerHTML = "";
+        for (let i = 0; i < 30; i++) {
+          const p = document.createElement("div");
+          p.className = "soul-particle";
+          const size = Math.random() * 60 + 20;
+          p.style.width = size + "px";
+          p.style.height = size + "px";
+          p.style.left = Math.random() * 100 + "%";
+          p.style.setProperty("--x", Math.random() * 200 - 100 + "px");
+          p.style.setProperty("--d", Math.random() * 5 + 5 + "s");
+          p.style.animationDelay = Math.random() * 5 + "s";
+          container.appendChild(p);
+        }
+      }
+
+      function startMappaAdeSequence() {
+        const triptych = document.getElementById("triptych-ade");
+        const title = document.getElementById("mappa-title");
+        const btn = document.getElementById("btn-avanza-ade");
+
+        if (!triptych) return;
+
+        // Disabilita transizioni per un reset istantaneo (evita il glitch "già aperto")
+        const panels = triptych.querySelectorAll(".aurea-left, .aurea-right");
+        panels.forEach((p) => (p.style.transition = "none"));
+
+        triptych.classList.remove("visible", "open-left", "open-right");
+        title?.classList.remove("visible");
+        btn?.classList.remove("visible");
+
+        // Flush: applica il reset visivo immediatamente
+        void triptych.offsetWidth;
+
+        // Riattiva transizioni
+        panels.forEach((p) => (p.style.transition = ""));
+
+        // Sequence: trittico appare → pannello sx → pannello dx → titolo → bottone
+        setTimeout(() => triptych.classList.add("visible"), 200);
+        setTimeout(() => triptych.classList.add("open-left"), 1200);
+        setTimeout(() => triptych.classList.add("open-right"), 2000);
+        setTimeout(() => title?.classList.add("visible"), 3000);
+        setTimeout(() => btn?.classList.add("visible"), 3800);
+      }
+
+      function closeAureaAndGoLabirinto() {
+        goTo("labirinto");
+        // Reset triptych dopo che la dissolvenza è completata
+        setTimeout(() => {
+          const triptych = document.getElementById("triptych-ade");
+          triptych?.classList.remove("visible", "open-left", "open-right");
+          document.getElementById("mappa-title")?.classList.remove("visible");
+          document
+            .getElementById("btn-avanza-ade")
+            ?.classList.remove("visible");
+        }, 500);
+      }
+
+      function placeLaminettaAndGo() {
+        const laminettaBtn = document.querySelector(".laminetta-btn");
+        if (laminettaBtn) {
+          laminettaBtn.style.opacity = "0.5";
+          laminettaBtn.style.pointerEvents = "none";
+          laminettaBtn.classList.add("completed");
+        }
+
+        const chestContainer = document.querySelector(".chest-container");
+        if (chestContainer) {
+          chestContainer.style.pointerEvents = "none";
+        }
+
+        const laminettaPlaced = document.getElementById("laminetta-placed");
+        if (!laminettaPlaced) return;
+
+        const dropZone = document.querySelector("[data-laminetta-drop]");
+        if (dropZone) {
+          dropZone.dataset.filled = "1";
+          dropZone.classList.add("filled");
+        }
+
+        // Start animation
+        laminettaPlaced.classList.add("anim-drop");
+
+        // Final screen, show completion modal and auto-advance
+        setTimeout(() => {
+          showToast("laminettaToast");
+          // Auto advance after 5 seconds
+          setTimeout(() => {
+            dismissToast();
+            setTimeout(() => {
+              goTo("laminetta-aurea");
+            }, 400);
+          }, 5000);
+        }, 1400);
+      }
+
+      function placeCoinAndGo(coinId, nextScreenId) {
+        const coin = document.getElementById(coinId);
+        if (!coin) return;
+
+        // Start animation
+        coin.classList.add("anim-drop");
+
+        if (nextScreenId) {
+          // Wait for CSS animation to finish (1.2s) then switch screen
+          setTimeout(() => {
+            goTo(nextScreenId);
+          }, 1400);
+        } else {
+          // Final screen, show completion modal and auto-advance
+          setTimeout(() => {
+            azioneComplete.currentTime = 0;
+            azioneComplete.play().catch(() => {});
+            showToast("ritoCompletatoToast");
+            // Auto advance after 4 seconds
+            setTimeout(() => {
+              dismissToast();
+              setTimeout(() => {
+                goTo("azione");
+              }, 400); // wait for dismiss animation
+            }, 3500);
+          }, 1400);
+        }
+      }
+
+      /* ── Toast ── */
+      function showToast(id) {
+        const t = document.getElementById(id);
+        t.style.display = "flex";
+        requestAnimationFrame(() => t.classList.add("show"));
+      }
+      function dismissToast() {
+        document.querySelectorAll(".toast").forEach((t) => {
+          t.classList.remove("show");
+          setTimeout(() => {
+            t.style.display = "none";
+          }, 300);
+        });
+      }
+
+      /* ── Keyboard nav ── */
+      const order = [
+        "rito",
+        "intro",
+        "narrativa",
+        "indagine-1",
+        "azione",
+        "laminetta-aurea",
+        "labirinto",
+        "bivio-1",
+        "cerbero-fail",
+        "bivio-2a",
+        "oblio-fail",
+        "bivio-2b",
+        "mnemosyne-ok",
+        "domanda-guardiani",
+        "cruciverba",
+        "regno-beati",
+      ];
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+          const cur = document.querySelector(".screen.active");
+          const idx = order.indexOf(cur.id);
+          if (idx === -1) return;
+          if (idx < order.length - 1) goTo(order[idx + 1]);
+        }
+        if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+          const cur = document.querySelector(".screen.active");
+          const idx = order.indexOf(cur.id);
+          if (idx === -1) return;
+          if (idx > 0) goTo(order[idx - 1]);
+        }
+        if (e.key === "Escape") dismissToast();
+      });
+      /* ── Cruciverba Logic ── */
+      const WORDS = [
+        "OBLIVION",
+        "AND",
+        "CHILD",
+        "MOON",
+        "EARTH",
+        "OF",
+        "I AM",
+        "OF THE",
+        "STARRY",
+        "DAUGHTER",
+        "SEA",
+        "HEAVEN",
+      ];
+      const CORRECT_FORMULA = [
+        "I AM",
+        "CHILD",
+        "OF",
+        "EARTH",
+        "AND",
+        "OF THE",
+        "HEAVEN",
+        "STARRY",
+      ];
+      let currentFormula = ["", "", "", "", "", "", "", ""];
+      let crosswordDrag = null;
+      let crosswordGhost = null;
+      let crosswordSource = null;
+      let crosswordGlobalHandlersBound = false;
+
+      /* ── Lago di Mnemosyne – canvas water ── */
+      let rbLakeAnimId = null;
+
+      function startLakeCanvas() {
+        const canvas = document.getElementById("rbLakeCanvas");
+        if (!canvas) return;
+        if (rbLakeAnimId) { cancelAnimationFrame(rbLakeAnimId); rbLakeAnimId = null; }
+
+        const ctx = canvas.getContext("2d");
+        const W = canvas.width;   // 460
+        const H = canvas.height;  // 138
+
+        // Wave layers: { yFrac, amplitude, frequency, speed, colour, lineWidth }
+        const waves = [
+          { y:0.15, a:4.5, f:0.017, s:0.55, c:"rgba(100,210,255,0.32)", lw:1.8 },
+          { y:0.30, a:3.5, f:0.026, s:0.40, c:"rgba(80,190,250,0.24)",  lw:1.4 },
+          { y:0.46, a:2.8, f:0.038, s:0.70, c:"rgba(60,170,240,0.18)",  lw:1.1 },
+          { y:0.62, a:2.0, f:0.055, s:0.90, c:"rgba(50,150,225,0.14)",  lw:0.9 },
+          { y:0.78, a:1.3, f:0.075, s:1.15, c:"rgba(40,130,210,0.10)",  lw:0.7 },
+        ];
+
+        function draw() {
+          const t = Date.now() * 0.001;
+          ctx.clearRect(0, 0, W, H);
+
+          /* ── Clip to ellipse ── */
+          ctx.save();
+          ctx.beginPath();
+          ctx.ellipse(W / 2, H / 2, W / 2 - 1, H / 2 - 1, 0, 0, Math.PI * 2);
+          ctx.clip();
+
+          /* ── Deep-water radial base ── */
+          const bg = ctx.createRadialGradient(W*0.5, H*0.72, 0, W*0.5, H*0.5, W*0.52);
+          bg.addColorStop(0,    "rgba(25,  75, 170, 0.92)");
+          bg.addColorStop(0.35, "rgba(12,  48, 130, 0.88)");
+          bg.addColorStop(0.70, "rgba( 6,  25,  80, 0.93)");
+          bg.addColorStop(1,    "rgba( 3,  12,  45, 0.98)");
+          ctx.fillStyle = bg;
+          ctx.fillRect(0, 0, W, H);
+
+          /* ── Horizontal teal shimmer band near surface ── */
+          const band = ctx.createLinearGradient(0, 0, 0, H);
+          band.addColorStop(0,    "rgba(70, 185, 255, 0.18)");
+          band.addColorStop(0.25, "rgba(50, 155, 230, 0.10)");
+          band.addColorStop(0.55, "rgba(30, 110, 190, 0.04)");
+          band.addColorStop(1,    "rgba( 5,  40, 110, 0.00)");
+          ctx.fillStyle = band;
+          ctx.fillRect(0, 0, W, H);
+
+          /* ── Wave lines ── */
+          waves.forEach(w => {
+            ctx.beginPath();
+            ctx.moveTo(0, H * w.y);
+            for (let x = 0; x <= W; x += 2) {
+              const y = H * w.y
+                + Math.sin(x * w.f + t * w.s) * w.a
+                + Math.sin(x * w.f * 1.6 - t * w.s * 0.55) * (w.a * 0.38)
+                + Math.sin(x * w.f * 0.7 + t * w.s * 1.3) * (w.a * 0.22);
+              ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = w.c;
+            ctx.lineWidth = w.lw;
+            ctx.stroke();
+          });
+
+          /* ── Reflection caustics (bright streaks near top) ── */
+          for (let i = 0; i < 6; i++) {
+            const cx = W * (0.15 + i * 0.14 + Math.sin(t * 0.4 + i) * 0.04);
+            const cy = H * (0.08 + Math.sin(t * 0.3 + i * 1.2) * 0.06);
+            const len = 18 + Math.sin(t * 1.1 + i * 0.9) * 8;
+            const alp = Math.max(0, Math.sin(t * 0.8 + i * 2.1)) * 0.28;
+            if (alp > 0.02) {
+              const grad = ctx.createLinearGradient(cx - len/2, cy, cx + len/2, cy);
+              grad.addColorStop(0,   "transparent");
+              grad.addColorStop(0.5, `rgba(200,240,255,${alp})`);
+              grad.addColorStop(1,   "transparent");
+              ctx.beginPath();
+              ctx.moveTo(cx - len/2, cy);
+              ctx.lineTo(cx + len/2, cy);
+              ctx.strokeStyle = grad;
+              ctx.lineWidth = 1.5 + Math.sin(t + i) * 0.5;
+              ctx.stroke();
+            }
+          }
+
+          /* ── Point sparkles ── */
+          for (let i = 0; i < 22; i++) {
+            const sx = (Math.sin(t * 0.28 + i * 1.13) * 0.42 + 0.5) * W;
+            const sy = (Math.sin(t * 0.44 + i * 0.77) * 0.20 + 0.22) * H;
+            const alp = Math.max(0, Math.sin(t * 2.2 + i * 2.0)) * 0.55;
+            if (alp > 0.05) {
+              const rg = ctx.createRadialGradient(sx, sy, 0, sx, sy, 5);
+              rg.addColorStop(0,   `rgba(225,248,255,${alp})`);
+              rg.addColorStop(0.4, `rgba(160,230,255,${alp * 0.4})`);
+              rg.addColorStop(1,   "transparent");
+              ctx.beginPath();
+              ctx.arc(sx, sy, 5, 0, Math.PI * 2);
+              ctx.fillStyle = rg;
+              ctx.fill();
+            }
+          }
+
+          /* ── Edge vignette ── */
+          const vig = ctx.createRadialGradient(W/2, H/2, W*0.22, W/2, H/2, W*0.53);
+          vig.addColorStop(0, "transparent");
+          vig.addColorStop(1, "rgba(2, 8, 30, 0.70)");
+          ctx.fillStyle = vig;
+          ctx.fillRect(0, 0, W, H);
+
+          ctx.restore();
+          rbLakeAnimId = requestAnimationFrame(draw);
+        }
+
+        draw();
+      }
+
+      /* ── Regno dei Beati – Animazione Finale ── */
+      function initRegnoBeati() {
+        const soul     = document.getElementById("rbSoul");
+        const bg       = document.getElementById("rbBg");
+        const lake     = document.getElementById("rbLake");
+        const rays     = document.getElementById("rbRays");
+        const finale   = document.getElementById("rbFinale");
+        const particles = document.getElementById("rbParticles");
+        const captions = ["rbCaption1","rbCaption2","rbCaption3","rbCaption4"];
+
+        // Reset
+        soul.className = "rb-soul";
+        soul.style.top = "464px";
+        soul.style.opacity = "1";
+        soul.style.transform = "translateX(-50%)";
+        bg.classList.remove("rb-bg-warm");
+        lake.classList.remove("rb-lake-drinking");
+        rays.classList.remove("rb-rays-visible");
+        finale.classList.remove("rb-finale-visible");
+        particles.classList.remove("rb-particles-active");
+        captions.forEach(id => document.getElementById(id).classList.remove("rb-visible"));
+        particles.innerHTML = "";
+
+        generateRbStars();
+        startLakeCanvas();
+
+        // t=0.8s — L'anima si accosta al lago
+        setTimeout(() => {
+          document.getElementById("rbCaption1").classList.add("rb-visible");
+        }, 800);
+
+        // t=3s — Beve: lago pulsa, anima beve
+        setTimeout(() => {
+          document.getElementById("rbCaption1").classList.remove("rb-visible");
+          soul.classList.add("rb-soul-drinking");
+          lake.classList.add("rb-lake-drinking");
+        }, 3000);
+
+        // t=3.8s — "Beve. E ricorda."
+        setTimeout(() => {
+          document.getElementById("rbCaption2").classList.add("rb-visible");
+        }, 3800);
+
+        // t=5.8s — Trasformazione: anima diventa dorata
+        setTimeout(() => {
+          document.getElementById("rbCaption2").classList.remove("rb-visible");
+          soul.classList.remove("rb-soul-drinking");
+          soul.classList.add("rb-soul-golden");
+          bg.classList.add("rb-bg-warm");
+          document.getElementById("rbCaption3").classList.add("rb-visible");
+        }, 5800);
+
+        // t=8.5s — Ascesa: anima sale verso la luce
+        setTimeout(() => {
+          document.getElementById("rbCaption3").classList.remove("rb-visible");
+          soul.classList.add("rb-soul-ascending");
+          rays.classList.add("rb-rays-visible");
+          generateRbParticles();
+          particles.classList.add("rb-particles-active");
+          document.getElementById("rbCaption4").classList.add("rb-visible");
+        }, 8500);
+
+        // t=11s — Titolo finale
+        setTimeout(() => {
+          document.getElementById("rbCaption4").classList.remove("rb-visible");
+          finale.classList.add("rb-finale-visible");
+        }, 11000);
+      }
+
+      function generateRbStars() {
+        const container = document.getElementById("rbStars");
+        if (!container) return;
+        container.innerHTML = "";
+        for (let i = 0; i < 130; i++) {
+          const s = document.createElement("div");
+          const size = Math.random() * 2 + 0.5;
+          const delay = Math.random() * 5;
+          const dur   = Math.random() * 3 + 2;
+          s.style.cssText = `
+            position:absolute;
+            left:${Math.random()*100}%;
+            top:${Math.random()*100}%;
+            width:${size}px; height:${size}px;
+            border-radius:50%;
+            background:rgba(255,255,220,${Math.random()*0.55+0.2});
+            animation:rb-star-twinkle ${dur}s ease-in-out infinite;
+            animation-delay:${delay}s;
+          `;
+          container.appendChild(s);
+        }
+      }
+
+      function generateRbParticles() {
+        const container = document.getElementById("rbParticles");
+        if (!container) return;
+        container.innerHTML = "";
+        for (let i = 0; i < 45; i++) {
+          const p = document.createElement("div");
+          const isGold = Math.random() > 0.35;
+          const size   = Math.random() * 7 + 3;
+          const color  = isGold
+            ? `rgba(255,${Math.floor(Math.random()*60+170)},60,0.85)`
+            : `rgba(160,${Math.floor(Math.random()*40+210)},255,0.65)`;
+          const glow   = isGold
+            ? `rgba(255,200,80,0.35)` : `rgba(160,220,255,0.3)`;
+          p.className = "rb-particle";
+          p.style.cssText = `
+            width:${size}px; height:${size}px;
+            left:${Math.random()*100}%;
+            bottom:${Math.random()*25}%;
+            background:radial-gradient(circle, ${color} 0%, transparent 70%);
+            box-shadow:0 0 ${size*2}px ${glow};
+            --dur:${Math.random()*4+5}s;
+            --delay:${Math.random()*4}s;
+            --dx:${(Math.random()-0.5)*240}px;
+          `;
+          container.appendChild(p);
+        }
+      }
+
+      function initCruciverba() {
+        const bank = document.getElementById("wordBank");
+        if (!bank) return;
+        bank.innerHTML = "";
+        WORDS.forEach((word) => {
+          const chip = document.createElement("div");
+          chip.className = "word-chip";
+          chip.textContent = word;
+          chip.dataset.word = word;
+          chip.setAttribute("role", "button");
+          chip.setAttribute("aria-label", "Drag " + word + " into the formula");
+          chip.draggable = !window.PointerEvent;
+          attachCrosswordChipDrag(chip, word, null);
+          if (currentFormula.includes(word)) {
+            chip.classList.add("used");
+            chip.draggable = false;
+            chip.removeAttribute("role");
+            chip.removeAttribute("aria-label");
+          }
+          bank.appendChild(chip);
+        });
+        updateFormulaDisplay();
+        setupCrosswordDropZones();
+      }
+
+      function createCrosswordGhost(word, x, y) {
+        crosswordGhost = document.createElement("div");
+        crosswordGhost.className = "formula-drag-ghost";
+        crosswordGhost.textContent = word;
+        document.body.appendChild(crosswordGhost);
+        moveCrosswordGhost(x, y);
+      }
+
+      function moveCrosswordGhost(x, y) {
+        if (!crosswordGhost) return;
+        crosswordGhost.style.left = x + "px";
+        crosswordGhost.style.top = y + "px";
+      }
+
+      function removeCrosswordGhost() {
+        if (crosswordGhost) crosswordGhost.remove();
+        crosswordGhost = null;
+      }
+
+      function dissolveCrosswordGhost(word, x, y) {
+        var ghost = crosswordGhost;
+        if (!ghost) {
+          ghost = document.createElement("div");
+          ghost.className = "formula-drag-ghost";
+          ghost.textContent = word || "";
+          ghost.style.left = x + "px";
+          ghost.style.top = y + "px";
+          document.body.appendChild(ghost);
+        }
+
+        ghost.classList.add("dissolving");
+        crosswordGhost = null;
+        setTimeout(() => ghost.remove(), 360);
+      }
+
+      function crosswordTargetFromPoint(x, y) {
+        var ghostDisplay = crosswordGhost ? crosswordGhost.style.display : "";
+        if (crosswordGhost) crosswordGhost.style.display = "none";
+        var el = document.elementFromPoint(x, y);
+        if (crosswordGhost) crosswordGhost.style.display = ghostDisplay;
+        if (!el) return null;
+        return el.closest(".formula-slot") || el.closest("#wordBank");
+      }
+
+      function resetCrosswordDropStates() {
+        document.querySelectorAll(".formula-slot, #wordBank").forEach((el) => {
+          el.classList.remove("drag-hover", "drag-wrong");
+        });
+      }
+
+      function showCrosswordFeedback(text) {
+        const bar = document.querySelector("#cruciverba .instruct-bar p");
+        if (!bar) return;
+        if (!bar.dataset.defaultText) bar.dataset.defaultText = bar.textContent.trim();
+        bar.textContent = text;
+        clearTimeout(bar._cwTimer);
+        bar._cwTimer = setTimeout(() => {
+          bar.textContent = bar.dataset.defaultText;
+        }, 2200);
+      }
+
+      function markCrosswordWrong(target) {
+        if (target) {
+          target.classList.add("drag-wrong");
+          target.style.animation = "shake 0.5s";
+          setTimeout(() => {
+            target.classList.remove("drag-wrong");
+            target.style.animation = "";
+          }, 500);
+        }
+        showCrosswordFeedback("Drag a word into a free slot, or move it from one slot to another.");
+      }
+
+      function placeCrosswordWord(word, targetIndex, fromIndex) {
+        if (!word || targetIndex < 0 || targetIndex > 7) return false;
+        if (fromIndex === null && currentFormula.includes(word)) return false;
+
+        if (fromIndex !== null && fromIndex === targetIndex) return true;
+
+        if (fromIndex !== null) {
+          const targetWord = currentFormula[targetIndex];
+          currentFormula[targetIndex] = word;
+          currentFormula[fromIndex] = targetWord || "";
+        } else {
+          currentFormula[targetIndex] = word;
+        }
+
+        initCruciverba();
+        return true;
+      }
+
+      function removeCrosswordWord(fromIndex) {
+        if (fromIndex === null || fromIndex < 0 || fromIndex > 7) return false;
+        currentFormula[fromIndex] = "";
+        initCruciverba();
+        return true;
+      }
+
+      function handleCrosswordDrop(target) {
+        if (!crosswordDrag) return false;
+
+        if (target && target.id === "wordBank") {
+          if (crosswordDrag.fromIndex !== null) return removeCrosswordWord(crosswordDrag.fromIndex);
+          return false;
+        }
+
+        const slot = target ? target.closest(".formula-slot") : null;
+        if (slot) {
+          const targetIndex = Number(slot.dataset.index) - 1;
+          const ok = placeCrosswordWord(crosswordDrag.word, targetIndex, crosswordDrag.fromIndex);
+          if (!ok) markCrosswordWrong(slot);
+          return ok;
+        }
+
+        markCrosswordWrong(target);
+        return false;
+      }
+
+      function finishCrosswordDrag(target, x, y, sourceEl) {
+        if (!crosswordDrag) return false;
+        const word = crosswordDrag.word;
+        const ok = handleCrosswordDrop(target);
+
+        if (sourceEl) sourceEl.classList.remove("dragging");
+        crosswordDrag = null;
+        crosswordSource = null;
+
+        if (ok) {
+          removeCrosswordGhost();
+        } else {
+          dissolveCrosswordGhost(word, x, y);
+        }
+
+        resetCrosswordDropStates();
+        return ok;
+      }
+
+      function bindCrosswordDisplayDropHandlers() {
+        const screen = document.getElementById("cruciverba");
+        if (screen && !screen.dataset.crosswordDisplayDropBound) {
+          screen.dataset.crosswordDisplayDropBound = "1";
+
+          screen.ondragover = (e) => {
+            if (!crosswordDrag) return;
+            e.preventDefault();
+          };
+
+          screen.ondrop = (e) => {
+            if (!crosswordDrag) {
+              try {
+                crosswordDrag = JSON.parse(e.dataTransfer.getData("text/plain"));
+              } catch (_) {}
+            }
+            if (!crosswordDrag) return;
+            e.preventDefault();
+            const target = crosswordTargetFromPoint(e.clientX, e.clientY);
+            finishCrosswordDrag(target, e.clientX, e.clientY, crosswordSource);
+          };
+        }
+
+        if (crosswordGlobalHandlersBound) return;
+        crosswordGlobalHandlersBound = true;
+
+        document.addEventListener("pointerup", (e) => {
+          if (!crosswordDrag) return;
+          const target = crosswordTargetFromPoint(e.clientX, e.clientY);
+          finishCrosswordDrag(target, e.clientX, e.clientY, crosswordSource);
+        });
+
+        document.addEventListener("pointercancel", () => {
+          if (!crosswordDrag) return;
+          if (crosswordSource) crosswordSource.classList.remove("dragging");
+          crosswordDrag = null;
+          crosswordSource = null;
+          removeCrosswordGhost();
+          resetCrosswordDropStates();
+        });
+      }
+
+      function attachCrosswordChipDrag(chip, word, fromIndex) {
+        chip.dataset.word = word;
+        if (fromIndex !== null) chip.dataset.fromIndex = String(fromIndex);
+        chip.draggable = !window.PointerEvent;
+
+        chip.ondragstart = (e) => {
+          if (chip.classList.contains("used")) {
+            e.preventDefault();
+            return;
+          }
+          crosswordDrag = { word, fromIndex };
+          crosswordSource = chip;
+          e.dataTransfer.setData("text/plain", JSON.stringify(crosswordDrag));
+          chip.classList.add("dragging");
+        };
+
+        chip.ondragend = () => {
+          chip.classList.remove("dragging");
+          crosswordDrag = null;
+          crosswordSource = null;
+          resetCrosswordDropStates();
+        };
+
+        chip.onpointerdown = (e) => {
+          if (e.pointerType === "mouse" && e.button !== 0) return;
+          if (chip.classList.contains("used")) return;
+          e.preventDefault();
+          crosswordDrag = { word, fromIndex };
+          crosswordSource = chip;
+          chip.setPointerCapture(e.pointerId);
+          chip.classList.add("dragging");
+          createCrosswordGhost(word, e.clientX, e.clientY);
+        };
+
+        chip.onpointermove = (e) => {
+          if (!crosswordDrag) return;
+          moveCrosswordGhost(e.clientX, e.clientY);
+          resetCrosswordDropStates();
+          const target = crosswordTargetFromPoint(e.clientX, e.clientY);
+          if (target) target.classList.add("drag-hover");
+        };
+
+        chip.onpointerup = (e) => {
+          if (!crosswordDrag) return;
+          const target = crosswordTargetFromPoint(e.clientX, e.clientY);
+          finishCrosswordDrag(target, e.clientX, e.clientY, chip);
+        };
+
+        chip.onpointercancel = () => {
+          chip.classList.remove("dragging");
+          crosswordDrag = null;
+          crosswordSource = null;
+          removeCrosswordGhost();
+          resetCrosswordDropStates();
+        };
+      }
+
+      function setupCrosswordDropZones() {
+        document.querySelectorAll(".formula-slot").forEach((slot) => {
+          slot.ondragover = (e) => {
+            e.preventDefault();
+            slot.classList.add("drag-hover");
+          };
+          slot.ondragleave = (e) => {
+            if (!slot.contains(e.relatedTarget)) slot.classList.remove("drag-hover");
+          };
+          slot.ondrop = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            slot.classList.remove("drag-hover");
+            if (!crosswordDrag) {
+              try {
+                crosswordDrag = JSON.parse(e.dataTransfer.getData("text/plain"));
+              } catch (_) {}
+            }
+            finishCrosswordDrag(slot, e.clientX, e.clientY, crosswordSource);
+          };
+        });
+
+        const bank = document.getElementById("wordBank");
+        if (!bank) return;
+        bank.ondragover = (e) => {
+          e.preventDefault();
+          bank.classList.add("drag-hover");
+        };
+        bank.ondragleave = (e) => {
+          if (!bank.contains(e.relatedTarget)) bank.classList.remove("drag-hover");
+        };
+        bank.ondrop = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          bank.classList.remove("drag-hover");
+            if (!crosswordDrag) {
+              try {
+              crosswordDrag = JSON.parse(e.dataTransfer.getData("text/plain"));
+              } catch (_) {}
+            }
+          finishCrosswordDrag(bank, e.clientX, e.clientY, crosswordSource);
+        };
+
+        bindCrosswordDisplayDropHandlers();
+      }
+
+      function updateFormulaDisplay() {
+        const slots = document.getElementById("formulaSlots");
+        if (!slots) return;
+        const slotNodes = slots.children;
+        for (let i = 0; i < 8; i++) {
+          slotNodes[i].innerHTML = "";
+          slotNodes[i].classList.toggle("filled", Boolean(currentFormula[i]));
+          if (currentFormula[i]) {
+            const chip = document.createElement("div");
+            chip.className = "word-chip";
+            chip.textContent = currentFormula[i];
+            chip.dataset.word = currentFormula[i];
+            chip.setAttribute("role", "button");
+            chip.setAttribute("aria-label", "Drag " + currentFormula[i] + " to another slot or back to the word bank");
+            attachCrosswordChipDrag(chip, currentFormula[i], i);
+            slotNodes[i].appendChild(chip);
+          }
+        }
+
+        const btn = document.getElementById("pronunciaBtn");
+        if (btn) {
+          if (currentFormula.every((w) => w !== "")) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        }
+      }
+
+      function removeWord(idx) {
+        currentFormula[idx] = "";
+        initCruciverba();
+      }
+
+      function clearFormula() {
+        currentFormula = ["", "", "", "", "", "", "", ""];
+        initCruciverba();
+      }
+
+      function checkFormula() {
+        if (currentFormula.every((w, i) => w === CORRECT_FORMULA[i])) {
+          showToast("formulaSuccessToast");
+          setTimeout(() => {
+            dismissToast();
+            setTimeout(() => goTo("regno-beati"), 1000);
+          }, 5000);
+        } else {
+          const slots = document.getElementById("formulaSlots");
+          if (slots) {
+            slots.style.animation = "shake 0.5s";
+            setTimeout(() => (slots.style.animation = ""), 500);
+          }
+          showToast("formulaErrorToast");
+          setTimeout(() => {
+            dismissToast();
+            setTimeout(() => clearFormula(), 400);
+          }, 3000);
+        }
+      }
+
+      /* ── Tomb background: tomba3.png ── */
+      function injectTombBackground() {
+        /* Native image size */
+        var IMG_W = 846, IMG_H = 506;
+
+        /* Slot centers as fraction of the native image (from Figma):
+           0 = left INSIDE, 1 = right INSIDE, 2 = OUTSIDE */
+        var FIGMA = [
+          { x: 0.40,   y: 0.33   },
+          { x: 0.5556, y: 0.33   },
+          { x: 0.8778, y: 0.6486 },
+        ];
+
+        document.querySelectorAll(".tomb-map-exact").forEach(function(tombMap) {
+          /* ── 1. Background image (contain = no squish) ── */
+          var bgImg = document.createElement("img");
+          bgImg.src = "assets/tomba3.png";
+          bgImg.style.cssText =
+            "position:absolute;inset:0;width:100%;height:100%;" +
+            "object-fit:contain;object-position:center;z-index:0;" +
+            "display:block;pointer-events:none";
+          tombMap.style.background = "#08060a";
+          tombMap.insertBefore(bgImg, tombMap.firstChild);
+
+          /* ── 2. Compute rendered image rect inside the container ── */
+          var cW = tombMap.offsetWidth  || 952;
+          var cH = tombMap.offsetHeight || 320;
+          var imgAspect = IMG_W / IMG_H;
+          var cAspect   = cW / cH;
+          var rendW, rendH, offX, offY;
+          if (cAspect > imgAspect) {
+            /* container wider → image constrained by height */
+            rendH = cH;
+            rendW = cH * imgAspect;
+            offX  = (cW - rendW) / 2;
+            offY  = 0;
+          } else {
+            /* image wider → image constrained by width */
+            rendW = cW;
+            rendH = cW / imgAspect;
+            offX  = 0;
+            offY  = (cH - rendH) / 2;
+          }
+
+          /* ── 3. Position drop points on the rendered image ── */
+          var dropSlots = [
+            { name: "interno-1", idx: 0 },
+            { name: "interno-2", idx: 1 },
+            { name: "fuori", idx: 2 },
+          ];
+          dropSlots.forEach(function(slot) {
+            var zone = tombMap.querySelector('[data-drop-zone="' + slot.name + '"]');
+            var f = FIGMA[slot.idx];
+            if (!zone || !f) return;
+
+            var cx = offX + f.x * rendW;
+            var cy = offY + f.y * rendH;
+            tombMap.appendChild(zone);
+            zone.style.position = "absolute";
+            zone.style.left = (cx - 14) + "px";
+            zone.style.top = (cy - 14) + "px";
+            zone.style.zIndex = "12";
+          });
+
+          /* ── 4. Collect coins ── */
+          var entries = [];
+          var mainBox = tombMap.querySelector('div[style*="right: 120px"]');
+          if (mainBox) {
+            var interno = mainBox.querySelector('div[style*="width: 93%"]');
+            if (interno) {
+              interno.querySelectorAll(':scope > div[style*="border-radius: 50%"]')
+                .forEach(function(slot, i) {
+                  var coin = slot.querySelector(".placed-coin");
+                  if (coin) entries.push({ coin: coin, idx: i });
+                });
+            }
+          }
+          var fuoriDiv = tombMap.querySelector('div[style*="bottom: 22%"]');
+          if (fuoriDiv) {
+            var coin = fuoriDiv.querySelector(".placed-coin");
+            if (coin) entries.push({ coin: coin, idx: 2 });
+          }
+
+          /* ── 5. Position coins on the rendered image ── */
+          entries.forEach(function(e) {
+            var f = FIGMA[e.idx];
+            if (!f) return;
+            /* pixel center of this slot within the container */
+            var cx = offX + f.x * rendW;
+            var cy = offY + f.y * rendH;
+            tombMap.appendChild(e.coin);
+            e.coin.style.position  = "absolute";
+            e.coin.style.left      = (cx - 22) + "px";
+            e.coin.style.top       = (cy - 22) + "px";
+            e.coin.style.zIndex    = "5";
+            e.coin.style.width     = "44px";
+            e.coin.style.height    = "44px";
+            e.coin.style.transform = "";
+          });
+
+          /* ── 6. Hide old visual wrappers ── */
+          if (mainBox) {
+            mainBox.style.cssText +=
+              ";border:none;background:transparent;background-image:none;background-color:transparent";
+            var interno = mainBox.querySelector('div[style*="width: 93%"]');
+            if (interno) {
+              interno.style.background = "transparent";
+              interno.style.borderRight = "none";
+              Array.from(interno.children).forEach(function(el) {
+                if (!el.classList.contains("placed-coin")) el.style.display = "none";
+              });
+            }
+          }
+          if (fuoriDiv) {
+            fuoriDiv.style.border = "none";
+            fuoriDiv.style.background = "transparent";
+            Array.from(fuoriDiv.children).forEach(function(el) {
+              if (!el.classList.contains("placed-coin")) el.style.display = "none";
+            });
+          }
+        });
+      }
+
+      // Initialize on load
+      /* ══════════════════════════════════════════════
+         DRAG & DROP — Offering Rite
+      ══════════════════════════════════════════════ */
+
+      var ddArtifact = null;
+      var ddPlaced   = {};   // tiene traccia degli artefatti già piazzati
+      var ddGhost = null;
+      var ddPointerArtifact = null;
+      var ddPointerSource = null;
+      var ddGlobalHandlersBound = false;
+
+      var ddCorrect = { lucerna: "fuori", lekythos: "interno-1", idria: "interno-2" };
+      var ddEmoji   = { lucerna: "🕯",   lekythos: "⚱",          idria: "🏺"        };
+      var ddNames   = { lucerna: "Lamp", lekythos: "Lekythos", idria: "Idria" };
+      var ddHints   = {
+        lucerna: "The lamp accompanies the journey, but does not enter the burial.",
+        lekythos: "The perfumed oil belongs inside the grave goods.",
+        idria: "The ritual water belongs beside the body."
+      };
+
+      function ddResetZones() {
+        document.querySelectorAll("[data-drop-zone]").forEach(function(z) {
+          z.classList.remove("dd-hover", "dd-wrong");
+          z.style.outline = "";
+        });
+      }
+
+      function resetRitoDragDrop() {
+        ddPlaced = {};
+        ddArtifact = null;
+        ddPointerArtifact = null;
+        ddPointerSource = null;
+        ddRemoveGhost();
+
+        document.querySelectorAll("[data-drop-zone]").forEach(function(zone) {
+          zone.classList.remove("dd-hover", "dd-wrong", "dd-filled");
+          zone.style.animation = "";
+          zone.style.outline = "";
+          delete zone.dataset.filled;
+          if ("defaultHtml" in zone.dataset) zone.innerHTML = zone.dataset.defaultHtml;
+        });
+
+        document.querySelectorAll("[data-artifact]").forEach(function(btn) {
+          btn.classList.remove("completed", "dragging");
+          btn.removeAttribute("aria-disabled");
+          btn.draggable = !window.PointerEvent;
+        });
+      }
+
+      function ddCreateGhost(art, x, y) {
+        ddGhost = document.createElement("div");
+        ddGhost.className = "relic-drag-ghost";
+        ddGhost.innerHTML =
+          '<span class="ghost-icon">' + ddEmoji[art] + '</span>' +
+          '<span class="ghost-name">' + ddNames[art] + '</span>';
+        document.body.appendChild(ddGhost);
+        ddMoveGhost(x, y);
+      }
+
+      function ddMoveGhost(x, y) {
+        if (!ddGhost) return;
+        ddGhost.style.left = x + "px";
+        ddGhost.style.top = y + "px";
+      }
+
+      function ddRemoveGhost() {
+        if (ddGhost) ddGhost.remove();
+        ddGhost = null;
+      }
+
+      function ddDissolveGhost(art, x, y) {
+        var ghost = ddGhost;
+        if (!ghost) {
+          ghost = document.createElement("div");
+          ghost.className = "relic-drag-ghost";
+          ghost.innerHTML =
+            '<span class="ghost-icon">' + ddEmoji[art] + '</span>' +
+            '<span class="ghost-name">' + ddNames[art] + '</span>';
+          ghost.style.left = x + "px";
+          ghost.style.top = y + "px";
+          document.body.appendChild(ghost);
+        }
+
+        ghost.classList.add("dissolving");
+        ddGhost = null;
+        setTimeout(function() {
+          ghost.remove();
+        }, 360);
+      }
+
+      function ddZoneFromPoint(x, y) {
+        var ghostDisplay = ddGhost ? ddGhost.style.display : "";
+        if (ddGhost) ddGhost.style.display = "none";
+        var el = document.elementFromPoint(x, y);
+        if (ddGhost) ddGhost.style.display = ghostDisplay;
+        return el ? el.closest("[data-drop-zone]") : null;
+      }
+
+      function ddMarkPlaced(art, zone) {
+        zone.dataset.filled = "1";
+        ddPlaced[art] = true;
+        zone.classList.add("dd-filled");
+        zone.innerHTML = '<span class="placed-relic">' + ddEmoji[art] + "</span>";
+
+        var btn = document.querySelector('[data-artifact="' + art + '"]');
+        if (btn) {
+          btn.classList.add("completed");
+          btn.setAttribute("aria-disabled", "true");
+          btn.draggable = false;
+        }
+      }
+
+      function ddWrong(zone, art) {
+        if (zone) {
+          zone.classList.add("dd-wrong");
+          zone.style.animation = "shake 0.5s";
+          setTimeout(function() {
+            zone.classList.remove("dd-wrong");
+            zone.style.animation = "";
+          }, 500);
+        }
+        if (ddHints[art]) showRelicFeedback(ddHints[art]);
+      }
+
+      function showRelicFeedback(text) {
+        var bar = document.querySelector("#indagine-1 .instruct-bar p");
+        if (!bar) return;
+        if (!bar.dataset.defaultText) bar.dataset.defaultText = bar.textContent.trim();
+        bar.textContent = text;
+        clearTimeout(bar._ddTimer);
+        bar._ddTimer = setTimeout(function() {
+          bar.textContent = bar.dataset.defaultText;
+        }, 2400);
+      }
+
+      function ddTryPlace(art, zone) {
+        if (!art || (zone && zone.dataset.filled) || ddPlaced[art]) return false;
+        if (!zone) {
+          ddWrong(null, art);
+          return false;
+        }
+
+        if (zone.dataset.dropZone === ddCorrect[art]) {
+          ddMarkPlaced(art, zone);
+          showRelicFeedback(ddNames[art] + " placed correctly.");
+
+          if (Object.keys(ddPlaced).length === 3) {
+            setTimeout(function() {
+              if (typeof azioneComplete !== "undefined") {
+                azioneComplete.currentTime = 0;
+                azioneComplete.play().catch(function(){});
+              }
+              showToast("ritoCompletatoToast");
+              setTimeout(function() {
+                dismissToast();
+                setTimeout(function() { goTo("azione"); }, 400);
+              }, 3500);
+            }, 600);
+          }
+          return true;
+        }
+
+        ddWrong(zone, art);
+        return false;
+      }
+
+      function ddFinishDrag(art, zone, x, y, sourceEl) {
+        var placed = ddTryPlace(art, zone);
+        if (sourceEl) sourceEl.classList.remove("dragging");
+
+        ddPointerArtifact = null;
+        ddPointerSource = null;
+        ddArtifact = null;
+
+        if (placed) {
+          ddRemoveGhost();
+        } else {
+          ddDissolveGhost(art, x, y);
+        }
+
+        ddResetZones();
+        return placed;
+      }
+
+      function bindRitoDisplayDropHandlers() {
+        var screen = document.getElementById("indagine-1");
+        if (screen && !screen.dataset.ritoDisplayDropBound) {
+          screen.dataset.ritoDisplayDropBound = "1";
+
+          screen.ondragover = function(e) {
+            if (!ddArtifact) return;
+            e.preventDefault();
+          };
+
+          screen.ondrop = function(e) {
+            if (!ddArtifact) return;
+            e.preventDefault();
+            var art = ddArtifact || e.dataTransfer.getData("text/plain");
+            var zone = ddZoneFromPoint(e.clientX, e.clientY);
+            ddFinishDrag(art, zone, e.clientX, e.clientY, document.querySelector('[data-artifact="' + art + '"]'));
+          };
+        }
+
+        if (ddGlobalHandlersBound) return;
+        ddGlobalHandlersBound = true;
+
+        document.addEventListener("pointerup", function(e) {
+          if (!ddPointerArtifact) return;
+          var art = ddPointerArtifact;
+          var zone = ddZoneFromPoint(e.clientX, e.clientY);
+          ddFinishDrag(art, zone, e.clientX, e.clientY, ddPointerSource);
+        });
+
+        document.addEventListener("pointercancel", function() {
+          if (!ddPointerArtifact) return;
+          if (ddPointerSource) ddPointerSource.classList.remove("dragging");
+          ddPointerArtifact = null;
+          ddPointerSource = null;
+          ddArtifact = null;
+          ddRemoveGhost();
+          ddResetZones();
+        });
+      }
+
+      function ddSetup() {
+        document.querySelectorAll("[data-artifact]").forEach(function(el) {
+          el.setAttribute("tabindex", "0");
+          el.setAttribute("role", "button");
+          el.setAttribute("aria-label", "Drag " + ddNames[el.dataset.artifact]);
+          if (window.PointerEvent) el.draggable = false;
+
+          el.ondragstart = function(e) {
+            var art = el.dataset.artifact;
+            if (ddPlaced[art]) { e.preventDefault(); return; }  // già piazzato
+            ddArtifact = art;
+            e.dataTransfer.setData("text/plain", art);
+            el.classList.add("dragging");
+          };
+          el.ondragend = function() {
+            el.classList.remove("dragging");
+            ddResetZones();
+            ddArtifact = null;
+          };
+
+          el.onpointerdown = function(e) {
+            if (e.pointerType === "mouse" && e.button !== 0) return;
+            var art = el.dataset.artifact;
+            if (ddPlaced[art]) return;
+            e.preventDefault();
+            ddPointerArtifact = art;
+            ddPointerSource = el;
+            ddArtifact = art;
+            el.setPointerCapture(e.pointerId);
+            el.classList.add("dragging");
+            ddCreateGhost(art, e.clientX, e.clientY);
+          };
+
+          el.onpointermove = function(e) {
+            if (!ddPointerArtifact) return;
+            ddMoveGhost(e.clientX, e.clientY);
+            ddResetZones();
+            var zone = ddZoneFromPoint(e.clientX, e.clientY);
+            if (zone && !zone.dataset.filled) zone.classList.add("dd-hover");
+          };
+
+          el.onpointerup = function(e) {
+            if (!ddPointerArtifact) return;
+            var art = ddPointerArtifact;
+            var zone = ddZoneFromPoint(e.clientX, e.clientY);
+            ddFinishDrag(art, zone, e.clientX, e.clientY, el);
+          };
+
+          el.onpointercancel = function() {
+            el.classList.remove("dragging");
+            ddPointerArtifact = null;
+            ddPointerSource = null;
+            ddArtifact = null;
+            ddRemoveGhost();
+            ddResetZones();
+          };
+        });
+
+        document.querySelectorAll("[data-drop-zone]").forEach(function(zone) {
+          zone.classList.add("relic-drop-zone");
+          if (!("defaultHtml" in zone.dataset)) zone.dataset.defaultHtml = zone.innerHTML;
+          zone.ondragover = function(e) {
+            if (zone.dataset.filled) return;   // zona già occupata
+            e.preventDefault();
+            zone.classList.add("dd-hover");
+          };
+          zone.ondragleave = function(e) {
+            if (!zone.contains(e.relatedTarget)) zone.classList.remove("dd-hover");
+          };
+          zone.ondrop = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            zone.classList.remove("dd-hover");
+            if (zone.dataset.filled) return;
+            var art = ddArtifact || e.dataTransfer.getData("text/plain");
+            if (!art) return;
+            ddFinishDrag(art, zone, e.clientX, e.clientY, document.querySelector('[data-artifact="' + art + '"]'));
+          };
+        });
+
+        bindRitoDisplayDropHandlers();
+      }
+
+      /* ══════════════════════════════════════════════
+         DRAG & DROP — Orphic Tablet
+      ══════════════════════════════════════════════ */
+
+      var lamDragActive = false;
+      var lamPlaced = false;
+      var lamGhost = null;
+      var lamSource = null;
+      var lamGlobalHandlersBound = false;
+
+      function lamCreateGhost(x, y) {
+        lamGhost = document.createElement("div");
+        lamGhost.className = "laminetta-drag-ghost";
+        lamGhost.innerHTML =
+          '<span class="laminetta-ghost-icon">📜</span>' +
+          '<span class="laminetta-ghost-text">Orphic Tablet</span>';
+        document.body.appendChild(lamGhost);
+        lamMoveGhost(x, y);
+      }
+
+      function lamMoveGhost(x, y) {
+        if (!lamGhost) return;
+        lamGhost.style.left = x + "px";
+        lamGhost.style.top = y + "px";
+      }
+
+      function lamRemoveGhost() {
+        if (lamGhost) lamGhost.remove();
+        lamGhost = null;
+      }
+
+      function lamDissolveGhost(x, y) {
+        var ghost = lamGhost;
+        if (!ghost) {
+          ghost = document.createElement("div");
+          ghost.className = "laminetta-drag-ghost";
+          ghost.innerHTML =
+            '<span class="laminetta-ghost-icon">📜</span>' +
+            '<span class="laminetta-ghost-text">Orphic Tablet</span>';
+          ghost.style.left = x + "px";
+          ghost.style.top = y + "px";
+          document.body.appendChild(ghost);
+        }
+
+        ghost.classList.add("dissolving");
+        lamGhost = null;
+        setTimeout(function() {
+          ghost.remove();
+        }, 360);
+      }
+
+      function lamDropZoneFromPoint(x, y) {
+        var ghostDisplay = lamGhost ? lamGhost.style.display : "";
+        if (lamGhost) lamGhost.style.display = "none";
+        var el = document.elementFromPoint(x, y);
+        if (lamGhost) lamGhost.style.display = ghostDisplay;
+        return el ? el.closest("[data-laminetta-drop]") : null;
+      }
+
+      function lamResetZones() {
+        document.querySelectorAll("[data-laminetta-drop]").forEach(function(zone) {
+          zone.classList.remove("hover", "wrong");
+        });
+      }
+
+      function resetLaminettaDragDrop() {
+        lamPlaced = false;
+        lamDragActive = false;
+        lamSource = null;
+        lamRemoveGhost();
+
+        var laminettaBtn = document.querySelector("[data-laminetta-artifact]");
+        if (laminettaBtn) {
+          laminettaBtn.classList.remove("dragging", "completed");
+          laminettaBtn.style.opacity = "1";
+          laminettaBtn.style.pointerEvents = "auto";
+          laminettaBtn.draggable = !window.PointerEvent;
+        }
+
+        var chestContainer = document.querySelector(".chest-container");
+        if (chestContainer) chestContainer.style.pointerEvents = "auto";
+
+        var laminettaPlaced = document.getElementById("laminetta-placed");
+        if (laminettaPlaced) {
+          laminettaPlaced.classList.remove("anim-drop");
+          laminettaPlaced.style.opacity = "0";
+        }
+
+        document.querySelectorAll("[data-laminetta-drop]").forEach(function(zone) {
+          delete zone.dataset.filled;
+          zone.classList.remove("hover", "wrong", "filled");
+        });
+      }
+
+      function showLaminettaFeedback(text) {
+        var bar = document.querySelector("#azione .instruct-bar p");
+        if (!bar) return;
+        if (!bar.dataset.defaultText) bar.dataset.defaultText = bar.textContent.trim();
+        bar.textContent = text;
+        clearTimeout(bar._lamTimer);
+        bar._lamTimer = setTimeout(function() {
+          bar.textContent = bar.dataset.defaultText;
+        }, 2400);
+      }
+
+      function lamWrong(zone) {
+        if (zone) {
+          zone.classList.add("wrong");
+          zone.style.animation = "shake 0.5s";
+          setTimeout(function() {
+            zone.classList.remove("wrong");
+            zone.style.animation = "";
+          }, 500);
+        }
+        showLaminettaFeedback("The tablet must be placed on the chest, at heart height.");
+      }
+
+      function lamTryPlace(zone) {
+        if (lamPlaced) return false;
+        if (zone && zone.dataset.laminettaDrop === "petto") {
+          lamPlaced = true;
+          placeLaminettaAndGo();
+          return true;
+        }
+        lamWrong(zone);
+        return false;
+      }
+
+      function lamFinishDrag(zone, x, y, sourceEl) {
+        var placed = lamTryPlace(zone);
+        if (sourceEl) sourceEl.classList.remove("dragging");
+
+        lamDragActive = false;
+        lamSource = null;
+
+        if (placed) {
+          lamRemoveGhost();
+        } else {
+          lamDissolveGhost(x, y);
+        }
+
+        lamResetZones();
+        return placed;
+      }
+
+      function bindLaminettaDisplayDropHandlers() {
+        var screen = document.getElementById("azione");
+        if (screen && !screen.dataset.laminettaDisplayDropBound) {
+          screen.dataset.laminettaDisplayDropBound = "1";
+
+          screen.ondragover = function(e) {
+            if (!lamDragActive) return;
+            e.preventDefault();
+          };
+
+          screen.ondrop = function(e) {
+            var art = e.dataTransfer.getData("text/plain");
+            if (art !== "laminetta" && !lamDragActive) return;
+            e.preventDefault();
+            var zone = lamDropZoneFromPoint(e.clientX, e.clientY);
+            lamFinishDrag(zone, e.clientX, e.clientY, lamSource || document.querySelector("[data-laminetta-artifact]"));
+          };
+        }
+
+        if (lamGlobalHandlersBound) return;
+        lamGlobalHandlersBound = true;
+
+        document.addEventListener("pointerup", function(e) {
+          if (!lamDragActive) return;
+          var zone = lamDropZoneFromPoint(e.clientX, e.clientY);
+          lamFinishDrag(zone, e.clientX, e.clientY, lamSource);
+        });
+
+        document.addEventListener("pointercancel", function() {
+          if (!lamDragActive) return;
+          if (lamSource) lamSource.classList.remove("dragging");
+          lamDragActive = false;
+          lamSource = null;
+          lamRemoveGhost();
+          lamResetZones();
+        });
+      }
+
+      function setupLaminettaDragDrop() {
+        var source = document.querySelector("[data-laminetta-artifact]");
+        if (!source) return;
+
+        source.setAttribute("tabindex", "0");
+        source.setAttribute("role", "button");
+        source.setAttribute("aria-label", "Drag la Orphic Tablet sul petto della defunta");
+        if (window.PointerEvent) source.draggable = false;
+
+        source.ondragstart = function(e) {
+          if (lamPlaced) { e.preventDefault(); return; }
+          lamDragActive = true;
+          lamSource = source;
+          e.dataTransfer.setData("text/plain", "laminetta");
+          source.classList.add("dragging");
+        };
+
+        source.ondragend = function() {
+          lamDragActive = false;
+          lamSource = null;
+          source.classList.remove("dragging");
+          lamResetZones();
+        };
+
+        source.onpointerdown = function(e) {
+          if (e.pointerType === "mouse" && e.button !== 0) return;
+          if (lamPlaced) return;
+          e.preventDefault();
+          lamDragActive = true;
+          lamSource = source;
+          source.setPointerCapture(e.pointerId);
+          source.classList.add("dragging");
+          lamCreateGhost(e.clientX, e.clientY);
+        };
+
+        source.onpointermove = function(e) {
+          if (!lamDragActive) return;
+          lamMoveGhost(e.clientX, e.clientY);
+          lamResetZones();
+          var zone = lamDropZoneFromPoint(e.clientX, e.clientY);
+          if (zone && !zone.dataset.filled) zone.classList.add("hover");
+        };
+
+        source.onpointerup = function(e) {
+          if (!lamDragActive) return;
+          var zone = lamDropZoneFromPoint(e.clientX, e.clientY);
+          lamFinishDrag(zone, e.clientX, e.clientY, source);
+        };
+
+        source.onpointercancel = function() {
+          lamDragActive = false;
+          lamSource = null;
+          source.classList.remove("dragging");
+          lamRemoveGhost();
+          lamResetZones();
+        };
+
+        document.querySelectorAll("[data-laminetta-drop]").forEach(function(zone) {
+          zone.ondragover = function(e) {
+            if (zone.dataset.filled) return;
+            e.preventDefault();
+            zone.classList.add("hover");
+          };
+          zone.ondragleave = function(e) {
+            if (!zone.contains(e.relatedTarget)) zone.classList.remove("hover");
+          };
+          zone.ondrop = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            zone.classList.remove("hover");
+            if (zone.dataset.filled) return;
+            var art = e.dataTransfer.getData("text/plain");
+            if (art === "laminetta" || lamDragActive) {
+              lamFinishDrag(zone, e.clientX, e.clientY, lamSource || source);
+            }
+          };
+        });
+
+        bindLaminettaDisplayDropHandlers();
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        initCruciverba();
+        scaleScreens();
+        injectTombBackground();
+        ddSetup();
+        setupLaminettaDragDrop();
+      });
+
+      /* ── Scaling: adatta 1280×720 alla finestra ── */
+      function scaleScreens() {
+        const scale = Math.min(
+          window.innerWidth / 1280,
+          window.innerHeight / 720,
+        );
+        document.querySelectorAll(".screen").forEach((s) => {
+          s.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        });
+      }
+      window.addEventListener("resize", scaleScreens);
+
+      /* ── Fullscreen (tasto F) ── */
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "f" || e.key === "F") {
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+          } else {
+            document.exitFullscreen();
+          }
+        }
+      });
+
+      /* ══════════════════════════════════════════════
+         VOICE COMMANDS — riconoscimento vocale (it-IT)
+      ══════════════════════════════════════════════ */
+      const VOICE_COMMANDS = {
+        /* ── Labyrinth of Hades ── */
+        "lab-tenebra": {
+          hint: "« Toward darkness »",
+          keywords: [["darkness", "dark", "cerberus", "cerbero"]],
+          action: () => goTo("cerbero-fail"),
+        },
+        "lab-prosegui": {
+          hint: "« Continue through the labyrinth »",
+          keywords: [["continue", "labyrinth", "forward", "ahead"]],
+          action: () => goTo("bivio-2a"),
+        },
+        "lab-cipresso": {
+          hint: "« Toward the white cypress »",
+          keywords: [["cypress", "white", "lethe"]],
+          action: () => goTo("oblio-fail"),
+        },
+        "lab-fonte": {
+          hint: "« Toward the golden spring »",
+          keywords: [["spring", "golden", "mnemosyne", "memory", "gold"]],
+          action: () => goTo("mnemosyne-ok"),
+        },
+        "lab-riprova-bivio1": {
+          hint: "« Return to the crossroads »",
+          keywords: [["return", "back", "retry", "crossroads", "again"]],
+          action: () => goTo("bivio-1"),
+        },
+        "lab-riprova-bivio2": {
+          hint: "« Return to the crossroads »",
+          keywords: [["return", "back", "retry", "crossroads", "again"]],
+          action: () => goTo("bivio-2b"),
+        },
+        "lab-continua": {
+          hint: "« Before the Guardians »",
+          keywords: [["continue", "guardians", "forward", "go", "ahead"]],
+          action: () => goTo("domanda-guardiani"),
+        },
+      };
+
+      let _currentRecognition = null;
+      let _voiceMatched = false;
+      let _pendingVoiceCmds = null;
+
+      function _normalize(s) {
+        return s
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[̀-ͯ]/g, "")
+          .replace(/['']/g, " ")
+          .replace(/[^a-z\s]/g, " ");
+      }
+
+      function _matchesAllGroups(text, groups) {
+        const t = _normalize(text);
+        return groups.every((group) =>
+          group.some((kw) => t.includes(_normalize(kw))),
+        );
+      }
+
+      function startVoiceCommand(commandKeyOrKeys) {
+        const keys = Array.isArray(commandKeyOrKeys)
+          ? commandKeyOrKeys
+          : [commandKeyOrKeys];
+        const cmds = keys
+          .map((k) => VOICE_COMMANDS[k])
+          .filter(Boolean);
+        if (!cmds.length) return;
+
+        const overlay = document.getElementById("voiceOverlay");
+        const hintEl = document.getElementById("voiceHint");
+        const statusEl = document.getElementById("voiceStatus");
+        const errorEl = document.getElementById("voiceError");
+
+        if (cmds.length === 1) {
+          hintEl.textContent = cmds[0].hint;
+        } else {
+          hintEl.innerHTML = cmds
+            .map((c) => `<div>${c.hint}</div>`)
+            .join('<div class="voice-or">- or -</div>');
+        }
+        errorEl.textContent = "";
+        statusEl.textContent = "Press the microphone to speak";
+        overlay.classList.remove("matched", "listening");
+        overlay.classList.add("show");
+        _voiceMatched = false;
+        _pendingVoiceCmds = cmds;
+
+        // Cancel qualsiasi riconoscimento precedente: il microfono partirà
+        // solo quando l'utente preme il pulsante.
+        if (_currentRecognition) {
+          try {
+            _currentRecognition.abort();
+          } catch (_) {}
+          _currentRecognition = null;
+        }
+      }
+
+      function _activateMic() {
+        if (_currentRecognition) return;
+        const cmds = _pendingVoiceCmds;
+        if (!cmds || !cmds.length) return;
+
+        const overlay = document.getElementById("voiceOverlay");
+        const statusEl = document.getElementById("voiceStatus");
+        const errorEl = document.getElementById("voiceError");
+
+        const SR =
+          window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SR) {
+          errorEl.textContent =
+            "Riconoscimento vocale non supportato dal browser. Usa Chrome o Edge.";
+          statusEl.textContent = "Not available";
+          return;
+        }
+
+        const rec = new SR();
+        rec.lang = "it-IT";
+        rec.continuous = true;
+        rec.interimResults = true;
+        rec.maxAlternatives = 3;
+
+        rec.onresult = (e) => {
+          let full = "";
+          for (let i = 0; i < e.results.length; i++) {
+            full += e.results[i][0].transcript + " ";
+          }
+
+          // Cerca match contro tutti i comandi (primo che vince)
+          const latest = e.results[e.results.length - 1];
+          let matchedCmd = null;
+          for (const c of cmds) {
+            if (_matchesAllGroups(full, c.keywords)) {
+              matchedCmd = c;
+              break;
+            }
+            if (latest) {
+              for (let i = 0; i < latest.length; i++) {
+                if (_matchesAllGroups(latest[i].transcript, c.keywords)) {
+                  matchedCmd = c;
+                  break;
+                }
+              }
+              if (matchedCmd) break;
+            }
+          }
+
+          if (matchedCmd && !_voiceMatched) {
+            _voiceMatched = true;
+            statusEl.textContent = "Command recognized";
+            overlay.classList.remove("listening");
+            overlay.classList.add("matched");
+            try {
+              rec.stop();
+            } catch (_) {}
+            setTimeout(() => {
+              _hideVoiceOverlay();
+              matchedCmd.action();
+            }, 900);
+          }
+        };
+
+        rec.onerror = (e) => {
+          if (e.error === "not-allowed" || e.error === "service-not-allowed") {
+            errorEl.textContent =
+              "Permesso microfono negato. Abilitalo nelle impostazioni del browser.";
+            statusEl.textContent = "Errore";
+            overlay.classList.remove("listening");
+          } else if (e.error === "no-speech") {
+            statusEl.textContent = "No voice detected, try again…";
+          } else if (e.error === "audio-capture") {
+            errorEl.textContent = "Microfono non disponibile.";
+            statusEl.textContent = "Errore";
+            overlay.classList.remove("listening");
+          }
+        };
+
+        rec.onend = () => {
+          if (_voiceMatched) return;
+          // Riavvia solo se l'overlay è ancora aperto in modalità ascolto
+          if (
+            overlay.classList.contains("show") &&
+            overlay.classList.contains("listening")
+          ) {
+            try {
+              rec.start();
+            } catch (_) {}
+          }
+        };
+
+        overlay.classList.add("listening");
+        statusEl.textContent = "In ascolto…";
+        try {
+          rec.start();
+        } catch (_) {
+          setTimeout(() => {
+            try {
+              rec.start();
+            } catch (_) {}
+          }, 200);
+        }
+        _currentRecognition = rec;
+      }
+
+      function _hideVoiceOverlay() {
+        const overlay = document.getElementById("voiceOverlay");
+        overlay.classList.remove("show", "listening", "matched");
+      }
+
+      function stopVoiceCommand() {
+        _voiceMatched = true; // impedisce auto-restart in onend
+        if (_currentRecognition) {
+          try {
+            _currentRecognition.abort();
+          } catch (_) {}
+          _currentRecognition = null;
+        }
+        _pendingVoiceCmds = null;
+        _hideVoiceOverlay();
+      }
+
+      // ESC chiude l'overlay vocale
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          const overlay = document.getElementById("voiceOverlay");
+          if (overlay && overlay.classList.contains("show")) stopVoiceCommand();
+        }
+      });
+    </script>
+  </body>
+</html>

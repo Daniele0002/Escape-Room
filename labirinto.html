@@ -2,20 +2,12 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fase III · Il Labirinto dell'Ade</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet"/>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+      * { margin:0; padding:0; box-sizing:border-box; }
       body {
-        background: #030609;
+        background: #020305;
         height: 100vh;
         overflow: hidden;
         display: flex;
@@ -23,756 +15,752 @@
         justify-content: center;
         user-select: none;
       }
-      svg {
-        width: 100%;
-        height: 100%;
-      }
-      [data-node] {
-        cursor: pointer;
-      }
+      svg { width:100%; height:100%; }
+      [data-node] { cursor: pointer; }
 
-      /* Active rings: hidden by default, shown when node is selected */
-      .active-ring {
-        display: none;
-      }
-      [data-node].active .active-ring {
-        display: block;
-      }
+      .active-ring { display: none; }
+      [data-node].active .active-ring { display: block; }
 
-      /* Active ring colors per node */
-      [data-node="fonte"] .active-ring {
-        stroke: rgba(120, 180, 255, 0.4);
-      }
-      [data-node="mnemosyne"] .active-ring {
-        stroke: rgba(200, 168, 90, 0.4);
-      }
-      [data-node="gate1"] .active-ring,
-      [data-node="gate2"] .active-ring {
-        stroke: rgba(200, 168, 90, 0.3);
-      }
-      [data-node="caronte"] .active-ring {
-        stroke: rgba(160, 80, 220, 0.4);
-      }
+      [data-node="fonte"].active    .active-ring { stroke: rgba(90,170,255,0.65); }
+      [data-node="mnemosyne"].active .active-ring { stroke: rgba(235,200,70,0.65); }
+      [data-node="gate1"].active    .active-ring,
+      [data-node="gate2"].active    .active-ring  { stroke: rgba(220,185,80,0.55); }
+      [data-node="caronte"].active  .active-ring  { stroke: rgba(185,80,255,0.60); }
+      [data-node="porta"].active    .active-ring  { stroke: rgba(220,185,80,0.60); }
 
-      /* Gate outer/inner ring: color changes on active */
-      [data-node="gate1"] .outer-ring,
-      [data-node="gate2"] .outer-ring {
-        stroke: rgba(140, 100, 50, 0.35);
-      }
+      [data-node="gate1"]  .outer-ring,
+      [data-node="gate2"]  .outer-ring { stroke: rgba(140,100,40,0.40); }
       [data-node="gate1"].active .outer-ring,
-      [data-node="gate2"].active .outer-ring {
-        stroke: rgba(200, 168, 90, 0.5);
-      }
+      [data-node="gate2"].active .outer-ring { stroke: rgba(225,190,80,0.72); }
 
-      [data-node="gate1"] .inner-ring,
-      [data-node="gate2"] .inner-ring {
-        stroke: rgba(160, 120, 60, 0.25);
-      }
+      [data-node="gate1"]  .inner-ring,
+      [data-node="gate2"]  .inner-ring { stroke: rgba(160,120,50,0.28); }
       [data-node="gate1"].active .inner-ring,
-      [data-node="gate2"].active .inner-ring {
-        stroke: rgba(200, 168, 90, 0.4);
+      [data-node="gate2"].active .inner-ring { stroke: rgba(225,190,80,0.50); }
+
+      [data-node="caronte"]        .outer-ring { stroke: rgba(130,55,200,0.38); }
+      [data-node="caronte"].active .outer-ring { stroke: rgba(185,80,255,0.68); }
+
+      [data-node="porta"]          .door-frame { stroke: rgba(165,125,50,0.45); }
+      [data-node="porta"].active   .door-frame { stroke: rgba(225,190,80,0.78); }
+
+      /* ── Animations ── */
+      @keyframes flicker {
+        0%,100% { transform:scaleX(1)    scaleY(1)    translateY(0px);  opacity:.88; }
+        18%      { transform:scaleX(.82)  scaleY(1.10) translateY(-1px); opacity:1;   }
+        36%      { transform:scaleX(1.10) scaleY(.90)  translateY(.5px); opacity:.80; }
+        54%      { transform:scaleX(.88)  scaleY(1.06) translateY(-1px); opacity:.94; }
+        72%      { transform:scaleX(1.05) scaleY(.95)  translateY(0px);  opacity:.86; }
+      }
+      @keyframes drift {
+        0%,100% { transform:translate(0,0) scale(1);      opacity:.10; }
+        40%      { transform:translate(12px,-6px) scale(1.08); opacity:.18; }
+        70%      { transform:translate(-7px,4px) scale(.95);  opacity:.12; }
+      }
+      @keyframes drift2 {
+        0%,100% { transform:translate(0,0) scale(1);       opacity:.08; }
+        35%      { transform:translate(-14px,-8px) scale(1.12); opacity:.16; }
+        65%      { transform:translate(8px,5px) scale(.93);    opacity:.10; }
+      }
+      @keyframes gpulse {
+        0%,100% { opacity:.28; }
+        50%      { opacity:.62; }
+      }
+      @keyframes caronteBreath {
+        0%,100% { opacity:.22; }
+        50%      { opacity:.44; }
+      }
+      @keyframes goldShimmer {
+        0%,100% { opacity:.22; }
+        50%      { opacity:.58; }
+      }
+      @keyframes doorGlow {
+        0%,100% { opacity:.30; }
+        50%      { opacity:.72; }
+      }
+      @keyframes porcullaRaise {
+        0%,100% { opacity:.18; }
+        50%      { opacity:.40; }
       }
 
-      /* Caronte outer ring */
-      [data-node="caronte"] .outer-ring {
-        stroke: rgba(120, 60, 180, 0.3);
-      }
-      [data-node="caronte"].active .outer-ring {
-        stroke: rgba(160, 80, 220, 0.5);
-      }
-
-      /* Porta door frame and key */
-      [data-node="porta"] .door-frame {
-        stroke: rgba(160, 120, 50, 0.4);
-      }
-      [data-node="porta"].active .door-frame {
-        stroke: rgba(200, 168, 90, 0.6);
-      }
-      [data-node="porta"] .key-icon {
-        opacity: 0.5;
-      }
-      [data-node="porta"].active .key-icon {
-        opacity: 1;
-      }
+      .fl  { animation:flicker .44s ease-in-out infinite;           transform-box:fill-box; transform-origin:bottom center; }
+      .fl2 { animation:flicker .44s ease-in-out .13s infinite;      transform-box:fill-box; transform-origin:bottom center; }
+      .fl3 { animation:flicker .44s ease-in-out .26s infinite;      transform-box:fill-box; transform-origin:bottom center; }
+      .fog-a { animation:drift  14s ease-in-out infinite; }
+      .fog-b { animation:drift2 17s ease-in-out 3s infinite; }
+      .fog-c { animation:drift  21s ease-in-out 7s infinite; }
+      .fog-d { animation:drift2 12s ease-in-out 5s infinite; }
+      .gp  { animation:gpulse 4s ease-in-out infinite; }
+      .gp2 { animation:gpulse 3s ease-in-out 1.5s infinite; }
+      .gp3 { animation:gpulse 5s ease-in-out .8s infinite; }
+      .ca  { animation:caronteBreath 5s ease-in-out infinite; }
+      .gs  { animation:goldShimmer 3.5s ease-in-out infinite; }
+      .gs2 { animation:goldShimmer 4.5s ease-in-out 1.3s infinite; }
+      .dg  { animation:doorGlow 3s ease-in-out infinite; }
+      .pr  { animation:porcullaRaise 4s ease-in-out infinite; }
     </style>
   </head>
   <body>
     <svg viewBox="0 0 960 590" preserveAspectRatio="xMidYMid meet">
       <defs>
+        <!-- Glow filters -->
         <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
-        <radialGradient id="gateFill" cx="50%" cy="45%" r="55%">
-          <stop offset="0%" stop-color="#3d2510" />
-          <stop offset="60%" stop-color="#2a1a0a" />
-          <stop offset="100%" stop-color="#1a1008" />
+        <filter id="halo" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="14"/>
+        </filter>
+        <filter id="haloSm" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="6"/>
+        </filter>
+        <filter id="torchF" x="-200%" y="-200%" width="500%" height="500%">
+          <feGaussianBlur stdDeviation="8"/>
+        </filter>
+        <filter id="stoneF" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.70" numOctaves="4" result="n" stitchTiles="stitch"/>
+          <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+          <feBlend in="SourceGraphic" in2="g" mode="overlay" result="b"/>
+          <feComposite in="b" in2="SourceGraphic" operator="in"/>
+        </filter>
+
+        <!-- Background gradient -->
+        <radialGradient id="bgCenter" cx="50%" cy="46%" r="62%">
+          <stop offset="0%"  stop-color="rgba(10,18,48,.60)"/>
+          <stop offset="65%" stop-color="rgba(4,8,20,.32)"/>
+          <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
         </radialGradient>
-        <radialGradient id="leteFill" cx="50%" cy="50%" r="60%">
-          <stop offset="0%" stop-color="rgba(80,140,255,.25)" />
-          <stop offset="100%" stop-color="rgba(30,70,180,.05)" />
+
+        <!-- Lete water -->
+        <radialGradient id="leteFill" cx="50%" cy="28%" r="68%">
+          <stop offset="0%"  stop-color="rgba(145,215,255,.75)"/>
+          <stop offset="38%" stop-color="rgba(80,158,245,.50)"/>
+          <stop offset="100%" stop-color="rgba(28,75,195,.10)"/>
         </radialGradient>
-        <radialGradient id="mnemoFill" cx="50%" cy="40%" r="60%">
-          <stop offset="0%" stop-color="rgba(240,210,80,.3)" />
-          <stop offset="100%" stop-color="rgba(180,140,40,.05)" />
+        <!-- Lete stone basin -->
+        <radialGradient id="leteStone" cx="38%" cy="28%" r="68%">
+          <stop offset="0%"  stop-color="#2c3a50"/>
+          <stop offset="60%" stop-color="#1c2838"/>
+          <stop offset="100%" stop-color="#0e1820"/>
         </radialGradient>
-        <radialGradient id="caronteFill" cx="50%" cy="40%" r="60%">
-          <stop offset="0%" stop-color="rgba(100,40,160,.4)" />
-          <stop offset="60%" stop-color="rgba(60,20,100,.55)" />
-          <stop offset="100%" stop-color="rgba(30,10,50,.7)" />
+
+        <!-- Mnemosyne water -->
+        <radialGradient id="mnemoFill" cx="50%" cy="28%" r="68%">
+          <stop offset="0%"  stop-color="rgba(255,235,95,.80)"/>
+          <stop offset="38%" stop-color="rgba(220,185,55,.52)"/>
+          <stop offset="100%" stop-color="rgba(165,125,18,.10)"/>
         </radialGradient>
-        <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
-          <stop offset="0%" stop-color="rgba(10,20,50,.3)" />
-          <stop offset="100%" stop-color="rgba(2,4,10,0)" />
+        <!-- Mnemosyne shore stone -->
+        <radialGradient id="mnemoShore" cx="42%" cy="32%" r="65%">
+          <stop offset="0%"  stop-color="#3a2e0c"/>
+          <stop offset="100%" stop-color="#1e1806"/>
         </radialGradient>
+
+        <!-- Gate / arch stone fill -->
+        <radialGradient id="gateFill" cx="46%" cy="34%" r="66%">
+          <stop offset="0%"  stop-color="#3c2c0e"/>
+          <stop offset="52%" stop-color="#241c02"/>
+          <stop offset="100%" stop-color="#120e00"/>
+        </radialGradient>
+        <!-- Pillar side-shading gradient -->
+        <linearGradient id="pillarLG" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%"  stop-color="#0c0900"/>
+          <stop offset="18%" stop-color="#2c2208"/>
+          <stop offset="48%" stop-color="#3c2e0e"/>
+          <stop offset="80%" stop-color="#2c2208"/>
+          <stop offset="100%" stop-color="#0c0900"/>
+        </linearGradient>
+
+        <!-- Caronte -->
+        <radialGradient id="caronteFill" cx="50%" cy="36%" r="65%">
+          <stop offset="0%"  stop-color="rgba(88,24,155,.86)"/>
+          <stop offset="52%" stop-color="rgba(48,12,90,.92)"/>
+          <stop offset="100%" stop-color="rgba(16,4,34,.98)"/>
+        </radialGradient>
+        <!-- Styx river around Caronte -->
+        <radialGradient id="styxFill" cx="50%" cy="50%" r="55%">
+          <stop offset="0%"  stop-color="rgba(60,30,120,.0)"/>
+          <stop offset="70%" stop-color="rgba(40,15,80,.35)"/>
+          <stop offset="100%" stop-color="rgba(20,5,45,.55)"/>
+        </radialGradient>
+
+        <!-- Porta door wood -->
+        <linearGradient id="doorL" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%"  stop-color="#180e04"/>
+          <stop offset="22%" stop-color="#2a1a08"/>
+          <stop offset="52%" stop-color="#1e1406"/>
+          <stop offset="100%" stop-color="#0e0804"/>
+        </linearGradient>
+        <linearGradient id="doorR" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%"  stop-color="#0e0804"/>
+          <stop offset="48%" stop-color="#1e1406"/>
+          <stop offset="78%" stop-color="#2a1a08"/>
+          <stop offset="100%" stop-color="#180e04"/>
+        </linearGradient>
+
+        <!-- Stone floor tile pattern -->
+        <pattern id="stoneFloor" width="48" height="32" patternUnits="userSpaceOnUse">
+          <rect width="48" height="32" fill="none"/>
+          <rect x=".5" y=".5" width="47" height="31" fill="none" stroke="rgba(50,44,30,.16)" stroke-width=".5"/>
+          <rect x="24.5" y=".5" width="23" height="31" fill="none" stroke="rgba(50,44,30,.06)" stroke-width=".5"/>
+        </pattern>
+
+        <!-- Clip paths -->
+        <clipPath id="leteClip"><ellipse cx="213" cy="110" rx="50" ry="17"/></clipPath>
+        <clipPath id="mnemoClip"><ellipse cx="745" cy="96" rx="72" ry="32"/></clipPath>
+        <clipPath id="caronteClip"><circle cx="213" cy="415" r="74"/></clipPath>
       </defs>
 
-      <!-- Background -->
-      <rect x="0" y="0" width="960" height="590" fill="url(#bgGrad)" />
-      <rect
-        x="8"
-        y="8"
-        width="944"
-        height="574"
-        fill="none"
-        stroke="rgba(200,168,90,.18)"
-        stroke-width="1"
-      />
-      <rect
-        x="12"
-        y="12"
-        width="936"
-        height="566"
-        fill="none"
-        stroke="rgba(200,168,90,.08)"
-        stroke-width="1"
-      />
+      <!-- ═══════════════════════════════════
+           BACKGROUND
+      ═══════════════════════════════════ -->
+      <rect width="960" height="590" fill="#030407"/>
+      <rect width="960" height="590" fill="url(#stoneFloor)" opacity=".55"/>
+      <rect width="960" height="590" fill="url(#bgCenter)"/>
 
-      <!-- Corridors (generated by JS) -->
+      <!-- Border frame -->
+      <rect x="6"  y="6"  width="948" height="578" fill="none" stroke="rgba(200,168,90,.24)" stroke-width="1"/>
+      <rect x="10" y="10" width="940" height="570" fill="none" stroke="rgba(200,168,90,.10)" stroke-width="1"/>
+      <!-- Corner ornaments -->
+      <g fill="none" stroke="rgba(200,168,90,.38)" stroke-width="1">
+        <path d="M 6,6  L 36,6  M 6,6  L 6,36"/>
+        <path d="M 954,6  L 924,6  M 954,6  L 954,36"/>
+        <path d="M 6,584  L 36,584  M 6,584  L 6,554"/>
+        <path d="M 954,584 L 924,584 M 954,584 L 954,554"/>
+      </g>
+      <g fill="rgba(200,168,90,.45)">
+        <polygon points="6,6 10,6 6,10"/>
+        <polygon points="954,6 950,6 954,10"/>
+        <polygon points="6,584 10,584 6,580"/>
+        <polygon points="954,584 950,584 954,580"/>
+      </g>
+      <!-- Center compass rose -->
+      <g transform="translate(480,295)" fill="none" stroke="rgba(200,168,90,.10)" stroke-width=".5">
+        <circle cx="0" cy="0" r="220"/>
+        <circle cx="0" cy="0" r="160"/>
+        <line x1="-220" y1="0" x2="220" y2="0"/>
+        <line x1="0" y1="-220" x2="0" y2="220"/>
+        <line x1="-155" y1="-155" x2="155" y2="155"/>
+        <line x1="155" y1="-155" x2="-155" y2="155"/>
+      </g>
+
+      <!-- ═══════════════════════════════════
+           ATMOSPHERIC FOG
+      ═══════════════════════════════════ -->
+      <ellipse class="fog-a" cx="108" cy="290" rx="200" ry="90"  fill="rgba(45,70,160,.09)" filter="url(#halo)"/>
+      <ellipse class="fog-b" cx="828" cy="465" rx="215" ry="98"  fill="rgba(70,32,145,.08)" filter="url(#halo)"/>
+      <ellipse class="fog-c" cx="480" cy="200" rx="248" ry="68"  fill="rgba(32,52,130,.07)" filter="url(#halo)"/>
+      <ellipse class="fog-d" cx="745" cy="535" rx="175" ry="75"  fill="rgba(55,22,112,.07)" filter="url(#halo)"/>
+      <ellipse class="fog-a" cx="195" cy="528" rx="160" ry="68"  fill="rgba(42,22,108,.06)" filter="url(#halo)"/>
+      <ellipse class="fog-b" cx="480" cy="480" rx="190" ry="80"  fill="rgba(30,12,70,.07)"  filter="url(#halo)"/>
+
+      <!-- ═══════════════════════════════════
+           CORRIDORS + ACHERONTE (from JS)
+      ═══════════════════════════════════ -->
       <g id="corridors"></g>
-
-      <!-- Acheronte river (generated by JS) -->
       <g id="acheronte"></g>
 
-      <!-- ── FONTE DI LETE (x=213, y=88) ── -->
+      <!-- ═══════════════════════════════════
+           FONTE DI LETE  (cx=213, cy=88)
+      ═══════════════════════════════════ -->
       <g data-node="fonte">
-        <circle
-          cx="213"
-          cy="88"
-          r="65"
-          fill="rgba(60,120,220,.06)"
-          style="filter: blur(12px)"
-        />
-        <rect
-          x="207"
-          y="46"
-          width="12"
-          height="52"
-          rx="6"
-          fill="rgba(200,220,255,.08)"
-          stroke="rgba(160,190,255,.3)"
-          stroke-width="1"
-        />
-        <ellipse
-          cx="213"
-          cy="46"
-          rx="7"
-          ry="10"
-          fill="rgba(180,210,255,.15)"
-          stroke="rgba(160,190,255,.4)"
-          stroke-width="1"
-        />
-        <ellipse
-          cx="213"
-          cy="102"
-          rx="52"
-          ry="22"
-          fill="url(#leteFill)"
-          style="filter: blur(2px)"
-        />
-        <ellipse
-          cx="213"
-          cy="102"
-          rx="38"
-          ry="14"
-          fill="rgba(80,140,255,.12)"
-        />
-        <circle cx="213" cy="88" r="55" fill="rgba(60,120,220,.07)" />
-        <circle
-          class="active-ring"
-          cx="213"
-          cy="88"
-          r="60"
-          fill="none"
-          stroke-width="1.5"
-          stroke-dasharray="5 4"
-        />
+        <!-- Ambient halo -->
+        <ellipse class="gp" cx="213" cy="94" rx="90" ry="72" fill="rgba(45,105,255,.07)" filter="url(#halo)"/>
+
+        <!-- Cypress LEFT -->
+        <g opacity=".90">
+          <path d="M 148,128 C 148,128 152,96 155,78 C 156.5,66 158,50 159,36 C 160,50 161.5,66 163,78 C 166,96 170,128 170,128 Z" fill="#0e2812"/>
+          <path d="M 150,128 C 150,128 153,100 156,84 C 157,74 158,62 159,50 C 160,62 161,74 162,84 C 164,100 166,128 166,128 Z" fill="#142e18" opacity=".7"/>
+          <ellipse cx="159" cy="128" rx="12" ry="4" fill="rgba(0,0,0,.35)"/>
+        </g>
+        <!-- Cypress RIGHT -->
+        <g opacity=".88">
+          <path d="M 258,128 C 258,128 262,96 265,78 C 266.5,66 268,50 269,36 C 270,50 271.5,66 273,78 C 276,96 280,128 280,128 Z" fill="#0e2812"/>
+          <path d="M 260,128 C 260,128 263,100 266,84 C 267,74 268,62 269,50 C 270,62 271,74 272,84 C 274,100 276,128 276,128 Z" fill="#142e18" opacity=".7"/>
+          <ellipse cx="269" cy="128" rx="12" ry="4" fill="rgba(0,0,0,.35)"/>
+        </g>
+
+        <!-- Stone basin outer shell -->
+        <ellipse cx="213" cy="116" rx="60" ry="21" fill="url(#leteStone)" stroke="rgba(65,95,155,.50)" stroke-width="1.5"/>
+        <ellipse cx="213" cy="114" rx="60" ry="20" fill="none" stroke="rgba(95,135,210,.18)" stroke-width=".8"/>
+        <!-- Water fill -->
+        <ellipse cx="213" cy="112" rx="50" ry="15" fill="url(#leteFill)" clip-path="url(#leteClip)"/>
+        <ellipse cx="213" cy="112" rx="50" ry="15" fill="rgba(100,175,255,.10)"/>
+        <!-- Animated water ripples (SVG SMIL) -->
+        <circle cx="213" cy="112" fill="none" stroke="rgba(120,195,255,.68)" stroke-width="1.2">
+          <animate attributeName="r" from="5"  to="48" dur="4s"          repeatCount="indefinite"/>
+          <animate attributeName="stroke-opacity" from=".68" to="0" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="213" cy="112" fill="none" stroke="rgba(100,175,250,.55)" stroke-width="1.0">
+          <animate attributeName="r" from="5"  to="48" dur="4s" begin="1.33s" repeatCount="indefinite"/>
+          <animate attributeName="stroke-opacity" from=".55" to="0" dur="4s" begin="1.33s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="213" cy="112" fill="none" stroke="rgba(80,155,240,.42)" stroke-width="0.8">
+          <animate attributeName="r" from="5"  to="48" dur="4s" begin="2.66s" repeatCount="indefinite"/>
+          <animate attributeName="stroke-opacity" from=".42" to="0" dur="4s" begin="2.66s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- Stone column shaft -->
+        <rect x="208" y="50" width="10" height="62" rx="2" fill="url(#leteStone)" stroke="rgba(75,108,165,.38)" stroke-width=".8"/>
+        <line x1="211" y1="52" x2="211" y2="110" stroke="rgba(100,140,210,.12)" stroke-width=".5"/>
+        <line x1="215" y1="52" x2="215" y2="110" stroke="rgba(100,140,210,.12)" stroke-width=".5"/>
+        <!-- Column capital -->
+        <rect x="203" y="46" width="20" height="6" rx="1" fill="#233040" stroke="rgba(85,118,185,.40)" stroke-width=".8"/>
+        <!-- Column base -->
+        <rect x="205" y="112" width="16" height="4" rx="1" fill="#1e2c3c" stroke="rgba(75,108,165,.32)" stroke-width=".8"/>
+
+        <!-- Water-vessel / spout top -->
+        <ellipse cx="213" cy="46" rx="7" ry="5" fill="rgba(75,130,225,.32)" stroke="rgba(115,182,255,.58)" stroke-width="1"/>
+        <!-- Water stream -->
+        <line x1="213" y1="51" x2="213" y2="77" stroke="rgba(115,188,255,.52)" stroke-width="1.5" stroke-dasharray="2 5"/>
+        <!-- Glow -->
+        <ellipse class="gp2" cx="213" cy="112" rx="58" ry="22" fill="rgba(65,135,255,.06)" filter="url(#haloSm)"/>
+
+        <!-- Active ring -->
+        <circle class="active-ring" cx="213" cy="88" r="78" fill="none" stroke-width="1.5" stroke-dasharray="5 4"/>
       </g>
 
-      <!-- ── LAGO DI MNEMOSYNE (x=745, y=88) ── -->
+      <!-- ═══════════════════════════════════
+           LAGO DI MNEMOSYNE  (cx=745, cy=88)
+      ═══════════════════════════════════ -->
       <g data-node="mnemosyne">
-        <ellipse
-          cx="745"
-          cy="88"
-          rx="80"
-          ry="50"
-          fill="rgba(200,168,60,.07)"
-          style="filter: blur(14px)"
-        />
-        <ellipse
-          cx="745"
-          cy="94"
-          rx="62"
-          ry="28"
-          fill="url(#mnemoFill)"
-          style="filter: blur(1px)"
-        />
-        <ellipse cx="745" cy="94" rx="50" ry="20" fill="rgba(210,180,60,.14)" />
-        <ellipse
-          cx="745"
-          cy="94"
-          rx="38"
-          ry="14"
-          fill="none"
-          stroke="rgba(210,180,60,.25)"
-          stroke-width="1"
-        />
-        <ellipse
-          cx="745"
-          cy="94"
-          rx="28"
-          ry="9"
-          fill="none"
-          stroke="rgba(220,190,70,.3)"
-          stroke-width="1"
-        />
-        <ellipse
-          class="active-ring"
-          cx="745"
-          cy="94"
-          rx="68"
-          ry="34"
-          fill="none"
-          stroke-width="1.5"
-          stroke-dasharray="5 4"
-        />
+        <!-- Ambient halo -->
+        <ellipse class="gp3" cx="745" cy="92" rx="105" ry="78" fill="rgba(210,170,45,.07)" filter="url(#halo)"/>
+
+        <!-- Stone shore / bank -->
+        <ellipse cx="745" cy="100" rx="82" ry="40" fill="url(#mnemoShore)" stroke="rgba(185,150,50,.35)" stroke-width="1.2"/>
+        <ellipse cx="745" cy="98"  rx="82" ry="39" fill="none" stroke="rgba(215,180,65,.15)" stroke-width=".8"/>
+
+        <!-- Lake water body -->
+        <ellipse cx="745" cy="96" rx="70" ry="32" fill="url(#mnemoFill)" clip-path="url(#mnemoClip)"/>
+        <ellipse cx="745" cy="96" rx="70" ry="32" fill="rgba(240,210,80,.09)"/>
+
+        <!-- Shimmer surface overlays -->
+        <ellipse class="gs"  cx="745" cy="90" rx="40" ry="12" fill="rgba(255,240,120,.15)"/>
+        <ellipse class="gs2" cx="750" cy="98" rx="28" ry="8"  fill="rgba(255,230,100,.12)"/>
+
+        <!-- Animated ripples (ellipse SMIL) -->
+        <ellipse cx="745" cy="96" fill="none" stroke="rgba(230,200,65,.65)" stroke-width="1.2">
+          <animate attributeName="rx" from="8"  to="70" dur="5s"          repeatCount="indefinite"/>
+          <animate attributeName="ry" from="3"  to="30" dur="5s"          repeatCount="indefinite"/>
+          <animate attributeName="stroke-opacity" from=".65" to="0" dur="5s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="745" cy="96" fill="none" stroke="rgba(215,185,55,.52)" stroke-width="1.0">
+          <animate attributeName="rx" from="8"  to="70" dur="5s" begin="1.67s" repeatCount="indefinite"/>
+          <animate attributeName="ry" from="3"  to="30" dur="5s" begin="1.67s" repeatCount="indefinite"/>
+          <animate attributeName="stroke-opacity" from=".52" to="0" dur="5s" begin="1.67s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="745" cy="96" fill="none" stroke="rgba(200,168,45,.40)" stroke-width="0.8">
+          <animate attributeName="rx" from="8"  to="70" dur="5s" begin="3.33s" repeatCount="indefinite"/>
+          <animate attributeName="ry" from="3"  to="30" dur="5s" begin="3.33s" repeatCount="indefinite"/>
+          <animate attributeName="stroke-opacity" from=".40" to="0" dur="5s" begin="3.33s" repeatCount="indefinite"/>
+        </ellipse>
+
+        <!-- Star reflections -->
+        <g fill="rgba(255,240,160,.55)">
+          <circle cx="728" cy="90" r="1.2"><animate attributeName="opacity" values=".2;.8;.2" dur="2.1s" repeatCount="indefinite"/></circle>
+          <circle cx="755" cy="86" r="1.0"><animate attributeName="opacity" values=".3;.9;.3" dur="1.7s" repeatCount="indefinite"/></circle>
+          <circle cx="762" cy="99" r="1.4"><animate attributeName="opacity" values=".15;.7;.15" dur="2.8s" repeatCount="indefinite"/></circle>
+          <circle cx="736" cy="102" r="0.9"><animate attributeName="opacity" values=".25;.75;.25" dur="2.3s" repeatCount="indefinite"/></circle>
+          <circle cx="745" cy="93" r="1.5"><animate attributeName="opacity" values=".1;.6;.1" dur="3.2s" repeatCount="indefinite"/></circle>
+        </g>
+
+        <!-- Glow -->
+        <ellipse class="gp" cx="745" cy="96" rx="80" ry="38" fill="rgba(200,168,55,.06)" filter="url(#haloSm)"/>
+
+        <!-- Active ring -->
+        <ellipse class="active-ring" cx="745" cy="96" rx="88" ry="44" fill="none" stroke-width="1.5" stroke-dasharray="5 4"/>
       </g>
 
-      <!-- ── PRIMO VARCO (x=480, y=255) ── -->
+      <!-- ═══════════════════════════════════
+           PRIMO VARCO – STONE ARCH  (cx=480, cy=255)
+      ═══════════════════════════════════ -->
       <g data-node="gate1">
-        <circle
-          cx="480"
-          cy="255"
-          r="76"
-          fill="none"
-          stroke="rgba(180,130,60,.12)"
-          stroke-width="18"
-          style="filter: blur(6px)"
-        />
-        <circle
-          class="outer-ring"
-          cx="480"
-          cy="255"
-          r="68"
-          fill="none"
-          stroke-width="1.5"
-        />
-        <circle cx="480" cy="255" r="66" fill="url(#gateFill)" />
-        <circle
-          class="inner-ring"
-          cx="480"
-          cy="255"
-          r="52"
-          fill="none"
-          stroke-width="1"
-        />
-        <circle
-          cx="480"
-          cy="255"
-          r="20"
-          fill="rgba(30,20,10,.6)"
-          stroke="rgba(160,120,60,.3)"
-          stroke-width="1"
-        />
-        <line
-          x1="468"
-          y1="255"
-          x2="492"
-          y2="255"
-          stroke="rgba(180,140,70,.35)"
-          stroke-width="1.5"
-        />
-        <line
-          x1="480"
-          y1="243"
-          x2="480"
-          y2="267"
-          stroke="rgba(180,140,70,.35)"
-          stroke-width="1.5"
-        />
-        <g transform="translate(422,255)">
-          <rect x="-2" y="-16" width="4" height="18" fill="#5a3a1a" rx="1" />
-          <ellipse cx="0" cy="-20" rx="5" ry="8" fill="rgba(255,140,30,.85)" />
-          <ellipse cx="0" cy="-22" rx="3" ry="5" fill="rgba(255,200,50,.9)" />
-          <ellipse cx="0" cy="-24" rx="1.5" ry="3" fill="rgba(255,240,180,1)" />
-          <circle cx="0" cy="-20" r="12" fill="rgba(255,140,30,.12)" />
+        <!-- Outer glow halo -->
+        <circle cx="480" cy="255" r="80" fill="rgba(180,130,55,.08)" filter="url(#halo)"/>
+        <!-- Stone fill circle (base) -->
+        <circle cx="480" cy="255" r="68" fill="url(#gateFill)"/>
+        <!-- Outer ring (JS-controlled) -->
+        <circle class="outer-ring" cx="480" cy="255" r="68" fill="none" stroke-width="1.5"/>
+
+        <!-- Entablature (horizontal beam spanning top) -->
+        <rect x="418" y="196" width="124" height="10" rx="1" fill="#221a04" stroke="rgba(175,140,60,.32)" stroke-width=".6"/>
+        <!-- Frieze decorative band -->
+        <rect x="421" y="206" width="118" height="5" fill="#1a1400" stroke="rgba(155,122,50,.22)" stroke-width=".5"/>
+        <!-- Triglyph hints on frieze -->
+        <g fill="none" stroke="rgba(155,122,45,.18)" stroke-width=".5">
+          <line x1="440" y1="207" x2="440" y2="210"/> <line x1="443" y1="207" x2="443" y2="210"/>
+          <line x1="458" y1="207" x2="458" y2="210"/> <line x1="461" y1="207" x2="461" y2="210"/>
+          <line x1="498" y1="207" x2="498" y2="210"/> <line x1="501" y1="207" x2="501" y2="210"/>
+          <line x1="518" y1="207" x2="518" y2="210"/> <line x1="521" y1="207" x2="521" y2="210"/>
         </g>
-        <g transform="translate(538,255)">
-          <rect x="-2" y="-16" width="4" height="18" fill="#5a3a1a" rx="1" />
-          <ellipse cx="0" cy="-20" rx="5" ry="8" fill="rgba(255,140,30,.85)" />
-          <ellipse cx="0" cy="-22" rx="3" ry="5" fill="rgba(255,200,50,.9)" />
-          <ellipse cx="0" cy="-24" rx="1.5" ry="3" fill="rgba(255,240,180,1)" />
-          <circle cx="0" cy="-20" r="12" fill="rgba(255,140,30,.12)" />
+
+        <!-- Left pillar -->
+        <rect x="421" y="211" width="24" height="108" fill="url(#pillarLG)" rx="1"/>
+        <!-- Left pillar fluting -->
+        <g stroke="rgba(200,165,70,.10)" stroke-width=".5">
+          <line x1="427" y1="213" x2="427" y2="318"/> <line x1="432" y1="213" x2="432" y2="318"/>
+          <line x1="437" y1="213" x2="437" y2="318"/>
         </g>
-        <circle
-          class="active-ring"
-          cx="480"
-          cy="255"
-          r="70"
-          fill="none"
-          stroke-width="2"
-          stroke-dasharray="6 4"
-        />
+        <!-- Left capital -->
+        <rect x="418" y="209" width="30" height="4" rx="0.5" fill="#2c2208" stroke="rgba(175,140,60,.30)" stroke-width=".5"/>
+        <!-- Left base -->
+        <rect x="420" y="317" width="26" height="4" rx="0.5" fill="#1c1600" stroke="rgba(155,122,45,.22)" stroke-width=".5"/>
+
+        <!-- Right pillar -->
+        <rect x="515" y="211" width="24" height="108" fill="url(#pillarLG)" rx="1"/>
+        <!-- Right pillar fluting -->
+        <g stroke="rgba(200,165,70,.10)" stroke-width=".5">
+          <line x1="521" y1="213" x2="521" y2="318"/> <line x1="526" y1="213" x2="526" y2="318"/>
+          <line x1="531" y1="213" x2="531" y2="318"/>
+        </g>
+        <!-- Right capital -->
+        <rect x="512" y="209" width="30" height="4" rx="0.5" fill="#2c2208" stroke="rgba(175,140,60,.30)" stroke-width=".5"/>
+        <!-- Right base -->
+        <rect x="514" y="317" width="26" height="4" rx="0.5" fill="#1c1600" stroke="rgba(155,122,45,.22)" stroke-width=".5"/>
+
+        <!-- Arch voussoir ring (stone border around opening) -->
+        <path d="M 441,321 L 441,254 A 39,39 0 0 0 519,254 L 519,321"
+              fill="none" stroke="rgba(175,140,58,.32)" stroke-width="2"/>
+        <!-- Arch opening (dark space) -->
+        <path d="M 445,321 L 445,255 A 35,35 0 0 0 515,255 L 515,321 Z" fill="#060402"/>
+        <!-- Arch inner edge highlight -->
+        <path d="M 445,255 A 35,35 0 0 0 515,255" fill="none" stroke="rgba(200,165,70,.25)" stroke-width="1"/>
+
+        <!-- Keystone at arch apex -->
+        <polygon points="480,214 473,224 480,234 487,224" fill="#2a1e06" stroke="rgba(200,165,70,.48)" stroke-width="1"/>
+        <polygon points="480,218 475,225 480,230 485,225" fill="#362810" stroke="rgba(220,185,80,.30)" stroke-width=".5"/>
+
+        <!-- Stylobate (base platform) -->
+        <rect x="415" y="321" width="130" height="9" rx="1" fill="#181200" stroke="rgba(155,122,45,.25)" stroke-width=".5"/>
+
+        <!-- Subtle ambient glow through the arch opening -->
+        <ellipse class="gp2" cx="480" cy="288" rx="30" ry="28" fill="rgba(200,158,55,.05)" filter="url(#haloSm)"/>
+
+        <!-- Inner ring (legacy) -->
+        <circle class="inner-ring" cx="480" cy="255" r="52" fill="none" stroke-width="1"/>
+
+        <!-- Torches -->
+        <!-- Left torch -->
+        <g transform="translate(406,248)">
+          <rect x="-2.5" y="-20" width="5" height="22" rx="1.5" fill="#3a2008"/>
+          <ellipse class="fl"  cx="0" cy="-26" rx="5.5" ry="9"   fill="rgba(255,105,22,.92)"/>
+          <ellipse class="fl2" cx="0" cy="-28" rx="3.5" ry="6.5" fill="rgba(255,185,42,.96)"/>
+          <ellipse class="fl3" cx="0" cy="-30" rx="2"   ry="4"   fill="rgba(255,245,175,1)"/>
+          <circle cx="0" cy="-24" r="14" fill="rgba(255,125,30,.14)" filter="url(#torchF)"/>
+        </g>
+        <!-- Right torch -->
+        <g transform="translate(554,248)">
+          <rect x="-2.5" y="-20" width="5" height="22" rx="1.5" fill="#3a2008"/>
+          <ellipse class="fl"  cx="0" cy="-26" rx="5.5" ry="9"   fill="rgba(255,105,22,.92)"/>
+          <ellipse class="fl2" cx="0" cy="-28" rx="3.5" ry="6.5" fill="rgba(255,185,42,.96)"/>
+          <ellipse class="fl3" cx="0" cy="-30" rx="2"   ry="4"   fill="rgba(255,245,175,1)"/>
+          <circle cx="0" cy="-24" r="14" fill="rgba(255,125,30,.14)" filter="url(#torchF)"/>
+        </g>
+
+        <!-- Active ring -->
+        <circle class="active-ring" cx="480" cy="255" r="74" fill="none" stroke-width="2" stroke-dasharray="6 4"/>
       </g>
 
-      <!-- ── CARONTE (x=213, y=415) ── -->
+      <!-- ═══════════════════════════════════
+           CARONTE  (cx=213, cy=415)
+      ═══════════════════════════════════ -->
       <g data-node="caronte">
-        <circle
-          cx="213"
-          cy="415"
-          r="88"
-          fill="rgba(100,40,160,.08)"
-          style="filter: blur(16px)"
-        />
-        <circle
-          class="outer-ring"
-          cx="213"
-          cy="415"
-          r="76"
-          fill="none"
-          stroke-width="1.5"
-        />
-        <circle cx="213" cy="415" r="74" fill="url(#caronteFill)" />
-        <circle
-          cx="213"
-          cy="415"
-          r="60"
-          fill="none"
-          stroke="rgba(140,70,200,.2)"
-          stroke-width="1"
-        />
-        <circle
-          cx="213"
-          cy="415"
-          r="32"
-          fill="rgba(80,30,120,.5)"
-          stroke="rgba(160,80,220,.3)"
-          stroke-width="1.5"
-        />
-        <circle
-          cx="213"
-          cy="409"
-          r="10"
-          fill="none"
-          stroke="rgba(180,120,240,.35)"
-          stroke-width="1.5"
-        />
-        <line
-          x1="207"
-          y1="421"
-          x2="219"
-          y2="421"
-          stroke="rgba(180,120,240,.35)"
-          stroke-width="1.5"
-        />
-        <line
-          x1="209"
-          y1="425"
-          x2="209"
-          y2="421"
-          stroke="rgba(180,120,240,.35)"
-          stroke-width="1.5"
-        />
-        <line
-          x1="217"
-          y1="425"
-          x2="217"
-          y2="421"
-          stroke="rgba(180,120,240,.35)"
-          stroke-width="1.5"
-        />
-        <g transform="translate(147,415)">
-          <rect x="-2" y="-16" width="4" height="18" fill="#5a3a1a" rx="1" />
-          <ellipse cx="0" cy="-20" rx="5" ry="8" fill="rgba(255,140,30,.85)" />
-          <ellipse cx="0" cy="-22" rx="3" ry="5" fill="rgba(255,200,50,.9)" />
-          <ellipse cx="0" cy="-24" rx="1.5" ry="3" fill="rgba(255,240,180,1)" />
-          <circle cx="0" cy="-20" r="12" fill="rgba(255,140,30,.12)" />
+        <!-- Outer breathing aura -->
+        <circle class="ca" cx="213" cy="415" r="92" fill="rgba(90,24,160,.10)" filter="url(#halo)"/>
+        <!-- Outer ring (JS-controlled) -->
+        <circle class="outer-ring" cx="213" cy="415" r="76" fill="none" stroke-width="1.5"/>
+        <!-- Chamber fill -->
+        <circle cx="213" cy="415" r="74" fill="url(#caronteFill)"/>
+
+        <!-- Styx river at perimeter (dark ring suggesting water) -->
+        <circle cx="213" cy="415" r="64" fill="none" stroke="rgba(50,18,90,.7)" stroke-width="12"/>
+        <circle cx="213" cy="415" r="64" fill="none" stroke="rgba(100,45,170,.22)" stroke-width="8"/>
+        <!-- Styx ripple highlights -->
+        <circle cx="213" cy="415" r="58" fill="none" stroke="rgba(130,60,200,.18)" stroke-width="1"/>
+        <circle cx="213" cy="415" r="70" fill="none" stroke="rgba(110,45,180,.15)" stroke-width="1"/>
+
+        <!-- Boat bottom arc (suggestion of the ferry) -->
+        <path d="M 175,438 Q 213,452 251,438" fill="none" stroke="rgba(80,50,30,.65)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 178,436 Q 213,448 248,436" fill="none" stroke="rgba(110,75,45,.40)" stroke-width="1" stroke-linecap="round"/>
+
+        <!-- Caronte figure silhouette -->
+        <g transform="translate(213,415)" clip-path="url(#caronteClip)">
+          <!-- Cloak / body -->
+          <path d="M 0,-22 C -5,-14 -16,4 -18,30 L 18,30 C 16,4 5,-14 0,-22 Z" fill="rgba(8,2,18,.96)"/>
+          <!-- Hood -->
+          <ellipse cx="0" cy="-24" rx="13" ry="10" fill="rgba(12,4,28,.98)"/>
+          <!-- Hood shadow -->
+          <ellipse cx="0" cy="-20" rx="9" ry="6" fill="rgba(4,0,10,.80)"/>
+          <!-- Glowing eyes -->
+          <circle cx="-3.5" cy="-23" r="1.8" fill="rgba(175,75,245,.90)">
+            <animate attributeName="opacity" values=".6;1;.6" dur="2.2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="3.5" cy="-23" r="1.8" fill="rgba(175,75,245,.90)">
+            <animate attributeName="opacity" values=".6;1;.6" dur="2.2s" begin=".4s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Eye glow -->
+          <ellipse cx="0" cy="-23" rx="6" ry="4" fill="rgba(160,60,230,.14)" filter="url(#haloSm)"/>
+          <!-- Oar / pole -->
+          <line x1="12" y1="-10" x2="28" y2="32" stroke="rgba(90,62,30,.70)" stroke-width="2.2" stroke-linecap="round"/>
+          <ellipse cx="28" cy="34" rx="7" ry="2.5" fill="rgba(75,52,24,.58)" transform="rotate(-30,28,34)"/>
         </g>
-        <g transform="translate(279,415)">
-          <rect x="-2" y="-16" width="4" height="18" fill="#5a3a1a" rx="1" />
-          <ellipse cx="0" cy="-20" rx="5" ry="8" fill="rgba(255,140,30,.85)" />
-          <ellipse cx="0" cy="-22" rx="3" ry="5" fill="rgba(255,200,50,.9)" />
-          <ellipse cx="0" cy="-24" rx="1.5" ry="3" fill="rgba(255,240,180,1)" />
-          <circle cx="0" cy="-20" r="12" fill="rgba(255,140,30,.12)" />
-        </g>
-        <circle
-          class="active-ring"
-          cx="213"
-          cy="415"
-          r="80"
-          fill="none"
-          stroke-width="2"
-          stroke-dasharray="6 4"
-        />
+
+        <!-- Purple mist wisps inside chamber -->
+        <ellipse class="gp3" cx="213" cy="415" r="40" fill="rgba(110,40,185,.08)" filter="url(#haloSm)"/>
+
+        <!-- Active ring -->
+        <circle class="active-ring" cx="213" cy="415" r="80" fill="none" stroke-width="2" stroke-dasharray="6 4"/>
       </g>
 
-      <!-- ── SECONDO VARCO (x=480, y=415) ── -->
+      <!-- ═══════════════════════════════════
+           SECONDO VARCO – STONE ARCH  (cx=480, cy=415)
+      ═══════════════════════════════════ -->
       <g data-node="gate2">
-        <circle
-          cx="480"
-          cy="415"
-          r="76"
-          fill="none"
-          stroke="rgba(180,130,60,.12)"
-          stroke-width="18"
-          style="filter: blur(6px)"
-        />
-        <circle
-          class="outer-ring"
-          cx="480"
-          cy="415"
-          r="68"
-          fill="none"
-          stroke-width="1.5"
-        />
-        <circle cx="480" cy="415" r="66" fill="url(#gateFill)" />
-        <circle
-          class="inner-ring"
-          cx="480"
-          cy="415"
-          r="52"
-          fill="none"
-          stroke-width="1"
-        />
-        <circle
-          cx="480"
-          cy="415"
-          r="20"
-          fill="rgba(30,20,10,.6)"
-          stroke="rgba(160,120,60,.3)"
-          stroke-width="1"
-        />
-        <line
-          x1="468"
-          y1="415"
-          x2="492"
-          y2="415"
-          stroke="rgba(180,140,70,.35)"
-          stroke-width="1.5"
-        />
-        <line
-          x1="480"
-          y1="403"
-          x2="480"
-          y2="427"
-          stroke="rgba(180,140,70,.35)"
-          stroke-width="1.5"
-        />
-        <g transform="translate(422,415)">
-          <rect x="-2" y="-16" width="4" height="18" fill="#5a3a1a" rx="1" />
-          <ellipse cx="0" cy="-20" rx="5" ry="8" fill="rgba(255,140,30,.85)" />
-          <ellipse cx="0" cy="-22" rx="3" ry="5" fill="rgba(255,200,50,.9)" />
-          <ellipse cx="0" cy="-24" rx="1.5" ry="3" fill="rgba(255,240,180,1)" />
-          <circle cx="0" cy="-20" r="12" fill="rgba(255,140,30,.12)" />
+        <!-- Outer glow -->
+        <circle cx="480" cy="415" r="80" fill="rgba(180,130,55,.08)" filter="url(#halo)"/>
+        <!-- Stone fill circle -->
+        <circle cx="480" cy="415" r="68" fill="url(#gateFill)"/>
+        <circle class="outer-ring" cx="480" cy="415" r="68" fill="none" stroke-width="1.5"/>
+
+        <!-- Entablature -->
+        <rect x="418" y="356" width="124" height="10" rx="1" fill="#221a04" stroke="rgba(175,140,60,.32)" stroke-width=".6"/>
+        <rect x="421" y="366" width="118" height="5" fill="#1a1400" stroke="rgba(155,122,50,.22)" stroke-width=".5"/>
+        <!-- Triglyph hints -->
+        <g fill="none" stroke="rgba(155,122,45,.18)" stroke-width=".5">
+          <line x1="440" y1="367" x2="440" y2="370"/> <line x1="443" y1="367" x2="443" y2="370"/>
+          <line x1="458" y1="367" x2="458" y2="370"/> <line x1="461" y1="367" x2="461" y2="370"/>
+          <line x1="498" y1="367" x2="498" y2="370"/> <line x1="501" y1="367" x2="501" y2="370"/>
+          <line x1="518" y1="367" x2="518" y2="370"/> <line x1="521" y1="367" x2="521" y2="370"/>
         </g>
-        <g transform="translate(538,415)">
-          <rect x="-2" y="-16" width="4" height="18" fill="#5a3a1a" rx="1" />
-          <ellipse cx="0" cy="-20" rx="5" ry="8" fill="rgba(255,140,30,.85)" />
-          <ellipse cx="0" cy="-22" rx="3" ry="5" fill="rgba(255,200,50,.9)" />
-          <ellipse cx="0" cy="-24" rx="1.5" ry="3" fill="rgba(255,240,180,1)" />
-          <circle cx="0" cy="-20" r="12" fill="rgba(255,140,30,.12)" />
+
+        <!-- Left pillar -->
+        <rect x="421" y="371" width="24" height="108" fill="url(#pillarLG)" rx="1"/>
+        <g stroke="rgba(200,165,70,.10)" stroke-width=".5">
+          <line x1="427" y1="373" x2="427" y2="478"/> <line x1="432" y1="373" x2="432" y2="478"/>
+          <line x1="437" y1="373" x2="437" y2="478"/>
         </g>
-        <circle
-          class="active-ring"
-          cx="480"
-          cy="415"
-          r="70"
-          fill="none"
-          stroke-width="2"
-          stroke-dasharray="6 4"
-        />
+        <rect x="418" y="369" width="30" height="4" rx="0.5" fill="#2c2208" stroke="rgba(175,140,60,.30)" stroke-width=".5"/>
+        <rect x="420" y="477" width="26" height="4" rx="0.5" fill="#1c1600" stroke="rgba(155,122,45,.22)" stroke-width=".5"/>
+
+        <!-- Right pillar -->
+        <rect x="515" y="371" width="24" height="108" fill="url(#pillarLG)" rx="1"/>
+        <g stroke="rgba(200,165,70,.10)" stroke-width=".5">
+          <line x1="521" y1="373" x2="521" y2="478"/> <line x1="526" y1="373" x2="526" y2="478"/>
+          <line x1="531" y1="373" x2="531" y2="478"/>
+        </g>
+        <rect x="512" y="369" width="30" height="4" rx="0.5" fill="#2c2208" stroke="rgba(175,140,60,.30)" stroke-width=".5"/>
+        <rect x="514" y="477" width="26" height="4" rx="0.5" fill="#1c1600" stroke="rgba(155,122,45,.22)" stroke-width=".5"/>
+
+        <!-- Arch voussoir -->
+        <path d="M 441,481 L 441,414 A 39,39 0 0 0 519,414 L 519,481"
+              fill="none" stroke="rgba(175,140,58,.32)" stroke-width="2"/>
+        <!-- Arch opening -->
+        <path d="M 445,481 L 445,415 A 35,35 0 0 0 515,415 L 515,481 Z" fill="#060402"/>
+        <path d="M 445,415 A 35,35 0 0 0 515,415" fill="none" stroke="rgba(200,165,70,.25)" stroke-width="1"/>
+
+        <!-- Keystone -->
+        <polygon points="480,374 473,384 480,394 487,384" fill="#2a1e06" stroke="rgba(200,165,70,.48)" stroke-width="1"/>
+        <polygon points="480,378 475,385 480,390 485,385" fill="#362810" stroke="rgba(220,185,80,.30)" stroke-width=".5"/>
+
+        <!-- Stylobate -->
+        <rect x="415" y="481" width="130" height="9" rx="1" fill="#181200" stroke="rgba(155,122,45,.25)" stroke-width=".5"/>
+
+        <!-- Ambient glow through arch -->
+        <ellipse class="gp" cx="480" cy="450" rx="30" ry="26" fill="rgba(200,158,55,.05)" filter="url(#haloSm)"/>
+        <circle class="inner-ring" cx="480" cy="415" r="52" fill="none" stroke-width="1"/>
+
+        <!-- Torches -->
+        <g transform="translate(406,408)">
+          <rect x="-2.5" y="-20" width="5" height="22" rx="1.5" fill="#3a2008"/>
+          <ellipse class="fl"  cx="0" cy="-26" rx="5.5" ry="9"   fill="rgba(255,105,22,.92)"/>
+          <ellipse class="fl2" cx="0" cy="-28" rx="3.5" ry="6.5" fill="rgba(255,185,42,.96)"/>
+          <ellipse class="fl3" cx="0" cy="-30" rx="2"   ry="4"   fill="rgba(255,245,175,1)"/>
+          <circle cx="0" cy="-24" r="14" fill="rgba(255,125,30,.14)" filter="url(#torchF)"/>
+        </g>
+        <g transform="translate(554,408)">
+          <rect x="-2.5" y="-20" width="5" height="22" rx="1.5" fill="#3a2008"/>
+          <ellipse class="fl"  cx="0" cy="-26" rx="5.5" ry="9"   fill="rgba(255,105,22,.92)"/>
+          <ellipse class="fl2" cx="0" cy="-28" rx="3.5" ry="6.5" fill="rgba(255,185,42,.96)"/>
+          <ellipse class="fl3" cx="0" cy="-30" rx="2"   ry="4"   fill="rgba(255,245,175,1)"/>
+          <circle cx="0" cy="-24" r="14" fill="rgba(255,125,30,.14)" filter="url(#torchF)"/>
+        </g>
+
+        <!-- Active ring -->
+        <circle class="active-ring" cx="480" cy="415" r="74" fill="none" stroke-width="2" stroke-dasharray="6 4"/>
       </g>
 
-      <!-- ── PORTA DI ORFEO (x=480, y=533) ── -->
+      <!-- ═══════════════════════════════════
+           PORTA DI ORFEO  (cx=480, cy=533)
+      ═══════════════════════════════════ -->
       <g data-node="porta">
-        <rect
-          x="422"
-          y="485"
-          width="116"
-          height="80"
-          rx="4"
-          fill="rgba(200,168,90,.06)"
-          style="filter: blur(10px)"
-        />
-        <rect
-          class="door-frame"
-          x="430"
-          y="491"
-          width="100"
-          height="74"
-          rx="3"
-          fill="rgba(20,15,8,.8)"
-          stroke-width="1.5"
-        />
-        <path
-          d="M 444 509 A 36 32 0 0 1 516 509"
-          fill="none"
-          stroke="rgba(180,140,60,.4)"
-          stroke-width="1"
-        />
-        <rect
-          x="444"
-          y="509"
-          width="33"
-          height="52"
-          rx="2"
-          fill="rgba(40,28,12,.7)"
-          stroke="rgba(140,100,40,.3)"
-          stroke-width="1"
-        />
-        <rect
-          x="483"
-          y="509"
-          width="33"
-          height="52"
-          rx="2"
-          fill="rgba(40,28,12,.7)"
-          stroke="rgba(140,100,40,.3)"
-          stroke-width="1"
-        />
-        <circle cx="476" cy="539" r="3" fill="rgba(200,168,90,.6)" />
-        <circle cx="484" cy="539" r="3" fill="rgba(200,168,90,.6)" />
-        <rect
-          class="key-icon"
-          x="474"
-          y="489"
-          width="12"
-          height="6"
-          transform="rotate(45,480,492)"
-          fill="#c8a85a"
-        />
-        <g transform="translate(425,533)">
-          <rect x="-2" y="-16" width="4" height="18" fill="#5a3a1a" rx="1" />
-          <ellipse cx="0" cy="-20" rx="5" ry="8" fill="rgba(255,140,30,.85)" />
-          <ellipse cx="0" cy="-22" rx="3" ry="5" fill="rgba(255,200,50,.9)" />
-          <ellipse cx="0" cy="-24" rx="1.5" ry="3" fill="rgba(255,240,180,1)" />
-          <circle cx="0" cy="-20" r="12" fill="rgba(255,140,30,.12)" />
+        <!-- Outer glow -->
+        <rect x="422" y="482" width="116" height="90" rx="4" fill="rgba(210,175,80,.08)" filter="url(#halo)"/>
+
+        <!-- Pediment (triangular top) -->
+        <polygon points="480,486 428,510 532,510" fill="#1e1604" stroke="rgba(175,140,58,.38)" stroke-width="1"/>
+        <!-- Pediment inner decorative triangle -->
+        <polygon points="480,490 434,508 526,508" fill="none" stroke="rgba(155,122,45,.18)" stroke-width=".5"/>
+        <!-- Akroteria (corner ornaments on pediment) -->
+        <polygon points="428,510 424,506 432,506" fill="#2a1e06" stroke="rgba(175,140,58,.35)" stroke-width=".5"/>
+        <polygon points="532,510 528,506 536,506" fill="#2a1e06" stroke="rgba(175,140,58,.35)" stroke-width=".5"/>
+        <polygon points="480,486 477,490 483,490" fill="#2a1e06" stroke="rgba(175,140,58,.35)" stroke-width=".5"/>
+
+        <!-- Entablature -->
+        <rect x="425" y="509" width="110" height="8" fill="#221a04" stroke="rgba(175,140,60,.30)" stroke-width=".6"/>
+        <!-- Frieze -->
+        <rect x="428" y="517" width="104" height="5" fill="#1a1400" stroke="rgba(155,122,45,.20)" stroke-width=".5"/>
+
+        <!-- Left column -->
+        <rect x="428" y="522" width="16" height="50" fill="url(#pillarLG)" rx="0.5"/>
+        <g stroke="rgba(200,165,70,.10)" stroke-width=".5">
+          <line x1="432" y1="523" x2="432" y2="571"/> <line x1="436" y1="523" x2="436" y2="571"/>
+          <line x1="440" y1="523" x2="440" y2="571"/>
         </g>
-        <g transform="translate(535,533)">
-          <rect x="-2" y="-16" width="4" height="18" fill="#5a3a1a" rx="1" />
-          <ellipse cx="0" cy="-20" rx="5" ry="8" fill="rgba(255,140,30,.85)" />
-          <ellipse cx="0" cy="-22" rx="3" ry="5" fill="rgba(255,200,50,.9)" />
-          <ellipse cx="0" cy="-24" rx="1.5" ry="3" fill="rgba(255,240,180,1)" />
-          <circle cx="0" cy="-20" r="12" fill="rgba(255,140,30,.12)" />
+        <rect x="425" y="520" width="22" height="4" rx="0.5" fill="#2c2208" stroke="rgba(175,140,60,.28)" stroke-width=".5"/>
+        <rect x="426" y="571" width="20" height="4" rx="0.5" fill="#1c1600" stroke="rgba(155,122,45,.20)" stroke-width=".5"/>
+
+        <!-- Right column -->
+        <rect x="516" y="522" width="16" height="50" fill="url(#pillarLG)" rx="0.5"/>
+        <g stroke="rgba(200,165,70,.10)" stroke-width=".5">
+          <line x1="520" y1="523" x2="520" y2="571"/> <line x1="524" y1="523" x2="524" y2="571"/>
+          <line x1="528" y1="523" x2="528" y2="571"/>
+        </g>
+        <rect x="513" y="520" width="22" height="4" rx="0.5" fill="#2c2208" stroke="rgba(175,140,60,.28)" stroke-width=".5"/>
+        <rect x="514" y="571" width="20" height="4" rx="0.5" fill="#1c1600" stroke="rgba(155,122,45,.20)" stroke-width=".5"/>
+
+        <!-- Door frame arch at top of doors -->
+        <path class="door-frame" d="M 444,524 A 36,28 0 0 1 516,524" fill="none" stroke-width="1.2"/>
+
+        <!-- Left door panel -->
+        <rect class="door-frame" x="445" y="524" width="33" height="50" rx="1.5" fill="url(#doorL)" stroke-width="1"/>
+        <!-- Left door planks -->
+        <g stroke="rgba(100,65,25,.25)" stroke-width=".5" fill="none">
+          <line x1="453" y1="526" x2="453" y2="572"/> <line x1="460" y1="526" x2="460" y2="572"/>
+          <line x1="467" y1="526" x2="467" y2="572"/>
+        </g>
+        <!-- Left door crossbar -->
+        <line x1="447" y1="548" x2="476" y2="548" stroke="rgba(110,75,30,.30)" stroke-width="1.2"/>
+        <!-- Left door handle -->
+        <circle cx="475" cy="545" r="2.5" fill="rgba(200,168,85,.65)"/>
+
+        <!-- Right door panel -->
+        <rect class="door-frame" x="482" y="524" width="33" height="50" rx="1.5" fill="url(#doorR)" stroke-width="1"/>
+        <!-- Right door planks -->
+        <g stroke="rgba(100,65,25,.25)" stroke-width=".5" fill="none">
+          <line x1="490" y1="526" x2="490" y2="572"/> <line x1="497" y1="526" x2="497" y2="572"/>
+          <line x1="504" y1="526" x2="504" y2="572"/>
+        </g>
+        <!-- Right door crossbar -->
+        <line x1="484" y1="548" x2="513" y2="548" stroke="rgba(110,75,30,.30)" stroke-width="1.2"/>
+        <!-- Right door handle -->
+        <circle cx="485" cy="545" r="2.5" fill="rgba(200,168,85,.65)"/>
+
+        <!-- Keyhole glow -->
+        <ellipse class="dg" cx="480" cy="549" rx="5" ry="7" fill="rgba(200,168,80,.18)" filter="url(#haloSm)"/>
+        <!-- Key icon (ornamental) -->
+        <circle cx="480" cy="546" r="3.5" fill="none" stroke="rgba(200,168,85,.75)" stroke-width="1.2"/>
+        <line x1="480" y1="549.5" x2="480" y2="556" stroke="rgba(200,168,85,.75)" stroke-width="1.2"/>
+        <line x1="477.5" y1="554" x2="480" y2="554" stroke="rgba(200,168,85,.60)" stroke-width="1"/>
+        <line x1="477.5" y1="556" x2="480" y2="556" stroke="rgba(200,168,85,.60)" stroke-width="1"/>
+
+        <!-- Stylobate base -->
+        <rect x="422" y="575" width="116" height="7" rx="1" fill="#181200" stroke="rgba(155,122,45,.22)" stroke-width=".5"/>
+
+        <!-- Torches on columns -->
+        <g transform="translate(421,533)">
+          <rect x="-2.5" y="-20" width="5" height="22" rx="1.5" fill="#3a2008"/>
+          <ellipse class="fl"  cx="0" cy="-26" rx="5.5" ry="9"   fill="rgba(255,105,22,.92)"/>
+          <ellipse class="fl2" cx="0" cy="-28" rx="3.5" ry="6.5" fill="rgba(255,185,42,.96)"/>
+          <ellipse class="fl3" cx="0" cy="-30" rx="2"   ry="4"   fill="rgba(255,245,175,1)"/>
+          <circle cx="0" cy="-24" r="14" fill="rgba(255,125,30,.14)" filter="url(#torchF)"/>
+        </g>
+        <g transform="translate(539,533)">
+          <rect x="-2.5" y="-20" width="5" height="22" rx="1.5" fill="#3a2008"/>
+          <ellipse class="fl"  cx="0" cy="-26" rx="5.5" ry="9"   fill="rgba(255,105,22,.92)"/>
+          <ellipse class="fl2" cx="0" cy="-28" rx="3.5" ry="6.5" fill="rgba(255,185,42,.96)"/>
+          <ellipse class="fl3" cx="0" cy="-30" rx="2"   ry="4"   fill="rgba(255,245,175,1)"/>
+          <circle cx="0" cy="-24" r="14" fill="rgba(255,125,30,.14)" filter="url(#torchF)"/>
         </g>
       </g>
 
-      <!-- ── Labels ── -->
-      <text
-        x="213"
-        y="156"
-        text-anchor="middle"
-        fill="rgba(210,185,130,.85)"
-        font-size="9"
-        letter-spacing="3.5"
-        font-family="Cinzel Decorative, serif"
-      >
-        FONTE DI LETE
-      </text>
-      <text
-        x="213"
-        y="169"
-        text-anchor="middle"
-        fill="rgba(150,175,215,.5)"
-        font-size="7.5"
-        letter-spacing="2.5"
-        font-family="Cinzel, serif"
-      >
-        OBLIVIO BIANCO
-      </text>
-      <text
-        x="745"
-        y="140"
-        text-anchor="middle"
-        fill="rgba(210,185,130,.85)"
-        font-size="9"
-        letter-spacing="3.5"
-        font-family="Cinzel Decorative, serif"
-      >
-        LAGO DI MNEMOSYNE
-      </text>
-      <text
-        x="480"
-        y="339"
-        text-anchor="middle"
-        fill="rgba(210,185,130,.85)"
-        font-size="9"
-        letter-spacing="3.5"
-        font-family="Cinzel Decorative, serif"
-      >
-        PRIMO VARCO
-      </text>
-      <text
-        x="213"
-        y="505"
-        text-anchor="middle"
-        fill="rgba(210,185,130,.85)"
-        font-size="9"
-        letter-spacing="3.5"
-        font-family="Cinzel Decorative, serif"
-      >
-        CARONTE
-      </text>
-      <text
-        x="480"
-        y="499"
-        text-anchor="middle"
-        fill="rgba(210,185,130,.85)"
-        font-size="9"
-        letter-spacing="3.5"
-        font-family="Cinzel Decorative, serif"
-      >
-        SECONDO VARCO
-      </text>
-      <text
-        x="480"
-        y="585"
-        text-anchor="middle"
-        fill="rgba(210,185,130,.85)"
-        font-size="9"
-        letter-spacing="3.5"
-        font-family="Cinzel Decorative, serif"
-      >
-        PORTA DI ORFEO
-      </text>
+      <!-- ═══════════════════════════════════
+           LABELS
+      ═══════════════════════════════════ -->
+      <text x="213" y="158" text-anchor="middle" fill="rgba(210,188,132,.88)"
+            font-size="9" letter-spacing="3.5" font-family="Cinzel Decorative, serif">FONTE DI LETE</text>
+      <text x="213" y="170" text-anchor="middle" fill="rgba(140,172,220,.50)"
+            font-size="7.5" letter-spacing="2.5" font-family="Cinzel, serif">OBLIVIO BIANCO</text>
 
-      <!-- ── Tooltip (hidden by default) ── -->
+      <text x="745" y="148" text-anchor="middle" fill="rgba(210,188,132,.88)"
+            font-size="9" letter-spacing="3.5" font-family="Cinzel Decorative, serif">LAGO DI MNEMOSYNE</text>
+      <text x="745" y="160" text-anchor="middle" fill="rgba(220,195,90,.50)"
+            font-size="7.5" letter-spacing="2.5" font-family="Cinzel, serif">ACQUA DELLA MEMORIA</text>
+
+      <text x="480" y="344" text-anchor="middle" fill="rgba(210,188,132,.88)"
+            font-size="9" letter-spacing="3.5" font-family="Cinzel Decorative, serif">PRIMO VARCO</text>
+
+      <text x="213" y="506" text-anchor="middle" fill="rgba(210,188,132,.88)"
+            font-size="9" letter-spacing="3.5" font-family="Cinzel Decorative, serif">CARONTE</text>
+      <text x="213" y="518" text-anchor="middle" fill="rgba(170,100,230,.50)"
+            font-size="7.5" letter-spacing="2" font-family="Cinzel, serif">IL TRAGHETTATORE</text>
+
+      <text x="480" y="504" text-anchor="middle" fill="rgba(210,188,132,.88)"
+            font-size="9" letter-spacing="3.5" font-family="Cinzel Decorative, serif">SECONDO VARCO</text>
+
+      <text x="480" y="588" text-anchor="middle" fill="rgba(210,188,132,.88)"
+            font-size="9" letter-spacing="3.5" font-family="Cinzel Decorative, serif">PORTA DI ORFEO</text>
+
+      <!-- ═══════════════════════════════════
+           TOOLTIP
+      ═══════════════════════════════════ -->
       <g id="tooltip" display="none">
-        <rect
-          x="-110"
-          y="-46"
-          width="220"
-          height="70"
-          rx="2"
-          fill="rgba(4,8,18,.96)"
-          stroke="rgba(200,168,90,.35)"
-          stroke-width="1"
-        />
-        <text
-          id="tooltip-title"
-          x="0"
-          y="-24"
-          text-anchor="middle"
-          fill="#c8a85a"
-          font-size="9"
-          letter-spacing="3"
-          font-family="Cinzel Decorative, serif"
-        />
-        <foreignObject x="-100" y="-14" width="200" height="40">
-          <div
-            xmlns="http://www.w3.org/1999/xhtml"
-            id="tooltip-desc"
-            style="
-              color: rgba(210, 190, 150, 0.7);
-              font-size: 8.5px;
-              font-family: Cinzel, serif;
-              letter-spacing: 0.05em;
-              line-height: 1.45;
-              text-align: center;
-              font-style: italic;
-            "
-          />
+        <rect x="-115" y="-50" width="230" height="76" rx="2"
+              fill="rgba(4,7,16,.97)" stroke="rgba(200,168,90,.38)" stroke-width="1"/>
+        <rect x="-113" y="-48" width="226" height="72" rx="1"
+              fill="none" stroke="rgba(200,168,90,.12)" stroke-width=".5"/>
+        <text id="tooltip-title" x="0" y="-27" text-anchor="middle"
+              fill="#c8a85a" font-size="9" letter-spacing="3" font-family="Cinzel Decorative, serif"/>
+        <foreignObject x="-104" y="-18" width="208" height="44">
+          <div xmlns="http://www.w3.org/1999/xhtml" id="tooltip-desc"
+               style="color:rgba(210,190,152,.72);font-size:8.5px;font-family:Cinzel,serif;
+                      letter-spacing:.05em;line-height:1.48;text-align:center;font-style:italic;"/>
         </foreignObject>
-        <text
-          id="tooltip-close"
-          x="102"
-          y="-32"
-          fill="rgba(200,168,90,.4)"
-          font-size="9"
-          style="cursor: pointer"
-        >
-          ×
-        </text>
+        <text id="tooltip-close" x="107" y="-34" fill="rgba(200,168,90,.42)"
+              font-size="9" style="cursor:pointer">×</text>
       </g>
     </svg>
 
     <script>
       const NODES = {
-        fonte: {
-          x: 213,
-          y: 88,
-          label: "FONTE DI LETE",
-          desc: "Chi beve le acque del Lete dimentica ogni vita passata. La morte dell'identità.",
-        },
-        mnemosyne: {
-          x: 745,
-          y: 88,
-          label: "LAGO DI MNEMOSYNE",
-          desc: "Chi beve dal lago della Memoria conserva la coscienza nell'aldilà. La via degli iniziati.",
-        },
-        gate1: {
-          x: 480,
-          y: 255,
-          label: "PRIMO VARCO",
-          desc: "Una porta sbarrata nel cuore del labirinto. Due vie si aprono qui.",
-        },
-        caronte: {
-          x: 213,
-          y: 415,
-          label: "CARONTE",
-          desc: "Il traghettatore dei morti. Se ti fermi qui, non tornerai. Hai la moneta?",
-        },
-        gate2: {
-          x: 480,
-          y: 415,
-          label: "SECONDO VARCO",
-          desc: "Il passaggio si stringe. Senti il peso dell'Ade su ogni pietra.",
-        },
-        porta: {
-          x: 480,
-          y: 533,
-          label: "PORTA DI ORFEO",
-          desc: "La via dell'uscita. Solo chi ha seguito la via corretta può varcare questa soglia.",
-        },
+        fonte:    { x:213, y:88,  label:"FONTE DI LETE",     desc:"Chi beve le acque del Lete dimentica ogni vita passata. La morte dell'identità." },
+        mnemosyne:{ x:745, y:88,  label:"LAGO DI MNEMOSYNE", desc:"Chi beve dal lago della Memoria conserva la coscienza nell'aldilà. La via degli iniziati." },
+        gate1:    { x:480, y:255, label:"PRIMO VARCO",        desc:"Una porta sbarrata nel cuore del labirinto. Due vie si aprono qui." },
+        caronte:  { x:213, y:415, label:"CARONTE",            desc:"Il traghettatore dei morti. Se ti fermi qui, non tornerai. Hai la moneta?" },
+        gate2:    { x:480, y:415, label:"SECONDO VARCO",      desc:"Il passaggio si stringe. Senti il peso dell'Ade su ogni pietra." },
+        porta:    { x:480, y:533, label:"PORTA DI ORFEO",     desc:"La via dell'uscita. Solo chi ha seguito la via corretta può varcare questa soglia." },
       };
 
-      // ── Corridors ──────────────────────────────────────────────
-      const JTL = { x: 213, y: 168 },
-        JTC = { x: 480, y: 168 },
-        JTR = { x: 745, y: 168 };
-      const JAL = { x: 213, y: 335 },
-        JAR = { x: 480, y: 335 };
+      /* ── Corridors ── */
+      const JTL={x:213,y:168}, JTC={x:480,y:168}, JTR={x:745,y:168};
+      const JAL={x:213,y:335}, JAR={x:480,y:335};
       const N = NODES;
 
       const corridorPaths = [
-        `M ${N.fonte.x} ${N.fonte.y + 52} L ${JTL.x} ${JTL.y}`,
+        `M ${N.fonte.x} ${N.fonte.y+52} L ${JTL.x} ${JTL.y}`,
         `M ${JTL.x} ${JTL.y} L ${JTC.x} ${JTC.y}`,
         `M ${JTC.x} ${JTC.y} L ${JTR.x} ${JTR.y}`,
-        `M ${JTR.x} ${JTR.y} L ${N.mnemosyne.x} ${N.mnemosyne.y + 10}`,
-        `M ${JTC.x} ${JTC.y} L ${N.gate1.x} ${N.gate1.y - 68}`,
-        `M ${N.gate1.x} ${N.gate1.y + 68} L ${JAR.x} ${JAR.y}`,
+        `M ${JTR.x} ${JTR.y} L ${N.mnemosyne.x} ${N.mnemosyne.y+10}`,
+        `M ${JTC.x} ${JTC.y} L ${N.gate1.x} ${N.gate1.y-68}`,
+        `M ${N.gate1.x} ${N.gate1.y+68} L ${JAR.x} ${JAR.y}`,
         `M ${JTL.x} ${JTL.y} L ${JAL.x} ${JAL.y}`,
-        `M ${JAL.x} ${JAL.y} L ${N.caronte.x} ${N.caronte.y - 78}`,
-        `M ${JAR.x} ${JAR.y} L ${N.gate2.x} ${N.gate2.y - 68}`,
-        `M ${N.gate2.x} ${N.gate2.y + 68} L ${N.porta.x} ${N.porta.y - 44}`,
+        `M ${JAL.x} ${JAL.y} L ${N.caronte.x} ${N.caronte.y-78}`,
+        `M ${JAR.x} ${JAR.y} L ${N.gate2.x} ${N.gate2.y-68}`,
+        `M ${N.gate2.x} ${N.gate2.y+68} L ${N.porta.x} ${N.porta.y-44}`,
       ];
 
       const ns = "http://www.w3.org/2000/svg";
-
-      function svgPath(d, stroke, width, blur) {
+      function mkPath(d, stroke, width, blur) {
         const p = document.createElementNS(ns, "path");
         p.setAttribute("d", d);
         p.setAttribute("fill", "none");
@@ -783,66 +771,77 @@
       }
 
       const corridorsEl = document.getElementById("corridors");
-      corridorPaths.forEach((d) => {
+      corridorPaths.forEach(d => {
         const g = document.createElementNS(ns, "g");
-        g.append(
-          svgPath(d, "rgba(200,168,90,.18)", 14, 5),
-          svgPath(d, "rgba(200,168,90,.25)", 3),
-          svgPath(d, "rgba(220,190,110,.35)", 1),
-        );
+        /* Wide stone-wall glow */
+        g.append(mkPath(d, "rgba(140,110,45,.22)", 22, 8));
+        /* Stone surface */
+        g.append(mkPath(d, "rgba(60,48,18,.85)", 10));
+        /* Path edge lines */
+        g.append(mkPath(d, "rgba(200,168,85,.28)", 6));
+        /* Centre walkway */
+        g.append(mkPath(d, "rgba(220,190,100,.18)", 2));
+        /* Subtle bright centreline */
+        g.append(mkPath(d, "rgba(240,215,130,.12)", 1));
         corridorsEl.appendChild(g);
       });
 
-      // ── Acheronte ──────────────────────────────────────────────
+      /* ── Acheronte river ── */
       (function () {
         const pts = [];
-        for (let i = 0; i <= 20; i++) {
-          const t = i / 20;
+        for (let i = 0; i <= 30; i++) {
+          const t  = i / 30;
           const px = JAL.x + t * (JAR.x - JAL.x);
-          const py =
-            210 + Math.sin(t * Math.PI * 5) * 5 + Math.cos(t * Math.PI * 3) * 3;
+          const py = 210
+            + Math.sin(t * Math.PI * 6)  * 6
+            + Math.cos(t * Math.PI * 4)  * 3.5
+            + Math.sin(t * Math.PI * 11) * 1.8;
           pts.push(`${i === 0 ? "M" : "L"} ${px.toFixed(1)} ${py.toFixed(1)}`);
         }
         const d = pts.join(" ");
         const g = document.getElementById("acheronte");
-        const edge = svgPath(d, "rgba(100,160,255,.6)", 2.5);
+
+        /* Deep glow */
+        g.append(mkPath(d, "rgba(30,65,200,.18)", 22, 10));
+        /* Dark water body */
+        g.append(mkPath(d, "rgba(18,40,140,.65)", 10));
+        /* Mid shimmer */
+        g.append(mkPath(d, "rgba(50,110,230,.40)", 5));
+        /* Surface highlight */
+        const edge = mkPath(d, "rgba(90,165,255,.65)", 2);
         edge.setAttribute("stroke-linecap", "round");
-        g.append(
-          svgPath(d, "rgba(60,120,220,.15)", 18, 8),
-          svgPath(d, "rgba(30,70,160,.4)", 6),
-          edge,
-        );
+        g.append(edge);
+        /* White crest sparkle */
+        g.append(mkPath(d, "rgba(200,230,255,.22)", 1));
+
+        /* River label */
         const txt = document.createElementNS(ns, "text");
         Object.entries({
-          x: (JAL.x + JAR.x) / 2,
-          y: 194,
+          x: (JAL.x + JAR.x) / 2, y: 194,
           "text-anchor": "middle",
-          fill: "rgba(120,170,255,.7)",
-          "font-size": 9,
-          "letter-spacing": 4,
+          fill: "rgba(110,168,255,.72)",
+          "font-size": 9, "letter-spacing": 4,
           "font-family": "Cinzel, serif",
-        }).forEach(([k, v]) => txt.setAttribute(k, v));
+        }).forEach(([k,v]) => txt.setAttribute(k, v));
         txt.textContent = "ACHERONTE";
         g.appendChild(txt);
       })();
 
-      // ── Selection & Tooltip ────────────────────────────────────
+      /* ── Selection & Tooltip ── */
       let selected = null;
-      const tooltip = document.getElementById("tooltip");
+      const tooltip      = document.getElementById("tooltip");
       const tooltipTitle = document.getElementById("tooltip-title");
-      const tooltipDesc = document.getElementById("tooltip-desc");
+      const tooltipDesc  = document.getElementById("tooltip-desc");
 
       function select(id) {
-        document
-          .querySelectorAll("[data-node]")
-          .forEach((el) => el.classList.remove("active"));
+        document.querySelectorAll("[data-node]").forEach(el => el.classList.remove("active"));
         if (id && id !== selected) {
           document.querySelector(`[data-node="${id}"]`).classList.add("active");
           selected = id;
           const n = NODES[id];
           tooltipTitle.textContent = n.label;
-          tooltipDesc.textContent = n.desc;
-          tooltip.setAttribute("transform", `translate(${n.x},${n.y - 90})`);
+          tooltipDesc.textContent  = n.desc;
+          tooltip.setAttribute("transform", `translate(${n.x},${n.y - 95})`);
           tooltip.removeAttribute("display");
         } else {
           selected = null;
@@ -850,18 +849,10 @@
         }
       }
 
-      document
-        .querySelectorAll("[data-node]")
-        .forEach((el) =>
-          el.addEventListener("click", () => select(el.dataset.node)),
-        );
-
-      document
-        .getElementById("tooltip-close")
-        .addEventListener("click", (e) => {
-          e.stopPropagation();
-          select(null);
-        });
+      document.querySelectorAll("[data-node]")
+        .forEach(el => el.addEventListener("click", () => select(el.dataset.node)));
+      document.getElementById("tooltip-close")
+        .addEventListener("click", e => { e.stopPropagation(); select(null); });
     </script>
   </body>
 </html>

@@ -14,20 +14,38 @@
   </head>
   <body>
     <!-- ═══════════════════════════════════════════════
+     SCREEN 0 – IL RITO DEL CORREDO FUNERARIO
+═══════════════════════════════════════════════ -->
+
+    <div id="rito" class="screen active">
+      <img class="bg-image" src="assets/rito-bg.jpg" alt="" />
+      <div class="topbar">
+        <span class="phase-label">⬥ FASE I · La signora di hipponion</span>
+        <span class="subtitle">INDAGINE E COMBINAZIONE</span>
+      </div>
+      <h1 class="rito-title">Il rito del corredo funerario</h1>
+      <button class="rito-btn" onclick="goTo('intro')">
+        <span class="btn-text">INIZIA</span>
+        <span class="btn-arrow">→</span>
+      </button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
      SCREEN 1 – INTRODUZIONE
 ═══════════════════════════════════════════════ -->
-    <div id="intro" class="screen active">
+
+<div id="intro" class="screen">
       <img class="bg-image" src="assets/start.png" alt="" />
       <div class="topbar">
-        <span class="phase-label">⬥ FASE I · IL RITO DEL CORREDO</span>
+        <span class="phase-label">⬥ FASE I · La signora di hipponion</span>
         <span class="subtitle">INDAGINE E COMBINAZIONE</span>
       </div>
       <div class="center-content">
         <p class="fase-label">Fase 1</p>
-        <h1 class="main-title">Il Rito del corredo</h1>
+        <h1 class="main-title">La Signora di Hipponion</h1>
         <h2 class="sub-title">I Segreti della Tomba 19</h2>
         <button class="btn-start" onclick="goTo('narrativa')">
-          Avanti &nbsp;→
+          Continua &nbsp;→
         </button>
       </div>
     </div>
@@ -37,8 +55,8 @@
 ═══════════════════════════════════════════════ -->
     <div id="narrativa" class="screen">
       <div class="topbar">
-        <span class="phase-label">⬥ FASE I · IL RITO DEL CORREDO</span>
-        <span class="subtitle">INDAGINE E COMBINAZIONE</span>
+        <span class="phase-label">⬥ FASE I · La signora di hipponion</span>
+        <span class="subtitle">INDAGINE E COMBINAZIONE</span> 
       </div>
 
       <div
@@ -314,7 +332,6 @@
             <button
               class="btn-start"
               onclick="goTo('indagine-1')"
-              style="font-size: 16px; padding: 12px 28px; letter-spacing: 2px"
             >
               AVVIA IL RITO &nbsp;→
             </button>
@@ -401,7 +418,7 @@
       <div class="topbar">
         <div style="display: flex; align-items: center; gap: 16px">
           <span class="phase-label" style="color: var(--gold)"
-            >⬥ FASE I · IL RITO DEL CORREDO</span
+            >⬥ FASE I · LA SIGNORA DI HIPPONION</span
           >
           <div class="topbar-dots">
             <div class="topbar-dot active"></div>
@@ -409,52 +426,37 @@
             <div class="topbar-dot"></div>
           </div>
         </div>
-        <span class="subtitle">TOMBA 19 · LA SIGNORA DI HIPPONION</span>
+        <span class="subtitle">TOMBA 19 · IL RITO DEL CORREDO</span>
       </div>
 
       <div class="main-area">
         <!-- SIDEBAR -->
         <div class="sidebar">
-          <span class="sidebar-label">MONETE NFC</span>
-          <div
-            class="artifact-btn active-artifact"
-            onclick="startVoiceCommand('lucerna-fuori')"
-            style="cursor: pointer"
-          >
+          <span class="sidebar-label">RELIQUIE</span>
+          <div class="artifact-btn" draggable="true" data-artifact="lucerna">
             <span class="icon">🕯</span>
             <div class="info">
               <span class="name">Lucerna</span
-              ><span class="desc">La lampada funeraria</span>
+              ><span class="desc">Fuori dalla tomba</span>
             </div>
           </div>
-          <div class="artifact-btn muted">
+          <div class="artifact-btn" draggable="true" data-artifact="lekythos">
             <span class="icon">⚱</span>
             <div class="info">
               <span class="name">Lekythos</span
               ><span class="desc">Il vaso dell'olio</span>
             </div>
           </div>
-          <div class="artifact-btn muted">
+          <div class="artifact-btn" draggable="true" data-artifact="idria">
             <span class="icon">🏺</span>
             <div class="info">
               <span class="name">Idria</span
               ><span class="desc">Il vaso dell'acqua</span>
             </div>
           </div>
-          <div
-            class="nfc-hint"
-            style="
-              padding: 13px 15px;
-              border: 1px solid rgba(196, 145, 58, 0.2);
-              border-radius: 4px;
-              font-style: italic;
-              font-size: 13px;
-              color: white;
-              text-align: center;
-              background: rgba(20, 15, 8, 0.5);
-            "
-          >
-            Posiziona la moneta sul tavolo
+          <div style="padding:12px;border:1px solid rgba(196,145,58,0.2);border-radius:4px;font-style:italic;font-size:12px;color:rgba(255,255,255,0.6);text-align:center;background:rgba(20,15,8,0.5)">
+            Trascina ogni reliquia nella posizione giusta. La lucerna resta fuori
+            dalla tomba: illumina il passaggio.
           </div>
         </div>
 
@@ -474,7 +476,7 @@
             style="
               position: relative;
               width: 100%;
-              height: 320px;
+              height: 420px;
               margin-top: 30px;
             "
           >
@@ -663,6 +665,7 @@
                         border: 1px solid rgba(196, 145, 58, 0.3);
                         border-radius: 50%;
                       "
+                      data-drop-zone="interno-1"
                     ></div>
                   </div>
                 </div>
@@ -699,6 +702,7 @@
                         border: 1px solid rgba(196, 145, 58, 0.3);
                         border-radius: 50%;
                       "
+                      data-drop-zone="interno-2"
                     ></div>
                   </div>
                 </div>
@@ -750,31 +754,8 @@
                     border: 1px solid rgba(196, 145, 58, 0.3);
                     border-radius: 50%;
                   "
+                  data-drop-zone="fuori"
                 ></div>
-              </div>
-              <!-- Added Coin with CSS animation (hidden by default initially) -->
-              <div
-                id="lucerna-coin-1"
-                class="placed-coin"
-                style="
-                  opacity: 0;
-                  position: absolute;
-                  width: 44px;
-                  height: 44px;
-                  background: radial-gradient(
-                    circle,
-                    var(--gold-bright) 0%,
-                    var(--gold-dark) 100%
-                  );
-                  border-radius: 50%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 24px;
-                  box-shadow: 0 0 20px var(--gold);
-                "
-              >
-                🕯
               </div>
             </div>
 
@@ -893,1040 +874,8 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════
-     SCREEN 2.2 – INDAGINE 2 (LEKYTHOS)
+     SCREEN 3 – AZIONE (FASE II) — segue sotto
 ═══════════════════════════════════════════════ -->
-    <div id="indagine-2" class="screen">
-      <div class="topbar">
-        <div style="display: flex; align-items: center; gap: 16px">
-          <span class="phase-label" style="color: var(--gold)"
-            >⬥ FASE I · IL RITO DEL CORREDO</span
-          >
-          <div class="topbar-dots">
-            <div class="topbar-dot active"></div>
-            <div class="topbar-dot"></div>
-            <div class="topbar-dot"></div>
-          </div>
-        </div>
-        <span class="subtitle">TOMBA 19 · LA SIGNORA DI HIPPONION</span>
-      </div>
-
-      <div class="main-area">
-        <!-- SIDEBAR -->
-        <div class="sidebar">
-          <span class="sidebar-label">MONETE NFC</span>
-          <div class="artifact-btn completed">
-            <span class="icon">✓</span>
-            <div class="info">
-              <span class="name">Lucerna</span
-              ><span class="desc">Posizionata fuori</span>
-            </div>
-          </div>
-          <div
-            class="artifact-btn active-artifact"
-            onclick="startVoiceCommand('lekythos-interno')"
-            style="cursor: pointer"
-          >
-            <span class="icon">⚱</span>
-            <div class="info">
-              <span class="name">Lekythos</span
-              ><span class="desc">Il vaso dell'olio</span>
-            </div>
-          </div>
-          <div class="artifact-btn muted">
-            <span class="icon">🏺</span>
-            <div class="info">
-              <span class="name">Idria</span
-              ><span class="desc">Il vaso dell'acqua</span>
-            </div>
-          </div>
-          <div
-            class="nfc-hint"
-            style="
-              padding: 13px 15px;
-              border: 1px solid rgba(196, 145, 58, 0.2);
-              border-radius: 4px;
-              font-style: italic;
-              font-size: 13px;
-              color: white;
-              text-align: center;
-              background: rgba(20, 15, 8, 0.5);
-            "
-          >
-            Posiziona la moneta sul tavolo
-          </div>
-        </div>
-
-        <!-- MAP AREA -->
-        <div
-          class="map-area"
-          style="
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 40px;
-          "
-        >
-          <div
-            class="tomb-map-exact"
-            style="
-              position: relative;
-              width: 100%;
-              height: 320px;
-              margin-top: 30px;
-            "
-          >
-            <span
-              style="
-                position: absolute;
-                top: -30px;
-                left: 0;
-                font-family: var(--font-serif);
-                font-size: 12px;
-                color: rgba(196, 145, 58, 0.5);
-                letter-spacing: 2px;
-              "
-              >CAPO</span
-            >
-            <span
-              style="
-                position: absolute;
-                top: -45px;
-                right: 20px;
-                font-family: var(--font-serif);
-                font-size: 28px;
-                color: #fff;
-                letter-spacing: 2px;
-              "
-              >FUORI</span
-            >
-
-            <!-- The Main Box -->
-            <div
-              style="
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 120px;
-                border: 3px solid rgba(196, 145, 58, 0.4);
-                border-radius: 4px;
-                box-sizing: border-box;
-                background-image: repeating-linear-gradient(
-                  to right,
-                  transparent,
-                  transparent calc(10% - 1px),
-                  rgba(196, 145, 58, 0.08) calc(10% - 1px),
-                  rgba(196, 145, 58, 0.08) 10%
-                );
-                overflow: hidden;
-                background-color: rgba(10, 8, 5, 0.3);
-              "
-            >
-              <!-- INTERNO Box -->
-              <div
-                style="
-                  position: absolute;
-                  top: 0;
-                  bottom: 0;
-                  left: 0;
-                  width: 93%;
-                  background: rgba(30, 20, 10, 0.6);
-                  border-right: 2px dashed rgba(196, 145, 58, 0.4);
-                  padding: 16px;
-                "
-              >
-                <span
-                  style="
-                    font-family: var(--font-serif);
-                    font-size: 20px;
-                    color: #fff;
-                    letter-spacing: 2px;
-                  "
-                  >INTERNO</span
-                >
-                <!-- The Body Skeleton -->
-                <div
-                  style="
-                    position: absolute;
-                    top: 52%;
-                    width: 100%;
-                    height: 50px;
-                    transform: translateY(-50%);
-                    display: flex;
-                    align-items: center;
-                    left: 0;
-                  "
-                >
-                  <div
-                    style="
-                      width: 5%;
-                      border-bottom: 2px dashed rgba(196, 145, 58, 0.4);
-                    "
-                  ></div>
-                  <div
-                    style="
-                      width: 50px;
-                      height: 50px;
-                      border-radius: 50%;
-                      border: 2px solid rgba(196, 145, 58, 0.4);
-                      background: rgba(196, 145, 58, 0.05);
-                      margin-left: -2px;
-                      z-index: 1;
-                    "
-                  ></div>
-                  <div
-                    style="
-                      width: 250px;
-                      height: 46px;
-                      border-radius: 12px;
-                      border: 2px solid rgba(196, 145, 58, 0.4);
-                      background: rgba(196, 145, 58, 0.05);
-                      margin-left: -6px;
-                      z-index: 2;
-                    "
-                  ></div>
-                  <div
-                    style="
-                      width: 44px;
-                      height: 44px;
-                      border-radius: 50%;
-                      border: 2px solid rgba(196, 145, 58, 0.4);
-                      background: rgba(196, 145, 58, 0.05);
-                      margin-left: -8px;
-                      z-index: 3;
-                    "
-                  ></div>
-                  <div
-                    style="
-                      width: 140px;
-                      height: 30px;
-                      border-radius: 8px;
-                      border: 2px solid rgba(196, 145, 58, 0.4);
-                      background: rgba(196, 145, 58, 0.05);
-                      margin-left: -5px;
-                      z-index: 2;
-                    "
-                  ></div>
-                  <div
-                    style="
-                      width: 32px;
-                      height: 32px;
-                      border-radius: 50%;
-                      border: 2px solid rgba(196, 145, 58, 0.4);
-                      background: rgba(196, 145, 58, 0.05);
-                      margin-left: -6px;
-                      z-index: 3;
-                    "
-                  ></div>
-                  <div
-                    style="
-                      flex-grow: 1;
-                      border-bottom: 2px dashed rgba(196, 145, 58, 0.4);
-                      margin-left: -2px;
-                    "
-                  ></div>
-                </div>
-
-                <!-- Drop targets inside Interno -->
-                <div
-                  style="
-                    position: absolute;
-                    top: 12%;
-                    left: 32%;
-                    width: 70px;
-                    height: 70px;
-                    border: 2px solid rgba(196, 145, 58, 0.3);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: rgba(20, 15, 8, 0.6);
-                  "
-                >
-                  <div
-                    style="
-                      width: 46px;
-                      height: 46px;
-                      border: 1px dashed rgba(196, 145, 58, 0.5);
-                      border-radius: 50%;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                    "
-                  >
-                    <div
-                      style="
-                        width: 12px;
-                        height: 12px;
-                        border: 1px solid rgba(196, 145, 58, 0.3);
-                        border-radius: 50%;
-                      "
-                    ></div>
-                  </div>
-                  <!-- Added Coin with CSS animation -->
-                  <div
-                    id="lekythos-coin-2"
-                    class="placed-coin"
-                    style="
-                      opacity: 0;
-                      position: absolute;
-                      width: 44px;
-                      height: 44px;
-                      background: radial-gradient(
-                        circle,
-                        var(--gold-bright) 0%,
-                        var(--gold-dark) 100%
-                      );
-                      border-radius: 50%;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      font-size: 24px;
-                      box-shadow: 0 0 20px var(--gold);
-                    "
-                  >
-                    ⚱
-                  </div>
-                </div>
-
-                <div
-                  style="
-                    position: absolute;
-                    top: 12%;
-                    left: 55%;
-                    width: 70px;
-                    height: 70px;
-                    border: 2px solid rgba(196, 145, 58, 0.3);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: rgba(20, 15, 8, 0.6);
-                  "
-                >
-                  <div
-                    style="
-                      width: 46px;
-                      height: 46px;
-                      border: 1px dashed rgba(196, 145, 58, 0.5);
-                      border-radius: 50%;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                    "
-                  >
-                    <div
-                      style="
-                        width: 12px;
-                        height: 12px;
-                        border: 1px solid rgba(196, 145, 58, 0.3);
-                        border-radius: 50%;
-                      "
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- The FUORI circle + STATIC LUCERNA -->
-            <div
-              style="
-                position: absolute;
-                bottom: 22%;
-                right: 20px;
-                width: 70px;
-                height: 70px;
-                border: 2px solid rgba(196, 145, 58, 0.3);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 5;
-                background: rgba(20, 15, 8, 0.6);
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  left: -30px;
-                  width: 28px;
-                  top: 50%;
-                  height: 2px;
-                  background: rgba(196, 145, 58, 0.4);
-                "
-              ></div>
-              <div
-                style="
-                  width: 46px;
-                  height: 46px;
-                  border: 1px dashed rgba(196, 145, 58, 0.5);
-                  border-radius: 50%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                "
-              >
-                <div
-                  style="
-                    width: 12px;
-                    height: 12px;
-                    border: 1px solid rgba(196, 145, 58, 0.3);
-                    border-radius: 50%;
-                  "
-                ></div>
-              </div>
-              <div
-                class="placed-coin"
-                style="
-                  position: absolute;
-                  width: 44px;
-                  height: 44px;
-                  background: radial-gradient(
-                    circle,
-                    var(--gold-bright) 0%,
-                    var(--gold-dark) 100%
-                  );
-                  border-radius: 50%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 24px;
-                  box-shadow: 0 0 20px var(--gold);
-                "
-              >
-                🕯
-              </div>
-            </div>
-            <div
-              style="
-                position: absolute;
-                bottom: -50px;
-                left: 0;
-                right: 120px;
-                text-align: center;
-                font-family: var(--font-serif);
-                font-size: 14px;
-                color: rgba(196, 145, 58, 0.6);
-                letter-spacing: 1px;
-              "
-            >
-              TOMBA ALLA CAPPUCCINA · SEPOLTURA N.19
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="instruct-bar">
-        <span class="diamond">⬥</span>
-        <p>
-          Osserva la sua dimora terrena e decifra i segni. Usa le monete per
-          separare ciò che appartiene ai vivi da ciò che servirà a lei nel buio.
-        </p>
-      </div>
-
-      <div class="footbar">
-        <div class="steps">
-          <div class="step active">
-            <div
-              class="dot"
-              style="
-                background: var(--gold);
-                border-color: rgba(196, 145, 58, 0.4);
-              "
-            ></div>
-            <span
-              style="
-                font-family: var(--font-serif);
-                font-size: 8.438px;
-                letter-spacing: 1.27px;
-                color: var(--gold);
-              "
-              >Rito del Corredo</span
-            >
-            <span
-              style="
-                font-size: 9.6px;
-                color: #2a1808;
-                margin-left: 12px;
-                margin-right: 12px;
-              "
-              >›</span
-            >
-          </div>
-          <div class="step">
-            <div
-              class="dot"
-              style="
-                background: rgba(196, 145, 58, 0.2);
-                border-color: rgba(196, 145, 58, 0.4);
-              "
-            ></div>
-            <span
-              style="
-                font-family: var(--font-serif);
-                font-size: 8.438px;
-                letter-spacing: 1.27px;
-                color: #3a2810;
-              "
-              >Segreto Orfico</span
-            >
-            <span
-              style="
-                font-size: 9.6px;
-                color: #2a1808;
-                margin-left: 12px;
-                margin-right: 12px;
-              "
-              >›</span
-            >
-          </div>
-          <div class="step">
-            <div
-              class="dot"
-              style="
-                background: rgba(196, 145, 58, 0.2);
-                border-color: rgba(196, 145, 58, 0.4);
-              "
-            ></div>
-            <span
-              style="
-                font-family: var(--font-serif);
-                font-size: 8.438px;
-                letter-spacing: 1.27px;
-                color: #3a2810;
-              "
-              >Labirinto dell'Ade</span
-            >
-          </div>
-        </div>
-        <span
-          style="
-            font-family: var(--font-serif);
-            font-size: 8.438px;
-            letter-spacing: 1.69px;
-            color: #3a2810;
-          "
-          >NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span
-        >
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════
-     SCREEN 2.3 – INDAGINE 3 (IDRIA)
-═══════════════════════════════════════════════ -->
-    <div id="indagine-3" class="screen">
-      <div class="topbar">
-        <div style="display: flex; align-items: center; gap: 16px">
-          <span class="phase-label" style="color: var(--gold)"
-            >⬥ FASE I · IL RITO DEL CORREDO</span
-          >
-          <div class="topbar-dots">
-            <div class="topbar-dot active"></div>
-            <div class="topbar-dot"></div>
-            <div class="topbar-dot"></div>
-          </div>
-        </div>
-        <span class="subtitle">TOMBA 19 · LA SIGNORA DI HIPPONION</span>
-      </div>
-
-      <div class="main-area">
-        <!-- SIDEBAR -->
-        <div class="sidebar">
-          <span class="sidebar-label">MONETE NFC</span>
-          <div class="artifact-btn completed">
-            <span class="icon">✓</span>
-            <div class="info">
-              <span class="name">Lucerna</span
-              ><span class="desc">Posizionata fuori</span>
-            </div>
-          </div>
-          <div class="artifact-btn completed">
-            <span class="icon">✓</span>
-            <div class="info">
-              <span class="name">Lekythos</span
-              ><span class="desc">Posizionato interno</span>
-            </div>
-          </div>
-          <div
-            class="artifact-btn active-artifact"
-            onclick="startVoiceCommand('idria-interno')"
-            style="cursor: pointer"
-          >
-            <span class="icon">🏺</span>
-            <div class="info">
-              <span class="name">Idria</span
-              ><span class="desc">Il vaso dell'acqua</span>
-            </div>
-          </div>
-          <div
-            class="nfc-hint"
-            style="
-              padding: 13px 15px;
-              border: 1px solid rgba(196, 145, 58, 0.2);
-              border-radius: 4px;
-              font-style: italic;
-              font-size: 13px;
-              color: white;
-              text-align: center;
-              background: rgba(20, 15, 8, 0.5);
-            "
-          >
-            Posiziona la moneta sul tavolo
-          </div>
-        </div>
-
-        <!-- MAP AREA -->
-        <div
-          class="map-area"
-          style="
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 40px;
-          "
-        >
-          <div
-            class="tomb-map-exact"
-            style="
-              position: relative;
-              width: 100%;
-              height: 320px;
-              margin-top: 30px;
-            "
-          >
-            <!-- The Main Box -->
-            <div
-              style="
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 120px;
-                border: 3px solid rgba(196, 145, 58, 0.4);
-                border-radius: 4px;
-                box-sizing: border-box;
-                background-image: repeating-linear-gradient(
-                  to right,
-                  transparent,
-                  transparent calc(10% - 1px),
-                  rgba(196, 145, 58, 0.08) calc(10% - 1px),
-                  rgba(196, 145, 58, 0.08) 10%
-                );
-                overflow: hidden;
-                background-color: rgba(10, 8, 5, 0.3);
-              "
-            >
-              <!-- INTERNO Box -->
-              <div
-                style="
-                  position: absolute;
-                  top: 0;
-                  bottom: 0;
-                  left: 0;
-                  width: 93%;
-                  background: rgba(30, 20, 10, 0.6);
-                  border-right: 2px dashed rgba(196, 145, 58, 0.4);
-                  padding: 16px;
-                "
-              >
-                <span
-                  style="
-                    font-family: var(--font-serif);
-                    font-size: 20px;
-                    color: #fff;
-                    letter-spacing: 2px;
-                  "
-                  >INTERNO</span
-                >
-                <!-- The Body Skeleton -->
-                <div
-                  style="
-                    position: absolute;
-                    top: 52%;
-                    width: 100%;
-                    height: 50px;
-                    transform: translateY(-50%);
-                    display: flex;
-                    align-items: center;
-                    left: 0;
-                  "
-                >
-                  <div
-                    style="
-                      width: 5%;
-                      border-bottom: 2px dashed rgba(196, 145, 58, 0.4);
-                    "
-                  ></div>
-                  <div
-                    style="
-                      width: 50px;
-                      height: 50px;
-                      border-radius: 50%;
-                      border: 2px solid rgba(196, 145, 58, 0.4);
-                      background: rgba(196, 145, 58, 0.05);
-                      margin-left: -2px;
-                      z-index: 1;
-                    "
-                  ></div>
-                  <div
-                    style="
-                      width: 250px;
-                      height: 46px;
-                      border-radius: 12px;
-                      border: 2px solid rgba(196, 145, 58, 0.4);
-                      background: rgba(196, 145, 58, 0.05);
-                      margin-left: -6px;
-                      z-index: 2;
-                    "
-                  ></div>
-                  <div
-                    style="
-                      width: 44px;
-                      height: 44px;
-                      border-radius: 50%;
-                      border: 2px solid rgba(196, 145, 58, 0.4);
-                      background: rgba(196, 145, 58, 0.05);
-                      margin-left: -8px;
-                      z-index: 3;
-                    "
-                  ></div>
-                  <div
-                    style="
-                      width: 140px;
-                      height: 30px;
-                      border-radius: 8px;
-                      border: 2px solid rgba(196, 145, 58, 0.4);
-                      background: rgba(196, 145, 58, 0.05);
-                      margin-left: -5px;
-                      z-index: 2;
-                    "
-                  ></div>
-                  <div
-                    style="
-                      width: 32px;
-                      height: 32px;
-                      border-radius: 50%;
-                      border: 2px solid rgba(196, 145, 58, 0.4);
-                      background: rgba(196, 145, 58, 0.05);
-                      margin-left: -6px;
-                      z-index: 3;
-                    "
-                  ></div>
-                  <div
-                    style="
-                      flex-grow: 1;
-                      border-bottom: 2px dashed rgba(196, 145, 58, 0.4);
-                      margin-left: -2px;
-                    "
-                  ></div>
-                </div>
-
-                <!-- Drop targets inside Interno -->
-                <div
-                  style="
-                    position: absolute;
-                    top: 12%;
-                    left: 32%;
-                    width: 70px;
-                    height: 70px;
-                    border: 2px solid rgba(196, 145, 58, 0.3);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: rgba(20, 15, 8, 0.6);
-                  "
-                >
-                  <div
-                    style="
-                      width: 46px;
-                      height: 46px;
-                      border: 1px dashed rgba(196, 145, 58, 0.5);
-                      border-radius: 50%;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                    "
-                  >
-                    <div
-                      style="
-                        width: 12px;
-                        height: 12px;
-                        border: 1px solid rgba(196, 145, 58, 0.3);
-                        border-radius: 50%;
-                      "
-                    ></div>
-                  </div>
-                  <div
-                    class="placed-coin"
-                    style="
-                      position: absolute;
-                      width: 44px;
-                      height: 44px;
-                      background: radial-gradient(
-                        circle,
-                        var(--gold-bright) 0%,
-                        var(--gold-dark) 100%
-                      );
-                      border-radius: 50%;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      font-size: 24px;
-                      box-shadow: 0 0 20px var(--gold);
-                    "
-                  >
-                    ⚱
-                  </div>
-                </div>
-
-                <div
-                  style="
-                    position: absolute;
-                    top: 12%;
-                    left: 55%;
-                    width: 70px;
-                    height: 70px;
-                    border: 2px solid rgba(196, 145, 58, 0.3);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: rgba(20, 15, 8, 0.6);
-                  "
-                >
-                  <div
-                    style="
-                      width: 46px;
-                      height: 46px;
-                      border: 1px dashed rgba(196, 145, 58, 0.5);
-                      border-radius: 50%;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                    "
-                  >
-                    <div
-                      style="
-                        width: 12px;
-                        height: 12px;
-                        border: 1px solid rgba(196, 145, 58, 0.3);
-                        border-radius: 50%;
-                      "
-                    ></div>
-                  </div>
-                  <!-- ANIMATED IDRIA -->
-                  <div
-                    id="idria-coin-3"
-                    class="placed-coin"
-                    style="
-                      opacity: 0;
-                      position: absolute;
-                      width: 44px;
-                      height: 44px;
-                      background: radial-gradient(
-                        circle,
-                        var(--gold-bright) 0%,
-                        var(--gold-dark) 100%
-                      );
-                      border-radius: 50%;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      font-size: 24px;
-                      box-shadow: 0 0 20px var(--gold);
-                    "
-                  >
-                    🏺
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- The FUORI circle + STATIC LUCERNA -->
-            <div
-              style="
-                position: absolute;
-                bottom: 22%;
-                right: 20px;
-                width: 70px;
-                height: 70px;
-                border: 2px solid rgba(196, 145, 58, 0.3);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 5;
-                background: rgba(20, 15, 8, 0.6);
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  left: -30px;
-                  width: 28px;
-                  top: 50%;
-                  height: 2px;
-                  background: rgba(196, 145, 58, 0.4);
-                "
-              ></div>
-              <div
-                style="
-                  width: 46px;
-                  height: 46px;
-                  border: 1px dashed rgba(196, 145, 58, 0.5);
-                  border-radius: 50%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                "
-              >
-                <div
-                  style="
-                    width: 12px;
-                    height: 12px;
-                    border: 1px solid rgba(196, 145, 58, 0.3);
-                    border-radius: 50%;
-                  "
-                ></div>
-              </div>
-              <div
-                class="placed-coin"
-                style="
-                  position: absolute;
-                  width: 44px;
-                  height: 44px;
-                  background: radial-gradient(
-                    circle,
-                    var(--gold-bright) 0%,
-                    var(--gold-dark) 100%
-                  );
-                  border-radius: 50%;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 24px;
-                  box-shadow: 0 0 20px var(--gold);
-                "
-              >
-                🕯
-              </div>
-            </div>
-            <div
-              style="
-                position: absolute;
-                bottom: -50px;
-                left: 0;
-                right: 120px;
-                text-align: center;
-                font-family: var(--font-serif);
-                font-size: 14px;
-                color: rgba(196, 145, 58, 0.6);
-                letter-spacing: 1px;
-              "
-            >
-              TOMBA ALLA CAPPUCCINA · SEPOLTURA N.19
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="instruct-bar">
-        <span class="diamond">⬥</span>
-        <p>
-          Osserva la sua dimora terrena e decifra i segni. Usa le monete per
-          separare ciò che appartiene ai vivi da ciò che servirà a lei nel buio.
-        </p>
-      </div>
-
-      <div class="footbar">
-        <div class="steps">
-          <div class="step active">
-            <div
-              class="dot"
-              style="
-                background: var(--gold);
-                border-color: rgba(196, 145, 58, 0.4);
-              "
-            ></div>
-            <span
-              style="
-                font-family: var(--font-serif);
-                font-size: 8.438px;
-                letter-spacing: 1.27px;
-                color: var(--gold);
-              "
-              >Rito del Corredo</span
-            >
-            <span
-              style="
-                font-size: 9.6px;
-                color: #2a1808;
-                margin-left: 12px;
-                margin-right: 12px;
-              "
-              >›</span
-            >
-          </div>
-          <div class="step">
-            <div
-              class="dot"
-              style="
-                background: rgba(196, 145, 58, 0.2);
-                border-color: rgba(196, 145, 58, 0.4);
-              "
-            ></div>
-            <span
-              style="
-                font-family: var(--font-serif);
-                font-size: 8.438px;
-                letter-spacing: 1.27px;
-                color: #3a2810;
-              "
-              >Segreto Orfico</span
-            >
-            <span
-              style="
-                font-size: 9.6px;
-                color: #2a1808;
-                margin-left: 12px;
-                margin-right: 12px;
-              "
-              >›</span
-            >
-          </div>
-          <div class="step">
-            <div
-              class="dot"
-              style="
-                background: rgba(196, 145, 58, 0.2);
-                border-color: rgba(196, 145, 58, 0.4);
-              "
-            ></div>
-            <span
-              style="
-                font-family: var(--font-serif);
-                font-size: 8.438px;
-                letter-spacing: 1.27px;
-                color: #3a2810;
-              "
-              >Labirinto dell'Ade</span
-            >
-          </div>
-        </div>
-        <span
-          style="
-            font-family: var(--font-serif);
-            font-size: 8.438px;
-            letter-spacing: 1.69px;
-            color: #3a2810;
-          "
-          >NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span
-        >
-      </div>
-    </div>
     <!-- ═══════════════════════════════════════════════
      SCREEN 3 – AZIONE (FASE II)
 ═══════════════════════════════════════════════ -->
@@ -1964,9 +913,13 @@
             </p>
           </div>
 
-          <p class="ultima-moneta">— ULTIMA MONETA NFC —</p>
+          <p class="ultima-moneta">— LAMINETTA ORFICA —</p>
 
-          <div class="laminetta-btn" onclick="startVoiceCommand('laminetta-petto')">
+          <div
+            class="laminetta-btn"
+            draggable="true"
+            data-laminetta-artifact="laminetta"
+          >
             <span class="scroll-emoji">📜</span>
             <div class="laminetta-label">LAMINETTA<br />ORFICA</div>
           </div>
@@ -1974,11 +927,7 @@
 
         <!-- RIGHT PANEL – chest -->
         <div class="right-panel">
-          <div
-            class="chest-container"
-            onclick="startVoiceCommand('laminetta-petto')"
-            style="cursor: pointer"
-          >
+          <div class="chest-container">
             <img src="assets/tomba.png" alt="Primo piano petto della defunta" />
             <!-- grid overlay lines -->
             <div class="chest-grid">
@@ -2106,6 +1055,8 @@
 
             <!-- Laminetta animata -->
             <div
+              class="laminetta-drop-zone"
+              data-laminetta-drop="petto"
               style="
                 position: absolute;
                 top: 45%;
@@ -2335,7 +1286,6 @@
         id="btn-avanza-ade"
         class="btn-start btn-avanza-ade"
         onclick="closeAureaAndGoLabirinto()"
-        style="margin-top: 60px"
       >
         AVANZA VERSO L'ADE →
       </button>
@@ -3254,7 +2204,7 @@
         <div class="guardians-header">
           <p class="kicker">I CUSTODI CHIEDONO:</p>
           <h2>«Chi sei tu? Da dove vieni?»</h2>
-          <p class="sub">Componi la frase segreta selezionando le parole</p>
+          <p class="sub">Componi la frase segreta trascinando le parole</p>
         </div>
 
         <div class="guardians-visual">
@@ -3295,7 +2245,7 @@
         </div>
 
         <div class="word-bank-area">
-          <span class="word-bank-label">— PAROLE DISPONIBILI —</span>
+          <span class="word-bank-label">— TRASCINA LE PAROLE PER COMPORRE LA FRASE —</span>
           <div class="word-bank" id="wordBank">
             <!-- Words will be injected here -->
           </div>
@@ -3305,8 +2255,8 @@
       <div class="instruct-bar">
         <span class="diamond">⬥</span>
         <p>
-          Sfrutta l'indizio sul Pannello 3 per comporre la frase segreta
-          selezionando le parole nei caselli.
+          Sfrutta l'indizio sul Pannello 3: trascina le parole nei caselli
+          della formula.
         </p>
       </div>
 
@@ -3327,6 +2277,89 @@
         </div>
         <span class="loc">NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span>
       </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     SCREEN FINALE – IL REGNO DEI BEATI
+═══════════════════════════════════════════════ -->
+    <div id="regno-beati" class="screen rb-screen">
+
+      <!-- Stars -->
+      <div class="rb-stars-layer" id="rbStars"></div>
+
+      <!-- Warm golden background overlay -->
+      <div class="rb-bg" id="rbBg"></div>
+
+      <!-- Light rays (emitted from soul ascent point) -->
+      <div class="rb-rays" id="rbRays">
+        <div class="rb-ray" style="--r:0deg;   --rd:0s"></div>
+        <div class="rb-ray" style="--r:30deg;  --rd:0.4s"></div>
+        <div class="rb-ray" style="--r:60deg;  --rd:0.8s"></div>
+        <div class="rb-ray" style="--r:90deg;  --rd:1.2s"></div>
+        <div class="rb-ray" style="--r:120deg; --rd:1.6s"></div>
+        <div class="rb-ray" style="--r:150deg; --rd:2s"></div>
+        <div class="rb-ray" style="--r:180deg; --rd:0.2s"></div>
+        <div class="rb-ray" style="--r:210deg; --rd:0.6s"></div>
+        <div class="rb-ray" style="--r:240deg; --rd:1s"></div>
+        <div class="rb-ray" style="--r:270deg; --rd:1.4s"></div>
+        <div class="rb-ray" style="--r:300deg; --rd:1.8s"></div>
+        <div class="rb-ray" style="--r:330deg; --rd:2.2s"></div>
+      </div>
+
+      <!-- Lake of Mnemosyne -->
+      <div class="rb-lake" id="rbLake">
+        <div class="rb-lake-glow"></div>
+        <div class="rb-lake-water-wrap">
+          <canvas id="rbLakeCanvas" width="460" height="138"></canvas>
+          <div class="rb-lake-flash" id="rbLakeFlash"></div>
+        </div>
+        <p class="rb-lake-label">LAGO DI MNEMOSYNE ✦</p>
+      </div>
+
+      <!-- Soul -->
+      <div class="rb-soul" id="rbSoul">
+        <div class="rb-soul-aura"></div>
+        <div class="rb-soul-core"></div>
+      </div>
+
+      <!-- Floating light particles -->
+      <div class="rb-particles" id="rbParticles"></div>
+
+      <!-- Caption 1 -->
+      <div class="rb-caption" id="rbCaption1">
+        <p>L'anima si accosta all'acqua della Memoria...</p>
+      </div>
+
+      <!-- Caption 2 -->
+      <div class="rb-caption" id="rbCaption2">
+        <p>Beve. <em>E ricorda.</em></p>
+      </div>
+
+      <!-- Caption 3 (quote) -->
+      <div class="rb-caption rb-caption-quote" id="rbCaption3">
+        <p>«Sono figlio della Terra e del Cielo Stellato.<br>La mia stirpe è celeste.»</p>
+      </div>
+
+      <!-- Caption 4 -->
+      <div class="rb-caption" id="rbCaption4">
+        <p>L'anima accede al Regno dei Beati</p>
+      </div>
+
+      <!-- Final title overlay -->
+      <div class="rb-finale" id="rbFinale">
+        <div class="rb-finale-glow"></div>
+        <div class="rb-finale-content">
+          <span class="rb-finale-ornament">✦ &nbsp; ✦ &nbsp; ✦</span>
+          <h1 class="rb-finale-title">IL REGNO DEI BEATI</h1>
+          <div class="rb-finale-line"></div>
+          <span class="rb-finale-sub">I CAMPI ELISI · L'ETERNITÀ</span>
+          <span class="rb-finale-meta">NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.</span>
+          <button class="btn-final-game rb-ricomincia" onclick="goTo('rito')">
+            Ricomincia &nbsp;→
+          </button>
+        </div>
+      </div>
+
     </div>
 
     <!-- TOAST FEEDBACK -->
@@ -3488,6 +2521,47 @@
       </div>
     </div>
 
+    <div
+      class="toast"
+      id="formulaErrorToast"
+      style="
+        padding: 50px 70px;
+        background: rgba(10, 8, 5, 0.95);
+        border: 1px solid rgba(196, 60, 60, 0.7);
+        box-shadow: 0 0 100px rgba(196, 60, 60, 0.3);
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+        "
+      >
+        <div class="audio-indicator" style="margin-bottom: 24px">
+          <span style="font-size: 18px; margin-right: 8px">✕</span>
+          <span
+            style="
+              font-family: var(--font-serif);
+              font-size: 12px;
+              color: #c43c3c;
+              letter-spacing: 2px;
+            "
+            >FORMULA ERRATA</span
+          >
+        </div>
+        <div
+          class="quote-block"
+          style="width: auto; margin-top: 0; border-color: rgba(196, 60, 60, 0.5)"
+        >
+          <p style="width: auto; max-width: 420px; color: #e89090">
+            «Le parole non sono quelle giuste. Il rito ricomincia da capo.»
+          </p>
+        </div>
+      </div>
+    </div>
+
     <!-- ═══════════════════════════════════════════════
      VOICE COMMAND OVERLAY
 ═══════════════════════════════════════════════ -->
@@ -3544,6 +2618,9 @@
         // Avvia audio sulla schermata narrativa
         if (id === "narrativa") playNarrazione();
 
+        if (id === "indagine-1") resetRitoDragDrop();
+        if (id === "azione") resetLaminettaDragDrop();
+
         // Reset animations when navigating away so they work again if testing
         if (!id.startsWith("indagine")) {
           document
@@ -3587,6 +2664,9 @@
             startVoiceCommand(["lab-tenebra", "lab-prosegui"]);
           }, 600);
         }
+
+        // Avvia animazione finale
+        if (id === "regno-beati") initRegnoBeati();
       }
 
       function initSoulParticles() {
@@ -3654,6 +2734,7 @@
         if (laminettaBtn) {
           laminettaBtn.style.opacity = "0.5";
           laminettaBtn.style.pointerEvents = "none";
+          laminettaBtn.classList.add("completed");
         }
 
         const chestContainer = document.querySelector(".chest-container");
@@ -3663,6 +2744,12 @@
 
         const laminettaPlaced = document.getElementById("laminetta-placed");
         if (!laminettaPlaced) return;
+
+        const dropZone = document.querySelector("[data-laminetta-drop]");
+        if (dropZone) {
+          dropZone.dataset.filled = "1";
+          dropZone.classList.add("filled");
+        }
 
         // Start animation
         laminettaPlaced.classList.add("anim-drop");
@@ -3726,11 +2813,10 @@
 
       /* ── Keyboard nav ── */
       const order = [
+        "rito",
         "intro",
         "narrativa",
         "indagine-1",
-        "indagine-2",
-        "indagine-3",
         "azione",
         "laminetta-aurea",
         "labirinto",
@@ -3742,16 +2828,19 @@
         "mnemosyne-ok",
         "domanda-guardiani",
         "cruciverba",
+        "regno-beati",
       ];
       document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowRight" || e.key === "ArrowDown") {
           const cur = document.querySelector(".screen.active");
           const idx = order.indexOf(cur.id);
+          if (idx === -1) return;
           if (idx < order.length - 1) goTo(order[idx + 1]);
         }
         if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
           const cur = document.querySelector(".screen.active");
           const idx = order.indexOf(cur.id);
+          if (idx === -1) return;
           if (idx > 0) goTo(order[idx - 1]);
         }
         if (e.key === "Escape") dismissToast();
@@ -3782,6 +2871,246 @@
         "STELLATO",
       ];
       let currentFormula = ["", "", "", "", "", "", "", ""];
+      let crosswordDrag = null;
+      let crosswordGhost = null;
+      let crosswordSource = null;
+      let crosswordGlobalHandlersBound = false;
+
+      /* ── Lago di Mnemosyne – canvas water ── */
+      let rbLakeAnimId = null;
+
+      function startLakeCanvas() {
+        const canvas = document.getElementById("rbLakeCanvas");
+        if (!canvas) return;
+        if (rbLakeAnimId) { cancelAnimationFrame(rbLakeAnimId); rbLakeAnimId = null; }
+
+        const ctx = canvas.getContext("2d");
+        const W = canvas.width;   // 460
+        const H = canvas.height;  // 138
+
+        // Wave layers: { yFrac, amplitude, frequency, speed, colour, lineWidth }
+        const waves = [
+          { y:0.15, a:4.5, f:0.017, s:0.55, c:"rgba(100,210,255,0.32)", lw:1.8 },
+          { y:0.30, a:3.5, f:0.026, s:0.40, c:"rgba(80,190,250,0.24)",  lw:1.4 },
+          { y:0.46, a:2.8, f:0.038, s:0.70, c:"rgba(60,170,240,0.18)",  lw:1.1 },
+          { y:0.62, a:2.0, f:0.055, s:0.90, c:"rgba(50,150,225,0.14)",  lw:0.9 },
+          { y:0.78, a:1.3, f:0.075, s:1.15, c:"rgba(40,130,210,0.10)",  lw:0.7 },
+        ];
+
+        function draw() {
+          const t = Date.now() * 0.001;
+          ctx.clearRect(0, 0, W, H);
+
+          /* ── Clip to ellipse ── */
+          ctx.save();
+          ctx.beginPath();
+          ctx.ellipse(W / 2, H / 2, W / 2 - 1, H / 2 - 1, 0, 0, Math.PI * 2);
+          ctx.clip();
+
+          /* ── Deep-water radial base ── */
+          const bg = ctx.createRadialGradient(W*0.5, H*0.72, 0, W*0.5, H*0.5, W*0.52);
+          bg.addColorStop(0,    "rgba(25,  75, 170, 0.92)");
+          bg.addColorStop(0.35, "rgba(12,  48, 130, 0.88)");
+          bg.addColorStop(0.70, "rgba( 6,  25,  80, 0.93)");
+          bg.addColorStop(1,    "rgba( 3,  12,  45, 0.98)");
+          ctx.fillStyle = bg;
+          ctx.fillRect(0, 0, W, H);
+
+          /* ── Horizontal teal shimmer band near surface ── */
+          const band = ctx.createLinearGradient(0, 0, 0, H);
+          band.addColorStop(0,    "rgba(70, 185, 255, 0.18)");
+          band.addColorStop(0.25, "rgba(50, 155, 230, 0.10)");
+          band.addColorStop(0.55, "rgba(30, 110, 190, 0.04)");
+          band.addColorStop(1,    "rgba( 5,  40, 110, 0.00)");
+          ctx.fillStyle = band;
+          ctx.fillRect(0, 0, W, H);
+
+          /* ── Wave lines ── */
+          waves.forEach(w => {
+            ctx.beginPath();
+            ctx.moveTo(0, H * w.y);
+            for (let x = 0; x <= W; x += 2) {
+              const y = H * w.y
+                + Math.sin(x * w.f + t * w.s) * w.a
+                + Math.sin(x * w.f * 1.6 - t * w.s * 0.55) * (w.a * 0.38)
+                + Math.sin(x * w.f * 0.7 + t * w.s * 1.3) * (w.a * 0.22);
+              ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = w.c;
+            ctx.lineWidth = w.lw;
+            ctx.stroke();
+          });
+
+          /* ── Reflection caustics (bright streaks near top) ── */
+          for (let i = 0; i < 6; i++) {
+            const cx = W * (0.15 + i * 0.14 + Math.sin(t * 0.4 + i) * 0.04);
+            const cy = H * (0.08 + Math.sin(t * 0.3 + i * 1.2) * 0.06);
+            const len = 18 + Math.sin(t * 1.1 + i * 0.9) * 8;
+            const alp = Math.max(0, Math.sin(t * 0.8 + i * 2.1)) * 0.28;
+            if (alp > 0.02) {
+              const grad = ctx.createLinearGradient(cx - len/2, cy, cx + len/2, cy);
+              grad.addColorStop(0,   "transparent");
+              grad.addColorStop(0.5, `rgba(200,240,255,${alp})`);
+              grad.addColorStop(1,   "transparent");
+              ctx.beginPath();
+              ctx.moveTo(cx - len/2, cy);
+              ctx.lineTo(cx + len/2, cy);
+              ctx.strokeStyle = grad;
+              ctx.lineWidth = 1.5 + Math.sin(t + i) * 0.5;
+              ctx.stroke();
+            }
+          }
+
+          /* ── Point sparkles ── */
+          for (let i = 0; i < 22; i++) {
+            const sx = (Math.sin(t * 0.28 + i * 1.13) * 0.42 + 0.5) * W;
+            const sy = (Math.sin(t * 0.44 + i * 0.77) * 0.20 + 0.22) * H;
+            const alp = Math.max(0, Math.sin(t * 2.2 + i * 2.0)) * 0.55;
+            if (alp > 0.05) {
+              const rg = ctx.createRadialGradient(sx, sy, 0, sx, sy, 5);
+              rg.addColorStop(0,   `rgba(225,248,255,${alp})`);
+              rg.addColorStop(0.4, `rgba(160,230,255,${alp * 0.4})`);
+              rg.addColorStop(1,   "transparent");
+              ctx.beginPath();
+              ctx.arc(sx, sy, 5, 0, Math.PI * 2);
+              ctx.fillStyle = rg;
+              ctx.fill();
+            }
+          }
+
+          /* ── Edge vignette ── */
+          const vig = ctx.createRadialGradient(W/2, H/2, W*0.22, W/2, H/2, W*0.53);
+          vig.addColorStop(0, "transparent");
+          vig.addColorStop(1, "rgba(2, 8, 30, 0.70)");
+          ctx.fillStyle = vig;
+          ctx.fillRect(0, 0, W, H);
+
+          ctx.restore();
+          rbLakeAnimId = requestAnimationFrame(draw);
+        }
+
+        draw();
+      }
+
+      /* ── Regno dei Beati – Animazione Finale ── */
+      function initRegnoBeati() {
+        const soul     = document.getElementById("rbSoul");
+        const bg       = document.getElementById("rbBg");
+        const lake     = document.getElementById("rbLake");
+        const rays     = document.getElementById("rbRays");
+        const finale   = document.getElementById("rbFinale");
+        const particles = document.getElementById("rbParticles");
+        const captions = ["rbCaption1","rbCaption2","rbCaption3","rbCaption4"];
+
+        // Reset
+        soul.className = "rb-soul";
+        soul.style.top = "464px";
+        soul.style.opacity = "1";
+        soul.style.transform = "translateX(-50%)";
+        bg.classList.remove("rb-bg-warm");
+        lake.classList.remove("rb-lake-drinking");
+        rays.classList.remove("rb-rays-visible");
+        finale.classList.remove("rb-finale-visible");
+        particles.classList.remove("rb-particles-active");
+        captions.forEach(id => document.getElementById(id).classList.remove("rb-visible"));
+        particles.innerHTML = "";
+
+        generateRbStars();
+        startLakeCanvas();
+
+        // t=0.8s — L'anima si accosta al lago
+        setTimeout(() => {
+          document.getElementById("rbCaption1").classList.add("rb-visible");
+        }, 800);
+
+        // t=3s — Beve: lago pulsa, anima beve
+        setTimeout(() => {
+          document.getElementById("rbCaption1").classList.remove("rb-visible");
+          soul.classList.add("rb-soul-drinking");
+          lake.classList.add("rb-lake-drinking");
+        }, 3000);
+
+        // t=3.8s — "Beve. E ricorda."
+        setTimeout(() => {
+          document.getElementById("rbCaption2").classList.add("rb-visible");
+        }, 3800);
+
+        // t=5.8s — Trasformazione: anima diventa dorata
+        setTimeout(() => {
+          document.getElementById("rbCaption2").classList.remove("rb-visible");
+          soul.classList.remove("rb-soul-drinking");
+          soul.classList.add("rb-soul-golden");
+          bg.classList.add("rb-bg-warm");
+          document.getElementById("rbCaption3").classList.add("rb-visible");
+        }, 5800);
+
+        // t=8.5s — Ascesa: anima sale verso la luce
+        setTimeout(() => {
+          document.getElementById("rbCaption3").classList.remove("rb-visible");
+          soul.classList.add("rb-soul-ascending");
+          rays.classList.add("rb-rays-visible");
+          generateRbParticles();
+          particles.classList.add("rb-particles-active");
+          document.getElementById("rbCaption4").classList.add("rb-visible");
+        }, 8500);
+
+        // t=11s — Titolo finale
+        setTimeout(() => {
+          document.getElementById("rbCaption4").classList.remove("rb-visible");
+          finale.classList.add("rb-finale-visible");
+        }, 11000);
+      }
+
+      function generateRbStars() {
+        const container = document.getElementById("rbStars");
+        if (!container) return;
+        container.innerHTML = "";
+        for (let i = 0; i < 130; i++) {
+          const s = document.createElement("div");
+          const size = Math.random() * 2 + 0.5;
+          const delay = Math.random() * 5;
+          const dur   = Math.random() * 3 + 2;
+          s.style.cssText = `
+            position:absolute;
+            left:${Math.random()*100}%;
+            top:${Math.random()*100}%;
+            width:${size}px; height:${size}px;
+            border-radius:50%;
+            background:rgba(255,255,220,${Math.random()*0.55+0.2});
+            animation:rb-star-twinkle ${dur}s ease-in-out infinite;
+            animation-delay:${delay}s;
+          `;
+          container.appendChild(s);
+        }
+      }
+
+      function generateRbParticles() {
+        const container = document.getElementById("rbParticles");
+        if (!container) return;
+        container.innerHTML = "";
+        for (let i = 0; i < 45; i++) {
+          const p = document.createElement("div");
+          const isGold = Math.random() > 0.35;
+          const size   = Math.random() * 7 + 3;
+          const color  = isGold
+            ? `rgba(255,${Math.floor(Math.random()*60+170)},60,0.85)`
+            : `rgba(160,${Math.floor(Math.random()*40+210)},255,0.65)`;
+          const glow   = isGold
+            ? `rgba(255,200,80,0.35)` : `rgba(160,220,255,0.3)`;
+          p.className = "rb-particle";
+          p.style.cssText = `
+            width:${size}px; height:${size}px;
+            left:${Math.random()*100}%;
+            bottom:${Math.random()*25}%;
+            background:radial-gradient(circle, ${color} 0%, transparent 70%);
+            box-shadow:0 0 ${size*2}px ${glow};
+            --dur:${Math.random()*4+5}s;
+            --delay:${Math.random()*4}s;
+            --dx:${(Math.random()-0.5)*240}px;
+          `;
+          container.appendChild(p);
+        }
+      }
 
       function initCruciverba() {
         const bank = document.getElementById("wordBank");
@@ -3790,19 +3119,304 @@
         WORDS.forEach((word) => {
           const chip = document.createElement("div");
           chip.className = "word-chip";
-          if (currentFormula.includes(word)) chip.classList.add("used");
           chip.textContent = word;
-          chip.onclick = () => selectWord(word);
+          chip.dataset.word = word;
+          chip.setAttribute("role", "button");
+          chip.setAttribute("aria-label", "Trascina " + word + " nella formula");
+          chip.draggable = !window.PointerEvent;
+          attachCrosswordChipDrag(chip, word, null);
+          if (currentFormula.includes(word)) {
+            chip.classList.add("used");
+            chip.draggable = false;
+            chip.removeAttribute("role");
+            chip.removeAttribute("aria-label");
+          }
           bank.appendChild(chip);
         });
         updateFormulaDisplay();
+        setupCrosswordDropZones();
       }
 
-      function selectWord(word) {
-        const emptyIdx = currentFormula.indexOf("");
-        if (emptyIdx === -1) return;
-        currentFormula[emptyIdx] = word;
+      function createCrosswordGhost(word, x, y) {
+        crosswordGhost = document.createElement("div");
+        crosswordGhost.className = "formula-drag-ghost";
+        crosswordGhost.textContent = word;
+        document.body.appendChild(crosswordGhost);
+        moveCrosswordGhost(x, y);
+      }
+
+      function moveCrosswordGhost(x, y) {
+        if (!crosswordGhost) return;
+        crosswordGhost.style.left = x + "px";
+        crosswordGhost.style.top = y + "px";
+      }
+
+      function removeCrosswordGhost() {
+        if (crosswordGhost) crosswordGhost.remove();
+        crosswordGhost = null;
+      }
+
+      function dissolveCrosswordGhost(word, x, y) {
+        var ghost = crosswordGhost;
+        if (!ghost) {
+          ghost = document.createElement("div");
+          ghost.className = "formula-drag-ghost";
+          ghost.textContent = word || "";
+          ghost.style.left = x + "px";
+          ghost.style.top = y + "px";
+          document.body.appendChild(ghost);
+        }
+
+        ghost.classList.add("dissolving");
+        crosswordGhost = null;
+        setTimeout(() => ghost.remove(), 360);
+      }
+
+      function crosswordTargetFromPoint(x, y) {
+        var ghostDisplay = crosswordGhost ? crosswordGhost.style.display : "";
+        if (crosswordGhost) crosswordGhost.style.display = "none";
+        var el = document.elementFromPoint(x, y);
+        if (crosswordGhost) crosswordGhost.style.display = ghostDisplay;
+        if (!el) return null;
+        return el.closest(".formula-slot") || el.closest("#wordBank");
+      }
+
+      function resetCrosswordDropStates() {
+        document.querySelectorAll(".formula-slot, #wordBank").forEach((el) => {
+          el.classList.remove("drag-hover", "drag-wrong");
+        });
+      }
+
+      function showCrosswordFeedback(text) {
+        const bar = document.querySelector("#cruciverba .instruct-bar p");
+        if (!bar) return;
+        if (!bar.dataset.defaultText) bar.dataset.defaultText = bar.textContent.trim();
+        bar.textContent = text;
+        clearTimeout(bar._cwTimer);
+        bar._cwTimer = setTimeout(() => {
+          bar.textContent = bar.dataset.defaultText;
+        }, 2200);
+      }
+
+      function markCrosswordWrong(target) {
+        if (target) {
+          target.classList.add("drag-wrong");
+          target.style.animation = "shake 0.5s";
+          setTimeout(() => {
+            target.classList.remove("drag-wrong");
+            target.style.animation = "";
+          }, 500);
+        }
+        showCrosswordFeedback("Trascina una parola in un casello libero, oppure spostala da un casello all'altro.");
+      }
+
+      function placeCrosswordWord(word, targetIndex, fromIndex) {
+        if (!word || targetIndex < 0 || targetIndex > 7) return false;
+        if (fromIndex === null && currentFormula.includes(word)) return false;
+
+        if (fromIndex !== null && fromIndex === targetIndex) return true;
+
+        if (fromIndex !== null) {
+          const targetWord = currentFormula[targetIndex];
+          currentFormula[targetIndex] = word;
+          currentFormula[fromIndex] = targetWord || "";
+        } else {
+          currentFormula[targetIndex] = word;
+        }
+
         initCruciverba();
+        return true;
+      }
+
+      function removeCrosswordWord(fromIndex) {
+        if (fromIndex === null || fromIndex < 0 || fromIndex > 7) return false;
+        currentFormula[fromIndex] = "";
+        initCruciverba();
+        return true;
+      }
+
+      function handleCrosswordDrop(target) {
+        if (!crosswordDrag) return false;
+
+        if (target && target.id === "wordBank") {
+          if (crosswordDrag.fromIndex !== null) return removeCrosswordWord(crosswordDrag.fromIndex);
+          return false;
+        }
+
+        const slot = target ? target.closest(".formula-slot") : null;
+        if (slot) {
+          const targetIndex = Number(slot.dataset.index) - 1;
+          const ok = placeCrosswordWord(crosswordDrag.word, targetIndex, crosswordDrag.fromIndex);
+          if (!ok) markCrosswordWrong(slot);
+          return ok;
+        }
+
+        markCrosswordWrong(target);
+        return false;
+      }
+
+      function finishCrosswordDrag(target, x, y, sourceEl) {
+        if (!crosswordDrag) return false;
+        const word = crosswordDrag.word;
+        const ok = handleCrosswordDrop(target);
+
+        if (sourceEl) sourceEl.classList.remove("dragging");
+        crosswordDrag = null;
+        crosswordSource = null;
+
+        if (ok) {
+          removeCrosswordGhost();
+        } else {
+          dissolveCrosswordGhost(word, x, y);
+        }
+
+        resetCrosswordDropStates();
+        return ok;
+      }
+
+      function bindCrosswordDisplayDropHandlers() {
+        const screen = document.getElementById("cruciverba");
+        if (screen && !screen.dataset.crosswordDisplayDropBound) {
+          screen.dataset.crosswordDisplayDropBound = "1";
+
+          screen.ondragover = (e) => {
+            if (!crosswordDrag) return;
+            e.preventDefault();
+          };
+
+          screen.ondrop = (e) => {
+            if (!crosswordDrag) {
+              try {
+                crosswordDrag = JSON.parse(e.dataTransfer.getData("text/plain"));
+              } catch (_) {}
+            }
+            if (!crosswordDrag) return;
+            e.preventDefault();
+            const target = crosswordTargetFromPoint(e.clientX, e.clientY);
+            finishCrosswordDrag(target, e.clientX, e.clientY, crosswordSource);
+          };
+        }
+
+        if (crosswordGlobalHandlersBound) return;
+        crosswordGlobalHandlersBound = true;
+
+        document.addEventListener("pointerup", (e) => {
+          if (!crosswordDrag) return;
+          const target = crosswordTargetFromPoint(e.clientX, e.clientY);
+          finishCrosswordDrag(target, e.clientX, e.clientY, crosswordSource);
+        });
+
+        document.addEventListener("pointercancel", () => {
+          if (!crosswordDrag) return;
+          if (crosswordSource) crosswordSource.classList.remove("dragging");
+          crosswordDrag = null;
+          crosswordSource = null;
+          removeCrosswordGhost();
+          resetCrosswordDropStates();
+        });
+      }
+
+      function attachCrosswordChipDrag(chip, word, fromIndex) {
+        chip.dataset.word = word;
+        if (fromIndex !== null) chip.dataset.fromIndex = String(fromIndex);
+        chip.draggable = !window.PointerEvent;
+
+        chip.ondragstart = (e) => {
+          if (chip.classList.contains("used")) {
+            e.preventDefault();
+            return;
+          }
+          crosswordDrag = { word, fromIndex };
+          crosswordSource = chip;
+          e.dataTransfer.setData("text/plain", JSON.stringify(crosswordDrag));
+          chip.classList.add("dragging");
+        };
+
+        chip.ondragend = () => {
+          chip.classList.remove("dragging");
+          crosswordDrag = null;
+          crosswordSource = null;
+          resetCrosswordDropStates();
+        };
+
+        chip.onpointerdown = (e) => {
+          if (e.pointerType === "mouse" && e.button !== 0) return;
+          if (chip.classList.contains("used")) return;
+          e.preventDefault();
+          crosswordDrag = { word, fromIndex };
+          crosswordSource = chip;
+          chip.setPointerCapture(e.pointerId);
+          chip.classList.add("dragging");
+          createCrosswordGhost(word, e.clientX, e.clientY);
+        };
+
+        chip.onpointermove = (e) => {
+          if (!crosswordDrag) return;
+          moveCrosswordGhost(e.clientX, e.clientY);
+          resetCrosswordDropStates();
+          const target = crosswordTargetFromPoint(e.clientX, e.clientY);
+          if (target) target.classList.add("drag-hover");
+        };
+
+        chip.onpointerup = (e) => {
+          if (!crosswordDrag) return;
+          const target = crosswordTargetFromPoint(e.clientX, e.clientY);
+          finishCrosswordDrag(target, e.clientX, e.clientY, chip);
+        };
+
+        chip.onpointercancel = () => {
+          chip.classList.remove("dragging");
+          crosswordDrag = null;
+          crosswordSource = null;
+          removeCrosswordGhost();
+          resetCrosswordDropStates();
+        };
+      }
+
+      function setupCrosswordDropZones() {
+        document.querySelectorAll(".formula-slot").forEach((slot) => {
+          slot.ondragover = (e) => {
+            e.preventDefault();
+            slot.classList.add("drag-hover");
+          };
+          slot.ondragleave = (e) => {
+            if (!slot.contains(e.relatedTarget)) slot.classList.remove("drag-hover");
+          };
+          slot.ondrop = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            slot.classList.remove("drag-hover");
+            if (!crosswordDrag) {
+              try {
+                crosswordDrag = JSON.parse(e.dataTransfer.getData("text/plain"));
+              } catch (_) {}
+            }
+            finishCrosswordDrag(slot, e.clientX, e.clientY, crosswordSource);
+          };
+        });
+
+        const bank = document.getElementById("wordBank");
+        if (!bank) return;
+        bank.ondragover = (e) => {
+          e.preventDefault();
+          bank.classList.add("drag-hover");
+        };
+        bank.ondragleave = (e) => {
+          if (!bank.contains(e.relatedTarget)) bank.classList.remove("drag-hover");
+        };
+        bank.ondrop = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          bank.classList.remove("drag-hover");
+            if (!crosswordDrag) {
+              try {
+                crosswordDrag = JSON.parse(e.dataTransfer.getData("text/plain"));
+              } catch (_) {}
+            }
+          finishCrosswordDrag(bank, e.clientX, e.clientY, crosswordSource);
+        };
+
+        bindCrosswordDisplayDropHandlers();
       }
 
       function updateFormulaDisplay() {
@@ -3811,11 +3425,15 @@
         const slotNodes = slots.children;
         for (let i = 0; i < 8; i++) {
           slotNodes[i].innerHTML = "";
+          slotNodes[i].classList.toggle("filled", Boolean(currentFormula[i]));
           if (currentFormula[i]) {
             const chip = document.createElement("div");
             chip.className = "word-chip";
             chip.textContent = currentFormula[i];
-            chip.onclick = () => removeWord(i);
+            chip.dataset.word = currentFormula[i];
+            chip.setAttribute("role", "button");
+            chip.setAttribute("aria-label", "Trascina " + currentFormula[i] + " in un altro casello o nel banco parole");
+            attachCrosswordChipDrag(chip, currentFormula[i], i);
             slotNodes[i].appendChild(chip);
           }
         }
@@ -3845,23 +3463,1237 @@
           showToast("formulaSuccessToast");
           setTimeout(() => {
             dismissToast();
-            // End of demo or loop back
-            setTimeout(() => goTo("intro"), 1000);
+            setTimeout(() => goTo("regno-beati"), 1000);
           }, 5000);
         } else {
-          // Visual shake or feedback
           const slots = document.getElementById("formulaSlots");
           if (slots) {
             slots.style.animation = "shake 0.5s";
             setTimeout(() => (slots.style.animation = ""), 500);
           }
+          showToast("formulaErrorToast");
+          setTimeout(() => {
+            dismissToast();
+            setTimeout(() => clearFormula(), 400);
+          }, 3000);
         }
       }
 
+      /* ── Tomb background: tomba3.png ── */
+      function injectTombBackground() {
+        /* Native image size */
+        var IMG_W = 846, IMG_H = 506;
+
+        /* Slot centers as fraction of the native image (from Figma):
+           0 = left INTERNO, 1 = right INTERNO, 2 = FUORI */
+        var FIGMA = [
+          { x: 0.40,   y: 0.33   },
+          { x: 0.5556, y: 0.33   },
+          { x: 0.8778, y: 0.6486 },
+        ];
+
+        document.querySelectorAll(".tomb-map-exact").forEach(function(tombMap) {
+          /* ── 1. Background image (contain = no squish) ── */
+          var bgImg = document.createElement("img");
+          bgImg.src = "assets/tomba3.png";
+          bgImg.style.cssText =
+            "position:absolute;inset:0;width:100%;height:100%;" +
+            "object-fit:contain;object-position:center;z-index:0;" +
+            "display:block;pointer-events:none";
+          tombMap.style.background = "#08060a";
+          tombMap.insertBefore(bgImg, tombMap.firstChild);
+
+          /* ── 2. Compute rendered image rect inside the container ── */
+          var cW = tombMap.offsetWidth  || 952;
+          var cH = tombMap.offsetHeight || 320;
+          var imgAspect = IMG_W / IMG_H;
+          var cAspect   = cW / cH;
+          var rendW, rendH, offX, offY;
+          if (cAspect > imgAspect) {
+            /* container wider → image constrained by height */
+            rendH = cH;
+            rendW = cH * imgAspect;
+            offX  = (cW - rendW) / 2;
+            offY  = 0;
+          } else {
+            /* image wider → image constrained by width */
+            rendW = cW;
+            rendH = cW / imgAspect;
+            offX  = 0;
+            offY  = (cH - rendH) / 2;
+          }
+
+          /* ── 3. Position drop points on the rendered image ── */
+          var dropSlots = [
+            { name: "interno-1", idx: 0 },
+            { name: "interno-2", idx: 1 },
+            { name: "fuori", idx: 2 },
+          ];
+          dropSlots.forEach(function(slot) {
+            var zone = tombMap.querySelector('[data-drop-zone="' + slot.name + '"]');
+            var f = FIGMA[slot.idx];
+            if (!zone || !f) return;
+
+            var cx = offX + f.x * rendW;
+            var cy = offY + f.y * rendH;
+            tombMap.appendChild(zone);
+            zone.style.position = "absolute";
+            zone.style.left = (cx - 14) + "px";
+            zone.style.top = (cy - 14) + "px";
+            zone.style.zIndex = "12";
+          });
+
+          /* ── 4. Collect coins ── */
+          var entries = [];
+          var mainBox = tombMap.querySelector('div[style*="right: 120px"]');
+          if (mainBox) {
+            var interno = mainBox.querySelector('div[style*="width: 93%"]');
+            if (interno) {
+              interno.querySelectorAll(':scope > div[style*="border-radius: 50%"]')
+                .forEach(function(slot, i) {
+                  var coin = slot.querySelector(".placed-coin");
+                  if (coin) entries.push({ coin: coin, idx: i });
+                });
+            }
+          }
+          var fuoriDiv = tombMap.querySelector('div[style*="bottom: 22%"]');
+          if (fuoriDiv) {
+            var coin = fuoriDiv.querySelector(".placed-coin");
+            if (coin) entries.push({ coin: coin, idx: 2 });
+          }
+
+          /* ── 5. Position coins on the rendered image ── */
+          entries.forEach(function(e) {
+            var f = FIGMA[e.idx];
+            if (!f) return;
+            /* pixel center of this slot within the container */
+            var cx = offX + f.x * rendW;
+            var cy = offY + f.y * rendH;
+            tombMap.appendChild(e.coin);
+            e.coin.style.position  = "absolute";
+            e.coin.style.left      = (cx - 22) + "px";
+            e.coin.style.top       = (cy - 22) + "px";
+            e.coin.style.zIndex    = "5";
+            e.coin.style.width     = "44px";
+            e.coin.style.height    = "44px";
+            e.coin.style.transform = "";
+          });
+
+          /* ── 6. Hide old visual wrappers ── */
+          if (mainBox) {
+            mainBox.style.cssText +=
+              ";border:none;background:transparent;background-image:none;background-color:transparent";
+            var interno = mainBox.querySelector('div[style*="width: 93%"]');
+            if (interno) {
+              interno.style.background = "transparent";
+              interno.style.borderRight = "none";
+              Array.from(interno.children).forEach(function(el) {
+                if (!el.classList.contains("placed-coin")) el.style.display = "none";
+              });
+            }
+          }
+          if (fuoriDiv) {
+            fuoriDiv.style.border = "none";
+            fuoriDiv.style.background = "transparent";
+            Array.from(fuoriDiv.children).forEach(function(el) {
+              if (!el.classList.contains("placed-coin")) el.style.display = "none";
+            });
+          }
+        });
+      }
+
       // Initialize on load
-      document.addEventListener("DOMContentLoaded", () => {
+      /* ══════════════════════════════════════════════
+         DRAG & DROP — Rito del Corredo
+      ══════════════════════════════════════════════ */
+
+      var ddArtifact = null;
+      var ddPlaced   = {};   // tiene traccia degli artefatti già piazzati
+      var ddGhost = null;
+      var ddPointerArtifact = null;
+      var ddPointerSource = null;
+      var ddGlobalHandlersBound = false;
+
+      var ddCorrect = { lucerna: "fuori", lekythos: "interno-1", idria: "interno-2" };
+      var ddEmoji   = { lucerna: "🕯",   lekythos: "⚱",          idria: "🏺"        };
+      var ddNames   = { lucerna: "Lucerna", lekythos: "Lekythos", idria: "Idria" };
+      var ddHints   = {
+        lucerna: "La lucerna accompagna il cammino, ma non entra nella sepoltura.",
+        lekythos: "L'olio profumato appartiene al corredo interno.",
+        idria: "L'acqua rituale trova posto accanto al corpo."
+      };
+
+      function ddResetZones() {
+        document.querySelectorAll("[data-drop-zone]").forEach(function(z) {
+          z.classList.remove("dd-hover", "dd-wrong");
+          z.style.outline = "";
+        });
+      }
+
+      function resetRitoDragDrop() {
+        ddPlaced = {};
+        ddArtifact = null;
+        ddPointerArtifact = null;
+        ddPointerSource = null;
+        ddRemoveGhost();
+
+        document.querySelectorAll("[data-drop-zone]").forEach(function(zone) {
+          zone.classList.remove("dd-hover", "dd-wrong", "dd-filled");
+          zone.style.animation = "";
+          zone.style.outline = "";
+          delete zone.dataset.filled;
+          if ("defaultHtml" in zone.dataset) zone.innerHTML = zone.dataset.defaultHtml;
+        });
+
+        document.querySelectorAll("[data-artifact]").forEach(function(btn) {
+          btn.classList.remove("completed", "dragging");
+          btn.removeAttribute("aria-disabled");
+          btn.draggable = !window.PointerEvent;
+        });
+      }
+
+      function ddCreateGhost(art, x, y) {
+        ddGhost = document.createElement("div");
+        ddGhost.className = "relic-drag-ghost";
+        ddGhost.innerHTML =
+          '<span class="ghost-icon">' + ddEmoji[art] + '</span>' +
+          '<span class="ghost-name">' + ddNames[art] + '</span>';
+        document.body.appendChild(ddGhost);
+        ddMoveGhost(x, y);
+      }
+
+      function ddMoveGhost(x, y) {
+        if (!ddGhost) return;
+        ddGhost.style.left = x + "px";
+        ddGhost.style.top = y + "px";
+      }
+
+      function ddRemoveGhost() {
+        if (ddGhost) ddGhost.remove();
+        ddGhost = null;
+      }
+
+      function ddDissolveGhost(art, x, y) {
+        var ghost = ddGhost;
+        if (!ghost) {
+          ghost = document.createElement("div");
+          ghost.className = "relic-drag-ghost";
+          ghost.innerHTML =
+            '<span class="ghost-icon">' + ddEmoji[art] + '</span>' +
+            '<span class="ghost-name">' + ddNames[art] + '</span>';
+          ghost.style.left = x + "px";
+          ghost.style.top = y + "px";
+          document.body.appendChild(ghost);
+        }
+
+        ghost.classList.add("dissolving");
+        ddGhost = null;
+        setTimeout(function() {
+          ghost.remove();
+        }, 360);
+      }
+
+      function ddZoneFromPoint(x, y) {
+        var ghostDisplay = ddGhost ? ddGhost.style.display : "";
+        if (ddGhost) ddGhost.style.display = "none";
+        var el = document.elementFromPoint(x, y);
+        if (ddGhost) ddGhost.style.display = ghostDisplay;
+        return el ? el.closest("[data-drop-zone]") : null;
+      }
+
+      function ddMarkPlaced(art, zone) {
+        zone.dataset.filled = "1";
+        ddPlaced[art] = true;
+        zone.classList.add("dd-filled");
+        zone.innerHTML = '<span class="placed-relic">' + ddEmoji[art] + "</span>";
+
+        var btn = document.querySelector('[data-artifact="' + art + '"]');
+        if (btn) {
+          btn.classList.add("completed");
+          btn.setAttribute("aria-disabled", "true");
+          btn.draggable = false;
+        }
+      }
+
+      function ddWrong(zone, art) {
+        if (zone) {
+          zone.classList.add("dd-wrong");
+          zone.style.animation = "shake 0.5s";
+          setTimeout(function() {
+            zone.classList.remove("dd-wrong");
+            zone.style.animation = "";
+          }, 500);
+        }
+        if (ddHints[art]) showRelicFeedback(ddHints[art]);
+      }
+
+      function showRelicFeedback(text) {
+        var bar = document.querySelector("#indagine-1 .instruct-bar p");
+        if (!bar) return;
+        if (!bar.dataset.defaultText) bar.dataset.defaultText = bar.textContent.trim();
+        bar.textContent = text;
+        clearTimeout(bar._ddTimer);
+        bar._ddTimer = setTimeout(function() {
+          bar.textContent = bar.dataset.defaultText;
+        }, 2400);
+      }
+
+      function ddTryPlace(art, zone) {
+        if (!art || (zone && zone.dataset.filled) || ddPlaced[art]) return false;
+        if (!zone) {
+          ddWrong(null, art);
+          return false;
+        }
+
+        if (zone.dataset.dropZone === ddCorrect[art]) {
+          ddMarkPlaced(art, zone);
+          showRelicFeedback(ddNames[art] + " collocata correttamente.");
+
+          if (Object.keys(ddPlaced).length === 3) {
+            setTimeout(function() {
+              if (typeof azioneComplete !== "undefined") {
+                azioneComplete.currentTime = 0;
+                azioneComplete.play().catch(function(){});
+              }
+              showToast("ritoCompletatoToast");
+              setTimeout(function() {
+                dismissToast();
+                setTimeout(function() { goTo("azione"); }, 400);
+              }, 3500);
+            }, 600);
+          }
+          return true;
+        }
+
+        ddWrong(zone, art);
+        return false;
+      }
+
+      function ddFinishDrag(art, zone, x, y, sourceEl) {
+        var placed = ddTryPlace(art, zone);
+        if (sourceEl) sourceEl.classList.remove("dragging");
+
+        ddPointerArtifact = null;
+        ddPointerSource = null;
+        ddArtifact = null;
+
+        if (placed) {
+          ddRemoveGhost();
+        } else {
+          ddDissolveGhost(art, x, y);
+        }
+
+        ddResetZones();
+        return placed;
+      }
+
+      function bindRitoDisplayDropHandlers() {
+        var screen = document.getElementById("indagine-1");
+        if (screen && !screen.dataset.ritoDisplayDropBound) {
+          screen.dataset.ritoDisplayDropBound = "1";
+
+          screen.ondragover = function(e) {
+            if (!ddArtifact) return;
+            e.preventDefault();
+          };
+
+          screen.ondrop = function(e) {
+            if (!ddArtifact) return;
+            e.preventDefault();
+            var art = ddArtifact || e.dataTransfer.getData("text/plain");
+            var zone = ddZoneFromPoint(e.clientX, e.clientY);
+            ddFinishDrag(art, zone, e.clientX, e.clientY, document.querySelector('[data-artifact="' + art + '"]'));
+          };
+        }
+
+        if (ddGlobalHandlersBound) return;
+        ddGlobalHandlersBound = true;
+
+        document.addEventListener("pointerup", function(e) {
+          if (!ddPointerArtifact) return;
+          var art = ddPointerArtifact;
+          var zone = ddZoneFromPoint(e.clientX, e.clientY);
+          ddFinishDrag(art, zone, e.clientX, e.clientY, ddPointerSource);
+        });
+
+        document.addEventListener("pointercancel", function() {
+          if (!ddPointerArtifact) return;
+          if (ddPointerSource) ddPointerSource.classList.remove("dragging");
+          ddPointerArtifact = null;
+          ddPointerSource = null;
+          ddArtifact = null;
+          ddRemoveGhost();
+          ddResetZones();
+        });
+      }
+
+      function ddSetup() {
+        document.querySelectorAll("[data-artifact]").forEach(function(el) {
+          el.setAttribute("tabindex", "0");
+          el.setAttribute("role", "button");
+          el.setAttribute("aria-label", "Trascina " + ddNames[el.dataset.artifact]);
+          if (window.PointerEvent) el.draggable = false;
+
+          el.ondragstart = function(e) {
+            var art = el.dataset.artifact;
+            if (ddPlaced[art]) { e.preventDefault(); return; }  // già piazzato
+            ddArtifact = art;
+            e.dataTransfer.setData("text/plain", art);
+            el.classList.add("dragging");
+          };
+          el.ondragend = function() {
+            el.classList.remove("dragging");
+            ddResetZones();
+            ddArtifact = null;
+          };
+
+          el.onpointerdown = function(e) {
+            if (e.pointerType === "mouse" && e.button !== 0) return;
+            var art = el.dataset.artifact;
+            if (ddPlaced[art]) return;
+            e.preventDefault();
+            ddPointerArtifact = art;
+            ddPointerSource = el;
+            ddArtifact = art;
+            el.setPointerCapture(e.pointerId);
+            el.classList.add("dragging");
+            ddCreateGhost(art, e.clientX, e.clientY);
+          };
+
+          el.onpointermove = function(e) {
+            if (!ddPointerArtifact) return;
+            ddMoveGhost(e.clientX, e.clientY);
+            ddResetZones();
+            var zone = ddZoneFromPoint(e.clientX, e.clientY);
+            if (zone && !zone.dataset.filled) zone.classList.add("dd-hover");
+          };
+
+          el.onpointerup = function(e) {
+            if (!ddPointerArtifact) return;
+            var art = ddPointerArtifact;
+            var zone = ddZoneFromPoint(e.clientX, e.clientY);
+            ddFinishDrag(art, zone, e.clientX, e.clientY, el);
+          };
+
+          el.onpointercancel = function() {
+            el.classList.remove("dragging");
+            ddPointerArtifact = null;
+            ddPointerSource = null;
+            ddArtifact = null;
+            ddRemoveGhost();
+            ddResetZones();
+          };
+        });
+
+        document.querySelectorAll("[data-drop-zone]").forEach(function(zone) {
+          zone.classList.add("relic-drop-zone");
+          if (!("defaultHtml" in zone.dataset)) zone.dataset.defaultHtml = zone.innerHTML;
+          zone.ondragover = function(e) {
+            if (zone.dataset.filled) return;   // zona già occupata
+            e.preventDefault();
+            zone.classList.add("dd-hover");
+          };
+          zone.ondragleave = function(e) {
+            if (!zone.contains(e.relatedTarget)) zone.classList.remove("dd-hover");
+          };
+          zone.ondrop = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            zone.classList.remove("dd-hover");
+            if (zone.dataset.filled) return;
+            var art = ddArtifact || e.dataTransfer.getData("text/plain");
+            if (!art) return;
+            ddFinishDrag(art, zone, e.clientX, e.clientY, document.querySelector('[data-artifact="' + art + '"]'));
+          };
+        });
+
+        bindRitoDisplayDropHandlers();
+      }
+
+      /* ══════════════════════════════════════════════
+         DRAG & DROP — Laminetta Orfica
+      ══════════════════════════════════════════════ */
+
+      var lamDragActive = false;
+      var lamPlaced = false;
+      var lamGhost = null;
+      var lamSource = null;
+      var lamGlobalHandlersBound = false;
+
+      function lamCreateGhost(x, y) {
+        lamGhost = document.createElement("div");
+        lamGhost.className = "laminetta-drag-ghost";
+        lamGhost.innerHTML =
+          '<span class="laminetta-ghost-icon">📜</span>' +
+          '<span class="laminetta-ghost-text">Laminetta Orfica</span>';
+        document.body.appendChild(lamGhost);
+        lamMoveGhost(x, y);
+      }
+
+      function lamMoveGhost(x, y) {
+        if (!lamGhost) return;
+        lamGhost.style.left = x + "px";
+        lamGhost.style.top = y + "px";
+      }
+
+      function lamRemoveGhost() {
+        if (lamGhost) lamGhost.remove();
+        lamGhost = null;
+      }
+
+      function lamDissolveGhost(x, y) {
+        var ghost = lamGhost;
+        if (!ghost) {
+          ghost = document.createElement("div");
+          ghost.className = "laminetta-drag-ghost";
+          ghost.innerHTML =
+            '<span class="laminetta-ghost-icon">📜</span>' +
+            '<span class="laminetta-ghost-text">Laminetta Orfica</span>';
+          ghost.style.left = x + "px";
+          ghost.style.top = y + "px";
+          document.body.appendChild(ghost);
+        }
+
+        ghost.classList.add("dissolving");
+        lamGhost = null;
+        setTimeout(function() {
+          ghost.remove();
+        }, 360);
+      }
+
+      function lamDropZoneFromPoint(x, y) {
+        var ghostDisplay = lamGhost ? lamGhost.style.display : "";
+        if (lamGhost) lamGhost.style.display = "none";
+        var el = document.elementFromPoint(x, y);
+        if (lamGhost) lamGhost.style.display = ghostDisplay;
+        return el ? el.closest("[data-laminetta-drop]") : null;
+      }
+
+      function lamResetZones() {
+        document.querySelectorAll("[data-laminetta-drop]").forEach(function(zone) {
+          zone.classList.remove("hover", "wrong");
+        });
+      }
+
+      function resetLaminettaDragDrop() {
+        lamPlaced = false;
+        lamDragActive = false;
+        lamSource = null;
+        lamRemoveGhost();
+
+        var laminettaBtn = document.querySelector("[data-laminetta-artifact]");
+        if (laminettaBtn) {
+          laminettaBtn.classList.remove("dragging", "completed");
+          laminettaBtn.style.opacity = "1";
+          laminettaBtn.style.pointerEvents = "auto";
+          laminettaBtn.draggable = !window.PointerEvent;
+        }
+
+        var chestContainer = document.querySelector(".chest-container");
+        if (chestContainer) chestContainer.style.pointerEvents = "auto";
+
+        var laminettaPlaced = document.getElementById("laminetta-placed");
+        if (laminettaPlaced) {
+          laminettaPlaced.classList.remove("anim-drop");
+          laminettaPlaced.style.opacity = "0";
+        }
+
+        document.querySelectorAll("[data-laminetta-drop]").forEach(function(zone) {
+          delete zone.dataset.filled;
+          zone.classList.remove("hover", "wrong", "filled");
+        });
+      }
+
+      function showLaminettaFeedback(text) {
+        var bar = document.querySelector("#azione .instruct-bar p");
+        if (!bar) return;
+        if (!bar.dataset.defaultText) bar.dataset.defaultText = bar.textContent.trim();
+        bar.textContent = text;
+        clearTimeout(bar._lamTimer);
+        bar._lamTimer = setTimeout(function() {
+          bar.textContent = bar.dataset.defaultText;
+        }, 2400);
+      }
+
+      function lamWrong(zone) {
+        if (zone) {
+          zone.classList.add("wrong");
+          zone.style.animation = "shake 0.5s";
+          setTimeout(function() {
+            zone.classList.remove("wrong");
+            zone.style.animation = "";
+          }, 500);
+        }
+        showLaminettaFeedback("La laminetta va deposta sul petto, all'altezza del cuore.");
+      }
+
+      function lamTryPlace(zone) {
+        if (lamPlaced) return false;
+        if (zone && zone.dataset.laminettaDrop === "petto") {
+          lamPlaced = true;
+          placeLaminettaAndGo();
+          return true;
+        }
+        lamWrong(zone);
+        return false;
+      }
+
+      function lamFinishDrag(zone, x, y, sourceEl) {
+        var placed = lamTryPlace(zone);
+        if (sourceEl) sourceEl.classList.remove("dragging");
+
+        lamDragActive = false;
+        lamSource = null;
+
+        if (placed) {
+          lamRemoveGhost();
+        } else {
+          lamDissolveGhost(x, y);
+        }
+
+        lamResetZones();
+        return placed;
+      }
+
+      function bindLaminettaDisplayDropHandlers() {
+        var screen = document.getElementById("azione");
+        if (screen && !screen.dataset.laminettaDisplayDropBound) {
+          screen.dataset.laminettaDisplayDropBound = "1";
+
+          screen.ondragover = function(e) {
+            if (!lamDragActive) return;
+            e.preventDefault();
+          };
+
+          screen.ondrop = function(e) {
+            var art = e.dataTransfer.getData("text/plain");
+            if (art !== "laminetta" && !lamDragActive) return;
+            e.preventDefault();
+            var zone = lamDropZoneFromPoint(e.clientX, e.clientY);
+            lamFinishDrag(zone, e.clientX, e.clientY, lamSource || document.querySelector("[data-laminetta-artifact]"));
+          };
+        }
+
+        if (lamGlobalHandlersBound) return;
+        lamGlobalHandlersBound = true;
+
+        document.addEventListener("pointerup", function(e) {
+          if (!lamDragActive) return;
+          var zone = lamDropZoneFromPoint(e.clientX, e.clientY);
+          lamFinishDrag(zone, e.clientX, e.clientY, lamSource);
+        });
+
+        document.addEventListener("pointercancel", function() {
+          if (!lamDragActive) return;
+          if (lamSource) lamSource.classList.remove("dragging");
+          lamDragActive = false;
+          lamSource = null;
+          lamRemoveGhost();
+          lamResetZones();
+        });
+      }
+
+      function setupLaminettaDragDrop() {
+        var source = document.querySelector("[data-laminetta-artifact]");
+        if (!source) return;
+
+        source.setAttribute("tabindex", "0");
+        source.setAttribute("role", "button");
+        source.setAttribute("aria-label", "Trascina la Laminetta Orfica sul petto della defunta");
+        if (window.PointerEvent) source.draggable = false;
+
+        source.ondragstart = function(e) {
+          if (lamPlaced) { e.preventDefault(); return; }
+          lamDragActive = true;
+          lamSource = source;
+          e.dataTransfer.setData("text/plain", "laminetta");
+          source.classList.add("dragging");
+        };
+
+        source.ondragend = function() {
+          lamDragActive = false;
+          lamSource = null;
+          source.classList.remove("dragging");
+          lamResetZones();
+        };
+
+        source.onpointerdown = function(e) {
+          if (e.pointerType === "mouse" && e.button !== 0) return;
+          if (lamPlaced) return;
+          e.preventDefault();
+          lamDragActive = true;
+          lamSource = source;
+          source.setPointerCapture(e.pointerId);
+          source.classList.add("dragging");
+          lamCreateGhost(e.clientX, e.clientY);
+        };
+
+        source.onpointermove = function(e) {
+          if (!lamDragActive) return;
+          lamMoveGhost(e.clientX, e.clientY);
+          lamResetZones();
+          var zone = lamDropZoneFromPoint(e.clientX, e.clientY);
+          if (zone && !zone.dataset.filled) zone.classList.add("hover");
+        };
+
+        source.onpointerup = function(e) {
+          if (!lamDragActive) return;
+          var zone = lamDropZoneFromPoint(e.clientX, e.clientY);
+          lamFinishDrag(zone, e.clientX, e.clientY, source);
+        };
+
+        source.onpointercancel = function() {
+          lamDragActive = false;
+          lamSource = null;
+          source.classList.remove("dragging");
+          lamRemoveGhost();
+          lamResetZones();
+        };
+
+        document.querySelectorAll("[data-laminetta-drop]").forEach(function(zone) {
+          zone.ondragover = function(e) {
+            if (zone.dataset.filled) return;
+            e.preventDefault();
+            zone.classList.add("hover");
+          };
+          zone.ondragleave = function(e) {
+            if (!zone.contains(e.relatedTarget)) zone.classList.remove("hover");
+          };
+          zone.ondrop = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            zone.classList.remove("hover");
+            if (zone.dataset.filled) return;
+            var art = e.dataTransfer.getData("text/plain");
+            if (art === "laminetta" || lamDragActive) {
+              lamFinishDrag(zone, e.clientX, e.clientY, lamSource || source);
+            }
+          };
+        });
+
+        bindLaminettaDisplayDropHandlers();
+      }
+
+      /* ══════════════════════════════════════════════
+         LINGUA — IT / EN
+      ══════════════════════════════════════════════ */
+      var LANG = localStorage.getItem("lang") || "it";
+
+      var T = {
+        it: {
+          "rito-title":      "Il rito del corredo funerario",
+          "btn-inizia":      "INIZIA",
+          "phase-1":         "⬥ FASE I · La signora di hipponion",
+          "phase-2":         "⬥ FASE II · Il segreto orfico",
+          "phase-3":         "⬥ FASE III · Il labirinto dell'Ade",
+          "phase-3g":        "⬥ FASE III · I guardiani dell'Ade",
+          "sub-phase-1":     "INDAGINE E COMBINAZIONE",
+          "fase-label":      "Fase 1",
+          "main-title":      "La Signora di Hipponion",
+          "sub-title":       "I Segreti della Tomba 19",
+          "btn-continua":    "Continua &nbsp;→",
+          "btn-avvia":       "AVVIA IL RITO &nbsp;→",
+          "sub-indagine":    "TOMBA 19 · IL RITO DEL CORREDO",
+          "sidebar-label":   "RELIQUIE",
+          "art-luc-n":"Lucerna",  "art-luc-d":"La lampada funeraria",
+          "art-lek-n":"Lekythos", "art-lek-d":"Il vaso dell'olio",
+          "art-idr-n":"Idria",    "art-idr-d":"Il vaso dell'acqua",
+          "dd-hint":         "Trascina ogni reliquia nella posizione giusta",
+          "instruct-1":      "Osserva la sua dimora terrena e decifra i segni. Usa le monete per separare ciò che appartiene ai vivi da ciò che servirà a lei nel buio.",
+          "sub-azione":      "LA LAMINETTA D'ORO",
+          "azione-ultima":   "— LAMINETTA ORFICA —",
+          "azione-label":    "LAMINETTA<br />ORFICA",
+          "azione-primo":    "PRIMO PIANO · PETTO DELLA DEFUNTA",
+          "azione-zoom":     "ZOOM × TOMBA N.19",
+          "instruct-azione": "Prendi la Laminetta Orfica — l'ultima moneta rimasta — e posizionala sul petto della defunta, all'altezza del cuore.",
+          "aurea-subtitle":  "Svelata la via",
+          "aurea-title":     "LA MAPPA DELL'ADE",
+          "btn-avanza":      "AVANZA VERSO L'ADE →",
+          "sub-labirinto":   "RICORDA LA LAMINETTA",
+          "btn-cammino":     "INIZIA IL CAMMINO",
+          "sub-bivio1":      "BIVIO I · NEL CUORE DEL LABIRINTO",
+          "btn-tenebra":     "← VERSO LA TENEBRA",
+          "btn-prosegui":    "↑ PROSEGUI NEL LABIRINTO",
+          "instruct-bivio1": "Un bivio nel cuore del labirinto. Consulta il pannello II per individuare la direzione corretta.",
+          "sub-esito":       "ESITO ERRATO",
+          "outcome-sub":     "— RITORNA AL BIVIO —",
+          "btn-riprova":     "RIPROVA",
+          "sub-bivio2a":     "BIVIO II · LETE O MNEMOSYNE",
+          "sub-bivio2b":     "SECONDO BIVIO · CIPRESSO O FONTE AUREA",
+          "btn-cipresso":    "← VERSO IL CIPRESSO BIANCO",
+          "btn-fonte":       "VERSO LA FONTE AUREA →",
+          "instruct-bivio2": "Il secondo bivio. A sinistra il cipresso bianco, la fonte aurea attende a destra.",
+          "sub-mnemosyne2":  "IL LAGO DELLA MEMORIA",
+          "title-mnemosyne": "MNEMOSYNE HA PARLATO",
+          "btn-continua-lab":"CONTINUA →",
+          "btn-sali":        "SALI ALLA SOGLIA →",
+          "instruct-mnemo":  "L'anima ha trovato Mnemosyne. I guardiani dell'Ade apriranno ora il loro giudizio.",
+          "sub-guardiani":   "LA FORMULA SEGRETA",
+          "kicker":          "I CUSTODI CHIEDONO:",
+          "formula-label":   "— FORMULA —",
+          "btn-pronuncia":   "PRONUNCIA",
+          "btn-cancella":    "CANCELLA",
+          "word-bank-label": "— TRASCINA LE PAROLE PER COMPORRE LA FRASE —",
+          "instruct-cruciv": "Sfrutta l'indizio sul Pannello 3: trascina le parole nei caselli della formula.",
+          "lake-label":      "LAGO DI MNEMOSYNE ✦",
+          "caption-1":       "L'anima si accosta all'acqua della Memoria...",
+          "caption-2":       "Beve. <em>E ricorda.</em>",
+          "caption-3":       "«Sono figlio della Terra e del Cielo Stellato.<br>La mia stirpe è celeste.»",
+          "caption-4":       "L'anima accede al Regno dei Beati",
+          "finale-title":    "IL REGNO DEI BEATI",
+          "finale-sub":      "I CAMPI ELISI · L'ETERNITÀ",
+          "finale-meta":     "NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.",
+          "btn-ricomincia":  "Ricomincia",
+          "voice-label":     "LA VOCE NARRANTE",
+          "passage-open":    "IL PASSAGGIO È APERTO",
+          "formula-errata":  "FORMULA ERRATA",
+          "toast-rito":      "«I simboli della vita terrena sono stati deposti. L'anima è ora pronta per il viaggio.»",
+          "toast-lamin":     "«È un sussurro d'oro piegato e sigillato. Solo davanti ai guardiani dell'Ade, il sigillo verrà sciolto.»",
+          "toast-success":   "«Hai pronunciato le parole giuste. Tu sei figlio del Cielo Stellato. Entra ora nel regno della luce eterna.»",
+          "toast-error":     "«Le parole non sono quelle giuste. Il rito ricomincia da capo.»",
+          "voice-cmd":          "⬥ Comando Vocale ⬥",
+          "voice-mic-hint":     "▲ Tocca il microfono ▲",
+          "voice-status":       "Premi il microfono per parlare",
+          "voice-listening":    "In ascolto…",
+          "voice-matched":      "Comando riconosciuto",
+          "voice-error-lbl":    "Errore",
+          "voice-no-speech":    "Nessuna voce rilevata, riprova…",
+          "voice-not-supported":"Riconoscimento vocale non supportato dal browser. Usa Chrome o Edge.",
+          "voice-mic-denied":   "Permesso microfono negato. Abilitalo nelle impostazioni del browser.",
+          "voice-mic-unavail":  "Microfono non disponibile.",
+          "voice-unavailable":  "Non disponibile",
+          "voice-or":           "— oppure —",
+          "btn-annulla":        "Annulla",
+          "step-rito":       "Rito del Corredo",
+          "step-orfico":     "Segreto Orfico",
+          "step-lab":        "Labirinto dell'Ade",
+          "footbar-loc":     "NECROPOLI GRECA DI HIPPONION · IV SEC. A.C.",
+          /* narrativa — elementi senza classe */
+          "narr-tomb":       "TOMBA ALLA CAPPUCCINA",
+          "narr-necro":      "NECROPOLI DI HIPPONION · N. 19",
+          "narr-voice":      "LA VOCE NARRANTE",
+          "narr-q1":         "La Signora di Hipponion ci ha lasciati.",
+          "narr-q2":         "Osserva la sua dimora terrena e decifra i segni sul grande pannello.",
+          "narr-q3":         "Usa le monete per separare ciò che appartiene ai vivi da ciò che servirà a lei nel buio.",
+          "narr-instruct":   "STUDIA IL PANNELLO I SULLE SEPOLTURE PER TROVARE LA REGOLA CORRETTA DELLA <span style=\"color: var(--gold)\">TOMBA ALLA CAPPUCCINA</span>. POI USA LE MONETE NFC PER POSIZIONARE I REPERTI.",
+          /* indagine mappa — spans senza classe */
+          "map-capo":        "CAPO",
+          "map-fuori-lbl":   "FUORI",
+          "map-interno-lbl": "INTERNO",
+          "map-caption-lbl": "TOMBA ALLA CAPPUCCINA · SEPOLTURA N.19",
+          /* azione */
+          "azione-voice":    "LA VOCE NARRANTE",
+          "azione-quote":    "«Il corpo è pronto, ma l'anima è nuda davanti all'ignoto. Donale il segreto di Ade.»",
+          /* laminetta aurea header */
+          "aurea-header":    "◆   LAMINETTA AUREA  ·  TOMBA 19  ·  HIPPONION  ·  IV SEC. A.C.  ◆",
+          /* lab mappa */
+          "lab-lethe":       "FONTE DI LETE",
+          "lab-cipresso":    "CIPRESSO BIANCO",
+          "lab-mnemosyne":   "LAGO DI MNEMOSYNE ✦",
+          "lab-cerbero":     "CERBERO",
+          "lab-acheronte":   "ACHERONTE",
+          "lab-anima":       "L'ANIMA",
+          "meta-chip":       "DEVIAZIONI: 2",
+          /* fail screens */
+          "cerbero-title":   "LE CATENE DI CERBERO",
+          "cerbero-body":    "Una presenza oscura blocca il passaggio. Le catene del guardiano ti respingono nel buio.",
+          "oblio-title":     "L'ACQUA DELL'OBLIO",
+          "oblio-body":      "Non avvicinarti alla fonte del Lete. Ogni sorso cancella la memoria e spegne la parola sacra.",
+          "mnemo-body":      "L'anima ha bevuto l'acqua della Memoria. Ora può parlare davanti ai Guardiani dell'Ade.",
+          /* domanda-guardiani */
+          "guard-question":  "\"CHI SEI TU?<br />DA DOVE VIENI?\"",
+          "guard-subtitle":  "Le voci dei Guardiani risuonano nell'oscurità, esigendo la verità che solo l'iniziato può conoscere.",
+          /* cruciverba */
+          "cruciv-h2":       "«Chi sei tu? Da dove vieni?»",
+          "cruciv-sub":      "Componi la frase segreta trascinando le parole",
+          "btn-formula":     "PRONUNCIA LA FORMULA",
+        },
+        en: {
+          "rito-title":      "The Funeral Trousseau Rite",
+          "btn-inizia":      "START",
+          "phase-1":         "⬥ PHASE I · The Lady of Hipponion",
+          "phase-2":         "⬥ PHASE II · The Orphic Secret",
+          "phase-3":         "⬥ PHASE III · The Labyrinth of Hades",
+          "phase-3g":        "⬥ PHASE III · The Guardians of Hades",
+          "sub-phase-1":     "INVESTIGATION & COMBINATION",
+          "fase-label":      "Phase 1",
+          "main-title":      "The Lady of Hipponion",
+          "sub-title":       "The Secrets of Tomb 19",
+          "btn-continua":    "Continue &nbsp;→",
+          "btn-avvia":       "BEGIN THE RITE &nbsp;→",
+          "sub-indagine":    "TOMB 19 · THE FUNERAL RITE",
+          "sidebar-label":   "RELICS",
+          "art-luc-n":"Lucerna",  "art-luc-d":"The funerary lamp",
+          "art-lek-n":"Lekythos", "art-lek-d":"The oil vase",
+          "art-idr-n":"Hydria",   "art-idr-d":"The water vase",
+          "dd-hint":         "Drag each relic to the right position",
+          "instruct-1":      "Observe her earthly dwelling and decipher the signs. Place each relic where it belongs.",
+          "sub-azione":      "THE GOLDEN LAMELLA",
+          "azione-ultima":   "— ORPHIC LAMELLA —",
+          "azione-label":    "ORPHIC<br />LAMELLA",
+          "azione-primo":    "CLOSE-UP · CHEST OF THE DECEASED",
+          "azione-zoom":     "ZOOM × TOMB No.19",
+          "instruct-azione": "Take the Orphic Lamella — the last remaining coin — and place it on the chest of the deceased, at heart level.",
+          "aurea-subtitle":  "The way is revealed",
+          "aurea-title":     "THE MAP OF HADES",
+          "btn-avanza":      "ADVANCE TO HADES →",
+          "sub-labirinto":   "REMEMBER THE LAMELLA",
+          "btn-cammino":     "BEGIN THE JOURNEY",
+          "sub-bivio1":      "CROSSROADS I · IN THE HEART OF THE LABYRINTH",
+          "btn-tenebra":     "← INTO THE DARKNESS",
+          "btn-prosegui":    "↑ PROCEED THROUGH THE LABYRINTH",
+          "instruct-bivio1": "A crossroads in the heart of the labyrinth. Consult Panel II to find the correct direction.",
+          "sub-esito":       "WRONG OUTCOME",
+          "outcome-sub":     "— RETURN TO THE CROSSROADS —",
+          "btn-riprova":     "TRY AGAIN",
+          "sub-bivio2a":     "CROSSROADS II · LETHE OR MNEMOSYNE",
+          "sub-bivio2b":     "SECOND CROSSROADS · CYPRESS OR GOLDEN SPRING",
+          "btn-cipresso":    "← TO THE WHITE CYPRESS",
+          "btn-fonte":       "TO THE GOLDEN SPRING →",
+          "instruct-bivio2": "The second crossroads. The white cypress to the left, the golden spring awaits to the right.",
+          "sub-mnemosyne2":  "THE LAKE OF MEMORY",
+          "title-mnemosyne": "MNEMOSYNE HAS SPOKEN",
+          "btn-continua-lab":"CONTINUE →",
+          "btn-sali":        "RISE TO THE THRESHOLD →",
+          "instruct-mnemo":  "The soul has found Mnemosyne. The guardians of Hades will now open their judgment.",
+          "sub-guardiani":   "THE SECRET FORMULA",
+          "kicker":          "THE GUARDIANS ASK:",
+          "formula-label":   "— FORMULA —",
+          "btn-pronuncia":   "SPEAK",
+          "btn-cancella":    "CLEAR",
+          "word-bank-label": "— DRAG THE WORDS TO COMPOSE THE PHRASE —",
+          "instruct-cruciv": "Use the clue on Panel 3: drag the words into the formula slots.",
+          "lake-label":      "LAKE OF MNEMOSYNE ✦",
+          "caption-1":       "The soul approaches the waters of Memory...",
+          "caption-2":       "It drinks. <em>And remembers.</em>",
+          "caption-3":       "«I am child of Earth and of Starry Sky.<br>My race is heavenly.»",
+          "caption-4":       "The soul enters the Kingdom of the Blessed",
+          "finale-title":    "THE KINGDOM OF THE BLESSED",
+          "finale-sub":      "THE ELYSIAN FIELDS · ETERNITY",
+          "finale-meta":     "GREEK NECROPOLIS OF HIPPONION · IV CENT. B.C.",
+          "btn-ricomincia":  "Start again",
+          "voice-label":     "THE NARRATOR",
+          "passage-open":    "THE PASSAGE IS OPEN",
+          "formula-errata":  "WRONG FORMULA",
+          "toast-rito":      "«The symbols of earthly life have been laid to rest. The soul is now ready for its journey.»",
+          "toast-lamin":     "«It is a whisper of gold, folded and sealed. Only before the guardians of Hades will the seal be broken.»",
+          "toast-success":   "«You have spoken the right words. You are a child of the Starry Sky. Enter now the kingdom of eternal light.»",
+          "toast-error":     "«These words are not correct. The rite starts anew.»",
+          "voice-cmd":          "⬥ Voice Command ⬥",
+          "voice-mic-hint":     "▲ Tap the microphone ▲",
+          "voice-status":       "Press the microphone to speak",
+          "voice-listening":    "Listening…",
+          "voice-matched":      "Command recognised",
+          "voice-error-lbl":    "Error",
+          "voice-no-speech":    "No speech detected, try again…",
+          "voice-not-supported":"Speech recognition not supported. Use Chrome or Edge.",
+          "voice-mic-denied":   "Microphone permission denied. Enable it in browser settings.",
+          "voice-mic-unavail":  "Microphone unavailable.",
+          "voice-unavailable":  "Not available",
+          "voice-or":           "— or —",
+          "btn-annulla":        "Cancel",
+          "step-rito":       "Funeral Rite",
+          "step-orfico":     "Orphic Secret",
+          "step-lab":        "Labyrinth of Hades",
+          "footbar-loc":     "GREEK NECROPOLIS OF HIPPONION · IV CENT. B.C.",
+          /* narrativa */
+          "narr-tomb":       "CAPPUCCINA TOMB",
+          "narr-necro":      "NECROPOLIS OF HIPPONION · No. 19",
+          "narr-voice":      "THE NARRATOR",
+          "narr-q1":         "The Lady of Hipponion has left us.",
+          "narr-q2":         "Observe her earthly dwelling and decipher the signs on the great panel.",
+          "narr-q3":         "Place the coins to separate what belongs to the living from what will serve her in the dark.",
+          "narr-instruct":   "STUDY PANEL I ON BURIALS TO FIND THE CORRECT RULE FOR THE <span style=\"color: var(--gold)\">CAPPUCCINA TOMB</span>. THEN POSITION THE RELICS.",
+          /* indagine mappa */
+          "map-capo":        "HEAD",
+          "map-fuori-lbl":   "OUTSIDE",
+          "map-interno-lbl": "INSIDE",
+          "map-caption-lbl": "CAPPUCCINA TOMB · BURIAL No.19",
+          /* azione */
+          "azione-voice":    "THE NARRATOR",
+          "azione-quote":    "«The body is ready, but the soul stands naked before the unknown. Give her the secret of Hades.»",
+          /* laminetta aurea header */
+          "aurea-header":    "◆   GOLDEN LAMELLA  ·  TOMB 19  ·  HIPPONION  ·  IV CENT. B.C.  ◆",
+          /* lab mappa */
+          "lab-lethe":       "SPRING OF LETHE",
+          "lab-cipresso":    "WHITE CYPRESS",
+          "lab-mnemosyne":   "LAKE OF MNEMOSYNE ✦",
+          "lab-cerbero":     "CERBERUS",
+          "lab-acheronte":   "ACHERON",
+          "lab-anima":       "THE SOUL",
+          "meta-chip":       "DEVIATIONS: 2",
+          /* fail screens */
+          "cerbero-title":   "THE CHAINS OF CERBERUS",
+          "cerbero-body":    "A dark presence blocks the passage. The guardian's chains cast you back into the dark.",
+          "oblio-title":     "THE WATERS OF OBLIVION",
+          "oblio-body":      "Do not approach the spring of Lethe. Every sip erases memory and silences the sacred word.",
+          "mnemo-body":      "The soul has drunk the waters of Memory. It may now speak before the Guardians of Hades.",
+          /* domanda-guardiani */
+          "guard-question":  "\"WHO ARE YOU?<br />WHERE DO YOU COME FROM?\"",
+          "guard-subtitle":  "The voices of the Guardians echo through the darkness, demanding the truth only the initiate can know.",
+          /* cruciverba */
+          "cruciv-h2":       "«Who are you? Where do you come from?»",
+          "cruciv-sub":      "Compose the secret phrase by dragging the words",
+          "btn-formula":     "SPEAK THE FORMULA",
+        }
+      };
+
+      var SELECTORS = [
+        ["#rito .rito-title",    "rito-title"],
+        ["#rito .btn-text",      "btn-inizia"],
+        /* phase labels */
+        ["#rito .phase-label, #intro .phase-label, #narrativa .phase-label, #indagine-1 .phase-label", "phase-1"],
+        ["#azione .phase-label", "phase-2"],
+        ["#labirinto .phase-label,#bivio-1 .phase-label,#cerbero-fail .phase-label,#bivio-2a .phase-label,#oblio-fail .phase-label,#mnemosyne-ok .phase-label,#bivio-2b .phase-label", "phase-3"],
+        ["#domanda-guardiani .phase-label,#cruciverba .phase-label", "phase-3g"],
+        /* subtitles */
+        ["#rito .subtitle,#intro .subtitle,#narrativa .subtitle", "sub-phase-1"],
+        ["#indagine-1 .subtitle",  "sub-indagine"],
+        ["#azione .subtitle",      "sub-azione"],
+        ["#labirinto .subtitle",   "sub-labirinto"],
+        ["#bivio-1 .subtitle",     "sub-bivio1"],
+        ["#cerbero-fail .subtitle,#oblio-fail .subtitle", "sub-esito"],
+        ["#bivio-2a .subtitle",    "sub-bivio2a"],
+        ["#bivio-2b .subtitle",    "sub-bivio2b"],
+        ["#domanda-guardiani .subtitle,#cruciverba .subtitle", "sub-guardiani"],
+        /* intro */
+        ["#intro .fase-label",     "fase-label"],
+        ["#intro .main-title",     "main-title"],
+        ["#intro .sub-title",      "sub-title"],
+        ["#intro .btn-start",      "btn-continua"],
+        /* narrativa */
+        ["#narrativa .btn-start",           "btn-avvia"],
+        ["#narrativa .narrativa-right > p", "narr-instruct"],
+        /* indagine-1 */
+        ["#indagine-1 .sidebar-label",         "sidebar-label"],
+        ["[data-artifact='lucerna'] .name",    "art-luc-n"],
+        ["[data-artifact='lucerna'] .desc",    "art-luc-d"],
+        ["[data-artifact='lekythos'] .name",   "art-lek-n"],
+        ["[data-artifact='lekythos'] .desc",   "art-lek-d"],
+        ["[data-artifact='idria'] .name",      "art-idr-n"],
+        ["[data-artifact='idria'] .desc",      "art-idr-d"],
+        ["#indagine-1 .nfc-hint",              "dd-hint"],
+        ["#indagine-1 .instruct-bar p",        "instruct-1"],
+        /* azione */
+        [".ultima-moneta",                     "azione-ultima"],
+        [".laminetta-label",                   "azione-label"],
+        [".zoom-badge",                        "azione-zoom"],
+        ["#azione .instruct-bar p",            "instruct-azione"],
+        /* laminetta aurea */
+        ["#mappa-title p",                     "aurea-subtitle"],
+        ["#mappa-title h2",                    "aurea-title"],
+        ["#btn-avanza-ade",                    "btn-avanza"],
+        /* labirinto */
+        [".lab-cta-up",                        "btn-cammino"],
+        /* bivio-1 */
+        ["#bivio-1 .state-btn-purple",         "btn-tenebra"],
+        ["#bivio-1 .state-btn-blue",           "btn-prosegui"],
+        ["#bivio-1 .instruct-bar p",           "instruct-bivio1"],
+        /* fail screens */
+        [".outcome-sub",                       "outcome-sub"],
+        ["#cerbero-fail .state-btn-blue,#oblio-fail .state-btn-blue", "btn-riprova"],
+        /* bivio-2 */
+        ["#bivio-2a .state-btn-blue,#bivio-2b .state-btn-blue", "btn-cipresso"],
+        ["#bivio-2a .state-btn-gold,#bivio-2b .state-btn-gold", "btn-fonte"],
+        ["#bivio-2a .instruct-bar p,#bivio-2b .instruct-bar p", "instruct-bivio2"],
+        /* mnemosyne */
+        ["#mnemosyne-ok .instruct-bar p",      "instruct-mnemo"],
+        /* cruciverba */
+        [".kicker",                            "kicker"],
+        [".formula-label",                     "formula-label"],
+        [".btn-cancella",                      "btn-cancella"],
+        [".word-bank-label",                   "word-bank-label"],
+        ["#cruciverba .instruct-bar p",        "instruct-cruciv"],
+        /* regno beati */
+        [".rb-lake-label",                     "lake-label"],
+        ["#rbCaption1 p",                      "caption-1"],
+        ["#rbCaption2 p",                      "caption-2"],
+        ["#rbCaption3 p",                      "caption-3"],
+        ["#rbCaption4 p",                      "caption-4"],
+        [".rb-finale-title",                   "finale-title"],
+        [".rb-finale-sub",                     "finale-sub"],
+        [".rb-finale-meta",                    "finale-meta"],
+        [".rb-ricomincia",                     "btn-ricomincia"],
+        /* toast audio labels */
+        ["#ritoCompletatoToast .audio-indicator span:last-of-type",  "voice-label"],
+        ["#laminettaToast .audio-indicator span:last-of-type",       "voice-label"],
+        ["#formulaSuccessToast .audio-indicator span:last-of-type",  "passage-open"],
+        ["#formulaErrorToast .audio-indicator span:last-child",      "formula-errata"],
+        /* toast quotes */
+        ["#ritoCompletatoToast .quote-block p",  "toast-rito"],
+        ["#laminettaToast .quote-block p",       "toast-lamin"],
+        ["#formulaSuccessToast .quote-block p",  "toast-success"],
+        ["#formulaErrorToast .quote-block p",    "toast-error"],
+        /* voice overlay */
+        [".voice-label",    "voice-cmd"],
+        [".voice-mic-hint", "voice-mic-hint"],
+        ["#voiceStatus",    "voice-status"],
+        [".voice-close",    "btn-annulla"],
+        /* lab mappa labels */
+        [".lab-lethe-label",    "lab-lethe"],
+        [".lab-lethe-sub",      "lab-cipresso"],
+        [".lab-mnemosyne-label","lab-mnemosyne"],
+        [".lab-cerbero-label",  "lab-cerbero"],
+        [".lab-acheronte-label","lab-acheronte"],
+        [".lab-anima .label",   "lab-anima"],
+        [".meta-chip",          "meta-chip"],
+        /* fail screens outcome cards */
+        ["#cerbero-fail .lab-outcome h2",  "cerbero-title"],
+        ["#cerbero-fail .lab-outcome p",   "cerbero-body"],
+        ["#oblio-fail .lab-outcome h2",    "oblio-title"],
+        ["#oblio-fail .lab-outcome p",     "oblio-body"],
+        ["#mnemosyne-ok .lab-outcome p",   "mnemo-body"],
+        /* domanda-guardiani */
+        [".narrative-question",   "guard-question"],
+        [".narrative-subtitle",   "guard-subtitle"],
+        /* cruciverba extra */
+        ["#cruciverba .guardians-header h2",    "cruciv-h2"],
+        ["#cruciverba .guardians-header .sub",  "cruciv-sub"],
+        ["#pronunciaBtn",                       "btn-formula"],
+        /* azione audio + quote */
+        ["#azione .audio-indicator span:last-of-type", "azione-voice"],
+        ["#azione .quote-block p",              "azione-quote"],
+      ];
+
+      /* Sostituisce testo negli elementi senza classe/id selezionabile */
+      function translateByText(lang) {
+        var t = T[lang];
+        /* Coppie [chiave-IT, chiave-EN] → chiave-T */
+        var pairs = [
+          ["narr-tomb",       "narr-tomb"],
+          ["narr-necro",      "narr-necro"],
+          ["narr-voice",      "narr-voice"],
+          ["narr-q1",         "narr-q1"],
+          ["narr-q2",         "narr-q2"],
+          ["narr-q3",         "narr-q3"],
+          ["map-capo",        "map-capo"],
+          ["map-fuori-lbl",   "map-fuori-lbl"],
+          ["map-interno-lbl", "map-interno-lbl"],
+          ["map-caption-lbl", "map-caption-lbl"],
+          ["aurea-header",    "aurea-header"],
+        ];
+        /* Costruisce lookup bidirezionale IT↔EN */
+        var lookup = {};
+        pairs.forEach(function(p) {
+          var itTxt = T.it[p[0]];
+          var enTxt = T.en[p[1]];
+          var target = t[p[0]];
+          if (itTxt) lookup[itTxt.trim()] = target;
+          if (enTxt) lookup[enTxt.trim()] = target;
+        });
+
+        var walker = document.createTreeWalker(
+          document.body, NodeFilter.SHOW_TEXT,
+          { acceptNode: function(n) {
+            var tag = n.parentNode && n.parentNode.tagName;
+            return (tag === "SCRIPT" || tag === "STYLE")
+              ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+          }}
+        );
+        var nodes = [];
+        var n;
+        while ((n = walker.nextNode())) nodes.push(n);
+        nodes.forEach(function(n) {
+          var trimmed = n.textContent.trim();
+          if (lookup[trimmed] !== undefined) {
+            n.textContent = n.textContent.replace(trimmed, lookup[trimmed]);
+          }
+        });
+      }
+
+      function translateFootbars(lang) {
+        var t = T[lang];
+        var pairs = [
+          [T.it["step-rito"],   T.en["step-rito"],   t["step-rito"]],
+          [T.it["step-orfico"], T.en["step-orfico"],  t["step-orfico"]],
+          [T.it["step-lab"],    T.en["step-lab"],     t["step-lab"]],
+        ];
+        document.querySelectorAll(".footbar .step span").forEach(function(span) {
+          var txt = span.textContent.trim();
+          pairs.forEach(function(p) {
+            if (txt === p[0] || txt === p[1]) span.textContent = p[2];
+          });
+        });
+        var locIT = T.it["footbar-loc"], locEN = T.en["footbar-loc"];
+        document.querySelectorAll(".footbar > span, .footbar .loc").forEach(function(el) {
+          var txt = el.textContent.trim();
+          if (txt === locIT || txt === locEN) el.textContent = t["footbar-loc"];
+        });
+      }
+
+      function translateMnemosyne(lang) {
+        var t = T[lang];
+        var screens = document.querySelectorAll("#mnemosyne-ok");
+        if (screens[0]) {
+          var h2 = screens[0].querySelector("h2");
+          if (h2) h2.textContent = t["title-mnemosyne"];
+          var btn = screens[0].querySelector(".state-btn-gold");
+          if (btn) btn.innerHTML = t["btn-continua-lab"];
+        }
+        if (screens[1]) {
+          var sub = screens[1].querySelector(".subtitle");
+          if (sub) sub.textContent = t["sub-mnemosyne2"];
+          var h2b = screens[1].querySelector("h2");
+          if (h2b) h2b.textContent = t["title-mnemosyne"];
+          var btn2 = screens[1].querySelector(".state-btn-gold");
+          if (btn2) btn2.innerHTML = t["btn-sali"];
+        }
+      }
+
+      function injectLangToggle() {
+        var toggleHTML =
+          '<button class="lang-btn-it" onclick="setLang(\'it\')">IT</button>' +
+          '<button class="lang-btn-en" onclick="setLang(\'en\')">EN</button>';
+        document.querySelectorAll(".topbar").forEach(function(bar) {
+          if (bar.querySelector(".lang-toggle")) return;
+          var toggle = document.createElement("div");
+          toggle.className = "lang-toggle";
+          toggle.innerHTML = toggleHTML;
+          var subtitle = bar.querySelector(".subtitle");
+          if (subtitle) {
+            var wrapper = document.createElement("div");
+            wrapper.className = "topbar-right";
+            subtitle.parentNode.insertBefore(wrapper, subtitle);
+            wrapper.appendChild(subtitle);
+            wrapper.appendChild(toggle);
+          } else {
+            bar.appendChild(toggle);
+          }
+        });
+      }
+
+      function applyLang(lang) {
+        var t = T[lang];
+        SELECTORS.forEach(function(pair) {
+          document.querySelectorAll(pair[0]).forEach(function(el) {
+            if (t[pair[1]] !== undefined) el.innerHTML = t[pair[1]];
+          });
+        });
+        translateFootbars(lang);
+        translateMnemosyne(lang);
+        translateByText(lang);
+        document.querySelectorAll(".lang-btn-it").forEach(function(b) {
+          b.classList.toggle("active-lang", lang === "it");
+        });
+        document.querySelectorAll(".lang-btn-en").forEach(function(b) {
+          b.classList.toggle("active-lang", lang === "en");
+        });
+      }
+
+      function setLang(lang) {
+        LANG = lang;
+        localStorage.setItem("lang", lang);
+        applyLang(lang);
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
         initCruciverba();
         scaleScreens();
+        injectTombBackground();
+        ddSetup();
+        setupLaminettaDragDrop();
+        injectLangToggle();
+        applyLang(LANG);
       });
 
       /* ── Scaling: adatta 1280×720 alla finestra ── */
@@ -3891,36 +4723,6 @@
          VOICE COMMANDS — riconoscimento vocale (it-IT)
       ══════════════════════════════════════════════ */
       const VOICE_COMMANDS = {
-        "lucerna-fuori": {
-          hint: "« Pronuncia la frase (consulta pannello 2) »",
-          keywords: [["lucerna"], ["fuori", "esterno", "esterna", "dentro"]],
-          action: () => placeCoinAndGo("lucerna-coin-1", "indagine-2"),
-        },
-        "lekythos-interno": {
-          hint: "« Pronuncia la frase (consulta pannello 2) »",
-          keywords: [
-            ["lekythos", "lechitos", "lecito", "lechythos"],
-            ["interno", "dentro", "interna"],
-          ],
-          action: () => placeCoinAndGo("lekythos-coin-2", "indagine-3"),
-        },
-        "idria-interno": {
-          hint: "« Pronuncia la frase (consulta pannello 2) »",
-          keywords: [
-            ["idria", "hidria"],
-            ["interno", "dentro", "interna"],
-          ],
-          action: () => placeCoinAndGo("idria-coin-3", null),
-        },
-        "laminetta-petto": {
-          hint: "« Pronuncia la frase per completare (consulta pannello 2) »",
-          keywords: [
-            ["laminetta", "lamina"],
-            ["petto", "bocca", "defunta", "corpo"],
-          ],
-          action: () => placeLaminettaAndGo(),
-        },
-
         /* ── Labirinto dell'Ade ── */
         "lab-tenebra": {
           hint: "« Verso la tenebra »",
@@ -3998,10 +4800,10 @@
         } else {
           hintEl.innerHTML = cmds
             .map((c) => `<div>${c.hint}</div>`)
-            .join('<div class="voice-or">— oppure —</div>');
+            .join(`<div class="voice-or">${T[LANG]["voice-or"]}</div>`);
         }
         errorEl.textContent = "";
-        statusEl.textContent = "Premi il microfono per parlare";
+        statusEl.textContent = T[LANG]["voice-status"];
         overlay.classList.remove("matched", "listening");
         overlay.classList.add("show");
         _voiceMatched = false;
@@ -4029,9 +4831,8 @@
         const SR =
           window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SR) {
-          errorEl.textContent =
-            "Riconoscimento vocale non supportato dal browser. Usa Chrome o Edge.";
-          statusEl.textContent = "Non disponibile";
+          errorEl.textContent = T[LANG]["voice-not-supported"];
+          statusEl.textContent = T[LANG]["voice-unavailable"];
           return;
         }
 
@@ -4068,7 +4869,7 @@
 
           if (matchedCmd && !_voiceMatched) {
             _voiceMatched = true;
-            statusEl.textContent = "Comando riconosciuto";
+            statusEl.textContent = T[LANG]["voice-matched"];
             overlay.classList.remove("listening");
             overlay.classList.add("matched");
             try {
@@ -4083,15 +4884,14 @@
 
         rec.onerror = (e) => {
           if (e.error === "not-allowed" || e.error === "service-not-allowed") {
-            errorEl.textContent =
-              "Permesso microfono negato. Abilitalo nelle impostazioni del browser.";
-            statusEl.textContent = "Errore";
+            errorEl.textContent = T[LANG]["voice-mic-denied"];
+            statusEl.textContent = T[LANG]["voice-error-lbl"];
             overlay.classList.remove("listening");
           } else if (e.error === "no-speech") {
-            statusEl.textContent = "Nessuna voce rilevata, riprova…";
+            statusEl.textContent = T[LANG]["voice-no-speech"];
           } else if (e.error === "audio-capture") {
-            errorEl.textContent = "Microfono non disponibile.";
-            statusEl.textContent = "Errore";
+            errorEl.textContent = T[LANG]["voice-mic-unavail"];
+            statusEl.textContent = T[LANG]["voice-error-lbl"];
             overlay.classList.remove("listening");
           }
         };
@@ -4110,7 +4910,7 @@
         };
 
         overlay.classList.add("listening");
-        statusEl.textContent = "In ascolto…";
+        statusEl.textContent = T[LANG]["voice-listening"];
         try {
           rec.start();
         } catch (_) {
