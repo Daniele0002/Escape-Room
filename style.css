@@ -1,3 +1,137 @@
+/* ══════════════════════════════════════════════
+   SCREENSAVER
+══════════════════════════════════════════════ */
+#screensaver {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: radial-gradient(ellipse at 50% 80%, #0d0a14 0%, #04030a 100%);
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1.2s ease;
+}
+#screensaver.ss-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Particelle stellari ── */
+.ss-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.ss-star {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: ss-twinkle ease-in-out infinite;
+}
+@keyframes ss-twinkle {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(1.4); }
+}
+
+/* ── Nebbia in basso ── */
+#screensaver::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 35%;
+  background: linear-gradient(to top,
+    rgba(30, 15, 50, 0.55) 0%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+/* ── Anime / Fantasmi ── */
+.ss-soul {
+  position: absolute;
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 62%,
+    88% 82%, 76% 62%, 62% 82%,
+    50% 62%, 38% 82%, 24% 62%,
+    12% 82%, 0% 62%
+  );
+  border-radius: 50% 50% 0 0 / 45% 45% 0 0;
+}
+.ss-soul::before,
+.ss-soul::after {
+  content: '';
+  position: absolute;
+  width: 16%;
+  height: 20%;
+  border-radius: 50% 50% 60% 60%;
+  top: 26%;
+  background: rgba(8, 6, 18, 0.85);
+}
+.ss-soul::before { left: 21%; }
+.ss-soul::after  { right: 21%; }
+
+@keyframes ss-float {
+  0%   { transform: translateY(0)     scaleX(1);    opacity: 0.9; }
+  20%  { transform: translateY(-15vh) scaleX(1.05); opacity: 0.8; }
+  80%  { transform: translateY(-85vh) scaleX(0.97); opacity: 0.4; }
+  100% { transform: translateY(-110vh) scaleX(1);   opacity: 0; }
+}
+@keyframes ss-sway {
+  0%, 100% { left: 0; }
+  50%       { left: 20px; }
+}
+
+/* ── Contenuto centrale ── */
+.ss-center {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  pointer-events: none;
+}
+.ss-kicker {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: var(--gold-dim);
+}
+.ss-title {
+  font-family: var(--font-deco);
+  font-size: 20px;
+  color: var(--gold-pale);
+  letter-spacing: 4px;
+  line-height: 1.2;
+  text-shadow: 0 0 60px rgba(196, 145, 58, 0.3);
+}
+.ss-separator {
+  width: 180px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+}
+.ss-sub {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: rgba(196, 145, 58, 0.45);
+}
+.ss-prompt {
+  margin-top: 28px;
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 2px;
+  animation: ss-blink 2s ease-in-out infinite;
+}
+@keyframes ss-blink {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
 /* ── Language toggle ── */
 .lang-toggle {
   display: flex;

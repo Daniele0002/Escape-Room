@@ -17,6 +17,35 @@
      SCREEN 0 – IL RITO DEL CORREDO FUNERARIO
 ═══════════════════════════════════════════════ -->
 
+    <!-- ═══════════════════════════════════════════════
+     SCREENSAVER
+═══════════════════════════════════════════════ -->
+    <div id="screensaver" onclick="dismissScreensaver()">
+
+      <!-- Stelle -->
+      <div class="ss-stars" id="ssStars"></div>
+
+      <!-- Anime fluttuanti — partono dal basso visibile e salgono -->
+      <div class="ss-soul" style="left:6%;  bottom:5%;  width:58px;  height:78px;  background:radial-gradient(ellipse at 50% 35%,rgba(160,180,255,.75),rgba(90,110,220,.2) 60%,transparent 85%); animation:ss-float 9s  linear infinite 0s"></div>
+      <div class="ss-soul" style="left:16%; bottom:18%; width:82px;  height:110px; background:radial-gradient(ellipse at 50% 35%,rgba(180,160,255,.70),rgba(120,90,230,.18) 60%,transparent 85%); animation:ss-float 12s linear infinite 1.5s"></div>
+      <div class="ss-soul" style="left:27%; bottom:8%;  width:54px;  height:72px;  background:radial-gradient(ellipse at 50% 35%,rgba(150,190,255,.72),rgba(80,130,220,.18) 60%,transparent 85%); animation:ss-float 8s  linear infinite 4s"></div>
+      <div class="ss-soul" style="left:38%; bottom:25%; width:74px;  height:99px;  background:radial-gradient(ellipse at 50% 35%,rgba(200,185,255,.65),rgba(140,110,240,.15) 60%,transparent 85%); animation:ss-float 13s linear infinite 0.5s"></div>
+      <div class="ss-soul" style="left:51%; bottom:12%; width:64px;  height:85px;  background:radial-gradient(ellipse at 50% 35%,rgba(155,200,255,.78),rgba(90,140,230,.20) 60%,transparent 85%); animation:ss-float 10s linear infinite 6s"></div>
+      <div class="ss-soul" style="left:63%; bottom:30%; width:90px;  height:120px; background:radial-gradient(ellipse at 50% 35%,rgba(175,165,255,.68),rgba(115,100,235,.16) 60%,transparent 85%); animation:ss-float 11s linear infinite 2.5s"></div>
+      <div class="ss-soul" style="left:75%; bottom:6%;  width:52px;  height:69px;  background:radial-gradient(ellipse at 50% 35%,rgba(165,195,255,.73),rgba(100,135,225,.18) 60%,transparent 85%); animation:ss-float 7s  linear infinite 8s"></div>
+      <div class="ss-soul" style="left:85%; bottom:20%; width:70px;  height:93px;  background:radial-gradient(ellipse at 50% 35%,rgba(190,170,255,.70),rgba(130,105,238,.15) 60%,transparent 85%); animation:ss-float 14s linear infinite 3s"></div>
+      <div class="ss-soul" style="left:93%; bottom:10%; width:46px;  height:61px;  background:radial-gradient(ellipse at 50% 35%,rgba(145,205,255,.75),rgba(80,145,220,.18) 60%,transparent 85%); animation:ss-float 9s  linear infinite 5s"></div>
+
+      <!-- Centro -->
+      <div class="ss-center">
+        <span class="ss-kicker">✦ &nbsp; ESCAPE ROOM &nbsp; ✦</span>
+        <h1 class="ss-title" id="ss-title-text">IL RITO DEL<br>CORREDO FUNERARIO</h1>
+        <div class="ss-separator"></div>
+        <p class="ss-sub">NECROPOLI DI HIPPONION &nbsp;·&nbsp; IV SEC. A.C.</p>
+        <p class="ss-prompt" id="ss-prompt-text">Tocca per iniziare</p>
+      </div>
+    </div>
+
     <div id="rito" class="screen active">
       <img class="bg-image" src="assets/rito-bg.jpg" alt="" />
       <div class="topbar">
@@ -4686,6 +4715,44 @@
         applyLang(lang);
       }
 
+      /* ── Screensaver ── */
+      function dismissScreensaver() {
+        var ss = document.getElementById("screensaver");
+        if (!ss || ss.classList.contains("ss-hide")) return;
+        ss.classList.add("ss-hide");
+        setTimeout(function() { ss.style.display = "none"; }, 1300);
+      }
+
+      function initScreensaver() {
+        /* Stelle casuali */
+        var container = document.getElementById("ssStars");
+        if (container) {
+          for (var i = 0; i < 80; i++) {
+            var s = document.createElement("div");
+            s.className = "ss-star";
+            var size = Math.random() * 2.5 + 0.5;
+            s.style.cssText =
+              "width:" + size + "px;height:" + size + "px;" +
+              "left:" + (Math.random() * 100) + "%;" +
+              "top:" + (Math.random() * 100) + "%;" +
+              "animation-duration:" + (Math.random() * 3 + 2) + "s;" +
+              "animation-delay:" + (Math.random() * 4) + "s;";
+            container.appendChild(s);
+          }
+        }
+
+        /* Testo in lingua */
+        var title  = document.getElementById("ss-title-text");
+        var prompt = document.getElementById("ss-prompt-text");
+        if (LANG === "en") {
+          if (title)  title.innerHTML  = "THE FUNERAL<br>TROUSSEAU RITE";
+          if (prompt) prompt.textContent = "Touch to begin";
+        }
+
+        /* Auto-dismiss dopo 90 secondi di inattività */
+        setTimeout(dismissScreensaver, 90000);
+      }
+
       document.addEventListener("DOMContentLoaded", function() {
         initCruciverba();
         scaleScreens();
@@ -4694,6 +4761,7 @@
         setupLaminettaDragDrop();
         injectLangToggle();
         applyLang(LANG);
+        initScreensaver();
       });
 
       /* ── Scaling: adatta 1280×720 alla finestra ── */
