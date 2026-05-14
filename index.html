@@ -483,6 +483,20 @@
               ><span class="desc">Il vaso dell'acqua</span>
             </div>
           </div>
+          <div class="artifact-btn" draggable="true" data-artifact="campanello">
+            <span class="icon">🔔</span>
+            <div class="info">
+              <span class="name">Campanello</span
+              ><span class="desc">Di bronzo</span>
+            </div>
+          </div>
+          <div class="artifact-btn" draggable="true" data-artifact="anello">
+            <span class="icon">💍</span>
+            <div class="info">
+              <span class="name">Anello</span
+              ><span class="desc">D'oro</span>
+            </div>
+          </div>
           <div style="padding:12px;border:1px solid rgba(196,145,58,0.2);border-radius:4px;font-style:italic;font-size:12px;color:rgba(255,255,255,0.6);text-align:center;background:rgba(20,15,8,0.5)">
             Trascina ogni reliquia nella posizione giusta. La lucerna resta fuori
             dalla tomba: illumina il passaggio.
@@ -3644,12 +3658,14 @@
       var ddGlobalHandlersBound = false;
 
       var ddCorrect = { lucerna: "fuori", lekythos: "interno-1", idria: "interno-2" };
-      var ddEmoji   = { lucerna: "🕯",   lekythos: "⚱",          idria: "🏺"        };
-      var ddNames   = { lucerna: "Lucerna", lekythos: "Lekythos", idria: "Idria" };
+      var ddEmoji   = { lucerna: "🕯",   lekythos: "⚱",          idria: "🏺",        campanello: "🔔", anello: "💍" };
+      var ddNames   = { lucerna: "Lucerna", lekythos: "Lekythos", idria: "Idria", campanello: "Campanello di bronzo", anello: "Anello d'oro" };
       var ddHints   = {
         lucerna: "La lucerna accompagna il cammino, ma non entra nella sepoltura.",
         lekythos: "L'olio profumato appartiene al corredo interno.",
-        idria: "L'acqua rituale trova posto accanto al corpo."
+        idria: "L'acqua rituale trova posto accanto al corpo.",
+        campanello: "Il campanello di bronzo non era usato nei corredi funerari greci di questo tipo.",
+        anello: "L'anello d'oro appartiene al mondo dei vivi: non è parte di questo corredo."
       };
 
       function ddResetZones() {
@@ -4224,9 +4240,11 @@
           "btn-avvia":       "AVVIA IL RITO &nbsp;→",
           "sub-indagine":    "TOMBA 19 · IL RITO DEL CORREDO",
           "sidebar-label":   "RELIQUIE",
-          "art-luc-n":"Lucerna",  "art-luc-d":"La lampada funeraria",
-          "art-lek-n":"Lekythos", "art-lek-d":"Il vaso dell'olio",
-          "art-idr-n":"Idria",    "art-idr-d":"Il vaso dell'acqua",
+          "art-luc-n":"Lucerna",     "art-luc-d":"La lampada funeraria",
+          "art-lek-n":"Lekythos",    "art-lek-d":"Il vaso dell'olio",
+          "art-idr-n":"Idria",       "art-idr-d":"Il vaso dell'acqua",
+          "art-cam-n":"Campanello",  "art-cam-d":"Di bronzo",
+          "art-ane-n":"Anello",      "art-ane-d":"D'oro",
           "dd-hint":         "Trascina ogni reliquia nella posizione giusta",
           "instruct-1":      "Osserva la sua dimora terrena e decifra i segni. Usa le monete per separare ciò che appartiene ai vivi da ciò che servirà a lei nel buio.",
           "sub-azione":      "LA LAMINETTA D'ORO",
@@ -4352,9 +4370,11 @@
           "btn-avvia":       "BEGIN THE RITE &nbsp;→",
           "sub-indagine":    "TOMB 19 · THE FUNERAL RITE",
           "sidebar-label":   "RELICS",
-          "art-luc-n":"Lucerna",  "art-luc-d":"The funerary lamp",
-          "art-lek-n":"Lekythos", "art-lek-d":"The oil vase",
-          "art-idr-n":"Hydria",   "art-idr-d":"The water vase",
+          "art-luc-n":"Lucerna",     "art-luc-d":"The funerary lamp",
+          "art-lek-n":"Lekythos",    "art-lek-d":"The oil vase",
+          "art-idr-n":"Hydria",      "art-idr-d":"The water vase",
+          "art-cam-n":"Bell",        "art-cam-d":"Bronze",
+          "art-ane-n":"Ring",        "art-ane-d":"Gold",
           "dd-hint":         "Drag each relic to the right position",
           "instruct-1":      "Observe her earthly dwelling and decipher the signs. Place each relic where it belongs.",
           "sub-azione":      "THE GOLDEN LAMELLA",
@@ -4499,8 +4519,12 @@
         ["[data-artifact='lucerna'] .desc",    "art-luc-d"],
         ["[data-artifact='lekythos'] .name",   "art-lek-n"],
         ["[data-artifact='lekythos'] .desc",   "art-lek-d"],
-        ["[data-artifact='idria'] .name",      "art-idr-n"],
-        ["[data-artifact='idria'] .desc",      "art-idr-d"],
+        ["[data-artifact='idria'] .name",       "art-idr-n"],
+        ["[data-artifact='idria'] .desc",       "art-idr-d"],
+        ["[data-artifact='campanello'] .name",  "art-cam-n"],
+        ["[data-artifact='campanello'] .desc",  "art-cam-d"],
+        ["[data-artifact='anello'] .name",      "art-ane-n"],
+        ["[data-artifact='anello'] .desc",      "art-ane-d"],
         ["#indagine-1 .nfc-hint",              "dd-hint"],
         ["#indagine-1 .instruct-bar p",        "instruct-1"],
         /* azione */
