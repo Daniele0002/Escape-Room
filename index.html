@@ -2093,19 +2093,20 @@
             <div class="lab-map-overlay-dark"></div>
           </div>
         </div>
-        <div class="lab-outcome success">
-          <div class="outcome-icon">✦</div>
-          <h2>MNEMOSYNE HA PARLATO</h2>
-          <p>
-            L'anima ha bevuto l'acqua della Memoria. Ora può parlare davanti ai
-            Guardiani dell'Ade.
-          </p>
-          <button
-            class="state-btn state-btn-gold"
-            onclick="startVoiceCommand('lab-continua')"
-          >
-            CONTINUA →
-          </button>
+        <div class="lab-outcome success" style="width:380px;padding:24px 28px;">
+          <div class="audio-indicator" style="margin-bottom:20px;">
+            <div class="audio-dot"></div>
+            <div class="audio-bars">
+              <div class="audio-bar" style="height:14px"></div>
+              <div class="audio-bar" style="height:10px"></div>
+              <div class="audio-bar" style="height:14px"></div>
+              <div class="audio-bar" style="height:17px"></div>
+            </div>
+            <span style="font-family:var(--font-serif);font-size:12px;color:var(--gold);letter-spacing:2px;margin-left:12px;">LA VOCE NARRANTE</span>
+          </div>
+          <div class="quote-block" style="width:auto;margin-top:0;">
+            <p style="width:auto;max-width:320px;font-size:16px;">«È un sussurro d'oro piegato e sigillato. Solo davanti ai guardiani dell'Ade, il sigillo verrà sciolto.»</p>
+          </div>
         </div>
       </div>
       <div class="instruct-bar">
@@ -2316,15 +2317,20 @@
             <div class="lab-map-overlay-dark"></div>
           </div>
         </div>
-        <div class="lab-outcome success">
-          <div class="outcome-icon">✦</div>
-          <h2>MNEMOSYNE HA PARLATO</h2>
-          <button
-            class="state-btn state-btn-gold"
-            onclick="startVoiceCommand('lab-continua')"
-          >
-            SALI ALLA SOGLIA →
-          </button>
+        <div class="lab-outcome success" style="width:380px;padding:24px 28px;">
+          <div class="audio-indicator" style="margin-bottom:20px;">
+            <div class="audio-dot"></div>
+            <div class="audio-bars">
+              <div class="audio-bar" style="height:14px"></div>
+              <div class="audio-bar" style="height:10px"></div>
+              <div class="audio-bar" style="height:14px"></div>
+              <div class="audio-bar" style="height:17px"></div>
+            </div>
+            <span style="font-family:var(--font-serif);font-size:12px;color:var(--gold);letter-spacing:2px;margin-left:12px;">LA VOCE NARRANTE</span>
+          </div>
+          <div class="quote-block" style="width:auto;margin-top:0;">
+            <p style="width:auto;max-width:320px;font-size:16px;">«È un sussurro d'oro piegato e sigillato. Solo davanti ai guardiani dell'Ade, il sigillo verrà sciolto.»</p>
+          </div>
         </div>
       </div>
       <div class="instruct-bar">
@@ -2787,20 +2793,34 @@
 
     <script>
       /* ── Audio narrazione ── */
-      const narrazione = new Audio("assets");
-      narrazione.volume = 1;
+      const leiAudio = {
+        "narrativa":        new Audio("assets/audio/lei1.mp3"),
+        "indagine-1":       new Audio("assets/audio/lei2.mp3"),
+        "azione":           new Audio("assets/audio/lei3.mp3"),
+        "laminetta-aurea":  new Audio("assets/audio/lei4.mp3"),
+        "labirinto":        new Audio("assets/audio/lei5.mp3"),
+        "regno-beati":      new Audio("assets/audio/lei6.mp3"),
+      };
+      Object.values(leiAudio).forEach(function(a) { a.volume = 1; });
+
+      function playLei(id) {
+        Object.entries(leiAudio).forEach(function([k, a]) {
+          if (k !== id) { a.pause(); a.currentTime = 0; }
+        });
+        if (leiAudio[id]) {
+          leiAudio[id].currentTime = 0;
+          leiAudio[id].play().catch(function() {});
+        }
+      }
+      function stopAllLei() {
+        Object.values(leiAudio).forEach(function(a) { a.pause(); a.currentTime = 0; });
+      }
 
       const azioneComplete = new Audio("assets/azione-complete.mp3");
       azioneComplete.volume = 1;
 
-      function playNarrazione() {
-        narrazione.currentTime = 0;
-        narrazione.play().catch(() => {});
-      }
-      function stopNarrazione() {
-        narrazione.pause();
-        narrazione.currentTime = 0;
-      }
+      function playNarrazione() { playLei("narrativa"); }
+      function stopNarrazione() { stopAllLei(); }
 
       /* ── Screen navigation ── */
       function goTo(id) {
@@ -2808,15 +2828,31 @@
         if (!target) return;
 
         // Ferma l'audio se si naviga fuori da narrativa
-        if (id !== "narrativa") stopNarrazione();
+        stopAllLei();
 
         document
           .querySelectorAll(".screen")
           .forEach((s) => s.classList.remove("active"));
         target.classList.add("active");
 
-        // Avvia audio sulla schermata narrativa
-        if (id === "narrativa") playNarrazione();
+        // Audio su schermate non-gioco (arrivi narrativi)
+        if (id === "narrativa" || id === "azione") {
+          playLei(id);
+        }
+        // Completamento labirinto — audio + avanzamento automatico
+        if (id === "mnemosyne-ok") {
+          playLei("labirinto");
+          var mnemoAudio = leiAudio["labirinto"];
+          var mnemoAdvanced = false;
+          function mnemoAdvance() {
+            if (mnemoAdvanced) return;
+            mnemoAdvanced = true;
+            mnemoAudio.onended = null;
+            goTo("domanda-guardiani");
+          }
+          mnemoAudio.onended = mnemoAdvance;
+          setTimeout(mnemoAdvance, 8000);
+        }
 
         if (id === "indagine-1") resetRitoDragDrop();
         if (id === "azione") resetLaminettaDragDrop();
@@ -2826,8 +2862,8 @@
           document
             .querySelectorAll(".placed-coin.anim-drop, #laminetta-placed")
             .forEach((el) => {
-              el.classList.remove("anim-drop");
-              el.style.opacity = "0";
+              el.style.opacity = "0";        // prima: sovrascrive il fill-mode forwards
+              el.classList.remove("anim-drop"); // poi: rimuove l'animazione
             });
           const btn = document.getElementById("btn-avanti-indagine");
           if (btn) {
@@ -2894,39 +2930,42 @@
 
         if (!triptych) return;
 
-        // Disabilita transizioni per un reset istantaneo (evita il glitch "già aperto")
         const panels = triptych.querySelectorAll(".aurea-left, .aurea-right");
-        panels.forEach((p) => (p.style.transition = "none"));
 
+        // 1. Disabilita transizioni e rimuovi classi
+        panels.forEach((p) => (p.style.transition = "none"));
         triptych.classList.remove("visible", "open-left", "open-right");
         title?.classList.remove("visible");
         btn?.classList.remove("visible");
 
-        // Flush: applica il reset visivo immediatamente
-        void triptych.offsetWidth;
+        // 2. Forza reflow su ogni singolo pannello (non solo sul padre)
+        panels.forEach((p) => void p.offsetWidth);
 
-        // Riattiva transizioni
-        panels.forEach((p) => (p.style.transition = ""));
-
-        // Sequence: trittico appare → pannello sx → pannello dx → titolo → bottone
-        setTimeout(() => triptych.classList.add("visible"), 200);
-        setTimeout(() => triptych.classList.add("open-left"), 1200);
-        setTimeout(() => triptych.classList.add("open-right"), 2000);
-        setTimeout(() => title?.classList.add("visible"), 3000);
-        setTimeout(() => btn?.classList.add("visible"), 3800);
+        // 3. Doppio rAF: garantisce che il reset sia renderizzato prima di
+        //    riabilitare le transizioni e avviare la sequenza
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            panels.forEach((p) => (p.style.transition = ""));
+            setTimeout(() => triptych.classList.add("visible"), 200);
+            setTimeout(() => triptych.classList.add("open-left"), 1200);
+            setTimeout(() => triptych.classList.add("open-right"), 2000);
+            setTimeout(() => title?.classList.add("visible"), 3000);
+            setTimeout(() => btn?.classList.add("visible"), 3800);
+          });
+        });
       }
 
       function closeAureaAndGoLabirinto() {
+        // Reset immediato prima di navigare: la schermata sta già dissolvendo,
+        // quindi nessun glitch visivo, e non ci sono timer pendenti che possono
+        // interferire con una futura riapertura della sequenza
+        const triptych = document.getElementById("triptych-ade");
+        const panels = triptych?.querySelectorAll(".aurea-left, .aurea-right") || [];
+        panels.forEach((p) => (p.style.transition = "none"));
+        triptych?.classList.remove("visible", "open-left", "open-right");
+        document.getElementById("mappa-title")?.classList.remove("visible");
+        document.getElementById("btn-avanza-ade")?.classList.remove("visible");
         goTo("labirinto");
-        // Reset triptych dopo che la dissolvenza è completata
-        setTimeout(() => {
-          const triptych = document.getElementById("triptych-ade");
-          triptych?.classList.remove("visible", "open-left", "open-right");
-          document.getElementById("mappa-title")?.classList.remove("visible");
-          document
-            .getElementById("btn-avanza-ade")
-            ?.classList.remove("visible");
-        }, 500);
       }
 
       function placeLaminettaAndGo() {
@@ -2956,6 +2995,7 @@
 
         // Final screen, show completion modal and auto-advance
         setTimeout(() => {
+          playLei("laminetta-aurea");
           showToast("laminettaToast");
           setTimeout(() => {
             dismissToast();
@@ -2983,6 +3023,7 @@
           setTimeout(() => {
             azioneComplete.currentTime = 0;
             azioneComplete.play().catch(() => {});
+            playLei("indagine-1");
             showToast("ritoCompletatoToast");
             setTimeout(() => {
               dismissToast();
@@ -3746,6 +3787,7 @@
 
       function checkFormula() {
         if (currentFormula.every((w, i) => w === CORRECT_FORMULA[i])) {
+          playLei("regno-beati");
           showToast("formulaSuccessToast");
           setTimeout(() => {
             dismissToast();
@@ -4082,6 +4124,7 @@
                 azioneComplete.currentTime = 0;
                 azioneComplete.play().catch(function () {});
               }
+              playLei("indagine-1");
               showToast("ritoCompletatoToast");
               setTimeout(function () {
                 dismissToast();
@@ -5202,8 +5245,6 @@
           if (prompt) prompt.textContent = "Touch to begin";
         }
 
-        /* Auto-dismiss dopo 90 secondi di inattività */
-        setTimeout(dismissScreensaver, 90000);
       }
 
       document.addEventListener("DOMContentLoaded", function () {

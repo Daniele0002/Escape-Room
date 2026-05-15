@@ -2693,6 +2693,20 @@ body {
 #cruciverba .topbar .subtitle {
   color: var(--purple-dark);
 }
+#cruciverba .lang-toggle {
+  border-color: rgba(160, 100, 220, 0.35);
+}
+#cruciverba .lang-toggle button {
+  background: rgba(5, 0, 12, 0.8);
+  color: rgba(160, 100, 220, 0.45);
+}
+#cruciverba .lang-toggle button.active-lang {
+  background: rgba(160, 100, 220, 0.15);
+  color: var(--purple);
+}
+#cruciverba .lang-toggle button:not(.active-lang):hover {
+  color: rgba(160, 100, 220, 0.75);
+}
 
 .guardians-scene {
   flex: 1;
