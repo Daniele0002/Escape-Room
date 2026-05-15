@@ -20,7 +20,7 @@
     <!-- ═══════════════════════════════════════════════
      SCREENSAVER
 ═══════════════════════════════════════════════ -->
-    <div id="screensaver" onclick="dismissScreensaver()">
+    <div id="screensaver" onclick="dismissScreensaver(); goTo('intro')">
 
       <!-- Stelle -->
       <div class="ss-stars" id="ssStars"></div>
@@ -42,23 +42,14 @@
         <h1 class="ss-title" id="ss-title-text">IL RITO DEL<br>CORREDO FUNERARIO</h1>
         <div class="ss-separator"></div>
         <p class="ss-sub">NECROPOLI DI HIPPONION &nbsp;·&nbsp; IV SEC. A.C.</p>
-        <p class="ss-prompt" id="ss-prompt-text">Tocca per iniziare</p>
+        <button class="rito-btn" onclick="event.stopPropagation(); dismissScreensaver(); goTo('intro')">
+          <span class="btn-text">INIZIA</span>
+          <span class="btn-arrow">→</span>
+        </button>
       </div>
     </div>
 
-    <div id="rito" class="screen active">
-      <img class="bg-image" src="assets/rito-bg.jpg" alt="" />
-      <div class="topbar">
-        <span class="phase-label">⬥ FASE I · La signora di hipponion</span>
-        <span class="subtitle">INDAGINE E COMBINAZIONE</span>
-      </div>
-      <h1 class="rito-title">Il rito del corredo funerario</h1>
-      <button class="rito-btn" onclick="goTo('intro')">
-        <span class="btn-text">INIZIA</span>
-        <span class="btn-arrow">→</span>
-      </button>
-    </div>
-
+    
     <!-- ═══════════════════════════════════════════════
      SCREEN 1 – INTRODUZIONE
 ═══════════════════════════════════════════════ -->
@@ -72,7 +63,7 @@
       <div class="center-content">
         <p class="fase-label">Fase 1</p>
         <h1 class="main-title">La Signora di Hipponion</h1>
-        <h2 class="sub-title">I Segreti della Tomba 19</h2>
+        <h4 class="sub-title">I Segreti della Tomba 19</h4>
         <button class="btn-start" onclick="goTo('narrativa')">
           Continua &nbsp;→
         </button>
@@ -295,7 +286,9 @@
             <p
               style="
                 font-family: var(--font-italic);
-                font-size: 24px;
+                font-style: italic;
+                font-weight: 400;
+                font-size: 20px;
                 color: var(--gold-pale);
                 line-height: 1.8;
                 margin-bottom: 16px;
@@ -306,7 +299,9 @@
             <p
               style="
                 font-family: var(--font-italic);
-                font-size: 24px;
+                font-style: italic;
+                font-weight: 200;
+                font-size: 20px;
                 color: var(--gold-pale);
                 line-height: 1.8;
                 margin-bottom: 16px;
@@ -318,7 +313,9 @@
             <p
               style="
                 font-family: var(--font-italic);
-                font-size: 24px;
+                font-style: italic;
+                font-weight: 400;
+                font-size: 20px;
                 color: var(--gold-pale);
                 line-height: 1.8;
               "
@@ -476,18 +473,18 @@
               ><span class="desc">Il vaso dell'olio</span>
             </div>
           </div>
-          <div class="artifact-btn" draggable="true" data-artifact="idria">
-            <span class="icon">🏺</span>
-            <div class="info">
-              <span class="name">Idria</span
-              ><span class="desc">Il vaso dell'acqua</span>
-            </div>
-          </div>
           <div class="artifact-btn" draggable="true" data-artifact="campanello">
             <span class="icon">🔔</span>
             <div class="info">
               <span class="name">Campanello</span
               ><span class="desc">Di bronzo</span>
+            </div>
+          </div>
+          <div class="artifact-btn" draggable="true" data-artifact="idria">
+            <span class="icon">🏺</span>
+            <div class="info">
+              <span class="name">Idria</span
+              ><span class="desc">Il vaso dell'acqua</span>
             </div>
           </div>
           <div class="artifact-btn" draggable="true" data-artifact="anello">
@@ -523,30 +520,6 @@
               margin-top: 30px;
             "
           >
-            <span
-              style="
-                position: absolute;
-                top: -30px;
-                left: 0;
-                font-family: var(--font-serif);
-                font-size: 12px;
-                color: rgba(196, 145, 58, 0.5);
-                letter-spacing: 2px;
-              "
-              >CAPO</span
-            >
-            <span
-              style="
-                position: absolute;
-                top: -45px;
-                right: 20px;
-                font-family: var(--font-serif);
-                font-size: 28px;
-                color: #fff;
-                letter-spacing: 2px;
-              "
-              >FUORI</span
-            >
 
             <!-- The Main Box -->
             <div
@@ -1650,7 +1623,7 @@
             respingono nel buio.
           </p>
           <span class="outcome-sub">— RITORNA AL BIVIO —</span>
-          <button class="state-btn state-btn-blue" onclick="startVoiceCommand('lab-riprova-bivio1')">
+          <button class="state-btn state-btn-blue" onclick="goTo('bivio-1')">
             RIPROVA
           </button>
         </div>
@@ -1863,7 +1836,7 @@
             e spegne la parola sacra.
           </p>
           <span class="outcome-sub">— RITORNA AL BIVIO —</span>
-          <button class="state-btn state-btn-blue" onclick="startVoiceCommand('lab-riprova-bivio2')">
+          <button class="state-btn state-btn-blue" onclick="goTo('bivio-2b')">
             RIPROVA
           </button>
         </div>
@@ -4835,16 +4808,6 @@
           hint: "« Verso la fonte aurea »",
           keywords: [["fonte", "aurea", "mnemosyne", "memoria", "oro"]],
           action: () => goTo("mnemosyne-ok"),
-        },
-        "lab-riprova-bivio1": {
-          hint: "« Ritorna al bivio »",
-          keywords: [["ritorna", "torna", "indietro", "riprova", "bivio"]],
-          action: () => goTo("bivio-1"),
-        },
-        "lab-riprova-bivio2": {
-          hint: "« Ritorna al bivio »",
-          keywords: [["ritorna", "torna", "indietro", "riprova", "bivio"]],
-          action: () => goTo("bivio-2b"),
         },
         "lab-continua": {
           hint: "« Davanti ai Guardiani »",
