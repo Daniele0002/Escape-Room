@@ -698,7 +698,7 @@
             font-size="7.5" letter-spacing="2.5" font-family="Cinzel, serif">ACQUA DELLA MEMORIA</text>
 
       <text x="480" y="344" text-anchor="middle" fill="rgba(210,188,132,.88)"
-            font-size="9" letter-spacing="3.5" font-family="Cinzel Decorative, serif">PRIMO VARCO</text>
+            font-size="9" letter-spacing="3.5" font-family="Cinzel Decorative, serif">SECONDO VARCO</text>
 
       <text x="213" y="506" text-anchor="middle" fill="rgba(210,188,132,.88)"
             font-size="9" letter-spacing="3.5" font-family="Cinzel Decorative, serif">CARONTE</text>
@@ -706,7 +706,7 @@
             font-size="7.5" letter-spacing="2" font-family="Cinzel, serif">IL TRAGHETTATORE</text>
 
       <text x="480" y="504" text-anchor="middle" fill="rgba(210,188,132,.88)"
-            font-size="9" letter-spacing="3.5" font-family="Cinzel Decorative, serif">SECONDO VARCO</text>
+            font-size="9" letter-spacing="3.5" font-family="Cinzel Decorative, serif">PRIMO VARCO</text>
 
       <text x="480" y="588" text-anchor="middle" fill="rgba(210,188,132,.88)"
             font-size="9" letter-spacing="3.5" font-family="Cinzel Decorative, serif">PORTA DI ORFEO</text>
@@ -735,9 +735,9 @@
       const NODES = {
         fonte:    { x:213, y:88,  label:"FONTE DI LETE",     desc:"Chi beve le acque del Lete dimentica ogni vita passata. La morte dell'identità." },
         mnemosyne:{ x:745, y:88,  label:"LAGO DI MNEMOSYNE", desc:"Chi beve dal lago della Memoria conserva la coscienza nell'aldilà. La via degli iniziati." },
-        gate1:    { x:480, y:255, label:"PRIMO VARCO",        desc:"Una porta sbarrata nel cuore del labirinto. Due vie si aprono qui." },
+        gate1:    { x:480, y:255, label:"SECONDO VARCO",       desc:"Il passaggio si stringe. Senti il peso dell'Ade su ogni pietra." },
         caronte:  { x:213, y:415, label:"CARONTE",            desc:"Il traghettatore dei morti. Se ti fermi qui, non tornerai. Hai la moneta?" },
-        gate2:    { x:480, y:415, label:"SECONDO VARCO",      desc:"Il passaggio si stringe. Senti il peso dell'Ade su ogni pietra." },
+        gate2:    { x:480, y:415, label:"PRIMO VARCO",        desc:"Una porta sbarrata nel cuore del labirinto. Due vie si aprono qui." },
         porta:    { x:480, y:533, label:"PORTA DI ORFEO",     desc:"La via dell'uscita. Solo chi ha seguito la via corretta può varcare questa soglia." },
       };
 
@@ -753,8 +753,7 @@
         `M ${JTR.x} ${JTR.y} L ${N.mnemosyne.x} ${N.mnemosyne.y+10}`,
         `M ${JTC.x} ${JTC.y} L ${N.gate1.x} ${N.gate1.y-68}`,
         `M ${N.gate1.x} ${N.gate1.y+68} L ${JAR.x} ${JAR.y}`,
-        `M ${JTL.x} ${JTL.y} L ${JAL.x} ${JAL.y}`,
-        `M ${JAL.x} ${JAL.y} L ${N.caronte.x} ${N.caronte.y-78}`,
+        `M ${N.gate2.x-68} ${N.gate2.y} L ${N.caronte.x+78} ${N.caronte.y}`,
         `M ${JAR.x} ${JAR.y} L ${N.gate2.x} ${N.gate2.y-68}`,
         `M ${N.gate2.x} ${N.gate2.y+68} L ${N.porta.x} ${N.porta.y-44}`,
       ];

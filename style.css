@@ -124,7 +124,7 @@
 }
 .ss-kicker {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: 60px;
   letter-spacing: 5px;
   color: var(--gold-dim);
 }
@@ -454,17 +454,20 @@ body {
   object-fit: cover;
   opacity: 0.3;
 }
-#intro .topbar {
+#intro .topbar,
+#narrativa .topbar {
   border-color: rgba(196, 145, 58, 0.2);
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
 }
-#intro .topbar .phase-label {
+#intro .topbar .phase-label,
+#narrativa .topbar .phase-label {
   color: var(--gold);
 }
-#intro .topbar .subtitle {
+#intro .topbar .subtitle,
+#narrativa .topbar .subtitle {
   color: var(--gold-dark);
 }
 #intro .center-content {
@@ -3056,7 +3059,7 @@ body {
 /* Title and Button */
 .mappa-title-overlay {
   position: absolute;
-  top: -60px;
+  top: -80px;
   left: 0;
   right: 0;
   text-align: center;
@@ -3505,6 +3508,7 @@ body {
   letter-spacing: 2.5px;
   color: var(--gold-pale);
   text-align: center;
+  margin-top: 8px;
 
   text-shadow: 0 0 14px rgba(196, 145, 58, 0.5);
   opacity: 0.75;
@@ -3609,7 +3613,7 @@ body {
 .rb-caption {
   position: absolute;
   left: 50%;
-  bottom: 155px;
+  bottom: 300px;
   transform: translateX(-50%);
   text-align: center;
   z-index: 8;
