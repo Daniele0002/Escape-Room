@@ -203,7 +203,7 @@
 ═══════════════════════════════════════════════ -->
 
     <div id="intro" class="screen">
-      <img class="bg-image" src="assets/start.png" alt="" />
+      <video class="bg-image" src="assets/mp_.mp4" autoplay muted loop playsinline></video>
       <div class="topbar">
         <span class="phase-label">⬥ FASE I · La signora di hipponion</span>
         <span class="subtitle">INDAGINE E COMBINAZIONE</span>
@@ -2710,7 +2710,7 @@
       aria-modal="true"
     >
       <div class="voice-card">
-        <div class="voice-label">⬥ Comando Vocale ⬥</div>
+        
         <div
           class="voice-mic"
           id="voiceMicBtn"
@@ -2727,11 +2727,9 @@
         >
           🎙
         </div>
-        <div class="voice-mic-hint">▲ Tocca il microfono ▲</div>
+        <div class="voice-status" id="voiceStatus">▲ Premi il microfono per parlare ▲</div>
         <div class="voice-hint" id="voiceHint">…</div>
-        <div class="voice-status" id="voiceStatus">
-          Premi il microfono per parlare
-        </div>
+        
         <button type="button" class="voice-close" onclick="stopVoiceCommand()">
           Annulla
         </button>
